@@ -892,6 +892,70 @@
       gap: 10px;
     }
 
+    .lesson-extra-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .lesson-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .lesson-flow span {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      background: rgba(16, 37, 31, 0.04);
+      color: #254336;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .lesson-flow span.is-arrow {
+      background: rgba(28, 124, 93, 0.12);
+      color: var(--green-2);
+      font-weight: 800;
+    }
+
+    .lesson-compare-list,
+    .lesson-confusion-grid,
+    .lesson-vocab-list,
+    .lesson-tip-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .lesson-compare-card,
+    .lesson-confusion-card,
+    .lesson-vocab-card,
+    .lesson-tip-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(16, 37, 31, 0.03);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      line-height: 1.55;
+    }
+
+    .lesson-compare-card .label,
+    .lesson-confusion-card .label,
+    .lesson-vocab-card .label,
+    .lesson-tip-card .label {
+      display: block;
+      font-weight: 800;
+      color: #153026;
+      margin-bottom: 6px;
+    }
+
+    .lesson-compare-card .muted,
+    .lesson-confusion-card .muted,
+    .lesson-vocab-card .muted,
+    .lesson-tip-card .muted {
+      color: var(--muted);
+    }
+
     .study-stack {
       display: grid;
       gap: 18px;
@@ -1413,6 +1477,10 @@
         grid-template-columns: 1fr;
       }
 
+      .lesson-extra-grid {
+        grid-template-columns: 1fr;
+      }
+
       .module-block-head {
         flex-direction: column;
       }
@@ -1425,12 +1493,18 @@
       .hero { padding-top: 20px; padding-bottom: 22px; }
       .section-header { padding-top: 18px; }
       .stat-grid, .mini-grid { grid-template-columns: 1fr; }
-      .lesson-index-grid, .lesson-page-columns, .lesson-page-details { grid-template-columns: 1fr; }
+      .lesson-index-grid, .lesson-page-columns, .lesson-page-details, .lesson-extra-grid { grid-template-columns: 1fr; }
       .actions { flex-direction: column; }
       .btn { width: 100%; }
       .top-nav {
         flex-wrap: nowrap;
         -webkit-overflow-scrolling: touch;
+        position: sticky;
+        top: 10px;
+        z-index: 8;
+        padding: 10px 0 6px;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.82));
+        backdrop-filter: blur(10px);
       }
     }
   </style>
@@ -1487,8 +1561,8 @@
               <span class="label">Pre-registration 24-month window / 预注册 24 个月窗口</span>
             </div>
             <div class="stat">
-              <span class="num">Budget</span>
-              <span class="label">佣金不稳定，所以预算是必考思路 / commission needs budgeting</span>
+            <span class="num">Budget</span>
+            <span class="label">佣金收入可能波动，所以预算和规划都很重要 / commission income can fluctuate, so budgeting matters</span>
             </div>
           </div>
         </aside>
@@ -1597,7 +1671,7 @@
             </div>
             <div class="mini">
               <b>钱和时间题核心</b>
-              <span>commission can be irregular, so budgeting and planning matter</span>
+              <span>commission income can fluctuate, so budgeting and planning matter</span>
             </div>
           </div>
         </div>
@@ -1677,7 +1751,8 @@
         <strong>Source notes / 来源说明</strong>
         <p class="fineprint">
           这个站点是我根据 Humber 的官方课程路径、RECO 的官方预注册和考试页面，以及公开课程预览整理出来的学习版，
-          用来帮你复习，不是官方试卷。考试细节如果 Humber 或 RECO 更新了，以官方页面为准。
+          用来帮你复习，不是官方试卷。Official Blackboard course materials and Humber/RECO policies take precedence; public resources are supplementary references only.
+          考试细节如果 Humber 或 RECO 更新了，以官方页面为准。
         </p>
         <div class="sources">
           <a href="https://humber.ca/realestateeducation/programs/real-estate-salesperson/learning-path" target="_blank" rel="noreferrer">Humber Real Estate Salesperson Program Learning Path</a>
@@ -1779,6 +1854,12 @@
           { en: "A registrant is any individual or brokerage registered to trade in real estate.", zh: "registrant 指任何已注册从事房地产交易的个人或 brokerage。" },
           { en: "The Code of Ethics sets minimum standards for fairness, honesty, and competence.", zh: "Code of Ethics 规定公平、诚实和专业能力等最低标准。" }
         ],
+        vocab: [
+          { en: "Regulator", zh: "监管机构" },
+          { en: "Registrant", zh: "注册从业者" },
+          { en: "Broker of record", zh: "负责 brokerage 的最终责任人" },
+          { en: "Code of Ethics", zh: "职业道德规范" }
+        ],
         details: [
           {
             titleEn: "What the lesson is doing",
@@ -1798,6 +1879,43 @@
             en: "The module positions this lesson as an overview of the real estate profession in Ontario and what a career in real estate looks like.",
             zh: "官方把这一课定位为安省房地产职业概览，以及这份职业大致会是什么样子。"
           }
+        ],
+        regulatoryStructure: {
+          titleEn: "Regulatory Structure",
+          titleZh: "监管结构",
+          flow: [
+            { text: "Ontario Government", kind: "node" },
+            { text: "creates", kind: "arrow" },
+            { text: "TRESA", kind: "node" },
+            { text: "implemented by", kind: "arrow" },
+            { text: "RECO", kind: "node" },
+            { text: "regulates", kind: "arrow" },
+            { text: "Brokerages", kind: "node" },
+            { text: "employ", kind: "arrow" },
+            { text: "Brokers / Salespersons", kind: "node" },
+            { text: "serve", kind: "arrow" },
+            { text: "Consumers", kind: "node" }
+          ],
+          rows: [
+            { item: "Ontario Government", what: "Provincial government", resp: "Creates legislation / 制定法律" },
+            { item: "TRESA", what: "Law / legislation", resp: "Governs real estate trading / 规范房地产交易" },
+            { item: "RECO", what: "Regulator", resp: "Registers and enforces / 注册并监管" },
+            { item: "Brokerage", what: "Registered business", resp: "Employs brokers and salespersons / 雇佣 broker 与 salesperson" },
+            { item: "Broker", what: "Registrant", resp: "May supervise and manage / 可监督和管理" },
+            { item: "Salesperson", what: "Registrant", resp: "Works under brokerage / 在 brokerage 下工作" }
+          ]
+        },
+        commonConfusions: [
+          { qEn: "Is RECO a law?", qZh: "RECO 是法律吗？", aEn: "No. RECO is the regulator.", aZh: "不是。RECO 是监管机构。" },
+          { qEn: "Is TRESA an organization?", qZh: "TRESA 是机构吗？", aEn: "No. TRESA is legislation.", aZh: "不是。TRESA 是法律。" },
+          { qEn: "Can a salesperson trade independently?", qZh: "Salesperson 可以独立交易吗？", aEn: "No. A salesperson must work under a brokerage.", aZh: "不可以。Salesperson 必须在 brokerage 下工作。" },
+          { qEn: "Is a brokerage the same as RECO?", qZh: "Brokerage 等于 RECO 吗？", aEn: "No. RECO regulates; brokerage conducts trading.", aZh: "不等于。RECO 负责监管，brokerage 负责交易业务。" }
+        ],
+        examTips: [
+          "Know the chain: Government → TRESA → RECO → Brokerage → Broker / Salesperson.",
+          "Do not mix up law, regulator, and business entity.",
+          "If the question asks about responsibility, look for broker of record and supervision.",
+          "When unsure, choose the answer that protects the consumer and follows the regulatory chain."
         ],
         examTrap: "不要把 RECO 和 Ministry 混淆，也不要把 brokerage、broker、broker of record、registrant 混在一起。",
         memoryHook: "Law = TRESA; regulator = RECO; ethics = fairness + honesty + competence."
@@ -1836,6 +1954,18 @@
             zh: "24 个月窗口属于预注册阶段。后续注册教育是另一个阶段，不要把两者混在一起。"
           }
         ],
+        vocab: [
+          { en: "Pre-registration", zh: "预注册阶段" },
+          { en: "Insurance", zh: "保险" },
+          { en: "Employment", zh: "受雇" },
+          { en: "Ongoing education", zh: "持续教育" }
+        ],
+        examTips: [
+          "Remember the sequence: education → employment → registration → insurance.",
+          "The 24-month rule belongs to the pre-registration phase.",
+          "Do not merge pre-registration requirements with post-registration education.",
+          "If the question asks about timing, look for the starting point: the first course."
+        ],
         examTrap: "这课常考顺序题：先完成预注册学习，再注册，再保险。别把后续教育混进来。",
         memoryHook: "24 months for pre-registration learning."
       },
@@ -1872,6 +2002,18 @@
             en: "The skills list is there because a salesperson works in a people-driven environment where confidence, organization, and technology all matter together.",
             zh: "这张技能表是为了说明：销售工作本质上是以人为中心的环境，自信、组织力和技术能力都很重要。"
           }
+        ],
+        vocab: [
+          { en: "Confidence", zh: "自信" },
+          { en: "Persistence", zh: "坚持" },
+          { en: "Organizing", zh: "组织" },
+          { en: "Negotiation", zh: "谈判" }
+        ],
+        examTips: [
+          "This lesson is about work habits, not laws.",
+          "Expect skill-matching questions.",
+          "The best answers usually show planning, communication, and follow-through.",
+          "If the question is about success in the role, think of real-world people skills first."
         ],
         examTrap: "看到“successful career”就想起技能清单，不要误答成法律或注册流程。",
         memoryHook: "People + numbers + tech + planning + persistence."
@@ -1910,6 +2052,18 @@
             zh: "题目通常在考你是否理解：这个角色是主动型的、需要组织能力的，而且要随市场变化而调整。"
           }
         ],
+        vocab: [
+          { en: "Schedule", zh: "日程" },
+          { en: "Follow-up", zh: "跟进" },
+          { en: "Time management", zh: "时间管理" },
+          { en: "Prioritization", zh: "优先排序" }
+        ],
+        examTips: [
+          "Look for the link between market demand and workload.",
+          "Questions may test time blocks, planning, and responsiveness.",
+          "A strong answer usually mentions organizing, prioritizing, and adapting.",
+          "Do not answer as if the job has fixed hours and fixed tasks."
+        ],
         examTrap: "不要只记“sales”这个词，要记住整个工作链条包括沟通、协调、研究和计划。",
         memoryHook: "Market changes the schedule; planning keeps the job under control."
       },
@@ -1920,10 +2074,10 @@
         titleZh: "报酬与预算",
         badge: "Money",
         summary: "This lesson explains commission-based pay, how remuneration can be shared, and why budgeting matters when income is not fixed.",
-        summaryZh: "这一课核心是：收入常常不稳定，所以预算能力非常重要。",
+        summaryZh: "这一课核心是：报酬常常来自佣金，所以预算能力是一项很重要的职业技能。",
         mustKnow: [
           { en: "Remuneration is often commission-based.", zh: "报酬通常是佣金制。" },
-          { en: "Income can be unpredictable, so budgeting is essential.", zh: "收入不固定，所以预算是必需技能。" },
+          { en: "Income can fluctuate over time, so budgeting is an important professional skill.", zh: "收入可能随时间波动，所以预算是一项重要的职业技能。" },
           { en: "Remuneration can be shared between brokerages.", zh: "报酬可能在两个 brokerage 之间分配。" },
           { en: "Remuneration can also be shared between a brokerage and a broker or salesperson.", zh: "报酬也可能在 brokerage 与 broker / salesperson 之间分配。" }
         ],
@@ -1947,8 +2101,20 @@
             zh: "考试借这一课来确认你能不能把职业结构和个人资金管理联系起来。"
           }
         ],
+        vocab: [
+          { en: "Remuneration", zh: "报酬" },
+          { en: "Commission", zh: "佣金" },
+          { en: "Budgeting", zh: "预算编制" },
+          { en: "Cash flow", zh: "现金流" }
+        ],
+        examTips: [
+          "Watch for wording about commission and variable income.",
+          "The safest answer is the one that connects earnings with planning.",
+          "Do not overstate certainty when the lesson is about fluctuation.",
+          "Budgeting is presented as a professional habit, not just a personal hobby."
+        ],
         examTrap: "高频陷阱是 gross 和 net、share 和 split、佣金收入和实际可支配收入。",
-        memoryHook: "Unsteady income = steady budget."
+        memoryHook: "Unsteady income calls for steady budget habits."
       },
       {
         id: "lesson-6",
@@ -1982,6 +2148,18 @@
             en: "This lesson is the point where all the earlier ideas should come together as one coherent picture of the profession.",
             zh: "这节总结课的作用，就是把前面的内容合成一张完整的职业图景。"
           }
+        ],
+        vocab: [
+          { en: "Review", zh: "复习" },
+          { en: "Structure", zh: "结构" },
+          { en: "Coherent", zh: "连贯的" },
+          { en: "Self-check", zh: "自测" }
+        ],
+        examTips: [
+          "Use this lesson as a final review loop.",
+          "If you can teach the module out loud, you are in good shape.",
+          "The summary usually exposes weak spots in law, process, and money topics.",
+          "Revisit the earlier lessons when you miss a summary point."
         ],
         examTrap: "总结课最适合做回顾，不要跳过。很多错题其实都能从这里回头修正。",
         memoryHook: "Explain it once in your own words."
@@ -2819,7 +2997,7 @@
           { en: "TRESA sets the legal rules for real estate trading.", zh: "TRESA 是房地产交易的法律规则底座。" },
           { en: "RECO administers and enforces the system.", zh: "RECO 负责执行和监管。" },
           { en: "Registration, ethics, and professional roles are the core exam language.", zh: "注册、道德和角色关系是最核心的考试语言。" },
-          { en: "Budgeting matters because commission income can move up and down.", zh: "因为佣金收入会波动，所以预算很重要。" }
+          { en: "Budgeting is an important professional skill because commission income may fluctuate over time.", zh: "因为佣金收入可能随时间波动，所以预算是一项重要的职业技能。" }
         ],
         note: "This is the study version next to the official Module 1 lesson. Hover the hard words, then select them to add to your wordbook. / 这是官方 Module 1 课件旁边的复习版。鼠标悬停看中文，选词自动进单词本。"
       },
@@ -3405,6 +3583,68 @@
                     </div>
                   `).join("")}
                 </div>
+                ${lesson.regulatoryStructure ? `
+                  <div class="lesson-extra-grid">
+                    <div class="lesson-page-block">
+                      <h4>${escapeHtml(lesson.regulatoryStructure.titleEn)}<br>${escapeHtml(lesson.regulatoryStructure.titleZh)}</h4>
+                      <div class="lesson-flow">
+                        ${lesson.regulatoryStructure.flow.map((node) => `<span class="${node.kind === 'arrow' ? 'is-arrow' : ''}">${escapeHtml(node.text)}</span>`).join("")}
+                      </div>
+                    </div>
+                    <div class="lesson-page-block">
+                      <h4>Comparison / 对比表</h4>
+                      <div class="lesson-compare-list">
+                        ${lesson.regulatoryStructure.rows.map((row) => `
+                          <div class="lesson-compare-card">
+                            <span class="label">${escapeHtml(row.item)}</span>
+                            <div class="muted">${escapeHtml(row.what)}</div>
+                            <div>${escapeHtml(row.resp)}</div>
+                          </div>
+                        `).join("")}
+                      </div>
+                    </div>
+                  </div>
+                ` : ""}
+                ${lesson.commonConfusions ? `
+                  <div class="lesson-page-block">
+                    <h4>Common Confusions / 常见易混点</h4>
+                    <div class="lesson-confusion-grid">
+                      ${lesson.commonConfusions.map((item) => `
+                        <div class="lesson-confusion-card">
+                          <span class="label">${escapeHtml(item.qEn)}<br>${escapeHtml(item.qZh)}</span>
+                          <div class="muted">${escapeHtml(item.aEn)}</div>
+                          <div>${escapeHtml(item.aZh)}</div>
+                        </div>
+                      `).join("")}
+                    </div>
+                  </div>
+                ` : ""}
+                ${lesson.vocab ? `
+                  <div class="lesson-page-block">
+                    <h4>Lesson Vocabulary / 本课词汇</h4>
+                    <div class="lesson-vocab-list">
+                      ${lesson.vocab.map((item) => `
+                        <div class="lesson-vocab-card">
+                          <span class="label">${decorateEnglish(item.en)}</span>
+                          <div>${escapeHtml(item.zh)}</div>
+                        </div>
+                      `).join("")}
+                    </div>
+                  </div>
+                ` : ""}
+                ${lesson.examTips ? `
+                  <div class="lesson-page-block">
+                    <h4>Exam Tips / 考试提示</h4>
+                    <div class="lesson-tip-list">
+                      ${lesson.examTips.map((tip) => `
+                        <div class="lesson-tip-card">
+                          <span class="label">Tip</span>
+                          <div>${decorateEnglish(tip)}</div>
+                        </div>
+                      `).join("")}
+                    </div>
+                  </div>
+                ` : ""}
                 <div class="lesson-page-columns">
                   <div class="lesson-page-block">
                     <h4>What this page helps you do / 这页帮你做到什么</h4>
