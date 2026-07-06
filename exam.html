@@ -693,6 +693,7 @@
       const correctOpt = q.options[q.answer];
       const reveal = typeof selected === 'number' || state.status === 'confirm' || state.status === 'result';
       const locked = state.status !== 'in-progress';
+      const showAnswerDetails = reveal;
 
       el.questionMeta.textContent = `Question ${currentNumber} / ${total}`;
       el.questionText.innerHTML = esc(q.en);
@@ -710,9 +711,9 @@
 
       el.reviewMeta.innerHTML = `
         <div class="card"><b>Your answer</b>${selectedOpt ? `${String.fromCharCode(65 + selected)}. ${esc(selectedOpt.en)}` : 'Not answered yet.'}</div>
-        <div class="card"><b>Correct answer</b>${String.fromCharCode(65 + q.answer)}. ${esc(correctOpt.en)}</div>
+        ${showAnswerDetails ? `<div class="card"><b>Correct answer</b>${String.fromCharCode(65 + q.answer)}. ${esc(correctOpt.en)}</div>` : `<div class="card"><b>Correct answer</b>Choose an option first to reveal the answer.</div>`}
         <div class="card"><b>Related lesson</b>${esc(q.lessonId || 'General')}</div>
-        <div class="card"><b>Explanation</b>${esc(q.why)}</div>
+        ${showAnswerDetails ? `<div class="card"><b>Explanation</b>${esc(q.why)}</div>` : `<div class="card"><b>Explanation</b>Locked until you pick an answer.</div>`}
       `;
 
       if (state.status === 'confirm') {
