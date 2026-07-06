@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Humber Course 1 Study Lab | Humber 房地产 Module 1-7 学习站</title>
-  <meta name="description" content="Humber Real Estate Course 1 bilingual study lab with detailed lesson highlights, exam focus, mock test, and vocabulary review." />
+  <title>CatherineEcho | Ontario Real Estate Companion</title>
+  <meta name="description" content="CatherineEcho is a bilingual Ontario Real Estate companion for Humber Course 1 and beyond, with lessons, exam practice, and vocabulary review." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -241,6 +241,41 @@
       background: rgba(28, 124, 93, 0.14);
       border-color: rgba(28, 124, 93, 0.24);
       color: var(--green-2);
+    }
+
+    .brand-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(246, 242, 234, 0.92);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark strong {
+      color: #fff;
+    }
+
+    .product-name {
+      display: block;
+      margin-top: 10px;
+      color: rgba(246, 242, 234, 0.9);
+      font-size: 1.08rem;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
     }
 
     .section[data-panel] {
@@ -846,6 +881,12 @@
       gap: 10px;
     }
 
+    .lesson-page-nav-bottom {
+      margin-top: 2px;
+      padding-top: 2px;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+    }
+
     .lesson-page-nav .btn {
       padding-inline: 16px;
     }
@@ -1260,6 +1301,23 @@
       padding: 18px 28px 28px;
     }
 
+    .quiz-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+
+    .quiz-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 37, 31, 0.06);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #244035;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
     .quiz-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -1288,6 +1346,49 @@
     .quiz-grid {
       display: grid;
       gap: 14px;
+    }
+
+    .quiz-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .quiz-sidebar {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .exam-rail {
+      border-radius: 22px;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(16, 37, 31, 0.96), rgba(28, 124, 93, 0.84));
+      color: #f6f2ea;
+      display: grid;
+      gap: 12px;
+      min-height: 100%;
+    }
+
+    .exam-rail h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .exam-rail p,
+    .exam-rail li {
+      color: rgba(246, 242, 234, 0.84);
+      line-height: 1.55;
+    }
+
+    .exam-progress {
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 800;
     }
 
     .question {
@@ -1342,11 +1443,30 @@
       border-radius: 16px;
       background: rgba(16, 37, 31, 0.035);
       border: 1px solid transparent;
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
     }
 
     .option:hover {
       border-color: rgba(28, 124, 93, 0.18);
       background: rgba(28, 124, 93, 0.05);
+    }
+
+    .option.is-selected {
+      border-color: rgba(28, 124, 93, 0.3);
+      background: rgba(28, 124, 93, 0.08);
+    }
+
+    .option.is-correct {
+      border-color: rgba(124, 195, 111, 0.48);
+      background: rgba(124, 195, 111, 0.12);
+    }
+
+    .option.is-wrong {
+      border-color: rgba(180, 63, 63, 0.4);
+      background: rgba(180, 63, 63, 0.08);
     }
 
     .option input { margin-top: 3px; }
@@ -1388,6 +1508,17 @@
     .review-item b {
       display: block;
       margin-bottom: 6px;
+    }
+
+    .review-meta {
+      margin-top: 8px;
+      display: grid;
+      gap: 6px;
+      color: rgba(245, 242, 234, 0.86);
+    }
+
+    .review-meta strong {
+      color: #fff;
     }
 
     .footer {
@@ -1465,6 +1596,10 @@
         grid-template-columns: 1fr;
       }
 
+      .quiz-stage {
+        grid-template-columns: 1fr;
+      }
+
       .notebook-grid {
         grid-template-columns: 1fr;
       }
@@ -1506,6 +1641,9 @@
         background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.82));
         backdrop-filter: blur(10px);
       }
+      .quiz-toolbar {
+        align-items: stretch;
+      }
     }
   </style>
 </head>
@@ -1514,24 +1652,28 @@
     <header class="hero" id="home">
       <div class="hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Humber Real Estate · Course 1 · Module 1-7</div>
-          <h1>把 Humber Course 1 变成一张能复习、能做题的网站</h1>
+          <div class="eyebrow brand-line">
+            <span class="brand-mark"><strong>CatherineEcho</strong></span>
+            <span>Ontario Real Estate Companion</span>
+          </div>
+          <h1>Learn. Understand. Apply.</h1>
+          <div class="product-name">Ontario Real Estate Companion · Humber Course 1 and beyond</div>
           <p>
-            这个页面把 Humber Real Estate Course 1 的 Module 1-7
-            都整理成中英双语学习卡、考试高频点和一个可直接使用的模拟考试。
-            你之后复习时，可以先看重点，再做题，最后回到错题解释。
+            CatherineEcho 是一个长期维护的 Ontario Real Estate 学习平台。
+            现在先从 Humber Course 1 开始，把官方课件、双语理解、模拟考试和错题复习串成一条完整学习流程。
           </p>
           <div class="chips">
             <span class="chip"><strong>7</strong> modules / 7 个模块</span>
             <span class="chip"><strong>35h</strong> eLearning total / 总学习时长</span>
             <span class="chip"><strong>2h</strong> Exam 1 official duration / 官方考试时长</span>
-            <span class="chip"><strong>EN + 中文</strong> 双语重点</span>
+            <span class="chip"><strong>EN + 中文</strong> 双语理解</span>
             <span class="chip"><strong>Mock exam</strong> 练习模式</span>
           </div>
           <div class="actions">
             <button class="btn btn-primary" type="button" data-panel-target="lessons">先看重点</button>
             <button class="btn btn-secondary" type="button" data-panel-target="quiz">直接做模拟考试</button>
             <a class="btn btn-secondary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
+            <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
           </div>
           <nav class="top-nav" aria-label="Study navigation">
             <button type="button" data-panel-target="lessons">M1</button>
@@ -1561,8 +1703,18 @@
               <span class="label">Pre-registration 24-month window / 预注册 24 个月窗口</span>
             </div>
             <div class="stat">
-            <span class="num">Budget</span>
-            <span class="label">佣金收入可能波动，所以预算和规划都很重要 / commission income can fluctuate, so budgeting matters</span>
+              <span class="num">Budget</span>
+              <span class="label">佣金收入可能波动，所以预算和规划都很重要 / commission income can fluctuate, so budgeting matters</span>
+            </div>
+          </div>
+          <div class="stat-grid" style="margin-top:12px">
+            <div class="stat">
+              <span class="num">Passit</span>
+              <span class="label">刷题入口 / practice link</span>
+            </div>
+            <div class="stat">
+              <span class="num">CatherineEcho</span>
+              <span class="label">长期更新的学习平台 / long-term study system</span>
             </div>
           </div>
         </aside>
@@ -1708,15 +1860,42 @@
         </p>
       </div>
       <div class="quiz-shell">
+        <div class="quiz-meta">
+          <div class="quiz-chip" id="examProgress">Question 1 / 1</div>
+          <div class="quiz-chip" id="examStatus">In progress / 作答中</div>
+          <div class="quiz-chip" id="examTimeUsed">Time used: 00:00</div>
+        </div>
         <div class="quiz-toolbar">
           <div class="timer">Exam timer / 计时器 <strong id="timerValue">25:00</strong></div>
           <div class="actions" style="margin-top:0">
             <button class="btn btn-primary" id="startTimer" type="button">开始计时 / Start</button>
-            <button class="btn btn-secondary" id="gradeQuiz" type="button">提交批改 / Grade</button>
+            <button class="btn btn-secondary" id="examNext" type="button">Next / 下一题</button>
+            <button class="btn btn-secondary" id="finishExam" type="button">Finish Exam</button>
+            <button class="btn btn-secondary" id="submitExam" type="button">Submit</button>
+            <button class="btn btn-secondary" id="confirmExam" type="button">Confirm</button>
             <button class="btn btn-secondary" id="resetQuiz" type="button">重置 / Reset</button>
           </div>
         </div>
-        <div class="quiz-grid" id="quizGrid"></div>
+        <div class="quiz-stage">
+          <div class="quiz-grid" id="quizGrid"></div>
+          <aside class="quiz-sidebar">
+            <div class="exam-rail">
+              <h3>How this works / 使用方式</h3>
+              <p>Question → Next → Finish Exam → Submit → Confirm → Result</p>
+              <div class="exam-progress" id="examRailProgress">Answer one question at a time. / 一题一题做。</div>
+              <ul style="margin:0;padding-left:18px;display:grid;gap:8px;">
+                <li>Answers are randomized each session.</li>
+                <li>Wrong questions move into the review book automatically.</li>
+                <li>Click a related lesson to jump back and study.</li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3>Go to Passit Practice</h3>
+              <p>先用 CatherineEcho 理解，再去 Passit 刷题。</p>
+              <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Open Passit</a>
+            </div>
+          </aside>
+        </div>
         <div class="result" id="quizResult" aria-live="polite"></div>
       </div>
     </section>
@@ -1728,6 +1907,9 @@
           做题时如果点了“收藏”，或者答错后系统会自动记进错题本。
           下次复习可以先清这里，再从 Lesson 1 / Lesson 2 / Lesson 5 回炉。
         </p>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
+        </div>
       </div>
       <div class="notebook-grid">
         <div class="notebook-card">
@@ -2177,7 +2359,8 @@
           { en: "To replace all brokerages with government offices.", zh: "用政府办公室取代所有 brokerage。" }
         ],
         answer: 0,
-        why: "TRESA provides the legal framework for the profession and protects the public. / TRESA 是法律框架，重点是保护消费者。"
+        why: "TRESA provides the legal framework for the profession and protects the public. / TRESA 是法律框架，重点是保护消费者。",
+        lessonId: "lesson-1"
       },
       {
         en: "Who administers TRESA on behalf of the provincial government?",
@@ -2189,7 +2372,8 @@
           { en: "The seller", zh: "卖方" }
         ],
         answer: 0,
-        why: "RECO is the regulator named in the module materials. / RECO 是课程里明确写出的监管机构。"
+        why: "RECO is the regulator named in the module materials. / RECO 是课程里明确写出的监管机构。",
+        lessonId: "lesson-1"
       },
       {
         en: "In Module 1, what does the word registrant refer to?",
@@ -2201,7 +2385,8 @@
           { en: "Only a lawyer.", zh: "只有律师。" }
         ],
         answer: 0,
-        why: "The course uses registrant for registered individuals and brokerages. / 课程里 registrant 的范围更广。"
+        why: "The course uses registrant for registered individuals and brokerages. / 课程里 registrant 的范围更广。",
+        lessonId: "lesson-1"
       },
       {
         en: "Which set of skills best matches Lesson 3?",
@@ -2213,7 +2398,8 @@
           { en: "Cooking and baking.", zh: "烹饪和烘焙。" }
         ],
         answer: 0,
-        why: "Lesson 3 is about transferable success skills, not trade work. / Lesson 3 讲的是可迁移的成功技能。"
+        why: "Lesson 3 is about transferable success skills, not trade work. / Lesson 3 讲的是可迁移的成功技能。",
+        lessonId: "lesson-3"
       },
       {
         en: "Why does Lesson 4 emphasize organization and time management?",
@@ -2225,7 +2411,8 @@
           { en: "Because planning is optional.", zh: "因为规划是可选的。" }
         ],
         answer: 0,
-        why: "The lesson says market conditions change the workload, so planning matters. / 课程直接把市场变化和日程调整联系起来。"
+        why: "The lesson says market conditions change the workload, so planning matters. / 课程直接把市场变化和日程调整联系起来。",
+        lessonId: "lesson-4"
       },
       {
         en: "What is a key reason Lesson 5 stresses budgeting?",
@@ -2237,7 +2424,8 @@
           { en: "Commission is paid daily in cash.", zh: "佣金每天现金发放。" }
         ],
         answer: 0,
-        why: "The course highlights commission-based income and the need to plan around it. / 课程强调佣金制和现金流波动。"
+        why: "The course highlights commission-based income and the need to plan around it. / 课程强调佣金制和现金流波动。",
+        lessonId: "lesson-5"
       },
       {
         en: "If a buyer asks about a structural concern outside your expertise, what is the best response?",
@@ -2249,7 +2437,8 @@
           { en: "Ignore the question.", zh: "忽略这个问题。" }
         ],
         answer: 0,
-        why: "The Code of Ethics stresses competent service and referring services when needed. / Code of Ethics 强调能力边界和必要时转介。"
+        why: "The Code of Ethics stresses competent service and referring services when needed. / Code of Ethics 强调能力边界和必要时转介。",
+        lessonId: "lesson-1"
       },
       {
         en: "How long is Exam 1 according to Humber’s exam information?",
@@ -2261,7 +2450,8 @@
           { en: "No time limit", zh: "没有时间限制" }
         ],
         answer: 0,
-        why: "RECO lists Course 1 Exam 1 as a two-hour theory exam. / RECO 官方把 Course 1 Exam 1 写成 2 小时理论考试。"
+        why: "RECO lists Course 1 Exam 1 as a two-hour theory exam. / RECO 官方把 Course 1 Exam 1 写成 2 小时理论考试。",
+        lessonId: "exam"
       },
       {
         en: "Which role has ultimate responsibility for the brokerage’s operations?",
@@ -2273,7 +2463,8 @@
           { en: "Open house visitor", zh: "开放日访客" }
         ],
         answer: 0,
-        why: "Lesson 1 explains the broker of record has ultimate responsibility for brokerage operations. / Lesson 1 直接说明 broker of record 负最终责任。"
+        why: "Lesson 1 explains the broker of record has ultimate responsibility for brokerage operations. / Lesson 1 直接说明 broker of record 负最终责任。",
+        lessonId: "lesson-1"
       },
       {
         en: "What does the 24-month window in Module 1 refer to?",
@@ -2285,7 +2476,8 @@
           { en: "A new mortgage", zh: "新的房贷" }
         ],
         answer: 0,
-        why: "Lesson 2 places the 24-month timing in the pre-registration phase. / Lesson 2 把 24 个月放在预注册阶段。"
+        why: "Lesson 2 places the 24-month timing in the pre-registration phase. / Lesson 2 把 24 个月放在预注册阶段。",
+        lessonId: "lesson-2"
       },
       {
         en: "Which statement best describes the salesperson’s work in Module 1?",
@@ -2297,7 +2489,8 @@
           { en: "It is the same every day regardless of the market.", zh: "无论市场如何，每天都一模一样。" }
         ],
         answer: 0,
-        why: "Lesson 4 links work variety, market conditions, and coordination tasks. / Lesson 4 讲的是多任务、随市场变化的工作。"
+        why: "Lesson 4 links work variety, market conditions, and coordination tasks. / Lesson 4 讲的是多任务、随市场变化的工作。",
+        lessonId: "lesson-4"
       },
       {
         en: "Which pair best captures the money lesson?",
@@ -2309,13 +2502,15 @@
           { en: "No need to track expenses", zh: "不需要记开支" }
         ],
         answer: 0,
-        why: "Lesson 5 connects remuneration and budgeting because income can vary. / Lesson 5 就是把报酬和预算绑在一起。"
+        why: "Lesson 5 connects remuneration and budgeting because income can vary. / Lesson 5 就是把报酬和预算绑在一起。",
+        lessonId: "lesson-5"
       }
     ];
 
     const storageKeys = {
       favorites: "humber-study-favorites",
       wrongBook: "humber-study-wrongbook",
+      lessonProgress: "humber-study-lesson-progress",
       vocab: "humber-study-vocab",
       translationCache: "humber-study-translation-cache",
       extraGlossary: "humber-study-extra-glossary",
@@ -2329,6 +2524,32 @@
     document.querySelectorAll("[data-official-module1-link]").forEach((link) => {
       link.href = officialModule1Url;
     });
+
+    function getLessonProgress() {
+      return readStore(storageKeys.lessonProgress).filter((item) => item && item.id);
+    }
+
+    function isLessonCompleted(id) {
+      const normalized = String(id || "");
+      return getLessonProgress().some((item) => item.id === normalized && item.completed);
+    }
+
+    function toggleLessonCompleted(id) {
+      const normalized = String(id || "");
+      if (!normalized) return;
+      const list = getLessonProgress();
+      const index = list.findIndex((item) => item.id === normalized);
+      const next = { id: normalized, completed: index >= 0 ? !list[index].completed : true, updatedAt: new Date().toISOString() };
+      if (index >= 0) list[index] = next; else list.push(next);
+      writeStore(storageKeys.lessonProgress, list);
+      renderLessons();
+      renderLessonPages();
+    }
+
+    function getLessonProgressStats() {
+      const completed = lessons.filter((lesson) => isLessonCompleted(lesson.id)).length;
+      return { completed, total: lessons.length };
+    }
 
     const glossary = [
       { term: "TRESA", zh: "Trust in Real Estate Services Act, 2002（安省房地产服务法）" },
@@ -3151,9 +3372,16 @@
     const pptStrip = document.getElementById("pptStrip");
     const quizGrid = document.getElementById("quizGrid");
     const quizResult = document.getElementById("quizResult");
+    const examProgress = document.getElementById("examProgress");
+    const examStatus = document.getElementById("examStatus");
+    const examTimeUsed = document.getElementById("examTimeUsed");
+    const examRailProgress = document.getElementById("examRailProgress");
     const timerValue = document.getElementById("timerValue");
     const startTimer = document.getElementById("startTimer");
-    const gradeQuiz = document.getElementById("gradeQuiz");
+    const examNext = document.getElementById("examNext");
+    const finishExam = document.getElementById("finishExam");
+    const submitExam = document.getElementById("submitExam");
+    const confirmExamButton = document.getElementById("confirmExam");
     const resetQuiz = document.getElementById("resetQuiz");
     const favoritesList = document.getElementById("favoritesList");
     const wrongBookList = document.getElementById("wrongBookList");
@@ -3487,23 +3715,198 @@
         wrongBookList.innerHTML = "<div class='notebook-item'>还没有错题。先做一轮模拟考试，这里就会开始积累。</div>";
         return;
       }
-      wrongBookList.innerHTML = wrongBook.map((item) => `
-        <div class="notebook-item">
-          <b>${item.title}</b>
-          <div>${item.explanation}</div>
-        </div>
-      `).join("");
+      const grouped = wrongBook.reduce((acc, item) => {
+        const key = item.lessonId || "other";
+        if (!acc[key]) acc[key] = [];
+        acc[key].push(item);
+        return acc;
+      }, {});
+      wrongBookList.innerHTML = Object.entries(grouped).map(([lessonId, items]) => {
+        const lesson = lessons.find((entry) => entry.id === lessonId);
+        const title = lesson ? `${lesson.number} · ${lesson.titleEn}` : "Other / 其他";
+        return `
+          <div class="notebook-item">
+            <b>${escapeHtml(title)}</b>
+            <div style="display:grid;gap:10px;margin-top:10px">
+              ${items.map((item) => `
+                <div class="notebook-item" style="background:rgba(255,255,255,0.6)">
+                  <b>${escapeHtml(item.title)}</b>
+                  <div>${escapeHtml(item.yourAnswer ? `Your answer: ${item.yourAnswer}` : "")}</div>
+                  <div>${escapeHtml(item.correctAnswer ? `Correct answer: ${item.correctAnswer}` : "")}</div>
+                  <div>${escapeHtml(item.explanation || "")}</div>
+                  <div class="actions" style="margin-top:10px">
+                    ${lesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${lesson.id}">Go to Lesson</button>` : ""}
+                    <button class="btn btn-secondary" type="button" data-wrong-mastered="${item.id}">${item.mastered ? "Mastered" : "Mark Mastered"}</button>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      }).join("");
     }
 
     function saveWrongBook(entries) {
       const existing = readStore(storageKeys.wrongBook);
       const byId = new Map(existing.map((item) => [item.id, item]));
-      entries.forEach((entry) => byId.set(entry.id, entry));
+      entries.forEach((entry) => {
+        const prior = byId.get(entry.id);
+        byId.set(entry.id, { ...entry, mastered: prior?.mastered || false });
+      });
       writeStore(storageKeys.wrongBook, Array.from(byId.values()));
       renderWrongBook();
     }
 
+    function toggleWrongMastered(id) {
+      const list = readStore(storageKeys.wrongBook);
+      const index = list.findIndex((item) => item.id === id);
+      if (index < 0) return;
+      list[index] = { ...list[index], mastered: !list[index].mastered, masteredAt: new Date().toISOString() };
+      writeStore(storageKeys.wrongBook, list);
+      renderWrongBook();
+    }
+
+    function getLessonById(id) {
+      return lessons.find((lesson) => lesson.id === id) || null;
+    }
+
+    function shuffleExamOptions(question) {
+      const correctOption = question.options[question.answer];
+      const shuffledOptions = shuffleArray(question.options.map((option, index) => ({ ...option, originalIndex: index })));
+      const answerIndex = shuffledOptions.findIndex((option) => option.originalIndex === question.answer);
+      return {
+        ...question,
+        quizId: question.lessonId ? `${question.lessonId}-${question.en.slice(0, 18).replace(/[^a-z0-9]+/gi, "-").toLowerCase()}` : question.en.slice(0, 18),
+        options: shuffledOptions,
+        answer: answerIndex >= 0 ? answerIndex : Math.max(0, shuffledOptions.findIndex((option) => option.en === correctOption.en && option.zh === correctOption.zh))
+      };
+    }
+
+    function buildExamQuestions() {
+      return quizQuestions.map((question, index) => ({
+        ...shuffleExamOptions(question),
+        id: `exam-q${index}`
+      }));
+    }
+
+    function createExamState() {
+      return {
+        status: "in-progress",
+        index: 0,
+        selected: {},
+        questions: buildExamQuestions(),
+        startedAt: Date.now(),
+        finishedAt: null,
+        result: null
+      };
+    }
+
+    let examState = createExamState();
+
+    function getExamElapsedMs() {
+      if (!examState.startedAt) return 0;
+      const end = examState.finishedAt || Date.now();
+      return Math.max(0, end - examState.startedAt);
+    }
+
+    function formatDuration(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, "0");
+      const seconds = (totalSeconds % 60).toString().padStart(2, "0");
+      return `${minutes}:${seconds}`;
+    }
+
+    function formatTime(seconds) {
+      return formatDuration(Math.max(0, Number(seconds) || 0) * 1000);
+    }
+
+    function getSelectedAnswer(questionIndex) {
+      return examState.selected[questionIndex];
+    }
+
+    function setSelectedAnswer(questionIndex, optionIndex) {
+      examState.selected = { ...examState.selected, [questionIndex]: optionIndex };
+      renderQuiz();
+    }
+
+    function currentExamQuestion() {
+      return examState.questions[examState.index] || null;
+    }
+
+    function moveExamQuestion(delta) {
+      if (!examState.questions.length || examState.status === "result") return;
+      if (examState.index === examState.questions.length - 1 && delta > 0) {
+        showToast("This is the last question. Use Finish Exam when ready.");
+        return;
+      }
+      const next = Math.max(0, Math.min(examState.index + delta, examState.questions.length - 1));
+      examState.index = next;
+      renderQuiz();
+    }
+
+    function finishExamStage() {
+      if (examState.status === "result") return;
+      examState.status = "finished";
+      renderQuiz();
+    }
+
+    function openSubmitStage() {
+      if (examState.status === "result") return;
+      examState.status = "confirm";
+      renderQuiz();
+    }
+
+    function gradeExam() {
+      const review = [];
+      let correctCount = 0;
+      examState.questions.forEach((question, index) => {
+        const selectedIndex = getSelectedAnswer(index);
+        const selectedOption = typeof selectedIndex === "number" ? question.options[selectedIndex] : null;
+        const correctOption = question.options[question.answer];
+        const isCorrect = typeof selectedIndex === "number" && selectedIndex === question.answer;
+        if (isCorrect) correctCount += 1;
+        if (!isCorrect) {
+          review.push({
+            id: question.id,
+            title: question.en,
+            lessonId: question.lessonId,
+            lessonTitle: getLessonById(question.lessonId)?.titleEn || "Module 1",
+            yourAnswer: selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${selectedOption.en}` : "No answer / 未作答",
+            correctAnswer: `${String.fromCharCode(65 + question.answer)}. ${correctOption.en}`,
+            explanation: question.why,
+            mastered: false
+          });
+        }
+      });
+
+      const incorrectCount = examState.questions.length - correctCount;
+      const percentage = Math.round((correctCount / examState.questions.length) * 100);
+      const result = {
+        scoreText: `${correctCount} / ${examState.questions.length}`,
+        percentage,
+        correctCount,
+        incorrectCount,
+        timeUsedText: formatDuration(getExamElapsedMs()),
+        review
+      };
+      examState.status = "result";
+      examState.finishedAt = Date.now();
+      examState.result = result;
+      saveWrongBook(review);
+      renderQuiz();
+      renderWrongBook();
+    }
+
+    function resetExamState() {
+      examState = createExamState();
+      timerSeconds = 25 * 60;
+      timerValue.textContent = formatTime(timerSeconds);
+      stopCountdown();
+      renderQuiz();
+    }
+
     function renderLessons() {
+      const progress = getLessonProgressStats();
       lessonGrid.innerHTML = `
         <article class="lesson-overview-card">
           <div class="lesson-overview-head">
@@ -3511,6 +3914,20 @@
             <h3 class="lesson-title">先选一课，再进入单课页</h3>
             <div class="lesson-zh">总览页只保留入口，所有细节已经拆到每一课自己的页面里。</div>
             <p>你可以先看这张导航图，再点进 Lesson 1 到 Lesson 6。每一页都保留英文、中文、必背点、考试陷阱和记忆钩子，但不会再挤在同一屏。</p>
+            <div class="lesson-detail-grid" style="margin-top:16px">
+              <div class="lesson-detail">
+                <b>Progress / 进度</b>
+                <p>${progress.completed} / ${progress.total} lessons completed</p>
+              </div>
+              <div class="lesson-detail">
+                <b>Study loop / 学习闭环</b>
+                <p>Blackboard → CatherineEcho → Passit → Wrong Questions → Exam</p>
+              </div>
+              <div class="lesson-detail">
+                <b>Product / 产品定位</b>
+                <p>Ontario Real Estate Companion</p>
+              </div>
+            </div>
           </div>
           <div class="lesson-index-grid">
             ${lessons.map((lesson, index) => `
@@ -3521,7 +3938,7 @@
                     <h3 class="lesson-title">${decorateEnglish(lesson.titleEn)}</h3>
                     <div class="lesson-zh">${lesson.titleZh}</div>
                   </div>
-                  <div class="badge">${lesson.badge}</div>
+                  <div class="badge">${lesson.badge}${isLessonCompleted(lesson.id) ? " · done" : ""}</div>
                 </div>
                 <p>${decorateEnglish(lesson.summary)}</p>
                 <p>${lesson.summaryZh}</p>
@@ -3558,6 +3975,7 @@
                 <button class="btn btn-secondary" type="button" data-panel-target="lessons">回到 Module 1 总览</button>
                 ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">上一课</button>` : ""}
                 ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">下一课</button>` : ""}
+                <button class="btn btn-secondary" type="button" data-lesson-complete="${lesson.id}">${isLessonCompleted(lesson.id) ? "Completed / 已完成" : "Mark completed / 标记完成"}</button>
                 <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
               </div>
               <article class="lesson-page-card">
@@ -3658,6 +4076,12 @@
                       <li>${decorateEnglish(lesson.examTrap)}</li>
                     </ul>
                   </div>
+                </div>
+                <div class="lesson-page-nav lesson-page-nav-bottom">
+                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous</button>` : ""}
+                  <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map</button>
+                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next →</button>` : ""}
+                  <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
                 </div>
               </article>
             </div>
@@ -4273,40 +4697,140 @@
     }
 
     function renderQuiz() {
-      quizGrid.innerHTML = quizQuestions.map((question, index) => `
-        <article class="question" data-question="${index}">
+      const total = examState.questions.length || quizQuestions.length;
+      const question = currentExamQuestion();
+      const quizProgress = document.getElementById("examProgress");
+      const quizStatus = document.getElementById("examStatus");
+      const quizTimeUsed = document.getElementById("examTimeUsed");
+      const quizRail = document.getElementById("examRailProgress");
+      const nextButton = document.getElementById("examNext");
+      const finishButton = document.getElementById("finishExam");
+      const submitButton = document.getElementById("submitExam");
+      const confirmButton = document.getElementById("confirmExam");
+
+      if (quizProgress) quizProgress.textContent = `Question ${Math.min(examState.index + 1, total)} / ${total}`;
+      if (quizStatus) {
+        quizStatus.textContent =
+          examState.status === "result" ? "Result / 成绩" :
+          examState.status === "confirm" ? "Confirm / 确认提交" :
+          examState.status === "finished" ? "Ready to submit / 等待提交" :
+          "In progress / 作答中";
+      }
+      if (quizTimeUsed) quizTimeUsed.textContent = `Time used: ${formatDuration(getExamElapsedMs())}`;
+      if (quizRail) quizRail.textContent = question
+        ? `Current question ${examState.index + 1} / ${total}.`
+        : "No question loaded.";
+
+      const nextDisabled = examState.status === "result" || examState.status === "confirm";
+      if (nextButton) nextButton.disabled = nextDisabled;
+      if (finishButton) finishButton.disabled = examState.status === "result";
+      if (submitButton) submitButton.disabled = examState.status === "result" || examState.status === "in-progress";
+      if (confirmButton) confirmButton.disabled = examState.status !== "confirm";
+
+      if (!question) {
+        quizGrid.innerHTML = "<div class='question'><h4>No exam questions available.</h4></div>";
+        quizResult.classList.remove("show");
+        quizResult.innerHTML = "";
+        return;
+      }
+
+      const selectedIndex = getSelectedAnswer(examState.index);
+      const selectedOption = typeof selectedIndex === "number" ? question.options[selectedIndex] : null;
+      const correctOption = question.options[question.answer];
+      const isResultMode = examState.status === "result";
+      const isConfirmMode = examState.status === "confirm";
+      const isFinishedMode = examState.status === "finished";
+      const revealAnswer = isResultMode || isConfirmMode || isFinishedMode;
+
+      quizGrid.innerHTML = `
+        <article class="question ${isResultMode && selectedIndex === question.answer ? "correct" : ""} ${isResultMode && selectedIndex !== question.answer ? "wrong" : ""}" data-question="${examState.index}">
           <div class="question-head">
             <div>
-              <h4>${index + 1}. ${decorateEnglish(question.en)}</h4>
+              <h4>${examState.index + 1}. ${decorateEnglish(question.en)}</h4>
               <p class="zh">${question.zh}</p>
             </div>
-            <button class="fav-toggle" data-fav data-fav-type="question" data-fav-id="q${index}" data-fav-title="Q${index + 1}. ${escapeHtml(question.en)}" data-fav-note="${escapeHtml(question.why)}" type="button">☆ 收藏</button>
+            <button class="fav-toggle" data-fav data-fav-type="question" data-fav-id="${question.id}" data-fav-title="Q${examState.index + 1}. ${escapeHtml(question.en)}" data-fav-note="${escapeHtml(question.why)}" type="button">☆ 收藏</button>
           </div>
           <div class="options">
             ${question.options.map((option, optionIndex) => `
-              <div class="option">
-                <input type="radio" id="q${index}-${optionIndex}" name="q${index}" value="${optionIndex}">
-                <label for="q${index}-${optionIndex}">
-                  <strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${decorateEnglish(option.en)}<br>
-                  <span style="color:#61766e">${option.zh}</span>
-                </label>
-              </div>
+              <button class="option ${selectedIndex === optionIndex ? 'is-selected' : ''} ${revealAnswer && optionIndex === question.answer ? 'is-correct' : ''} ${revealAnswer && selectedIndex === optionIndex && optionIndex !== question.answer ? 'is-wrong' : ''}" type="button" data-exam-answer="${optionIndex}" ${revealAnswer ? "disabled" : ""}>
+                <span><strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${decorateEnglish(option.en)}<br><span style="color:#61766e">${escapeHtml(option.zh)}</span></span>
+              </button>
             `).join("")}
           </div>
+          <div class="review-meta">
+            <div><strong>Your answer:</strong> ${selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${decorateEnglish(selectedOption.en)}` : "Not answered / 未作答"}</div>
+            <div><strong>Correct answer:</strong> ${String.fromCharCode(65 + question.answer)}. ${decorateEnglish(correctOption.en)}</div>
+            <div><strong>Related lesson:</strong> ${escapeHtml(getLessonById(question.lessonId)?.titleEn || "General review")}</div>
+            ${revealAnswer ? `<div><strong>Explanation:</strong> ${decorateEnglish(question.why)}</div>` : ""}
+          </div>
         </article>
-      `).join("");
-    }
+      `;
 
-    function formatTime(seconds) {
-      const m = Math.floor(seconds / 60).toString().padStart(2, "0");
-      const s = (seconds % 60).toString().padStart(2, "0");
-      return `${m}:${s}`;
+      if (!quizResult) return;
+      if (examState.status === "confirm") {
+        const answered = Object.keys(examState.selected).length;
+        quizResult.innerHTML = `
+          <h3>Confirm submission / 确认交卷</h3>
+          <p>你已经完成了 ${answered} / ${total} 题。确认后会生成结果页，并把错题存进错题本。</p>
+          <div class="review">
+            <div class="review-item"><b>What happens next / 下一步</b><div>System will score your exam, show the result page, and save wrong questions automatically.</div></div>
+          </div>
+        `;
+        quizResult.classList.add("show");
+        return;
+      }
+
+      if (examState.status === "finished") {
+        const answered = Object.keys(examState.selected).length;
+        quizResult.innerHTML = `
+          <h3>Exam finished / 已完成</h3>
+          <p>你已经完成 ${answered} / ${total} 题。现在可以点 Submit，再点 Confirm 生成结果页。</p>
+          <div class="review">
+            <div class="review-item"><b>Reminder / 提醒</b><div>先检查一下空题，再确认提交。</div></div>
+          </div>
+        `;
+        quizResult.classList.add("show");
+        return;
+      }
+
+      if (examState.status === "result" && examState.result) {
+        const result = examState.result;
+        const reviewHtml = result.review.map((item) => `
+          <div class="review-item">
+            <b>${escapeHtml(item.title)}</b>
+            <div><strong>Your answer:</strong> ${escapeHtml(item.yourAnswer)}</div>
+            <div><strong>Correct answer:</strong> ${escapeHtml(item.correctAnswer)}</div>
+            <div><strong>Explanation:</strong> ${decorateEnglish(item.explanation)}</div>
+            <div><strong>Related lesson:</strong> ${escapeHtml(item.lessonTitle)}</div>
+            <div class="actions" style="margin-top:10px">
+              <button class="btn btn-secondary" type="button" data-panel-target="${item.lessonId || 'lessons'}">Open lesson</button>
+              <button class="btn btn-secondary" type="button" data-wrong-mastered="${item.id}">Mark mastered</button>
+            </div>
+          </div>
+        `).join("");
+        quizResult.innerHTML = `
+          <h3>Result / 结果</h3>
+          <p><strong>${result.percentage}%</strong> · ${result.scoreText} correct · ${result.incorrectCount} incorrect · Time used ${result.timeUsedText}</p>
+          <p>先看错题，再回对应 Lesson 复习。每次提交后，错题都会进入 Wrong Question Book。</p>
+          <div class="review">${reviewHtml || "<div class='review-item'><b>Perfect / 全对</b><div>No wrong questions this time.</div></div>"}</div>
+        `;
+        quizResult.classList.add("show");
+        return;
+      }
+
+      quizResult.classList.remove("show");
+      quizResult.innerHTML = `
+        <h3>Ready / 准备中</h3>
+        <p>先做题，做完再 Finish Exam。答案会随机排列，不会总是 A。</p>
+      `;
     }
 
     function startCountdown() {
       if (timerRunning) return;
       timerRunning = true;
       startTimer.textContent = "计时中 / Running";
+      if (!examState.startedAt) examState.startedAt = Date.now();
       timerHandle = setInterval(() => {
         timerSeconds = Math.max(timerSeconds - 1, 0);
         timerValue.textContent = formatTime(timerSeconds);
@@ -4330,58 +4854,15 @@
       timerValue.textContent = formatTime(timerSeconds);
     }
 
-    function grade() {
-      let score = 0;
-      const reviewHtml = [];
-      const wrongEntries = [];
-
-      quizQuestions.forEach((question, index) => {
-        const chosen = document.querySelector(`input[name="q${index}"]:checked`);
-        const card = document.querySelector(`[data-question="${index}"]`);
-        const picked = chosen ? Number(chosen.value) : null;
-        const correct = picked === question.answer;
-
-        card.classList.remove("correct", "wrong");
-        card.classList.add(correct ? "correct" : "wrong");
-
-        if (correct) score += 1;
-        if (!correct) {
-          wrongEntries.push({
-            id: `q${index}`,
-            title: `${index + 1}. ${question.en}`,
-            explanation: question.why
-          });
-        }
-
-        reviewHtml.push(`
-          <div class="review-item">
-            <b>${index + 1}. ${correct ? "Correct / 对了" : "Review / 需要回看"}</b>
-            <div>${decorateEnglish(question.en)}</div>
-            <div style="margin-top:4px;color:rgba(255,255,255,0.84)">${question.zh}</div>
-            <div style="margin-top:8px"><strong>Answer:</strong> ${String.fromCharCode(65 + question.answer)}. ${decorateEnglish(question.options[question.answer].en)}</div>
-            <div style="margin-top:6px"><strong>解释：</strong> ${decorateEnglish(question.why)}</div>
-          </div>
-        `);
-      });
-
-      const pct = Math.round((score / quizQuestions.length) * 100);
-      const band = score >= 10 ? "Very strong / 很稳" : score >= 7 ? "Close / 继续冲" : "Needs review / 先补重点";
-      quizResult.innerHTML = `
-        <h3>Score / 分数：${score} / ${quizQuestions.length} (${pct}%)</h3>
-        <p>${band}. 先看你错的题，再回 Lesson 1, 2, 4, 5 重点卡，效果最好。</p>
-        <div class="review">${reviewHtml.join("")}</div>
-      `;
-      quizResult.classList.add("show");
-      saveWrongBook(wrongEntries);
-      quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
+    function confirmExamSubmission() {
+      if (examState.status !== "confirm") return;
+      gradeExam();
     }
 
     function reset() {
-      document.querySelectorAll('input[type="radio"]').forEach((input) => { input.checked = false; });
-      document.querySelectorAll(".question").forEach((card) => card.classList.remove("correct", "wrong"));
+      resetExamState();
       quizResult.classList.remove("show");
       quizResult.innerHTML = "";
-      stopCountdown();
     }
 
     function wireNotebookActions() {
@@ -4389,6 +4870,26 @@
         const panelButton = event.target.closest("[data-panel-target]");
         if (panelButton) {
           setPanel(panelButton.getAttribute("data-panel-target"));
+          return;
+        }
+
+        const lessonCompleteButton = event.target.closest("[data-lesson-complete]");
+        if (lessonCompleteButton) {
+          toggleLessonCompleted(lessonCompleteButton.getAttribute("data-lesson-complete"));
+          return;
+        }
+
+        const examAnswerButton = event.target.closest("[data-exam-answer]");
+        if (examAnswerButton) {
+          if (examState.status !== "in-progress") return;
+          const choiceIndex = Number(examAnswerButton.getAttribute("data-exam-answer"));
+          setSelectedAnswer(examState.index, choiceIndex);
+          return;
+        }
+
+        const examMasteredButton = event.target.closest("[data-wrong-mastered]");
+        if (examMasteredButton) {
+          toggleWrongMastered(examMasteredButton.getAttribute("data-wrong-mastered"));
           return;
         }
 
@@ -4543,7 +5044,10 @@
     });
 
     startTimer.addEventListener("click", startCountdown);
-    gradeQuiz.addEventListener("click", grade);
+    examNext.addEventListener("click", () => moveExamQuestion(1));
+    finishExam.addEventListener("click", finishExamStage);
+    submitExam.addEventListener("click", openSubmitStage);
+    confirmExamButton.addEventListener("click", confirmExamSubmission);
     resetQuiz.addEventListener("click", reset);
     clearNotebook.addEventListener("click", () => {
       localStorage.removeItem(storageKeys.favorites);
