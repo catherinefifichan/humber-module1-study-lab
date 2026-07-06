@@ -327,6 +327,7 @@
       gap: 10px;
       overflow-x: auto;
       padding-bottom: 4px;
+      scroll-padding-inline: 12px;
       scrollbar-width: none;
       -ms-overflow-style: none;
       scroll-snap-type: x proximity;
@@ -350,16 +351,20 @@
       white-space: nowrap;
       scroll-snap-align: start;
       flex: 0 0 auto;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .top-nav button:hover {
       background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-1px);
     }
 
     .top-nav button.is-active {
-      background: rgba(28, 124, 93, 0.14);
-      border-color: rgba(28, 124, 93, 0.24);
-      color: var(--green-2);
+      background: linear-gradient(135deg, rgba(28, 124, 93, 0.18), rgba(124, 195, 111, 0.18));
+      border-color: rgba(28, 124, 93, 0.28);
+      color: #0d3329;
+      box-shadow: 0 10px 24px rgba(16, 37, 31, 0.12);
+      transform: translateY(-1px);
     }
 
     @keyframes shimmer {
@@ -600,7 +605,7 @@
 
     .vocab-shell {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 16px;
       padding: 18px 28px 28px;
     }
@@ -611,6 +616,18 @@
       border-radius: 24px;
       padding: 20px;
       box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+      min-width: 0;
+    }
+
+    .vocab-card.is-hidden {
+      display: none;
+    }
+
+    .vocab-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
     }
 
     .vocab-card h3 {
@@ -620,14 +637,30 @@
       margin-bottom: 8px;
     }
 
+    .vocab-card-head p,
+    .vocab-hint,
+    .vocab-test-head p,
+    .vocab-search span,
+    .vocab-browse-meta {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .vocab-toolbar {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      align-items: center;
+    }
+
+    .vocab-action-bar {
+      display: grid;
+      gap: 12px;
       margin-top: 14px;
     }
 
-    .vocab-controls {
+    .vocab-controls,
+    .vocab-browse-tools {
       display: grid;
       gap: 12px;
       margin: 14px 0 12px;
@@ -636,7 +669,8 @@
     .vocab-mode-switch,
     .vocab-batch-nav,
     .vocab-mastery-row,
-    .vocab-test-actions {
+    .vocab-test-actions,
+    .vocab-filter-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -645,6 +679,26 @@
 
     .vocab-batch-nav {
       justify-content: space-between;
+    }
+
+    .vocab-search {
+      display: grid;
+      gap: 8px;
+    }
+
+    .vocab-search input {
+      appearance: none;
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      padding: 14px 16px;
+      font: inherit;
+      color: #13241f;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .vocab-search input::placeholder {
+      color: #7c8f87;
     }
 
     .seg-btn {
@@ -666,6 +720,7 @@
 
     .vocab-batch-info,
     .vocab-stats,
+    .vocab-browse-meta,
     .test-score {
       padding: 10px 14px;
       border-radius: 16px;
@@ -677,26 +732,54 @@
     }
 
     .vocab-stats {
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 12px;
     }
 
-    .vocab-review {
-      border-radius: 22px;
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(16, 37, 31, 0.96), rgba(18, 42, 34, 0.92));
+    .vocab-stats span,
+    .vocab-browse-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #244139;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .vocab-flashcard {
+      appearance: none;
+      width: 100%;
+      border: 0;
+      border-radius: 24px;
+      padding: 22px;
+      background:
+        linear-gradient(160deg, rgba(16, 37, 31, 0.98), rgba(22, 52, 42, 0.96)),
+        radial-gradient(circle at top right, rgba(124, 195, 111, 0.18), transparent 32%);
       color: #f5f2ea;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      min-height: 240px;
+      display: grid;
+      align-content: center;
+      gap: 10px;
+      text-align: left;
+      box-shadow: 0 18px 36px rgba(13, 32, 25, 0.12);
+      cursor: pointer;
+    }
+
+    .vocab-flashcard:hover {
+      transform: translateY(-1px);
     }
 
     .vocab-face {
       font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(1.7rem, 4vw, 2.5rem);
-      line-height: 1.1;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.05;
+      color: #fff;
     }
 
     .vocab-face small {
@@ -705,6 +788,10 @@
       font-size: 0.92rem;
       color: rgba(245, 242, 234, 0.72);
       margin-top: 8px;
+    }
+
+    .vocab-hint {
+      font-size: 0.95rem;
     }
 
     .vocab-list {
@@ -797,9 +884,11 @@
 
     .vocab-item {
       border-radius: 18px;
-      padding: 12px 14px;
+      padding: 14px;
       background: rgba(16, 37, 31, 0.04);
       border: 1px solid rgba(16, 37, 31, 0.08);
+      display: grid;
+      gap: 8px;
     }
 
     .vocab-item.is-active {
@@ -816,7 +905,6 @@
     .vocab-item .meta {
       font-size: 0.88rem;
       color: #5d726a;
-      margin-top: 8px;
     }
 
     .mastery-pill {
@@ -830,6 +918,17 @@
       font-weight: 800;
       background: rgba(28, 124, 93, 0.1);
       color: var(--green-2);
+    }
+
+    .vocab-item .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .vocab-item .actions .fav-toggle {
+      flex: 1 1 0;
+      justify-content: center;
     }
 
     .toast {
@@ -882,6 +981,17 @@
       color: #fff;
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .btn.is-emphasis {
+      color: #0d3329;
+      background: linear-gradient(135deg, rgba(246, 222, 153, 0.98), rgba(211, 154, 57, 0.98));
+      border: 1px solid transparent;
+      box-shadow: 0 14px 32px rgba(211, 154, 57, 0.24);
+    }
+
+    .btn.is-emphasis:hover {
+      background: linear-gradient(135deg, rgba(250, 227, 167, 0.98), rgba(221, 166, 66, 0.98));
     }
 
     .section {
@@ -1925,6 +2035,10 @@
       .module-block-head {
         flex-direction: column;
       }
+
+      .vocab-shell {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1943,7 +2057,15 @@
         gap: 8px;
       }
       .lesson-page-nav-top {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
         top: 8px;
+        padding: 10px;
+      }
+      .lesson-page-nav-top .btn,
+      .lesson-page-nav-top .fav-toggle {
+        width: 100%;
       }
       .lesson-page-nav-bottom {
         position: sticky;
@@ -1980,6 +2102,12 @@
       }
       .quiz-actions-bottom .btn {
         width: 100%;
+      }
+      .quiz-actions-bottom .btn.is-emphasis {
+        color: #0d3329;
+        background: linear-gradient(135deg, rgba(246, 222, 153, 0.98), rgba(211, 154, 57, 0.98));
+        border-color: transparent;
+        box-shadow: 0 14px 28px rgba(211, 154, 57, 0.24);
       }
       .top-nav {
         display: flex;
@@ -2026,6 +2154,48 @@
       .quiz-toolbar .btn {
         width: 100%;
       }
+      .vocab-card-head {
+        flex-direction: column;
+      }
+      .vocab-mode-switch,
+      .vocab-filter-row {
+        width: 100%;
+      }
+      .vocab-mode-switch .seg-btn,
+      .vocab-filter-row .seg-btn {
+        flex: 1 1 calc(50% - 8px);
+      }
+      .vocab-flashcard {
+        min-height: 220px;
+      }
+      .vocab-action-bar {
+        position: sticky;
+        bottom: 10px;
+        z-index: 11;
+        padding: 10px;
+        margin-top: 12px;
+        border-top: 0;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.92));
+        box-shadow: 0 12px 28px rgba(13, 32, 25, 0.08);
+        backdrop-filter: blur(10px);
+      }
+      .vocab-toolbar,
+      .vocab-mastery-row {
+        width: 100%;
+      }
+      .vocab-toolbar .btn,
+      .vocab-mastery-row .seg-btn {
+        flex: 1 1 calc(50% - 8px);
+      }
+      .vocab-test-actions .btn {
+        width: 100%;
+      }
+      .option label,
+      .review-meta,
+      .review-meta strong {
+        color: #10251f;
+      }
     }
   </style>
 </head>
@@ -2052,21 +2222,21 @@
             <span class="chip"><strong>Mock exam</strong> 练习模式</span>
           </div>
           <div class="actions">
-            <button class="btn btn-primary" type="button" data-panel-target="lessons">先看重点</button>
-            <button class="btn btn-secondary" type="button" data-panel-target="quiz">直接做模拟考试</button>
-            <a class="btn btn-secondary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
+            <button class="btn btn-primary" type="button" data-panel-target="lessons">Key Points</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="quiz">Mock Exam</button>
+            <a class="btn btn-secondary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">Official Module 1</a>
             <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
           </div>
           <nav class="top-nav" aria-label="Study navigation">
             <button type="button" data-panel-target="lessons">M1</button>
-            <button type="button" data-panel-target="module2">M2-7</button>
-            <button type="button" data-panel-target="ppt">课件</button>
-            <button type="button" data-panel-target="exam">考点</button>
-            <button type="button" data-panel-target="quiz">模考</button>
-            <button type="button" data-panel-target="notebook">错题</button>
-            <button type="button" data-panel-target="vocab">单词</button>
-            <button type="button" data-panel-target="roadmap">路线</button>
-            <button type="button" data-panel-target="all">全部</button>
+            <button type="button" data-panel-target="module2">M2–7</button>
+            <button type="button" data-panel-target="ppt">Lessons</button>
+            <button type="button" data-panel-target="exam">Key Points</button>
+            <button type="button" data-panel-target="quiz">Mock Exam</button>
+            <button type="button" data-panel-target="notebook">Review</button>
+            <button type="button" data-panel-target="vocab">Vocabulary</button>
+            <button type="button" data-panel-target="roadmap">Roadmap</button>
+            <button type="button" data-panel-target="all">All</button>
           </nav>
         </div>
         <aside class="hero-panel" aria-label="Study snapshot">
@@ -2117,7 +2287,7 @@
         </p>
         <div class="actions" style="margin-top: 0; margin-bottom: 16px">
           <a class="btn btn-primary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
-          <button class="btn btn-secondary" type="button" data-panel-target="lessons">回到 Module 1 重点</button>
+          <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Module 1</button>
         </div>
         <div class="ppt-strip" id="pptStrip"></div>
       </div>
@@ -2313,7 +2483,7 @@
           <p>答错一次不怕，重要的是把解释记下来。</p>
           <div class="notebook-list" id="wrongBookList"></div>
           <div class="actions" style="margin-top:14px">
-            <button class="btn btn-secondary" id="clearNotebook" type="button">清空本地记录</button>
+            <button class="btn btn-secondary" id="clearNotebook" type="button">Clear records</button>
           </div>
         </div>
       </div>
@@ -2342,67 +2512,86 @@
 
     <section class="section" id="vocab" data-panel="vocab">
       <div class="section-header">
-        <h2>单词本 / Vocabulary Review</h2>
+        <h2>Vocabulary / 单词本</h2>
         <p>
-          选中任意难词后会自动加入单词本。这里可以翻面复习，也可以把已经掌握的词删掉。
-          如果某个词还没在词库里，系统会自动补中文解释，再存进单词本。
+          选中任意难词后会自动加入单词本。Learn 模式像 flashcard 一样一张张背，
+          Browse 模式可以搜索整本词库，再按 New / Learning / Mastered 筛选。
         </p>
       </div>
       <div class="vocab-shell">
-        <div class="vocab-card">
-          <h3>Review Card / 复习卡</h3>
-          <div class="vocab-controls">
-            <div class="vocab-mode-switch" role="tablist" aria-label="Vocabulary mode">
-              <button class="seg-btn is-active" type="button" data-vocab-mode="study">10词学习</button>
-              <button class="seg-btn" type="button" data-vocab-mode="test">测试模式</button>
+        <div class="vocab-card" id="vocabLearnCard">
+          <div class="vocab-card-head">
+            <div>
+              <h3>Learn / 学习卡</h3>
+              <p>Tap the card to flip, then grade yourself before you move on.</p>
             </div>
-            <div class="vocab-batch-nav">
-              <button class="seg-btn" id="vocabBatchPrev" type="button">上一组</button>
-              <div class="vocab-batch-info" id="vocabBatchInfo">第 1 组 / 每组 10 个</div>
-              <button class="seg-btn" id="vocabBatchNext" type="button">下一组</button>
+            <div class="vocab-mode-switch" role="tablist" aria-label="Vocabulary mode">
+              <button class="seg-btn is-active" type="button" data-vocab-mode="learn">Learn</button>
+              <button class="seg-btn" type="button" data-vocab-mode="browse">Browse</button>
             </div>
           </div>
           <div class="vocab-stats" id="vocabStats"></div>
-          <div class="vocab-review" id="vocabReview">
-            <div class="vocab-face" id="vocabFace">先选中一个英文单词</div>
-            <div id="vocabHint" style="color:rgba(245,242,234,0.74);line-height:1.6">
-              你可以在课件页、重点卡或题目里直接选词。系统会自动记到单词本。
-            </div>
+          <div class="vocab-batch-info" id="vocabBatchInfo">Batch 1 / 10 words</div>
+          <button class="vocab-flashcard" id="vocabFlashcard" type="button" aria-label="Reveal meaning">
+            <div class="vocab-face" id="vocabFace">Select an English word first</div>
+          </button>
+          <div class="vocab-hint" id="vocabHint">
+            You can select a word in lessons or in the quiz. It will be saved here with a Chinese meaning.
+          </div>
+          <div class="vocab-action-bar">
             <div class="vocab-toolbar">
-              <button class="btn btn-secondary" id="vocabPrev" type="button">上一词</button>
-              <button class="btn btn-secondary" id="vocabFlip" type="button">翻面</button>
-              <button class="btn btn-secondary" id="vocabNext" type="button">下一词</button>
-              <button class="btn btn-secondary" id="vocabShuffle" type="button">随机</button>
+              <button class="btn btn-secondary" id="vocabPrev" type="button">Previous</button>
+              <button class="btn btn-secondary" id="vocabReveal" type="button">Reveal meaning</button>
+              <button class="btn btn-secondary" id="vocabNext" type="button">Next</button>
+              <button class="btn btn-secondary" id="vocabShuffle" type="button">Random</button>
+              <button class="btn btn-secondary" id="vocabSpeak" type="button">Read aloud</button>
             </div>
             <div class="vocab-mastery-row">
-              <button class="seg-btn" id="vocabMasteryHard" type="button">还不会</button>
-              <button class="seg-btn" id="vocabMasteryMaybe" type="button">有点熟</button>
-              <button class="seg-btn" id="vocabMasteryEasy" type="button">认识了</button>
+              <button class="seg-btn" id="vocabMasteryHard" type="button">Again</button>
+              <button class="seg-btn" id="vocabMasteryMaybe" type="button">Learning</button>
+              <button class="seg-btn" id="vocabMasteryEasy" type="button">Mastered</button>
             </div>
           </div>
           <div class="vocab-test" id="vocabTest">
             <div class="vocab-test-head">
-              <h4>Test / 当前组测试</h4>
-              <p id="vocabTestMeta">先点“开始测试”，我会拿当前 10 词出题。</p>
+              <h4>Quiz / 当前组测试</h4>
+              <p id="vocabTestMeta">Press Start test and I will quiz the current batch of 10 words.</p>
             </div>
             <div class="test-score" id="vocabTestScore">0 / 0</div>
             <div class="vocab-test-panel" id="vocabQuizPanel">
-              还没有开始测试。选好一组后点“开始测试”。
+              No test has started yet. Pick a batch and press Start test.
             </div>
             <div class="vocab-test-actions">
-              <button class="btn btn-secondary" id="startVocabTest" type="button">开始测试</button>
-              <button class="btn btn-secondary" id="nextVocabQuestion" type="button">下一题</button>
-              <button class="btn btn-secondary" id="finishVocabTest" type="button">交卷</button>
-              <button class="btn btn-secondary" id="resetVocabTest" type="button">重置</button>
+              <button class="btn btn-secondary" id="startVocabTest" type="button">Start test</button>
+              <button class="btn btn-secondary" id="nextVocabQuestion" type="button">Next question</button>
+              <button class="btn btn-secondary" id="finishVocabTest" type="button">Submit</button>
+              <button class="btn btn-secondary" id="resetVocabTest" type="button">Reset</button>
             </div>
           </div>
         </div>
-        <div class="vocab-card">
-          <h3>My Wordbook / 我的单词本</h3>
-          <p>这里会显示你点过的词，按掌握度自动排到 10 词一组。每个词都会带中文解释和掌握状态。</p>
+        <div class="vocab-card" id="vocabBrowseCard">
+          <div class="vocab-card-head">
+            <div>
+              <h3>Browse / 全部词库</h3>
+              <p>Search the whole wordbook and jump back into Learn whenever you want.</p>
+            </div>
+          </div>
+          <div class="vocab-browse-tools">
+            <label class="vocab-search" for="vocabSearchInput">
+              <span>Search vocabulary</span>
+              <input id="vocabSearchInput" type="search" placeholder="Search English or Chinese" />
+            </label>
+            <div class="vocab-filter-row" role="tablist" aria-label="Vocabulary filters">
+              <button class="seg-btn is-active" type="button" data-vocab-filter="all">All</button>
+              <button class="seg-btn" type="button" data-vocab-filter="new">New</button>
+              <button class="seg-btn" type="button" data-vocab-filter="learning">Learning</button>
+              <button class="seg-btn" type="button" data-vocab-filter="mastered">Mastered</button>
+            </div>
+            <div class="vocab-browse-meta" id="vocabBrowseMeta"></div>
+          </div>
           <div class="vocab-list" id="vocabList"></div>
           <div class="actions" style="margin-top:14px">
-            <button class="btn btn-secondary" id="clearVocab" type="button">清空单词本</button>
+            <button class="btn btn-secondary" id="clearVocab" type="button">Clear wordbook</button>
           </div>
         </div>
       </div>
@@ -2423,6 +2612,8 @@
       extraGlossary: "humber-study-extra-glossary",
       vocabMode: "humber-study-vocab-mode",
       vocabBatchIndex: "humber-study-vocab-batch-index",
+      vocabSearch: "humber-study-vocab-search",
+      vocabFilter: "humber-study-vocab-filter",
       vocabMastery: "humber-study-vocab-mastery",
       vocabTestState: "humber-study-vocab-test-state",
       examState: "humber-study-exam-state"
@@ -2546,6 +2737,13 @@
     const favoritesList = document.getElementById("favoritesList");
     const wrongBookList = document.getElementById("wrongBookList");
     const clearNotebook = document.getElementById("clearNotebook");
+    const vocabLearnCard = document.getElementById("vocabLearnCard");
+    const vocabBrowseCard = document.getElementById("vocabBrowseCard");
+    const vocabSearchInput = document.getElementById("vocabSearchInput");
+    const vocabBrowseMeta = document.getElementById("vocabBrowseMeta");
+    const vocabFlashcard = document.getElementById("vocabFlashcard");
+    const vocabReveal = document.getElementById("vocabReveal");
+    const vocabSpeak = document.getElementById("vocabSpeak");
     const vocabList = document.getElementById("vocabList");
     const vocabFace = document.getElementById("vocabFace");
     const vocabHint = document.getElementById("vocabHint");
@@ -2555,7 +2753,6 @@
     const vocabTestMeta = document.getElementById("vocabTestMeta");
     const vocabTestScore = document.getElementById("vocabTestScore");
     const vocabPrev = document.getElementById("vocabPrev");
-    const vocabFlip = document.getElementById("vocabFlip");
     const vocabNext = document.getElementById("vocabNext");
     const vocabShuffle = document.getElementById("vocabShuffle");
     const vocabBatchPrev = document.getElementById("vocabBatchPrev");
@@ -2584,7 +2781,9 @@
     let vocabIndex = 0;
     let vocabTimer = null;
     let activeVocabId = null;
-    let vocabMode = localStorage.getItem(storageKeys.vocabMode) || "study";
+    let vocabMode = getVocabModeValue();
+    let vocabSearchQuery = getVocabSearchValue();
+    let vocabFilterMode = getVocabFilterValue();
     let vocabBatchIndex = Number(localStorage.getItem(storageKeys.vocabBatchIndex) || 0);
     let vocabTestState = {
       active: false,
@@ -2648,7 +2847,13 @@
         section.classList.toggle("is-visible", visible);
       });
       panelButtons.forEach((button) => {
-        button.classList.toggle("is-active", button.getAttribute("data-panel-target") === target);
+        const isActive = button.getAttribute("data-panel-target") === target;
+        button.classList.toggle("is-active", isActive);
+        if (isActive) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
       });
       if (options.updateHash !== false) {
         if (target === "lessons") {
@@ -2662,6 +2867,12 @@
         if (destination) {
           destination.scrollIntoView({ behavior: "smooth", block: "start" });
         }
+      }
+      const activeButton = panelButtons.find((button) => button.getAttribute("data-panel-target") === target);
+      if (activeButton && target !== "all") {
+        requestAnimationFrame(() => {
+          activeButton.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        });
       }
       const primeRoot = showAll ? document : panelSections.find((section) => section.getAttribute("data-panel") === target) || document;
       void primeWordTranslations(primeRoot);
@@ -2850,7 +3061,7 @@
         const id = button.getAttribute("data-fav-id");
         const active = isFavorite(type, id);
         button.classList.toggle("is-active", active);
-        button.textContent = active ? "★ 已收藏" : "☆ 收藏";
+        button.textContent = active ? "★ Favorite" : "☆ Favorite";
       });
     }
 
@@ -2864,7 +3075,7 @@
         <div class="notebook-item">
           <b>${item.title}</b>
           <div>${item.note || ""}</div>
-          <button class="fav-toggle is-active" data-remove-fav="${item.type}:${item.id}" type="button">取消收藏</button>
+          <button class="fav-toggle is-active" data-remove-fav="${item.type}:${item.id}" type="button">Remove</button>
         </div>
       `).join("");
     }
@@ -3221,8 +3432,8 @@
                 <p>${decorateEnglish(lesson.summary)}</p>
                 <p>${lesson.summaryZh}</p>
                 <div class="lesson-actions">
-                  <button class="btn btn-primary" type="button" data-panel-target="${lesson.id}">打开单课页</button>
-                  <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
+                  <button class="btn btn-primary" type="button" data-panel-target="${lesson.id}">Open Lesson</button>
+                  <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ Favorite</button>
                 </div>
               </article>
             `).join("")}
@@ -3250,9 +3461,11 @@
             </div>
             <div class="lesson-page-shell">
               <div class="lesson-page-nav lesson-page-nav-top">
-                <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map / 返回总览</button>
-                <button class="btn btn-secondary" type="button" data-lesson-complete="${lesson.id}">${isLessonCompleted(lesson.id) ? "Completed / 已完成" : "Mark completed / 标记完成"}</button>
-                <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
+                ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">Prev</button>` : ""}
+                <button class="btn btn-secondary" type="button" data-panel-target="lessons">Map</button>
+                ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next</button>` : ""}
+                <button class="btn btn-secondary" type="button" data-lesson-complete="${lesson.id}">${isLessonCompleted(lesson.id) ? "Done" : "Mark Done"}</button>
+                <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">Fav</button>
               </div>
               <article class="lesson-page-card">
                 <div class="lesson-page-columns">
@@ -3354,10 +3567,10 @@
                   </div>
                 </div>
                 <div class="lesson-page-nav lesson-page-nav-bottom">
-                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous page / 上一页</button>` : ""}
-                  <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map / 返回总览</button>
-                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next page → / 下一页</button>` : ""}
-                  <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
+                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">Previous</button>` : ""}
+                  <button class="btn btn-secondary" type="button" data-panel-target="lessons">Lesson Map</button>
+                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next</button>` : ""}
+                  <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Passit Practice</a>
                 </div>
               </article>
             </div>
@@ -3382,7 +3595,7 @@
             </div>
             <div style="display:grid; gap:8px; justify-items:end">
               <div class="badge">${module.time}</div>
-              <button class="fav-toggle" data-fav data-fav-type="study-module" data-fav-id="${module.id}" data-fav-title="${escapeHtml(module.title)}" data-fav-note="${escapeHtml(module.zhSummary)}" type="button">☆ 收藏</button>
+              <button class="fav-toggle" data-fav data-fav-type="study-module" data-fav-id="${module.id}" data-fav-title="${escapeHtml(module.title)}" data-fav-note="${escapeHtml(module.zhSummary)}" type="button">☆ Favorite</button>
               <div class="badge" style="background: rgba(211, 154, 57, 0.12); color: #9b6b15; border-color: rgba(211, 154, 57, 0.28)">${module.status}</div>
             </div>
           </div>
@@ -3420,7 +3633,7 @@
             <div class="badge">${mod.time}</div>
           </div>
           <div class="card-actions">
-            <button class="fav-toggle" data-fav data-fav-type="module" data-fav-id="${mod.id}" data-fav-title="${escapeHtml(mod.title)}" data-fav-note="${escapeHtml(mod.zhSummary)}" type="button">☆ 收藏</button>
+            <button class="fav-toggle" data-fav data-fav-type="module" data-fav-id="${mod.id}" data-fav-title="${escapeHtml(mod.title)}" data-fav-note="${escapeHtml(mod.zhSummary)}" type="button">☆ Favorite</button>
           </div>
           <p>${decorateEnglish(mod.summary)}</p>
           <p>${mod.zhSummary}</p>
@@ -3462,12 +3675,35 @@
     }
 
     function getVocabModeValue() {
-      return localStorage.getItem(storageKeys.vocabMode) || "study";
+      const stored = localStorage.getItem(storageKeys.vocabMode) || "learn";
+      if (stored === "browse") return "browse";
+      return "learn";
     }
 
     function setVocabModeValue(mode) {
-      vocabMode = mode === "test" ? "test" : "study";
+      vocabMode = mode === "browse" ? "browse" : "learn";
       localStorage.setItem(storageKeys.vocabMode, vocabMode);
+      renderVocab();
+    }
+
+    function getVocabSearchValue() {
+      return localStorage.getItem(storageKeys.vocabSearch) || "";
+    }
+
+    function setVocabSearchValue(value) {
+      vocabSearchQuery = String(value || "");
+      localStorage.setItem(storageKeys.vocabSearch, vocabSearchQuery);
+      renderVocab();
+    }
+
+    function getVocabFilterValue() {
+      const stored = localStorage.getItem(storageKeys.vocabFilter) || "all";
+      return ["all", "new", "learning", "mastered"].includes(stored) ? stored : "all";
+    }
+
+    function setVocabFilterValue(filter) {
+      vocabFilterMode = ["all", "new", "learning", "mastered"].includes(filter) ? filter : "all";
+      localStorage.setItem(storageKeys.vocabFilter, vocabFilterMode);
       renderVocab();
     }
 
@@ -3514,14 +3750,50 @@
     }
 
     function getVocabModeLabel() {
-      return vocabMode === "test" ? "测试模式" : "10词学习";
+      return vocabMode === "browse" ? "Browse" : "Learn";
+    }
+
+    function getVocabStatus(level) {
+      if (level >= 3) return "mastered";
+      if (level > 0) return "learning";
+      return "new";
     }
 
     function vocabMasteryLabel(level) {
-      if (level >= 3) return "熟练";
-      if (level === 2) return "认识了";
-      if (level === 1) return "有点熟";
-      return "还不会";
+      if (level >= 3) return "Mastered";
+      if (level > 0) return "Learning";
+      return "New";
+    }
+
+    function vocabFilterLabel(filter) {
+      if (filter === "new") return "New";
+      if (filter === "learning") return "Learning";
+      if (filter === "mastered") return "Mastered";
+      return "All";
+    }
+
+    function normalizeSearchQuery(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function matchesVocabSearch(item, query) {
+      const clean = normalizeSearchQuery(query);
+      if (!clean) return true;
+      const en = String(item.term || "").toLowerCase();
+      const zh = String(item.zh || item.note || "").toLowerCase();
+      const source = String(item.source || "").toLowerCase();
+      return en.includes(clean) || zh.includes(clean) || source.includes(clean);
+    }
+
+    function getFilteredVocabList(list) {
+      const filter = getVocabFilterValue();
+      const query = getVocabSearchValue();
+      return list.filter((item) => {
+        const mastery = getMasteryLevel(item.id);
+        const status = getVocabStatus(mastery);
+        if (filter !== "all" && status !== filter) return false;
+        return matchesVocabSearch(item, query);
+      });
     }
 
     function shuffleArray(items) {
@@ -3572,6 +3844,8 @@
 
     function renderVocab() {
       vocabMode = getVocabModeValue();
+      vocabFilterMode = getVocabFilterValue();
+      vocabSearchQuery = getVocabSearchValue();
       const list = getStudyVocabList();
       const preferredId = activeVocabId || list[vocabIndex]?.id;
       if (preferredId) {
@@ -3581,28 +3855,50 @@
       const batchIndex = ensureCurrentVocabIndex(list.length);
       const batchMeta = getVocabBatchMeta(list, batchIndex);
       const masteryEntries = getMasteryList();
-      const knownCount = masteryEntries.filter((item) => Number(item.level || 0) >= 2).length;
-      const learningCount = masteryEntries.filter((item) => Number(item.level || 0) === 1).length;
+      const masteredCount = masteryEntries.filter((item) => Number(item.level || 0) >= 3).length;
+      const learningCount = masteryEntries.filter((item) => Number(item.level || 0) > 0 && Number(item.level || 0) < 3).length;
       const newCount = list.length - masteryEntries.filter((item) => Number(item.level || 0) > 0).length;
+      const browseList = getFilteredVocabList(list);
 
       document.querySelectorAll("[data-vocab-mode]").forEach((button) => {
-        button.classList.toggle("is-active", button.getAttribute("data-vocab-mode") === vocabMode);
+        const active = button.getAttribute("data-vocab-mode") === vocabMode;
+        button.classList.toggle("is-active", active);
+        if (active) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
       });
+      document.querySelectorAll("[data-vocab-filter]").forEach((button) => {
+        const active = button.getAttribute("data-vocab-filter") === vocabFilterMode;
+        button.classList.toggle("is-active", active);
+        if (active) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+      if (vocabSearchInput) {
+        if (vocabSearchInput.value !== vocabSearchQuery) vocabSearchInput.value = vocabSearchQuery;
+      }
+      if (vocabLearnCard) vocabLearnCard.classList.toggle("is-hidden", vocabMode === "browse");
+      if (vocabBrowseCard) vocabBrowseCard.classList.toggle("is-hidden", vocabMode !== "browse");
       vocabBatchInfo.textContent = list.length
-        ? `第 ${batchMeta.batchIndex + 1} 组 / 共 ${batchMeta.totalBatches} 组 · ${batchMeta.start + 1}-${batchMeta.end} 个`
-        : "第 1 组 / 每组 10 个";
+        ? `Batch ${batchMeta.batchIndex + 1} / ${batchMeta.totalBatches} · Words ${batchMeta.start + 1}-${batchMeta.end}`
+        : "Batch 1 / 10 words";
       vocabStats.innerHTML = list.length
-        ? `<span>已保存 ${list.length} 个词</span><span>熟悉 ${knownCount} 个</span><span>正在练 ${learningCount} 个</span><span>新词 ${Math.max(0, newCount)} 个</span><span>当前模式 ${getVocabModeLabel()}</span>`
-        : `<span>已保存 0 个词</span><span>熟悉 0 个</span><span>正在练 0 个</span><span>新词 0 个</span><span>当前模式 ${getVocabModeLabel()}</span>`;
+        ? `<span>${list.length} saved</span><span>${masteredCount} mastered</span><span>${learningCount} learning</span><span>${Math.max(0, newCount)} new</span>`
+        : `<span>0 saved</span><span>0 mastered</span><span>0 learning</span><span>0 new</span>`;
 
       if (!list.length) {
-        vocabList.innerHTML = "<div class='vocab-item'>还没有词。先去课件页选一个难词，我会自动帮你记下来。</div>";
-        vocabFace.innerHTML = "先选中一个英文单词<small>Then your wordbook will fill itself up.</small>";
-        vocabHint.textContent = "你可以在课件页、重点卡或题目里直接选词。系统会自动记到单词本。";
+        vocabList.innerHTML = "<div class='vocab-item'>No saved words yet. Select a word in lessons and it will appear here automatically.</div>";
+        vocabFace.innerHTML = "Select an English word first<small>Then your wordbook will fill itself up.</small>";
+        vocabHint.textContent = "You can select a word in lessons or in the quiz. It will be saved here with a Chinese meaning.";
         activeVocabId = null;
-        vocabQuizPanel.innerHTML = "先往单词本里加一点词，我才能给你出测试。";
-        vocabTestMeta.textContent = "当前没有可测试的词。";
+        vocabQuizPanel.innerHTML = "Add a few words first, then you can start the test.";
+        vocabTestMeta.textContent = "No words available for testing yet.";
         vocabTestScore.textContent = "0 / 0";
+        if (vocabBrowseMeta) vocabBrowseMeta.innerHTML = "<span>0 matched</span><span>0 saved</span>";
         return;
       }
 
@@ -3610,25 +3906,39 @@
       const current = list[vocabIndex];
       const currentMastery = getMasteryLevel(current.id);
       vocabFace.innerHTML = vocabSide === "en"
-        ? `${decorateEnglish(current.term)}<small>${current.note || current.zh || "点击翻面看中文"} · ${vocabMasteryLabel(currentMastery)}</small>`
-        : `${escapeHtml(current.zh || current.note || "翻译中...")}<small>${escapeHtml(current.term)} · ${vocabMasteryLabel(currentMastery)}</small>`;
-      vocabHint.textContent = `${list.length} 个词已保存。当前是第 ${batchMeta.batchIndex + 1} 组。你可以翻面、上一词、下一词或随机切换。`;
+        ? `${decorateEnglish(current.term)}<small>${current.note || current.zh || "Tap Reveal meaning"} · ${vocabMasteryLabel(currentMastery)}</small>`
+        : `${escapeHtml(current.zh || current.note || "Translating...")}<small>${escapeHtml(current.term)} · ${vocabMasteryLabel(currentMastery)}</small>`;
+      vocabHint.innerHTML = `
+        <div><strong>Meaning:</strong> ${escapeHtml(current.zh || current.note || "Translating...")}</div>
+        <div><strong>Source:</strong> ${escapeHtml(current.source || "selection")} · <strong>Added:</strong> ${escapeHtml(current.addedAt || "")}</div>
+        <div><strong>Status:</strong> ${escapeHtml(vocabMasteryLabel(currentMastery))}</div>
+      `;
       activeVocabId = current.id;
 
-      vocabList.innerHTML = list.map((item, index) => {
-        const mastery = getMasteryLevel(item.id);
-        return `
-        <div class="vocab-item ${index === vocabIndex ? 'is-active' : ''}">
-          <b>${decorateEnglish(item.term)}</b>
-          <div>${escapeHtml(item.zh || item.note || "翻译中...")}</div>
-          <div class="meta">来源：${escapeHtml(item.source || "selection")} · ${escapeHtml(item.addedAt || "")}</div>
-          <div class="mastery-pill">掌握度：${escapeHtml(vocabMasteryLabel(mastery))}</div>
-          <div class="actions" style="margin-top:10px">
-            <button class="fav-toggle" data-vocab-jump="${item.id}" type="button">看这一词</button>
-            <button class="fav-toggle" data-vocab-delete="${item.id}" type="button">删除</button>
-          </div>
-        </div>
-      `; }).join("");
+      const activeId = current.id;
+      vocabList.innerHTML = browseList.length
+        ? browseList.map((item) => {
+            const mastery = getMasteryLevel(item.id);
+            return `
+            <div class="vocab-item ${item.id === activeId ? 'is-active' : ''}">
+              <b>${decorateEnglish(item.term)}</b>
+              <div>${escapeHtml(item.zh || item.note || "Translating...")}</div>
+              <div class="meta">Source: ${escapeHtml(item.source || "selection")} · Added: ${escapeHtml(item.addedAt || "")}</div>
+              <div class="mastery-pill">${escapeHtml(vocabMasteryLabel(mastery))}</div>
+              <div class="actions" style="margin-top:10px">
+                <button class="fav-toggle" data-vocab-jump="${item.id}" type="button">Study</button>
+                <button class="fav-toggle" data-vocab-speak="${escapeHtml(item.term)}" type="button">Read aloud</button>
+                <button class="fav-toggle" data-vocab-delete="${item.id}" type="button">Delete</button>
+              </div>
+            </div>
+          `;
+          }).join("")
+        : "<div class='vocab-item'>No matches yet. Try a different search or filter.</div>";
+      if (vocabBrowseMeta) {
+        vocabBrowseMeta.innerHTML = browseList.length
+          ? `<span>${browseList.length} matched</span><span>${list.length} saved</span><span>${vocabFilterLabel(vocabFilterMode)}</span>`
+          : `<span>No matches</span><span>${list.length} saved</span><span>${vocabFilterLabel(vocabFilterMode)}</span>`;
+      }
 
       const batch = batchMeta.batch;
       if (batch.length) {
@@ -3693,7 +4003,7 @@
       const list = getVocab();
       const id = clean.toLowerCase();
       if (list.some((item) => item.id === id)) {
-        showToast(`已经在单词本里了：${clean}`);
+        showToast(`Already saved: ${clean}`);
         return;
       }
       const matched = findGlossary(clean);
@@ -3715,7 +4025,7 @@
       vocabIndex = 0;
       vocabSide = "en";
       updateVocabFace();
-      showToast(`已加入单词本：${clean}`);
+      showToast(`Saved to wordbook: ${clean}`);
 
       if (!matched?.zh || zh === "翻译中...") {
         const translated = await lookupChinese(clean);
@@ -3767,8 +4077,8 @@
     function renderVocabTest() {
       const list = getStudyVocabList();
       if (!list.length) {
-        vocabQuizPanel.innerHTML = "先添加一些词，再开始测试。";
-        vocabTestMeta.textContent = "没有可测试的词。";
+        vocabQuizPanel.innerHTML = "Add a few words first, then start the test.";
+        vocabTestMeta.textContent = "No words available for testing.";
         vocabTestScore.textContent = "0 / 0";
         return;
       }
@@ -3776,13 +4086,13 @@
       const batchMeta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
       const batch = batchMeta.batch;
       if (!batch.length) {
-        vocabQuizPanel.innerHTML = "当前组没有词。";
-        vocabTestMeta.textContent = `第 ${batchMeta.batchIndex + 1} 组为空。`;
+        vocabQuizPanel.innerHTML = "This batch is empty.";
+        vocabTestMeta.textContent = `Batch ${batchMeta.batchIndex + 1} is empty.`;
         vocabTestScore.textContent = "0 / 0";
         return;
       }
 
-      vocabTestMeta.textContent = `当前第 ${batchMeta.batchIndex + 1} 组，共 ${batch.length} 个词。`;
+      vocabTestMeta.textContent = `Batch ${batchMeta.batchIndex + 1} contains ${batch.length} words.`;
       const total = vocabTestState.questions.length || batch.length;
       const currentIndex = Math.min(vocabTestState.index, Math.max(0, total - 1));
       const current = vocabTestState.questions[currentIndex] || buildVocabTestQuestions(batch, list)[0];
@@ -3795,15 +4105,15 @@
         vocabQuizPanel.innerHTML = `
           <div class="test-card">
             <div class="word">${decorateEnglish(batch[0].term)}</div>
-            <div class="prompt">${escapeHtml(batch[0].zh || batch[0].note || "点击开始测试后会自动出题。")}</div>
-            <div class="test-feedback">先按“开始测试”，我会按当前 10 词组给你出题。</div>
+            <div class="prompt">${escapeHtml(batch[0].zh || batch[0].note || "Press Start test and I will generate questions automatically.")}</div>
+            <div class="test-feedback">Press Start test and I will quiz the current batch of 10 words.</div>
           </div>
         `;
         return;
       }
 
       if (!current) {
-        vocabQuizPanel.innerHTML = "<div class='test-feedback'>这一组暂时没有题。</div>";
+        vocabQuizPanel.innerHTML = "<div class='test-feedback'>This batch has no questions yet.</div>";
         return;
       }
 
@@ -3812,7 +4122,7 @@
       vocabQuizPanel.innerHTML = `
         <div class="test-card">
           <div class="word">${decorateEnglish(current.term)}</div>
-          <div class="prompt">请选出它最准确的中文意思。</div>
+          <div class="prompt">Choose the best Chinese meaning.</div>
           <div class="test-options">
             ${current.options.map((option) => `
               <button class="test-option ${answered && option === current.correct ? 'is-correct' : ''} ${selected === option && option !== current.correct ? 'is-wrong' : ''}" type="button" data-vocab-answer="${escapeHtml(option)}">
@@ -3820,7 +4130,7 @@
               </button>
             `).join("")}
           </div>
-          <div class="test-feedback">${answered ? (selected === current.correct ? "答对了，继续下一题。" : `这题正确答案是：${escapeHtml(current.correct)}`) : "选一个答案，看看你会不会。"}</div>
+          <div class="test-feedback">${answered ? (selected === current.correct ? "Correct. Move on to the next question." : `Correct answer: ${escapeHtml(current.correct)}`) : "Choose an answer to reveal the result."}</div>
         </div>
       `;
     }
@@ -3828,7 +4138,7 @@
     function beginVocabTest() {
       const list = getStudyVocabList();
       if (!list.length) {
-        showToast("先加入一些单词，再开始测试。");
+        showToast("Add a few words first, then start the test.");
         return;
       }
       const batchMeta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
@@ -3842,7 +4152,7 @@
         lastResult: ""
       };
       renderVocabTest();
-      showToast("测试已开始");
+      showToast("Test started");
     }
 
     function answerVocabTest(choice) {
@@ -3865,7 +4175,7 @@
     function advanceVocabQuestion() {
       if (!vocabTestState.active || !vocabTestState.questions.length) return;
       if (!vocabTestState.answered) {
-        showToast("先答完这一题。");
+        showToast("Answer this question first.");
         return;
       }
       const nextIndex = vocabTestState.index + 1;
@@ -3889,12 +4199,12 @@
       vocabTestScore.textContent = `${score} / ${total}`;
       vocabQuizPanel.innerHTML = `
         <div class="test-card">
-          <div class="word">测试完成</div>
-          <div class="prompt">本轮得分：${score} / ${total}</div>
-          <div class="test-feedback">${score === total ? "这一组全会了，可以切下一组。" : "可以再复习一轮，把没答对的词再练一次。"}</div>
+          <div class="word">Test complete</div>
+          <div class="prompt">Score: ${score} / ${total}</div>
+          <div class="test-feedback">${score === total ? "You nailed this batch. Move to the next one when you're ready." : "Review the missed words and try another round."}</div>
         </div>
       `;
-      showToast(`本轮得分 ${score} / ${total}`);
+      showToast(`Score ${score} / ${total}`);
     }
 
     function clearVocabTestSession() {
@@ -3908,7 +4218,7 @@
         lastResult: ""
       };
       renderVocabTest();
-      showToast("测试已重置");
+      showToast("Test reset");
     }
 
     function showToast(message) {
@@ -3925,9 +4235,10 @@
         vocabIndex = index;
         vocabBatchIndex = Math.floor(vocabIndex / 10);
         localStorage.setItem(storageKeys.vocabBatchIndex, String(vocabBatchIndex));
+        setVocabModeValue("learn");
         vocabSide = "en";
         updateVocabFace();
-        showToast(`已切换到：${list[index].term}`);
+        showToast(`Switched to: ${list[index].term}`);
       }
     }
 
@@ -3938,6 +4249,33 @@
       setMasteryLevel(id, 0);
       if (activeVocabId === id) activeVocabId = null;
       updateVocabFace();
+    }
+
+    function toggleVocabReveal() {
+      const current = getCurrentVocabListItem();
+      if (!current) return;
+      vocabSide = vocabSide === "en" ? "zh" : "en";
+      updateVocabFace();
+      if (vocabFlashcard) {
+        vocabFlashcard.setAttribute("aria-label", vocabSide === "en" ? "Reveal meaning" : "Reveal word");
+      }
+    }
+
+    function speakVocab(term) {
+      const text = normalizeToken(term || getCurrentVocabListItem()?.term || "");
+      if (!text) return;
+      if (!("speechSynthesis" in window)) {
+        showToast("Speech is not available in this browser.");
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "en-US";
+        window.speechSynthesis.speak(utterance);
+      } catch {
+        showToast("Could not play pronunciation.");
+      }
     }
 
     let selectionCaptureTimer = null;
@@ -4026,8 +4364,14 @@
       }
 
       const nextDisabled = ["result", "confirm", "paused"].includes(examState.status);
-      if (nextButton) nextButton.disabled = nextDisabled;
-      if (finishButton) finishButton.disabled = examState.status !== "in-progress";
+      if (nextButton) {
+        nextButton.disabled = nextDisabled;
+        nextButton.classList.toggle("is-emphasis", examState.status === "in-progress");
+      }
+      if (finishButton) {
+        finishButton.disabled = examState.status !== "in-progress";
+        finishButton.classList.toggle("is-emphasis", examState.status === "in-progress" && currentNumber === total);
+      }
       if (submitButton) submitButton.disabled = examState.status !== "finished";
       if (confirmButton) confirmButton.disabled = examState.status !== "confirm";
       if (pauseButton) {
@@ -4075,7 +4419,7 @@
             <div>
               <h4>${examState.index + 1}. ${decorateEnglish(question.en)}</h4>
             </div>
-            <button class="fav-toggle" data-fav data-fav-type="question" data-fav-id="${question.id}" data-fav-title="Q${examState.index + 1}. ${escapeHtml(question.en)}" data-fav-note="${escapeHtml(question.why)}" type="button">☆ 收藏</button>
+            <button class="fav-toggle" data-fav data-fav-type="question" data-fav-id="${question.id}" data-fav-title="Q${examState.index + 1}. ${escapeHtml(question.en)}" data-fav-note="${escapeHtml(question.why)}" type="button">☆ Favorite</button>
           </div>
           <div class="options">
             ${question.options.map((option, optionIndex) => `
@@ -4384,6 +4728,12 @@
           deleteVocab(deleteButton.getAttribute("data-vocab-delete"));
           return;
         }
+
+        const speakButton = event.target.closest("[data-vocab-speak]");
+        if (speakButton) {
+          speakVocab(speakButton.getAttribute("data-vocab-speak"));
+          return;
+        }
       });
     }
 
@@ -4394,8 +4744,36 @@
         });
       });
 
-      vocabBatchPrev.addEventListener("click", () => setVocabBatchByStep(-1));
-      vocabBatchNext.addEventListener("click", () => setVocabBatchByStep(1));
+      document.querySelectorAll("[data-vocab-filter]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setVocabFilterValue(button.getAttribute("data-vocab-filter"));
+        });
+      });
+
+      if (vocabSearchInput) {
+        vocabSearchInput.addEventListener("input", () => {
+          setVocabSearchValue(vocabSearchInput.value);
+        });
+      }
+
+      if (vocabFlashcard) {
+        vocabFlashcard.addEventListener("click", toggleVocabReveal);
+      }
+      if (vocabReveal) {
+        vocabReveal.addEventListener("click", toggleVocabReveal);
+      }
+      if (vocabSpeak) {
+        vocabSpeak.addEventListener("click", () => {
+          speakVocab();
+        });
+      }
+
+      if (vocabBatchPrev) {
+        vocabBatchPrev.addEventListener("click", () => setVocabBatchByStep(-1));
+      }
+      if (vocabBatchNext) {
+        vocabBatchNext.addEventListener("click", () => setVocabBatchByStep(1));
+      }
 
       vocabPrev.addEventListener("click", () => {
         const list = getStudyVocabList();
@@ -4407,11 +4785,6 @@
         const list = getStudyVocabList();
         if (!list.length) return;
         moveVocabIndex(1);
-      });
-
-      vocabFlip.addEventListener("click", () => {
-        vocabSide = vocabSide === "en" ? "zh" : "en";
-        updateVocabFace();
       });
 
       vocabShuffle.addEventListener("click", () => {
@@ -4426,7 +4799,7 @@
         const current = getCurrentVocabListItem();
         if (!current) return;
         setMasteryLevel(current.id, 0);
-        showToast("已标记：还不会");
+        showToast("Marked: Again");
         renderVocab();
       });
 
@@ -4434,7 +4807,7 @@
         const current = getCurrentVocabListItem();
         if (!current) return;
         setMasteryLevel(current.id, 1);
-        showToast("已标记：有点熟");
+        showToast("Marked: Learning");
         renderVocab();
       });
 
@@ -4442,7 +4815,7 @@
         const current = getCurrentVocabListItem();
         if (!current) return;
         setMasteryLevel(current.id, 3);
-        showToast("已标记：认识了");
+        showToast("Marked: Mastered");
         renderVocab();
       });
 
@@ -4463,10 +4836,14 @@
         localStorage.removeItem(storageKeys.vocabTestState);
         localStorage.removeItem(storageKeys.vocabMode);
         localStorage.removeItem(storageKeys.vocabBatchIndex);
+        localStorage.removeItem(storageKeys.vocabSearch);
+        localStorage.removeItem(storageKeys.vocabFilter);
         vocabIndex = 0;
         vocabSide = "en";
         vocabBatchIndex = 0;
-        vocabMode = "study";
+        vocabMode = "learn";
+        vocabSearchQuery = "";
+        vocabFilterMode = "all";
         vocabTestState = {
           active: false,
           index: 0,
@@ -4477,6 +4854,7 @@
           lastResult: ""
         };
         renderVocab();
+        showToast("Wordbook cleared");
       });
     }
 
