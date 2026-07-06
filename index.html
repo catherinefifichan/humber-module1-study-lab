@@ -210,54 +210,6 @@
       margin-top: 24px;
     }
 
-    .status-bar {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .status-pill {
-      padding: 11px 13px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: rgba(246, 242, 234, 0.92);
-      line-height: 1.45;
-      font-size: 0.9rem;
-    }
-
-    .status-pill strong {
-      display: block;
-      color: #fff;
-      margin-bottom: 4px;
-      font-size: 0.96rem;
-    }
-
-    .quick-guide {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .guide-step {
-      padding: 14px 15px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(246, 242, 234, 0.9);
-      line-height: 1.5;
-      font-size: 0.92rem;
-    }
-
-    .guide-step strong {
-      display: block;
-      color: #fff;
-      margin-bottom: 6px;
-      font-size: 0.94rem;
-    }
-
     .top-nav {
       margin: 18px 0 0;
       display: flex;
@@ -824,6 +776,34 @@
       font-size: 0.92rem;
     }
 
+    .lesson-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .lesson-detail {
+      border-radius: 16px;
+      padding: 12px 13px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      line-height: 1.55;
+    }
+
+    .lesson-detail b {
+      display: block;
+      margin-bottom: 6px;
+      color: #153026;
+      font-size: 0.95rem;
+    }
+
+    .lesson-detail p {
+      margin: 0;
+      color: #4f645b;
+      line-height: 1.55;
+    }
+
     .card-actions {
       display: flex;
       justify-content: flex-end;
@@ -1129,10 +1109,6 @@
         grid-template-columns: 1fr;
       }
 
-      .status-bar, .quick-guide {
-        grid-template-columns: 1fr;
-      }
-
       .notebook-grid {
         grid-template-columns: 1fr;
       }
@@ -1157,6 +1133,7 @@
       .hero { padding-top: 20px; padding-bottom: 22px; }
       .section-header { padding-top: 18px; }
       .stat-grid, .mini-grid { grid-template-columns: 1fr; }
+      .lesson-detail-grid { grid-template-columns: 1fr; }
       .actions { flex-direction: column; }
       .btn { width: 100%; }
       .top-nav {
@@ -1189,17 +1166,6 @@
             <button class="btn btn-primary" type="button" data-panel-target="lessons">先看重点</button>
             <button class="btn btn-secondary" type="button" data-panel-target="quiz">直接做模拟考试</button>
             <a class="btn btn-secondary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
-          </div>
-          <div class="status-bar" aria-label="Study status">
-            <div class="status-pill"><strong>Current</strong> 只学 Module 1，2-7 继续保留锁定状态</div>
-            <div class="status-pill"><strong>Words</strong> 鼠标停词看中文，选词自动进单词本</div>
-            <div class="status-pill"><strong>Practice</strong> 模拟考试会自动记错题，方便回炉</div>
-            <div class="status-pill"><strong>Access</strong> 手机和外网都可打开这个网站</div>
-          </div>
-          <div class="quick-guide" aria-label="How to use">
-            <div class="guide-step"><strong>1. 先看 Module 1</strong> 把重点、陷阱和中英对照先过一遍。</div>
-            <div class="guide-step"><strong>2. 随时点词</strong> 术语会浮出中文，陌生词会自动存进单词本。</div>
-            <div class="guide-step"><strong>3. 再做模拟题</strong> 做完直接看错题解释，再回重点卡复习。</div>
           </div>
           <nav class="top-nav" aria-label="Study navigation">
             <button type="button" data-panel-target="lessons">M1</button>
@@ -1484,6 +1450,26 @@
           { en: "A registrant is any individual or brokerage registered to trade in real estate.", zh: "registrant 指任何已注册从事房地产交易的个人或 brokerage。" },
           { en: "The Code of Ethics sets minimum standards for fairness, honesty, and competence.", zh: "Code of Ethics 规定公平、诚实和专业能力等最低标准。" }
         ],
+        details: [
+          {
+            titleEn: "What the lesson is doing",
+            titleZh: "这一课在讲什么",
+            en: "It introduces the legal and ethical floor of the profession, so you know who regulates the work and what conduct is expected from the start.",
+            zh: "这一课是在搭建职业的法律与道德底线，让你先知道谁在监管、什么行为是起点要求。"
+          },
+          {
+            titleEn: "What to remember",
+            titleZh: "必须记住",
+            en: "Match each name to its job: REBBA is the law, RECO is the regulator, the Code of Ethics is the behaviour standard, and broker of record is the person who carries final brokerage responsibility.",
+            zh: "把名字和职责配对：REBBA 是法律，RECO 是监管者，Code of Ethics 是行为标准，broker of record 负责 brokerage 的最终责任。"
+          },
+          {
+            titleEn: "Official wording",
+            titleZh: "官方表达",
+            en: "The module positions this lesson as an overview of the real estate profession in Ontario and what a career in real estate looks like.",
+            zh: "官方把这一课定位为安省房地产职业概览，以及这份职业大致会是什么样子。"
+          }
+        ],
         examTrap: "不要把 RECO 和 Ministry 混淆，也不要把 brokerage、broker、broker of record、registrant 混在一起。",
         memoryHook: "Law = REBBA; regulator = RECO; ethics = fairness + honesty + competence."
       },
@@ -1500,6 +1486,26 @@
           { en: "Register with RECO once employed by a brokerage.", zh: "受雇于 brokerage 后向 RECO 注册。" },
           { en: "Purchase the required insurance coverage through the RECO insurance program.", zh: "购买 RECO 保险项目要求的保险。" },
           { en: "Complete post-registration education within the initial 24-month cycle.", zh: "在最初 24 个月周期内完成后续教育。" }
+        ],
+        details: [
+          {
+            titleEn: "Training path",
+            titleZh: "学习路径",
+            en: "This lesson walks you through the basic path into the profession: education first, registration after employment, insurance next, and then ongoing learning after you are registered.",
+            zh: "这一课是在讲入行路径：先完成教育，受雇后注册，接着处理保险，最后是注册后的持续学习。"
+          },
+          {
+            titleEn: "Why it matters",
+            titleZh: "为什么重要",
+            en: "The exam likes order questions because they test whether you understand the sequence instead of only memorizing individual words.",
+            zh: "考试很爱考顺序题，因为它在测试你是否理解流程，而不是只会背单词。"
+          },
+          {
+            titleEn: "Time clue",
+            titleZh: "时间线索",
+            en: "The 24-month post-registration window is the key timing detail that should stand out immediately.",
+            zh: "24 个月的后续注册教育窗口是这一课最醒目的时间点。"
+          }
         ],
         examTrap: "这课常考顺序题：先学习，再注册，再保险，再持续教育。",
         memoryHook: "Learn -> Register -> Insure -> Keep learning."
@@ -1518,6 +1524,26 @@
           { en: "Computer literacy and technology proficiency", zh: "电脑素养与技术能力" },
           { en: "Organizing and planning, research, people skills, negotiation, problem solving", zh: "组织规划、研究、人际沟通、谈判、解决问题" }
         ],
+        details: [
+          {
+            titleEn: "Core takeaway",
+            titleZh: "核心结论",
+            en: "Module 1 is not saying that salespeople must be good at one thing only; it is saying the job combines people skills, calculation, planning, and daily follow-through.",
+            zh: "Module 1 不是说销售人员只需要一种能力，而是说这份工作把人际沟通、计算、规划和执行都揉在一起。"
+          },
+          {
+            titleEn: "Exam angle",
+            titleZh: "考试角度",
+            en: "If a question asks what helps someone succeed in real estate, look for the answer that sounds broad and practical rather than narrow or technical.",
+            zh: "如果题目在问怎样成功，优先选那种“广义、实用、贴近工作”的答案，而不是特别窄的答案。"
+          },
+          {
+            titleEn: "Real-world use",
+            titleZh: "现实用途",
+            en: "The skills list is there because a salesperson works in a people-driven environment where confidence, organization, and technology all matter together.",
+            zh: "这张技能表是为了说明：销售工作本质上是以人为中心的环境，自信、组织力和技术能力都很重要。"
+          }
+        ],
         examTrap: "看到“successful career”就想起技能清单，不要误答成法律或注册流程。",
         memoryHook: "People + numbers + tech + planning + persistence."
       },
@@ -1534,6 +1560,26 @@
           { en: "Market conditions affect how many showings, offers, and tasks a salesperson handles.", zh: "市场情况会影响看房、出价和日常任务量。" },
           { en: "Residential and commercial work can create different schedules and priorities.", zh: "住宅和商业工作节奏不同。" },
           { en: "Organization and time management are essential.", zh: "组织能力和时间管理很关键。" }
+        ],
+        details: [
+          {
+            titleEn: "Day-to-day work",
+            titleZh: "日常工作",
+            en: "This lesson makes the job feel real: research, client communication, showings, document handling, and adjusting the workload to the market.",
+            zh: "这一课把工作讲得更具体：研究、沟通、看房、文件处理，以及根据市场变化调整工作量。"
+          },
+          {
+            titleEn: "What changes the schedule",
+            titleZh: "什么会改变日程",
+            en: "When the market is busy, the same salesperson may have more appointments, more follow-up, and less predictable time blocks.",
+            zh: "市场一忙，同一个销售人员就会有更多预约、更多跟进，时间块也更不固定。"
+          },
+          {
+            titleEn: "Main exam idea",
+            titleZh: "考试主线",
+            en: "The question is usually testing whether you understand that the role is active, organized, and responsive to changing conditions.",
+            zh: "题目通常在考你是否理解：这个角色是主动型的、需要组织能力的，而且要随市场变化而调整。"
+          }
         ],
         examTrap: "不要只记“sales”这个词，要记住整个工作链条包括沟通、协调、研究和计划。",
         memoryHook: "Market changes the schedule; planning keeps the job under control."
@@ -1552,6 +1598,26 @@
           { en: "Remuneration can be shared between brokerages.", zh: "报酬可能在两个 brokerage 之间分配。" },
           { en: "Remuneration can also be shared between a brokerage and a broker or salesperson.", zh: "报酬也可能在 brokerage 与 broker / salesperson 之间分配。" }
         ],
+        details: [
+          {
+            titleEn: "What the lesson wants you to notice",
+            titleZh: "这课要你注意什么",
+            en: "The main point is not just that money is earned, but that income may arrive unevenly, so a salesperson has to plan ahead.",
+            zh: "重点不只是“能赚钱”，而是收入可能不均匀到来，所以必须提前规划。"
+          },
+          {
+            titleEn: "Key financial thinking",
+            titleZh: "关键财务思路",
+            en: "Commission, sharing arrangements, and irregular cash flow all lead back to the same idea: make a budget before the money gets tight.",
+            zh: "佣金、分成安排和不稳定现金流，最终都指向同一个思路：在缺钱前先做预算。"
+          },
+          {
+            titleEn: "Why it is tested",
+            titleZh: "为什么会考",
+            en: "The exam uses this lesson to see whether you can connect the career structure with personal money management.",
+            zh: "考试借这一课来确认你能不能把职业结构和个人资金管理联系起来。"
+          }
+        ],
         examTrap: "高频陷阱是 gross 和 net、share 和 split、佣金收入和实际可支配收入。",
         memoryHook: "Unsteady income = steady budget."
       },
@@ -1567,6 +1633,26 @@
           { en: "You should be able to explain REBBA, RECO, registration steps, core skills, role/tasks, and remuneration.", zh: "你应该能讲清 REBBA、RECO、注册流程、核心技能、工作职责和报酬。" },
           { en: "If you can teach the module in your own words, you are much closer to exam-ready.", zh: "如果你能用自己的话讲一遍，就已经接近可考试状态。" },
           { en: "Use the summary lesson as a self-check before Exam 1.", zh: "把总结课当成 Exam 1 前的自测。" }
+        ],
+        details: [
+          {
+            titleEn: "Self-check",
+            titleZh: "自我检查",
+            en: "Try to explain the module in one short paragraph without looking at your notes. If you can do that, the structure is sticking.",
+            zh: "试着不看笔记，用一小段话把整模块讲出来。如果能做到，说明结构已经记住了。"
+          },
+          {
+            titleEn: "What to review",
+            titleZh: "回看重点",
+            en: "The safest review loop is law and ethics, registration, skills, work style, and remuneration in that order.",
+            zh: "最稳的复习顺序是：法律与道德、注册、技能、工作方式、报酬。"
+          },
+          {
+            titleEn: "Final purpose",
+            titleZh: "最终目的",
+            en: "This lesson is the point where all the earlier ideas should come together as one coherent picture of the profession.",
+            zh: "这节总结课的作用，就是把前面的内容合成一张完整的职业图景。"
+          }
         ],
         examTrap: "总结课最适合做回顾，不要跳过。很多错题其实都能从这里回头修正。",
         memoryHook: "Explain it once in your own words."
@@ -2881,6 +2967,17 @@
           <ul class="pill-list">
             ${lesson.mustKnow.map((item) => `<li><strong>EN:</strong> ${decorateEnglish(item.en)}<br><strong>中文:</strong> ${item.zh}</li>`).join("")}
           </ul>
+          ${lesson.details?.length ? `
+            <div class="lesson-detail-grid">
+              ${lesson.details.map((item) => `
+                <div class="lesson-detail">
+                  <b>${escapeHtml(item.titleEn)}<br>${escapeHtml(item.titleZh)}</b>
+                  <p>${decorateEnglish(item.en)}</p>
+                  <p style="margin-top:6px;color:#355146">${escapeHtml(item.zh)}</p>
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
           <footer>
             <strong>Exam trap / 考试陷阱：</strong> ${decorateEnglish(lesson.examTrap)}<br>
             <strong>Memory hook / 记忆钩子：</strong> ${decorateEnglish(lesson.memoryHook)}
