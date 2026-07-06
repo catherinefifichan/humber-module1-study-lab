@@ -1,0 +1,2457 @@
+{
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "number": "Lesson 1",
+      "titleEn": "Regulatory Environment",
+      "titleZh": "监管环境",
+      "badge": "Law + Ethics",
+      "summary": "This lesson is the legal foundation of the module. It introduces TRESA, the Code of Ethics, RECO, and the key professional roles in a transaction.",
+      "summaryZh": "这一课是整个模块的法律底座：TRESA（Trust in Real Estate Services Act, 2002）、Code of Ethics、RECO，以及交易中各角色的关系。",
+      "mustKnow": [
+        {
+          "en": "TRESA (Trust in Real Estate Services Act, 2002) regulates real estate trading in Ontario.",
+          "zh": "TRESA（Trust in Real Estate Services Act, 2002）监管安省的房地产交易。"
+        },
+        {
+          "en": "RECO administers TRESA on behalf of the provincial government.",
+          "zh": "RECO 代表省政府执行 TRESA。"
+        },
+        {
+          "en": "A registrant is any individual or brokerage registered to trade in real estate.",
+          "zh": "registrant 指任何已注册从事房地产交易的个人或 brokerage。"
+        },
+        {
+          "en": "The Code of Ethics sets minimum standards for fairness, honesty, and competence.",
+          "zh": "Code of Ethics 规定公平、诚实和专业能力等最低标准。"
+        }
+      ],
+      "vocab": [
+        {
+          "en": "Regulator",
+          "zh": "监管机构"
+        },
+        {
+          "en": "Registrant",
+          "zh": "注册从业者"
+        },
+        {
+          "en": "Broker of record",
+          "zh": "负责 brokerage 的最终责任人"
+        },
+        {
+          "en": "Code of Ethics",
+          "zh": "职业道德规范"
+        }
+      ],
+      "details": [
+        {
+          "titleEn": "What the lesson is doing",
+          "titleZh": "这一课在讲什么",
+          "en": "It introduces the legal and ethical floor of the profession, so you know who regulates the work and what conduct is expected from the start.",
+          "zh": "这一课是在搭建职业的法律与道德底线，让你先知道谁在监管、什么行为是起点要求。"
+        },
+        {
+          "titleEn": "What to remember",
+          "titleZh": "必须记住",
+          "en": "Match each name to its job: TRESA is the law, RECO is the regulator, the Code of Ethics is the behaviour standard, and broker of record is the person who carries final brokerage responsibility.",
+          "zh": "把名字和职责配对：TRESA 是法律，RECO 是监管者，Code of Ethics 是行为标准，broker of record 负责 brokerage 的最终责任。"
+        },
+        {
+          "titleEn": "Official wording",
+          "titleZh": "官方表达",
+          "en": "The module positions this lesson as an overview of the real estate profession in Ontario and what a career in real estate looks like.",
+          "zh": "官方把这一课定位为安省房地产职业概览，以及这份职业大致会是什么样子。"
+        }
+      ],
+      "regulatoryStructure": {
+        "titleEn": "Regulatory Structure",
+        "titleZh": "监管结构",
+        "flow": [
+          {
+            "text": "Ontario Government",
+            "kind": "node"
+          },
+          {
+            "text": "creates",
+            "kind": "arrow"
+          },
+          {
+            "text": "TRESA",
+            "kind": "node"
+          },
+          {
+            "text": "implemented by",
+            "kind": "arrow"
+          },
+          {
+            "text": "RECO",
+            "kind": "node"
+          },
+          {
+            "text": "regulates",
+            "kind": "arrow"
+          },
+          {
+            "text": "Brokerages",
+            "kind": "node"
+          },
+          {
+            "text": "employ",
+            "kind": "arrow"
+          },
+          {
+            "text": "Brokers / Salespersons",
+            "kind": "node"
+          },
+          {
+            "text": "serve",
+            "kind": "arrow"
+          },
+          {
+            "text": "Consumers",
+            "kind": "node"
+          }
+        ],
+        "rows": [
+          {
+            "item": "Ontario Government",
+            "what": "Provincial government",
+            "resp": "Creates legislation / 制定法律"
+          },
+          {
+            "item": "TRESA",
+            "what": "Law / legislation",
+            "resp": "Governs real estate trading / 规范房地产交易"
+          },
+          {
+            "item": "RECO",
+            "what": "Regulator",
+            "resp": "Registers and enforces / 注册并监管"
+          },
+          {
+            "item": "Brokerage",
+            "what": "Registered business",
+            "resp": "Employs brokers and salespersons / 雇佣 broker 与 salesperson"
+          },
+          {
+            "item": "Broker",
+            "what": "Registrant",
+            "resp": "May supervise and manage / 可监督和管理"
+          },
+          {
+            "item": "Salesperson",
+            "what": "Registrant",
+            "resp": "Works under brokerage / 在 brokerage 下工作"
+          }
+        ]
+      },
+      "commonConfusions": [
+        {
+          "qEn": "Is RECO a law?",
+          "qZh": "RECO 是法律吗？",
+          "aEn": "No. RECO is the regulator.",
+          "aZh": "不是。RECO 是监管机构。"
+        },
+        {
+          "qEn": "Is TRESA an organization?",
+          "qZh": "TRESA 是机构吗？",
+          "aEn": "No. TRESA is legislation.",
+          "aZh": "不是。TRESA 是法律。"
+        },
+        {
+          "qEn": "Can a salesperson trade independently?",
+          "qZh": "Salesperson 可以独立交易吗？",
+          "aEn": "No. A salesperson must work under a brokerage.",
+          "aZh": "不可以。Salesperson 必须在 brokerage 下工作。"
+        },
+        {
+          "qEn": "Is a brokerage the same as RECO?",
+          "qZh": "Brokerage 等于 RECO 吗？",
+          "aEn": "No. RECO regulates; brokerage conducts trading.",
+          "aZh": "不等于。RECO 负责监管，brokerage 负责交易业务。"
+        }
+      ],
+      "examTips": [
+        "Know the chain: Government → TRESA → RECO → Brokerage → Broker / Salesperson.",
+        "Do not mix up law, regulator, and business entity.",
+        "If the question asks about responsibility, look for broker of record and supervision.",
+        "When unsure, choose the answer that protects the consumer and follows the regulatory chain."
+      ],
+      "examTrap": "不要把 RECO 和 Ministry 混淆，也不要把 brokerage、broker、broker of record、registrant 混在一起。",
+      "memoryHook": "Law = TRESA; regulator = RECO; ethics = fairness + honesty + competence."
+    },
+    {
+      "id": "lesson-2",
+      "number": "Lesson 2",
+      "titleEn": "Education and Registration Requirements",
+      "titleZh": "教育与注册要求",
+      "badge": "Process",
+      "summary": "This lesson explains the pre-registration path into the profession and keeps post-registration education as a separate step.",
+      "summaryZh": "这一课讲进入职业前的预注册路径，同时把注册后的继续教育单独分开。RECO 的官方说明是：从你开始第一门课起，预注册阶段要在 24 个月内完成。",
+      "mustKnow": [
+        {
+          "en": "Complete the education requirements first.",
+          "zh": "先完成教育要求。"
+        },
+        {
+          "en": "Register with RECO once employed by a brokerage.",
+          "zh": "受雇于 brokerage 后向 RECO 注册。"
+        },
+        {
+          "en": "Purchase the required insurance coverage through the RECO insurance program.",
+          "zh": "购买 RECO 保险项目要求的保险。"
+        },
+        {
+          "en": "Complete the pre-registration education phase within 24 months from the day you begin your first course.",
+          "zh": "从开始第一门课起 24 个月内完成预注册阶段。"
+        }
+      ],
+      "details": [
+        {
+          "titleEn": "Training path",
+          "titleZh": "学习路径",
+          "en": "This lesson walks you through the basic path into the profession: education first, registration after employment, insurance next, and then ongoing learning after you are registered.",
+          "zh": "这一课是在讲入行路径：先完成教育，受雇后注册，接着处理保险，最后是注册后的持续学习。"
+        },
+        {
+          "titleEn": "Why it matters",
+          "titleZh": "为什么重要",
+          "en": "The exam likes order questions because they test whether you understand the sequence instead of only memorizing individual words.",
+          "zh": "考试很爱考顺序题，因为它在测试你是否理解流程，而不是只会背单词。"
+        },
+        {
+          "titleEn": "Time clue",
+          "titleZh": "时间线索",
+          "en": "The 24-month window belongs to the pre-registration phase. Post-registration education is a separate step, so do not mix the two.",
+          "zh": "24 个月窗口属于预注册阶段。后续注册教育是另一个阶段，不要把两者混在一起。"
+        }
+      ],
+      "vocab": [
+        {
+          "en": "Pre-registration",
+          "zh": "预注册阶段"
+        },
+        {
+          "en": "Insurance",
+          "zh": "保险"
+        },
+        {
+          "en": "Employment",
+          "zh": "受雇"
+        },
+        {
+          "en": "Ongoing education",
+          "zh": "持续教育"
+        }
+      ],
+      "examTips": [
+        "Remember the sequence: education → employment → registration → insurance.",
+        "The 24-month rule belongs to the pre-registration phase.",
+        "Do not merge pre-registration requirements with post-registration education.",
+        "If the question asks about timing, look for the starting point: the first course."
+      ],
+      "examTrap": "这课常考顺序题：先完成预注册学习，再注册，再保险。别把后续教育混进来。",
+      "memoryHook": "24 months for pre-registration learning."
+    },
+    {
+      "id": "lesson-3",
+      "number": "Lesson 3",
+      "titleEn": "Skills Used by a Salesperson",
+      "titleZh": "销售人员需要的技能",
+      "badge": "People + Systems",
+      "summary": "This lesson focuses on the personal and practical skills that help a salesperson succeed in a people-driven, fast-changing career.",
+      "summaryZh": "这一课是“做这份工作需要什么能力”，不是法律课。",
+      "mustKnow": [
+        {
+          "en": "Confidence and persistence",
+          "zh": "自信与坚持"
+        },
+        {
+          "en": "Mathematical skills",
+          "zh": "数学能力"
+        },
+        {
+          "en": "Computer literacy and technology proficiency",
+          "zh": "电脑素养与技术能力"
+        },
+        {
+          "en": "Organizing and planning, research, people skills, negotiation, problem solving",
+          "zh": "组织规划、研究、人际沟通、谈判、解决问题"
+        }
+      ],
+      "details": [
+        {
+          "titleEn": "Core takeaway",
+          "titleZh": "核心结论",
+          "en": "Module 1 is not saying that salespeople must be good at one thing only; it is saying the job combines people skills, calculation, planning, and daily follow-through.",
+          "zh": "Module 1 不是说销售人员只需要一种能力，而是说这份工作把人际沟通、计算、规划和执行都揉在一起。"
+        },
+        {
+          "titleEn": "Exam angle",
+          "titleZh": "考试角度",
+          "en": "If a question asks what helps someone succeed in real estate, look for the answer that sounds broad and practical rather than narrow or technical.",
+          "zh": "如果题目在问怎样成功，优先选那种“广义、实用、贴近工作”的答案，而不是特别窄的答案。"
+        },
+        {
+          "titleEn": "Real-world use",
+          "titleZh": "现实用途",
+          "en": "The skills list is there because a salesperson works in a people-driven environment where confidence, organization, and technology all matter together.",
+          "zh": "这张技能表是为了说明：销售工作本质上是以人为中心的环境，自信、组织力和技术能力都很重要。"
+        }
+      ],
+      "vocab": [
+        {
+          "en": "Confidence",
+          "zh": "自信"
+        },
+        {
+          "en": "Persistence",
+          "zh": "坚持"
+        },
+        {
+          "en": "Organizing",
+          "zh": "组织"
+        },
+        {
+          "en": "Negotiation",
+          "zh": "谈判"
+        }
+      ],
+      "examTips": [
+        "This lesson is about work habits, not laws.",
+        "Expect skill-matching questions.",
+        "The best answers usually show planning, communication, and follow-through.",
+        "If the question is about success in the role, think of real-world people skills first."
+      ],
+      "examTrap": "看到“successful career”就想起技能清单，不要误答成法律或注册流程。",
+      "memoryHook": "People + numbers + tech + planning + persistence."
+    },
+    {
+      "id": "lesson-4",
+      "number": "Lesson 4",
+      "titleEn": "Salesperson’s Role, Tasks, and Activities",
+      "titleZh": "销售人员的角色、任务与日常活动",
+      "badge": "Workflow",
+      "summary": "This lesson shows how the salesperson actually works with sellers and buyers, and how market conditions change the daily workload.",
+      "summaryZh": "这一课讲“日常怎么干活”，以及市场变化会怎样影响节奏。",
+      "mustKnow": [
+        {
+          "en": "The work is broader than listing and selling.",
+          "zh": "工作远不只是挂牌和卖房。"
+        },
+        {
+          "en": "Market conditions affect how many showings, offers, and tasks a salesperson handles.",
+          "zh": "市场情况会影响看房、出价和日常任务量。"
+        },
+        {
+          "en": "Residential and commercial work can create different schedules and priorities.",
+          "zh": "住宅和商业工作节奏不同。"
+        },
+        {
+          "en": "Organization and time management are essential.",
+          "zh": "组织能力和时间管理很关键。"
+        }
+      ],
+      "details": [
+        {
+          "titleEn": "Day-to-day work",
+          "titleZh": "日常工作",
+          "en": "This lesson makes the job feel real: research, client communication, showings, document handling, and adjusting the workload to the market.",
+          "zh": "这一课把工作讲得更具体：研究、沟通、看房、文件处理，以及根据市场变化调整工作量。"
+        },
+        {
+          "titleEn": "What changes the schedule",
+          "titleZh": "什么会改变日程",
+          "en": "When the market is busy, the same salesperson may have more appointments, more follow-up, and less predictable time blocks.",
+          "zh": "市场一忙，同一个销售人员就会有更多预约、更多跟进，时间块也更不固定。"
+        },
+        {
+          "titleEn": "Main exam idea",
+          "titleZh": "考试主线",
+          "en": "The question is usually testing whether you understand that the role is active, organized, and responsive to changing conditions.",
+          "zh": "题目通常在考你是否理解：这个角色是主动型的、需要组织能力的，而且要随市场变化而调整。"
+        }
+      ],
+      "vocab": [
+        {
+          "en": "Schedule",
+          "zh": "日程"
+        },
+        {
+          "en": "Follow-up",
+          "zh": "跟进"
+        },
+        {
+          "en": "Time management",
+          "zh": "时间管理"
+        },
+        {
+          "en": "Prioritization",
+          "zh": "优先排序"
+        }
+      ],
+      "examTips": [
+        "Look for the link between market demand and workload.",
+        "Questions may test time blocks, planning, and responsiveness.",
+        "A strong answer usually mentions organizing, prioritizing, and adapting.",
+        "Do not answer as if the job has fixed hours and fixed tasks."
+      ],
+      "examTrap": "不要只记“sales”这个词，要记住整个工作链条包括沟通、协调、研究和计划。",
+      "memoryHook": "Market changes the schedule; planning keeps the job under control."
+    },
+    {
+      "id": "lesson-5",
+      "number": "Lesson 5",
+      "titleEn": "Remuneration and Budgeting",
+      "titleZh": "报酬与预算",
+      "badge": "Money",
+      "summary": "This lesson explains commission-based pay, how remuneration can be shared, and why budgeting matters when income is not fixed.",
+      "summaryZh": "这一课核心是：报酬常常来自佣金，所以预算能力是一项很重要的职业技能。",
+      "mustKnow": [
+        {
+          "en": "Remuneration is often commission-based.",
+          "zh": "报酬通常是佣金制。"
+        },
+        {
+          "en": "Income can fluctuate over time, so budgeting is an important professional skill.",
+          "zh": "收入可能随时间波动，所以预算是一项重要的职业技能。"
+        },
+        {
+          "en": "Remuneration can be shared between brokerages.",
+          "zh": "报酬可能在两个 brokerage 之间分配。"
+        },
+        {
+          "en": "Remuneration can also be shared between a brokerage and a broker or salesperson.",
+          "zh": "报酬也可能在 brokerage 与 broker / salesperson 之间分配。"
+        }
+      ],
+      "details": [
+        {
+          "titleEn": "What the lesson wants you to notice",
+          "titleZh": "这课要你注意什么",
+          "en": "The main point is not just that money is earned, but that income may arrive unevenly, so a salesperson has to plan ahead.",
+          "zh": "重点不只是“能赚钱”，而是收入可能不均匀到来，所以必须提前规划。"
+        },
+        {
+          "titleEn": "Key financial thinking",
+          "titleZh": "关键财务思路",
+          "en": "Commission, sharing arrangements, and irregular cash flow all lead back to the same idea: make a budget before the money gets tight.",
+          "zh": "佣金、分成安排和不稳定现金流，最终都指向同一个思路：在缺钱前先做预算。"
+        },
+        {
+          "titleEn": "Why it is tested",
+          "titleZh": "为什么会考",
+          "en": "The exam uses this lesson to see whether you can connect the career structure with personal money management.",
+          "zh": "考试借这一课来确认你能不能把职业结构和个人资金管理联系起来。"
+        }
+      ],
+      "vocab": [
+        {
+          "en": "Remuneration",
+          "zh": "报酬"
+        },
+        {
+          "en": "Commission",
+          "zh": "佣金"
+        },
+        {
+          "en": "Budgeting",
+          "zh": "预算编制"
+        },
+        {
+          "en": "Cash flow",
+          "zh": "现金流"
+        }
+      ],
+      "examTips": [
+        "Watch for wording about commission and variable income.",
+        "The safest answer is the one that connects earnings with planning.",
+        "Do not overstate certainty when the lesson is about fluctuation.",
+        "Budgeting is presented as a professional habit, not just a personal hobby."
+      ],
+      "examTrap": "高频陷阱是 gross 和 net、share 和 split、佣金收入和实际可支配收入。",
+      "memoryHook": "Unsteady income calls for steady budget habits."
+    },
+    {
+      "id": "lesson-6",
+      "number": "Module Summary",
+      "titleEn": "Module Summary",
+      "titleZh": "模块总结",
+      "badge": "Review",
+      "summary": "The summary lesson is the final consolidation point. Use it to check whether you can explain the whole module without looking at notes.",
+      "summaryZh": "总结课不是新知识，而是把整模块串起来。",
+      "mustKnow": [
+        {
+          "en": "You should be able to explain TRESA, RECO, registration steps, core skills, role/tasks, and remuneration.",
+          "zh": "你应该能讲清 TRESA、RECO、注册流程、核心技能、工作职责和报酬。"
+        },
+        {
+          "en": "If you can teach the module in your own words, you are much closer to exam-ready.",
+          "zh": "如果你能用自己的话讲一遍，就已经接近可考试状态。"
+        },
+        {
+          "en": "Use the summary lesson as a self-check before Exam 1.",
+          "zh": "把总结课当成 Exam 1 前的自测。"
+        }
+      ],
+      "details": [
+        {
+          "titleEn": "Self-check",
+          "titleZh": "自我检查",
+          "en": "Try to explain the module in one short paragraph without looking at your notes. If you can do that, the structure is sticking.",
+          "zh": "试着不看笔记，用一小段话把整模块讲出来。如果能做到，说明结构已经记住了。"
+        },
+        {
+          "titleEn": "What to review",
+          "titleZh": "回看重点",
+          "en": "The safest review loop is law and ethics, registration, skills, work style, and remuneration in that order.",
+          "zh": "最稳的复习顺序是：法律与道德、注册、技能、工作方式、报酬。"
+        },
+        {
+          "titleEn": "Final purpose",
+          "titleZh": "最终目的",
+          "en": "This lesson is the point where all the earlier ideas should come together as one coherent picture of the profession.",
+          "zh": "这节总结课的作用，就是把前面的内容合成一张完整的职业图景。"
+        }
+      ],
+      "vocab": [
+        {
+          "en": "Review",
+          "zh": "复习"
+        },
+        {
+          "en": "Structure",
+          "zh": "结构"
+        },
+        {
+          "en": "Coherent",
+          "zh": "连贯的"
+        },
+        {
+          "en": "Self-check",
+          "zh": "自测"
+        }
+      ],
+      "examTips": [
+        "Use this lesson as a final review loop.",
+        "If you can teach the module out loud, you are in good shape.",
+        "The summary usually exposes weak spots in law, process, and money topics.",
+        "Revisit the earlier lessons when you miss a summary point."
+      ],
+      "examTrap": "总结课最适合做回顾，不要跳过。很多错题其实都能从这里回头修正。",
+      "memoryHook": "Explain it once in your own words."
+    }
+  ],
+  "quizQuestions": [
+    {
+      "en": "What is the main purpose of TRESA in Ontario?",
+      "zh": "TRESA 在安省的主要目的是什么？",
+      "options": [
+        {
+          "en": "To regulate real estate trading and protect consumers.",
+          "zh": "监管房地产交易并保护消费者。"
+        },
+        {
+          "en": "To set income tax rates for salespersons.",
+          "zh": "为销售人员设定所得税率。"
+        },
+        {
+          "en": "To license only commercial buildings.",
+          "zh": "只给商业建筑发证。"
+        },
+        {
+          "en": "To replace all brokerages with government offices.",
+          "zh": "用政府办公室取代所有 brokerage。"
+        }
+      ],
+      "answer": 0,
+      "why": "TRESA provides the legal framework for the profession and protects the public. / TRESA 是法律框架，重点是保护消费者。",
+      "lessonId": "lesson-1"
+    },
+    {
+      "en": "Who administers TRESA on behalf of the provincial government?",
+      "zh": "谁代表省政府执行 TRESA？",
+      "options": [
+        {
+          "en": "RECO",
+          "zh": "RECO"
+        },
+        {
+          "en": "A local brokerage",
+          "zh": "本地 brokerage"
+        },
+        {
+          "en": "A property inspector",
+          "zh": "物业检查员"
+        },
+        {
+          "en": "The seller",
+          "zh": "卖方"
+        }
+      ],
+      "answer": 0,
+      "why": "RECO is the regulator named in the module materials. / RECO 是课程里明确写出的监管机构。",
+      "lessonId": "lesson-1"
+    },
+    {
+      "en": "In Module 1, what does the word registrant refer to?",
+      "zh": "在 Module 1 里，registrant 指什么？",
+      "options": [
+        {
+          "en": "Any individual or brokerage registered to trade in real estate.",
+          "zh": "任何已注册从事房地产交易的个人或 brokerage。"
+        },
+        {
+          "en": "Only the broker of record.",
+          "zh": "只有 broker of record。"
+        },
+        {
+          "en": "Any person buying a house.",
+          "zh": "任何买房的人。"
+        },
+        {
+          "en": "Only a lawyer.",
+          "zh": "只有律师。"
+        }
+      ],
+      "answer": 0,
+      "why": "The course uses registrant for registered individuals and brokerages. / 课程里 registrant 的范围更广。",
+      "lessonId": "lesson-1"
+    },
+    {
+      "en": "Which set of skills best matches Lesson 3?",
+      "zh": "哪组技能最符合 Lesson 3？",
+      "options": [
+        {
+          "en": "Confidence, persistence, computer literacy, organizing and planning.",
+          "zh": "自信、坚持、电脑素养、组织与规划。"
+        },
+        {
+          "en": "Painting, carpentry, and plumbing.",
+          "zh": "油漆、木工和水管。"
+        },
+        {
+          "en": "Only memorizing property taxes.",
+          "zh": "只背物业税。"
+        },
+        {
+          "en": "Cooking and baking.",
+          "zh": "烹饪和烘焙。"
+        }
+      ],
+      "answer": 0,
+      "why": "Lesson 3 is about transferable success skills, not trade work. / Lesson 3 讲的是可迁移的成功技能。",
+      "lessonId": "lesson-3"
+    },
+    {
+      "en": "Why does Lesson 4 emphasize organization and time management?",
+      "zh": "为什么 Lesson 4 强调组织和时间管理？",
+      "options": [
+        {
+          "en": "Because market conditions and transaction demands can change a salesperson’s schedule.",
+          "zh": "因为市场状况和交易需求会改变销售人员的日程。"
+        },
+        {
+          "en": "Because real estate is a fixed-hours factory job.",
+          "zh": "因为房地产是固定工时的工厂工作。"
+        },
+        {
+          "en": "Because salespeople never work with buyers.",
+          "zh": "因为销售人员从不和买家打交道。"
+        },
+        {
+          "en": "Because planning is optional.",
+          "zh": "因为规划是可选的。"
+        }
+      ],
+      "answer": 0,
+      "why": "The lesson says market conditions change the workload, so planning matters. / 课程直接把市场变化和日程调整联系起来。",
+      "lessonId": "lesson-4"
+    },
+    {
+      "en": "What is a key reason Lesson 5 stresses budgeting?",
+      "zh": "Lesson 5 为什么强调预算？",
+      "options": [
+        {
+          "en": "Commission income can be irregular or unpredictable.",
+          "zh": "佣金收入可能不稳定、不可预测。"
+        },
+        {
+          "en": "All salespeople receive the same fixed salary.",
+          "zh": "所有销售人员都有固定工资。"
+        },
+        {
+          "en": "Budgeting only matters for landlords.",
+          "zh": "预算只对房东重要。"
+        },
+        {
+          "en": "Commission is paid daily in cash.",
+          "zh": "佣金每天现金发放。"
+        }
+      ],
+      "answer": 0,
+      "why": "The course highlights commission-based income and the need to plan around it. / 课程强调佣金制和现金流波动。",
+      "lessonId": "lesson-5"
+    },
+    {
+      "en": "If a buyer asks about a structural concern outside your expertise, what is the best response?",
+      "zh": "如果买家问到你专业范围外的结构问题，最好的做法是什么？",
+      "options": [
+        {
+          "en": "Recommend a qualified property inspector or specialist.",
+          "zh": "建议找合资格的验房师或专家。"
+        },
+        {
+          "en": "Pretend to know the answer.",
+          "zh": "假装知道答案。"
+        },
+        {
+          "en": "Guarantee that the house is perfect.",
+          "zh": "保证房子没有任何问题。"
+        },
+        {
+          "en": "Ignore the question.",
+          "zh": "忽略这个问题。"
+        }
+      ],
+      "answer": 0,
+      "why": "The Code of Ethics stresses competent service and referring services when needed. / Code of Ethics 强调能力边界和必要时转介。",
+      "lessonId": "lesson-1"
+    },
+    {
+      "en": "How long is Exam 1 according to Humber’s exam information?",
+      "zh": "根据 Humber 的考试信息，Exam 1 多长时间？",
+      "options": [
+        {
+          "en": "2 hours",
+          "zh": "2 小时"
+        },
+        {
+          "en": "45 minutes",
+          "zh": "45 分钟"
+        },
+        {
+          "en": "3 days",
+          "zh": "3 天"
+        },
+        {
+          "en": "No time limit",
+          "zh": "没有时间限制"
+        }
+      ],
+      "answer": 0,
+      "why": "RECO lists Course 1 Exam 1 as a two-hour theory exam. / RECO 官方把 Course 1 Exam 1 写成 2 小时理论考试。",
+      "lessonId": "exam"
+    },
+    {
+      "en": "Which role has ultimate responsibility for the brokerage’s operations?",
+      "zh": "谁对 brokerage 的运营承担最终责任？",
+      "options": [
+        {
+          "en": "Broker of record",
+          "zh": "Broker of record"
+        },
+        {
+          "en": "Buyer",
+          "zh": "买方"
+        },
+        {
+          "en": "Property appraiser",
+          "zh": "估价师"
+        },
+        {
+          "en": "Open house visitor",
+          "zh": "开放日访客"
+        }
+      ],
+      "answer": 0,
+      "why": "Lesson 1 explains the broker of record has ultimate responsibility for brokerage operations. / Lesson 1 直接说明 broker of record 负最终责任。",
+      "lessonId": "lesson-1"
+    },
+    {
+      "en": "What does the 24-month window in Module 1 refer to?",
+      "zh": "Module 1 里的 24 个月窗口指什么？",
+      "options": [
+        {
+          "en": "Pre-registration education requirements",
+          "zh": "预注册教育要求"
+        },
+        {
+          "en": "Medical school",
+          "zh": "医学院"
+        },
+        {
+          "en": "Driver training",
+          "zh": "驾驶培训"
+        },
+        {
+          "en": "A new mortgage",
+          "zh": "新的房贷"
+        }
+      ],
+      "answer": 0,
+      "why": "Lesson 2 places the 24-month timing in the pre-registration phase. / Lesson 2 把 24 个月放在预注册阶段。",
+      "lessonId": "lesson-2"
+    },
+    {
+      "en": "Which statement best describes the salesperson’s work in Module 1?",
+      "zh": "哪句话最符合 Module 1 对销售人员工作的描述？",
+      "options": [
+        {
+          "en": "It includes research, planning, communication, and adapting to market conditions.",
+          "zh": "包括研究、规划、沟通和根据市场变化调整。"
+        },
+        {
+          "en": "It is only about placing ads online.",
+          "zh": "只是在网上发广告。"
+        },
+        {
+          "en": "It never involves people skills.",
+          "zh": "完全不涉及人际沟通。"
+        },
+        {
+          "en": "It is the same every day regardless of the market.",
+          "zh": "无论市场如何，每天都一模一样。"
+        }
+      ],
+      "answer": 0,
+      "why": "Lesson 4 links work variety, market conditions, and coordination tasks. / Lesson 4 讲的是多任务、随市场变化的工作。",
+      "lessonId": "lesson-4"
+    },
+    {
+      "en": "Which pair best captures the money lesson?",
+      "zh": "哪一组最能概括报酬课？",
+      "options": [
+        {
+          "en": "Commission-based income and budgeting",
+          "zh": "佣金收入与预算"
+        },
+        {
+          "en": "Fixed salary and retirement only",
+          "zh": "固定工资与退休金"
+        },
+        {
+          "en": "Dividend investing and stock options",
+          "zh": "股息投资与股票期权"
+        },
+        {
+          "en": "No need to track expenses",
+          "zh": "不需要记开支"
+        }
+      ],
+      "answer": 0,
+      "why": "Lesson 5 connects remuneration and budgeting because income can vary. / Lesson 5 就是把报酬和预算绑在一起。",
+      "lessonId": "lesson-5"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "TRESA",
+      "zh": "Trust in Real Estate Services Act, 2002（安省房地产服务法）"
+    },
+    {
+      "term": "RECO",
+      "zh": "Real Estate Council of Ontario（安省房地产委员会）"
+    },
+    {
+      "term": "Code of Ethics",
+      "zh": "职业道德准则"
+    },
+    {
+      "term": "registrant",
+      "zh": "已注册从业者或 brokerage"
+    },
+    {
+      "term": "brokerage",
+      "zh": "经纪公司"
+    },
+    {
+      "term": "broker of record",
+      "zh": "负责人经纪人，承担 brokerage 最终责任"
+    },
+    {
+      "term": "commission",
+      "zh": "佣金，按成交结果计算的报酬"
+    },
+    {
+      "term": "budgeting",
+      "zh": "预算管理，处理不固定收入"
+    },
+    {
+      "term": "consumer",
+      "zh": "消费者"
+    },
+    {
+      "term": "consumer protection",
+      "zh": "消费者保护"
+    },
+    {
+      "term": "representation",
+      "zh": "代理关系"
+    },
+    {
+      "term": "agency",
+      "zh": "代理"
+    },
+    {
+      "term": "customer",
+      "zh": "客户/顾客，不一定有代理关系"
+    },
+    {
+      "term": "listing",
+      "zh": "挂牌"
+    },
+    {
+      "term": "buyer",
+      "zh": "买方"
+    },
+    {
+      "term": "seller",
+      "zh": "卖方"
+    },
+    {
+      "term": "condominium",
+      "zh": "公寓产权/共管公寓"
+    },
+    {
+      "term": "lease",
+      "zh": "租约"
+    },
+    {
+      "term": "appraisal",
+      "zh": "估价"
+    },
+    {
+      "term": "zoning",
+      "zh": "分区规划/用途管制"
+    },
+    {
+      "term": "Agreement of Purchase and Sale",
+      "zh": "买卖协议"
+    },
+    {
+      "term": "APS",
+      "zh": "买卖协议的简称"
+    },
+    {
+      "term": "deposit",
+      "zh": "定金"
+    },
+    {
+      "term": "counteroffer",
+      "zh": "反要约"
+    },
+    {
+      "term": "conditional",
+      "zh": "附条件"
+    },
+    {
+      "term": "due diligence",
+      "zh": "尽职调查"
+    },
+    {
+      "term": "commercial",
+      "zh": "商业地产"
+    },
+    {
+      "term": "market value",
+      "zh": "市场价值"
+    },
+    {
+      "term": "mortgage",
+      "zh": "房贷/按揭"
+    },
+    {
+      "term": "insurance",
+      "zh": "保险"
+    },
+    {
+      "term": "planning",
+      "zh": "规划"
+    },
+    {
+      "term": "negotiation",
+      "zh": "谈判"
+    },
+    {
+      "term": "marketing",
+      "zh": "营销"
+    },
+    {
+      "term": "technology",
+      "zh": "技术"
+    },
+    {
+      "term": "fee simple",
+      "zh": "完全产权 / 自由保有地产"
+    },
+    {
+      "term": "freehold",
+      "zh": "自由保有产权"
+    },
+    {
+      "term": "leasehold",
+      "zh": "租赁产权"
+    },
+    {
+      "term": "joint tenancy",
+      "zh": "联权共有"
+    },
+    {
+      "term": "tenancy in common",
+      "zh": "按份共有"
+    },
+    {
+      "term": "co-operative",
+      "zh": "合作社产权"
+    },
+    {
+      "term": "easement",
+      "zh": "地役权"
+    },
+    {
+      "term": "encroachment",
+      "zh": "侵占 / 越界"
+    },
+    {
+      "term": "restrictive covenant",
+      "zh": "限制性约定"
+    },
+    {
+      "term": "expropriation",
+      "zh": "征收"
+    },
+    {
+      "term": "escheat",
+      "zh": "无主财产收归政府"
+    },
+    {
+      "term": "metes and bounds",
+      "zh": "界址与方位描述法"
+    },
+    {
+      "term": "reference plan",
+      "zh": "参考平面图"
+    },
+    {
+      "term": "land titles",
+      "zh": "土地权属登记系统"
+    },
+    {
+      "term": "land registry",
+      "zh": "土地登记系统"
+    },
+    {
+      "term": "POLARIS",
+      "zh": "安省土地登记电子系统"
+    },
+    {
+      "term": "survey",
+      "zh": "测量图 / 地籍测量"
+    },
+    {
+      "term": "TRESA",
+      "zh": "Trust in Real Estate Services Act, 2002（安省房地产服务法）"
+    },
+    {
+      "term": "disclosure",
+      "zh": "披露"
+    },
+    {
+      "term": "supervision",
+      "zh": "监督管理"
+    },
+    {
+      "term": "misrepresentation",
+      "zh": "虚假陈述"
+    },
+    {
+      "term": "human rights",
+      "zh": "人权 / 平等权利"
+    },
+    {
+      "term": "fair housing",
+      "zh": "公平住房"
+    },
+    {
+      "term": "privacy",
+      "zh": "隐私"
+    },
+    {
+      "term": "advertising",
+      "zh": "广告宣传"
+    },
+    {
+      "term": "electronic",
+      "zh": "电子的"
+    },
+    {
+      "term": "communications",
+      "zh": "沟通 / 通讯"
+    },
+    {
+      "term": "zoning by-law",
+      "zh": "分区条例"
+    },
+    {
+      "term": "tenant",
+      "zh": "租客"
+    },
+    {
+      "term": "landlord",
+      "zh": "房东"
+    },
+    {
+      "term": "lease agreement",
+      "zh": "租赁协议"
+    },
+    {
+      "term": "occupancy",
+      "zh": "占用 / 居住"
+    },
+    {
+      "term": "environmental",
+      "zh": "环境相关的"
+    },
+    {
+      "term": "compliance",
+      "zh": "合规"
+    },
+    {
+      "term": "records",
+      "zh": "记录"
+    }
+  ],
+  "commonGlossary": [
+    {
+      "term": "lesson",
+      "zh": "课 / 课程单元"
+    },
+    {
+      "term": "lessons",
+      "zh": "课程单元（复数）"
+    },
+    {
+      "term": "module",
+      "zh": "模块"
+    },
+    {
+      "term": "modules",
+      "zh": "模块（复数）"
+    },
+    {
+      "term": "overview",
+      "zh": "概览 / 总览"
+    },
+    {
+      "term": "summary",
+      "zh": "总结 / 概要"
+    },
+    {
+      "term": "focus",
+      "zh": "重点 / 聚焦"
+    },
+    {
+      "term": "focuses",
+      "zh": "聚焦于"
+    },
+    {
+      "term": "practice",
+      "zh": "练习 / 操练"
+    },
+    {
+      "term": "review",
+      "zh": "复习 / 回顾"
+    },
+    {
+      "term": "current",
+      "zh": "当前的"
+    },
+    {
+      "term": "future",
+      "zh": "未来的"
+    },
+    {
+      "term": "official",
+      "zh": "官方的"
+    },
+    {
+      "term": "available",
+      "zh": "可用的 / 可开放的"
+    },
+    {
+      "term": "locked",
+      "zh": "锁定的 / 未开放的"
+    },
+    {
+      "term": "open",
+      "zh": "打开 / 开放"
+    },
+    {
+      "term": "using",
+      "zh": "使用中"
+    },
+    {
+      "term": "use",
+      "zh": "使用 / 运用"
+    },
+    {
+      "term": "used",
+      "zh": "已使用的"
+    },
+    {
+      "term": "help",
+      "zh": "帮助"
+    },
+    {
+      "term": "guide",
+      "zh": "指南 / 引导"
+    },
+    {
+      "term": "quick",
+      "zh": "快速的"
+    },
+    {
+      "term": "simple",
+      "zh": "简单的"
+    },
+    {
+      "term": "clear",
+      "zh": "清楚的"
+    },
+    {
+      "term": "basic",
+      "zh": "基础的"
+    },
+    {
+      "term": "main",
+      "zh": "主要的"
+    },
+    {
+      "term": "start",
+      "zh": "开始"
+    },
+    {
+      "term": "study",
+      "zh": "学习 / 研习"
+    },
+    {
+      "term": "studies",
+      "zh": "学习内容"
+    },
+    {
+      "term": "learn",
+      "zh": "学习 / 了解"
+    },
+    {
+      "term": "learning",
+      "zh": "学习中的"
+    },
+    {
+      "term": "understand",
+      "zh": "理解"
+    },
+    {
+      "term": "explain",
+      "zh": "解释 / 说明"
+    },
+    {
+      "term": "explains",
+      "zh": "解释"
+    },
+    {
+      "term": "show",
+      "zh": "展示 / 显示"
+    },
+    {
+      "term": "shown",
+      "zh": "显示出来的"
+    },
+    {
+      "term": "keep",
+      "zh": "保持 / 继续"
+    },
+    {
+      "term": "keeps",
+      "zh": "保持"
+    },
+    {
+      "term": "change",
+      "zh": "变化 / 改变"
+    },
+    {
+      "term": "changes",
+      "zh": "变化"
+    },
+    {
+      "term": "daily",
+      "zh": "日常的"
+    },
+    {
+      "term": "result",
+      "zh": "结果"
+    },
+    {
+      "term": "results",
+      "zh": "结果（复数）"
+    },
+    {
+      "term": "action",
+      "zh": "动作 / 操作"
+    },
+    {
+      "term": "actions",
+      "zh": "操作"
+    },
+    {
+      "term": "role",
+      "zh": "角色 / 职责"
+    },
+    {
+      "term": "roles",
+      "zh": "角色（复数）"
+    },
+    {
+      "term": "work",
+      "zh": "工作 / 运作"
+    },
+    {
+      "term": "works",
+      "zh": "运作 / 工作"
+    },
+    {
+      "term": "time",
+      "zh": "时间"
+    },
+    {
+      "term": "before",
+      "zh": "在……之前"
+    },
+    {
+      "term": "after",
+      "zh": "在……之后"
+    },
+    {
+      "term": "during",
+      "zh": "在……期间"
+    },
+    {
+      "term": "when",
+      "zh": "当……时"
+    },
+    {
+      "term": "who",
+      "zh": "谁"
+    },
+    {
+      "term": "what",
+      "zh": "什么"
+    },
+    {
+      "term": "why",
+      "zh": "为什么"
+    },
+    {
+      "term": "how",
+      "zh": "如何 / 怎么"
+    },
+    {
+      "term": "because",
+      "zh": "因为"
+    },
+    {
+      "term": "important",
+      "zh": "重要的"
+    },
+    {
+      "term": "core",
+      "zh": "核心的"
+    },
+    {
+      "term": "note",
+      "zh": "笔记 / 说明"
+    },
+    {
+      "term": "notes",
+      "zh": "笔记"
+    },
+    {
+      "term": "step",
+      "zh": "步骤"
+    },
+    {
+      "term": "steps",
+      "zh": "步骤（复数）"
+    },
+    {
+      "term": "legal",
+      "zh": "法律的"
+    },
+    {
+      "term": "professional",
+      "zh": "专业的"
+    },
+    {
+      "term": "public",
+      "zh": "公众的 / 公共的"
+    },
+    {
+      "term": "consumer",
+      "zh": "消费者"
+    },
+    {
+      "term": "property",
+      "zh": "物业 / 财产"
+    },
+    {
+      "term": "properties",
+      "zh": "物业 / 财产（复数）"
+    },
+    {
+      "term": "buyer",
+      "zh": "买方"
+    },
+    {
+      "term": "seller",
+      "zh": "卖方"
+    },
+    {
+      "term": "regulatory",
+      "zh": "监管的 / 监管相关的"
+    },
+    {
+      "term": "environment",
+      "zh": "环境 / 环境背景"
+    },
+    {
+      "term": "educational",
+      "zh": "教育相关的"
+    },
+    {
+      "term": "education",
+      "zh": "教育 / 学习"
+    },
+    {
+      "term": "registration",
+      "zh": "注册 / 登记"
+    },
+    {
+      "term": "requirements",
+      "zh": "要求（复数）"
+    },
+    {
+      "term": "requirement",
+      "zh": "要求"
+    },
+    {
+      "term": "skills",
+      "zh": "技能"
+    },
+    {
+      "term": "skill",
+      "zh": "技能"
+    },
+    {
+      "term": "salesperson",
+      "zh": "销售人员"
+    },
+    {
+      "term": "salespeople",
+      "zh": "销售人员（复数）"
+    },
+    {
+      "term": "tasks",
+      "zh": "任务（复数）"
+    },
+    {
+      "term": "task",
+      "zh": "任务"
+    },
+    {
+      "term": "activities",
+      "zh": "活动 / 日常工作（复数）"
+    },
+    {
+      "term": "activity",
+      "zh": "活动 / 行为"
+    },
+    {
+      "term": "remuneration",
+      "zh": "报酬 / 酬金"
+    },
+    {
+      "term": "budgeting",
+      "zh": "预算编制"
+    },
+    {
+      "term": "legislation",
+      "zh": "立法 / 法律"
+    },
+    {
+      "term": "regulations",
+      "zh": "法规（复数）"
+    },
+    {
+      "term": "regulation",
+      "zh": "法规 / 管制"
+    },
+    {
+      "term": "ownership",
+      "zh": "所有权 / 产权"
+    },
+    {
+      "term": "limitations",
+      "zh": "限制（复数）"
+    },
+    {
+      "term": "limitation",
+      "zh": "限制"
+    },
+    {
+      "term": "description",
+      "zh": "描述 / 说明"
+    },
+    {
+      "term": "rights",
+      "zh": "权利（复数）"
+    },
+    {
+      "term": "right",
+      "zh": "权利 / 正确的"
+    },
+    {
+      "term": "land",
+      "zh": "土地"
+    },
+    {
+      "term": "profession",
+      "zh": "职业 / 行业"
+    },
+    {
+      "term": "professionalism",
+      "zh": "专业精神"
+    },
+    {
+      "term": "transaction",
+      "zh": "交易"
+    },
+    {
+      "term": "transactions",
+      "zh": "交易（复数）"
+    },
+    {
+      "term": "consolidation",
+      "zh": "整合 / 汇总"
+    },
+    {
+      "term": "detailing",
+      "zh": "细化 / 详细说明"
+    },
+    {
+      "term": "detailed",
+      "zh": "详细的"
+    },
+    {
+      "term": "highlight",
+      "zh": "强调 / 重点"
+    },
+    {
+      "term": "highlights",
+      "zh": "重点 / 要点"
+    },
+    {
+      "term": "course",
+      "zh": "课程"
+    },
+    {
+      "term": "courses",
+      "zh": "课程（复数）"
+    },
+    {
+      "term": "officially",
+      "zh": "正式地 / 官方地"
+    }
+  ],
+  "moduleStudyModules": [
+    {
+      "id": "study-module-2",
+      "code": "Module 2",
+      "title": "Introducing the Fundamentals of Real Estate",
+      "zhTitle": "房地产基础入门",
+      "time": "3 hrs 20 mins",
+      "status": "Outline-based placeholder; refine after unlock / 基于课程大纲的占位版，解锁后再校正",
+      "summary": "Standard real estate terms, categories of residential and commercial structures, and RECO’s regulatory role.",
+      "zhSummary": "标准房地产术语、住宅和商业结构分类，以及 RECO 的监管角色。",
+      "focus": [
+        "Trading language",
+        "Property types",
+        "RECO and industry bodies"
+      ],
+      "cards": [
+        {
+          "kicker": "Card 1",
+          "titleEn": "Trading Language",
+          "titleZh": "交易语言",
+          "badge": "Core",
+          "summary": "Learn the words that show up when a property changes hands or changes use. Study notes keep pointing back to acquisition, disposition, sale, purchase, exchange, option, lease, and rental.",
+          "summaryZh": "先把“交易语言”吃透，因为学习资料一直在强调 acquisition、disposition、sale、purchase、exchange、option、lease、rental 这些词。",
+          "mustKnow": [
+            {
+              "en": "Trade is broader than just buy and sell.",
+              "zh": "trade 不只是买卖，还包括更广的交易行为。"
+            },
+            {
+              "en": "An option gives a right, not an obligation.",
+              "zh": "option 是权利，不是义务。"
+            },
+            {
+              "en": "Lease and rental can also be trading activities.",
+              "zh": "lease 和 rental 也可能算交易活动。"
+            }
+          ],
+          "examTrap": "If the question asks NOT a trading activity, first check whether the answer still involves a transfer of value or use rights.",
+          "memoryHook": "Trade = more than sale."
+        },
+        {
+          "kicker": "Card 2",
+          "titleEn": "Property Types and Structure Forms",
+          "titleZh": "物业类型与结构形式",
+          "badge": "Property",
+          "summary": "This card covers the way properties are described: residential versus commercial, and the common structure words that affect marketing, value, and buyer fit.",
+          "summaryZh": "这张卡讲房屋本身怎么描述：住宅还是商业、结构类型是什么，以及这些信息如何影响营销、价值和买家匹配。",
+          "mustKnow": [
+            {
+              "en": "Property type can change buyer demand and pricing.",
+              "zh": "物业类型会影响买家需求和价格。"
+            },
+            {
+              "en": "Do not confuse property use with ownership form.",
+              "zh": "不要把用途和产权形式混在一起。"
+            },
+            {
+              "en": "A structure detail can be the difference between two answer choices.",
+              "zh": "结构细节常常就是两道选项之间的差别。"
+            }
+          ],
+          "examTrap": "When you see detached, semi-detached, townhouse, apartment, or commercial, slow down and ask what the question is really testing.",
+          "memoryHook": "Type drives demand."
+        },
+        {
+          "kicker": "Card 3",
+          "titleEn": "Industry Organizations and Oversight",
+          "titleZh": "行业机构与监管",
+          "badge": "Regulation",
+          "summary": "Study notes often pair the official regulator with industry bodies. Keep the hierarchy clear: who regulates, who represents the profession, and who sets the legal floor.",
+          "summaryZh": "学习资料常把监管机构和行业组织放在一起考。关键是分清：谁监管、谁代表行业、谁负责法律底线。",
+          "mustKnow": [
+            {
+              "en": "RECO is the regulator for the province.",
+              "zh": "RECO 是省级监管机构。"
+            },
+            {
+              "en": "Industry associations are not the same as the regulator.",
+              "zh": "行业协会不等于监管机构。"
+            },
+            {
+              "en": "The Ministry sets the broader government frame.",
+              "zh": "省政府部门提供更大的政策框架。"
+            }
+          ],
+          "examTrap": "Do not collapse association, board, and regulator into one thing.",
+          "memoryHook": "Regulator, association, ministry."
+        },
+        {
+          "kicker": "Card 4",
+          "titleEn": "Scenario Reading and Exam Traps",
+          "titleZh": "场景题读题法",
+          "badge": "Strategy",
+          "summary": "Module 2 looks simple, but exam writers like to hide the answer in wording. Train yourself to identify the transaction stage, the people involved, and whether the question is about compliance, marketing, or the property itself.",
+          "summaryZh": "Module 2 表面简单，但出题很爱藏陷阱。你要先找交易阶段、人物角色，再判断题目是在问合规、营销，还是房屋本身。",
+          "mustKnow": [
+            {
+              "en": "Read the role first, then the action.",
+              "zh": "先看角色，再看动作。"
+            },
+            {
+              "en": "NOT questions are designed to catch half-remembered definitions.",
+              "zh": "NOT 题最爱抓半懂不懂的定义。"
+            },
+            {
+              "en": "The best answer matches the stage of the transaction.",
+              "zh": "最佳答案要符合交易所处阶段。"
+            }
+          ],
+          "examTrap": "If two choices look right, the better one usually matches the exact client role and the exact transaction stage.",
+          "memoryHook": "Role first, action second."
+        }
+      ]
+    },
+    {
+      "id": "study-module-3",
+      "code": "Module 3",
+      "title": "Introducing Property Ownership, Rights, and Limitations",
+      "zhTitle": "产权、权利与限制",
+      "time": "3 hrs 50 mins",
+      "status": "Outline-based placeholder; refine after unlock / 基于课程大纲的占位版，解锁后再校正",
+      "summary": "Different property ownership options, rights, and limitations associated with each option.",
+      "zhSummary": "不同产权形式，以及每种形式对应的权利和限制。",
+      "focus": [
+        "Ownership types",
+        "Rights and restrictions",
+        "Government limitations"
+      ],
+      "cards": [
+        {
+          "kicker": "Card 1",
+          "titleEn": "Ownership Types",
+          "titleZh": "产权类型",
+          "badge": "Core",
+          "summary": "This card covers the major ownership forms that appear in study guides and practice questions: freehold, fee simple, leasehold, condominium ownership, joint tenancy, tenancy in common, and co-operative ownership.",
+          "summaryZh": "这里先把最常见的产权形式打包：freehold、fee simple、leasehold、condominium、joint tenancy、tenancy in common、co-operative。",
+          "mustKnow": [
+            {
+              "en": "Ownership form controls how title and transfer work.",
+              "zh": "产权形式决定 title 和转让方式。"
+            },
+            {
+              "en": "Freehold and leasehold are not the same.",
+              "zh": "freehold 和 leasehold 不是一回事。"
+            },
+            {
+              "en": "Joint tenancy and tenancy in common differ in survivorship and shares.",
+              "zh": "joint tenancy 和 tenancy in common 在继承和份额上不同。"
+            }
+          ],
+          "examTrap": "If the question asks who owns what, do not jump to the property use; start with the legal form of ownership.",
+          "memoryHook": "Form first, use second."
+        },
+        {
+          "kicker": "Card 2",
+          "titleEn": "The Bundle of Rights",
+          "titleZh": "权利束",
+          "badge": "Rights",
+          "summary": "Ownership is not just a label. The owner may possess, use, enjoy, exclude others, control, and dispose of the property, but each right can be limited by law or by private agreement.",
+          "summaryZh": "产权不只是一个名字。所有者通常拥有占有、使用、享受、排他、控制和处置的权利，但每一项权利都可能被法律或私人协议限制。",
+          "mustKnow": [
+            {
+              "en": "Rights can be split or limited.",
+              "zh": "权利可以被拆分或限制。"
+            },
+            {
+              "en": "Excluding others is part of ownership, but not absolute.",
+              "zh": "排他权是产权的一部分，但不是绝对的。"
+            },
+            {
+              "en": "Use and dispose are common exam words.",
+              "zh": "use 和 dispose 是常考词。"
+            }
+          ],
+          "examTrap": "Questions sometimes ask what an owner can do, but the real issue is whether there is a restriction on that right.",
+          "memoryHook": "Rights are powerful, not unlimited."
+        },
+        {
+          "kicker": "Card 3",
+          "titleEn": "Private Restrictions",
+          "titleZh": "私人限制",
+          "badge": "Limits",
+          "summary": "Private restrictions include easements, encroachments, and restrictive covenants. These can shape how land is used even when the owner has title.",
+          "summaryZh": "私人限制包括地役权、侵占/越界和限制性约定。即使有产权，土地使用也可能被这些限制左右。",
+          "mustKnow": [
+            {
+              "en": "An easement is a right to use land in a limited way.",
+              "zh": "easement 是有限使用他人土地的权利。"
+            },
+            {
+              "en": "An encroachment is an intrusion onto another property.",
+              "zh": "encroachment 是对他人地产的越界侵占。"
+            },
+            {
+              "en": "A restrictive covenant limits how land may be used.",
+              "zh": "restrictive covenant 会限制土地用途。"
+            }
+          ],
+          "examTrap": "A restrictive covenant is not the same as zoning; one is private, the other is government-based.",
+          "memoryHook": "Private limits stay on title."
+        },
+        {
+          "kicker": "Card 4",
+          "titleEn": "Government Limitations",
+          "titleZh": "政府限制",
+          "badge": "Public Law",
+          "summary": "Government can limit ownership through zoning, bylaws, expropriation, escheat, and other rules that protect the public interest.",
+          "summaryZh": "政府可以通过分区、条例、征收、无主财产收归政府等方式限制产权，以保护公共利益。",
+          "mustKnow": [
+            {
+              "en": "Zoning controls how land may be used.",
+              "zh": "zoning 决定土地如何使用。"
+            },
+            {
+              "en": "Expropriation is compulsory taking for public use.",
+              "zh": "expropriation 是为公共用途强制征收。"
+            },
+            {
+              "en": "Escheat sends ownerless property back to the Crown or state.",
+              "zh": "escheat 是无主财产归政府。"
+            }
+          ],
+          "examTrap": "When the question sounds like a law or planning issue, ask whether the limit comes from government rather than from a private agreement.",
+          "memoryHook": "Public limit, public purpose."
+        }
+      ]
+    },
+    {
+      "id": "study-module-4",
+      "code": "Module 4",
+      "title": "Introducing Land Description and Land Registration",
+      "zhTitle": "土地描述与登记",
+      "time": "3 hrs 40 mins",
+      "status": "Outline-based placeholder; refine after unlock / 基于课程大纲的占位版，解锁后再校正",
+      "summary": "Land description, surveys, metes and bounds, land registration, documentation, land titles, and POLARIS.",
+      "zhSummary": "土地描述、测量、地界、登记、文件、土地权属和 POLARIS。",
+      "focus": [
+        "Surveys and descriptions",
+        "Registration process",
+        "POLARIS and land titles"
+      ],
+      "cards": [
+        {
+          "kicker": "Card 1",
+          "titleEn": "Land Description Basics",
+          "titleZh": "土地描述基础",
+          "badge": "Core",
+          "summary": "The module starts by showing how land is legally identified. Learn the difference between a legal description, a street address, and the document that proves how a parcel is described.",
+          "summaryZh": "这一模块先讲土地怎么被法律识别。要分清 legal description、街道地址，以及证明地块如何描述的文件。",
+          "mustKnow": [
+            {
+              "en": "A legal description is more precise than a mailing address.",
+              "zh": "legal description 比邮寄地址更精确。"
+            },
+            {
+              "en": "Lot and concession systems are used in some areas.",
+              "zh": "某些地区会用 lot and concession 体系。"
+            },
+            {
+              "en": "Metes and bounds uses boundaries and directions.",
+              "zh": "metes and bounds 是用边界和方向描述土地。"
+            }
+          ],
+          "examTrap": "If the question asks how a parcel is identified, do not answer with a street name unless the wording really points there.",
+          "memoryHook": "Legal description = exact land ID."
+        },
+        {
+          "kicker": "Card 2",
+          "titleEn": "Surveys and Measurement",
+          "titleZh": "测量与图纸",
+          "badge": "Survey",
+          "summary": "Survey language shows up often because it explains where one property ends and another begins. Study notes also like the old-chain measurement facts: 100 links make a chain and 80 chains make a mile.",
+          "summaryZh": "测量题很常见，因为它决定一块地的边界在哪里。学习资料还爱考旧制单位：100 links = 1 chain，80 chains = 1 mile。",
+          "mustKnow": [
+            {
+              "en": "A survey helps show boundaries and improvements.",
+              "zh": "survey 用来显示边界和地上改良。"
+            },
+            {
+              "en": "A surveyor’s real property report is more detailed than a simple sketch.",
+              "zh": "surveyor’s real property report 比草图更详细。"
+            },
+            {
+              "en": "Measurement facts can appear as a one-line NOT question.",
+              "zh": "测量数字可能会被做成一行 NOT 题。"
+            }
+          ],
+          "examTrap": "Do not treat a rough sketch and a full survey as the same thing.",
+          "memoryHook": "Survey = boundary proof."
+        },
+        {
+          "kicker": "Card 3",
+          "titleEn": "Land Registry and Land Titles",
+          "titleZh": "登记系统与权属系统",
+          "badge": "Registry",
+          "summary": "Understand the difference between recording ownership history and confirming the current title status. The exam often checks whether you know which system stores what, and why registration matters.",
+          "summaryZh": "要分清登记历史和确认当前权属状态。考试很爱问：哪个系统记录什么，为什么要登记。",
+          "mustKnow": [
+            {
+              "en": "Land registry and land titles are not identical concepts.",
+              "zh": "land registry 和 land titles 不是完全一样的概念。"
+            },
+            {
+              "en": "Registration creates an official record.",
+              "zh": "registration 会形成官方记录。"
+            },
+            {
+              "en": "Title search logic matters in scenario questions.",
+              "zh": "场景题常考 title search 的逻辑。"
+            }
+          ],
+          "examTrap": "If the question asks what a system does, focus on recordkeeping, title status, or transfer, not on ownership theory.",
+          "memoryHook": "Record the title, then verify it."
+        },
+        {
+          "kicker": "Card 4",
+          "titleEn": "POLARIS and Documents",
+          "titleZh": "POLARIS 与文件",
+          "badge": "Tools",
+          "summary": "POLARIS is the electronic system that helps manage land records. Pair it with the documents that normally travel with land transactions so you can tell the difference between the system, the record, and the supporting paperwork.",
+          "summaryZh": "POLARIS 是管理土地记录的电子系统。要把系统、记录和配套文件分开记。",
+          "mustKnow": [
+            {
+              "en": "POLARIS is the electronic land registration environment.",
+              "zh": "POLARIS 是电子土地登记环境。"
+            },
+            {
+              "en": "A title question may depend on the document trail.",
+              "zh": "权属题常常取决于文件链条。"
+            },
+            {
+              "en": "Study notes often connect POLARIS with land title records.",
+              "zh": "学习笔记常把 POLARIS 和土地权属记录一起考。"
+            }
+          ],
+          "examTrap": "If the answer choice talks about a system, ask whether it is the software, the record, or the legal effect of registration.",
+          "memoryHook": "System, record, result."
+        }
+      ]
+    },
+    {
+      "id": "study-module-5",
+      "code": "Module 5",
+      "title": "TRESA",
+      "zhTitle": "TRESA",
+      "time": "2 hrs 45 mins",
+      "status": "Outline-based placeholder; refine after unlock / 基于课程大纲的占位版，解锁后再校正",
+      "summary": "Registration of brokerages, brokers, and salespersons in Ontario and daily obligations under TRESA.",
+      "zhSummary": "安省 brokerage、broker、salesperson 的注册，以及日常义务。",
+      "focus": [
+        "Registration and conduct",
+        "Day-to-day obligations",
+        "Compliance resources"
+      ],
+      "cards": [
+        {
+          "kicker": "Card 1",
+          "titleEn": "Current Legal Framework",
+          "titleZh": "当前法律框架",
+          "badge": "Update",
+          "summary": "Study the current legal wording used in the course materials instead of memorizing old labels.",
+          "summaryZh": "先学当前课件里使用的法律用词，不要继续背旧标签。",
+          "mustKnow": [
+            {
+              "en": "Use the current course wording.",
+              "zh": "使用当前课件里的表述。"
+            },
+            {
+              "en": "Read compliance questions in the current legal context.",
+              "zh": "把合规题放到当前法律框架里读。"
+            },
+            {
+              "en": "When wording changes, the safest answer follows the current framework.",
+              "zh": "当措辞变化时，最稳的答案跟着当前框架走。"
+            }
+          ],
+          "examTrap": "If an option uses outdated terminology, check whether the current course wording has replaced it.",
+          "memoryHook": "Current wording beats old labels."
+        },
+        {
+          "kicker": "Card 2",
+          "titleEn": "Brokerage, Broker, and Salesperson",
+          "titleZh": "Brokerage、Broker 与 Salesperson",
+          "badge": "Roles",
+          "summary": "Know who can trade, who supervises, and who is responsible for the firm’s day-to-day operations. The role chain matters in almost every compliance scenario.",
+          "summaryZh": "要分清谁能交易、谁负责监督、谁管日常运作。角色链条在合规题里几乎必考。",
+          "mustKnow": [
+            {
+              "en": "A salesperson operates under a brokerage.",
+              "zh": "salesperson 依附于 brokerage 开展工作。"
+            },
+            {
+              "en": "The broker of record carries key responsibility.",
+              "zh": "broker of record 承担关键责任。"
+            },
+            {
+              "en": "Supervision is not optional.",
+              "zh": "监督不是可有可无。"
+            }
+          ],
+          "examTrap": "A question may make the salesperson sound independent, but the legal structure still points back to the brokerage.",
+          "memoryHook": "Work under the brokerage."
+        },
+        {
+          "kicker": "Card 3",
+          "titleEn": "Daily Obligations",
+          "titleZh": "日常义务",
+          "badge": "Conduct",
+          "summary": "The day-to-day side of TRESA is about honesty, competence, records, disclosure, and staying within your role. Think of it as the habits that keep the transaction safe.",
+          "summaryZh": "TRESA 的日常部分讲诚实、专业能力、记录、披露，以及待在自己的职责范围内。可以把它理解成保护交易安全的日常习惯。",
+          "mustKnow": [
+            {
+              "en": "Keep records and communicate accurately.",
+              "zh": "保持记录，并准确沟通。"
+            },
+            {
+              "en": "Do not blur facts, opinions, and promises.",
+              "zh": "不要把事实、意见和承诺混在一起。"
+            },
+            {
+              "en": "A professional must stay within their authority.",
+              "zh": "专业人员必须待在授权范围内。"
+            }
+          ],
+          "examTrap": "If a choice sounds convenient but sloppy, it is usually the wrong compliance answer.",
+          "memoryHook": "Honest, accurate, within scope."
+        },
+        {
+          "kicker": "Card 4",
+          "titleEn": "Compliance Checkpoints",
+          "titleZh": "合规检查点",
+          "badge": "Scenario",
+          "summary": "This card turns TRESA into a test-taking tool. When a scenario appears, ask what was said, what was documented, who was supervised, and whether any disclosure duty was triggered.",
+          "summaryZh": "这张卡把 TRESA 变成做题工具。场景题一出来，就先看说了什么、写了什么、谁在监督、有没有触发披露义务。",
+          "mustKnow": [
+            {
+              "en": "Documentation often decides the answer.",
+              "zh": "文件记录常常决定答案。"
+            },
+            {
+              "en": "The duty follows the role.",
+              "zh": "义务通常跟角色走。"
+            },
+            {
+              "en": "Compliance is about prevention, not just punishment.",
+              "zh": "合规不只是罚不罚，更是先防住。"
+            }
+          ],
+          "examTrap": "Many TRESA questions are really asking whether the professional kept control of the transaction process.",
+          "memoryHook": "Who said it, who recorded it, who supervised it?"
+        }
+      ]
+    },
+    {
+      "id": "study-module-6",
+      "code": "Module 6",
+      "title": "Key Legislation and Regulations",
+      "zhTitle": "关键法律与法规",
+      "time": "9 hrs 45 mins",
+      "status": "Outline-based placeholder; refine after unlock / 基于课程大纲的占位版，解锁后再校正",
+      "summary": "The laws that impact the activities of a salesperson.",
+      "zhSummary": "影响销售人员工作的主要法律。",
+      "focus": [
+        "Core legislation",
+        "Regulatory impact",
+        "Application to daily practice"
+      ],
+      "cards": [
+        {
+          "kicker": "Card 1",
+          "titleEn": "Legislation Map",
+          "titleZh": "法律地图",
+          "badge": "Core",
+          "summary": "The safest way to study this module is to build a map: which law applies to which kind of issue? Study tips suggest that this module is less about memorizing a single rule and more about matching the right law to the right situation.",
+          "summaryZh": "学这个模块最稳的方法是先搭一张地图：什么问题对应什么法律？学习建议普遍认为，这一模块更像“配对题”，不是单背一条规则。",
+          "mustKnow": [
+            {
+              "en": "Identify the issue before naming the law.",
+              "zh": "先识别问题，再说法律名字。"
+            },
+            {
+              "en": "One scenario can touch more than one law.",
+              "zh": "一个场景可能同时碰到多部法律。"
+            },
+            {
+              "en": "The exam likes best-fit reasoning.",
+              "zh": "考试爱考“最匹配”的法律逻辑。"
+            }
+          ],
+          "examTrap": "If you try to memorize laws in isolation, the scenario questions will feel harder than they are.",
+          "memoryHook": "Issue first, law second."
+        },
+        {
+          "kicker": "Card 2",
+          "titleEn": "Human Rights and Fair Housing",
+          "titleZh": "人权与公平住房",
+          "badge": "Fairness",
+          "summary": "This card covers the non-discrimination side of the profession. Think about protected grounds, equal treatment, and how a salesperson must avoid biased language or unequal service.",
+          "summaryZh": "这一张讲的是反歧视和公平住房。要想到受保护群体、平等待遇，以及销售人员不能使用带偏见的语言或差别对待客户。",
+          "mustKnow": [
+            {
+              "en": "Do not discriminate in service or marketing.",
+              "zh": "服务和营销都不能歧视。"
+            },
+            {
+              "en": "Accommodation issues can matter in real scenarios.",
+              "zh": "现实场景里还会涉及合理便利。"
+            },
+            {
+              "en": "Words in an ad can create legal risk.",
+              "zh": "广告措辞本身就可能产生法律风险。"
+            }
+          ],
+          "examTrap": "If a question sounds like a fairness issue, check whether the issue is actually human rights rather than contract law.",
+          "memoryHook": "Equal service, equal access."
+        },
+        {
+          "kicker": "Card 3",
+          "titleEn": "Consumer Protection, Contracts, and Representations",
+          "titleZh": "消费者保护、合同与陈述",
+          "badge": "Protection",
+          "summary": "This card ties together what you say, what you put in writing, and what the consumer is entitled to rely on. Accuracy matters because a misleading statement can turn into a legal problem fast.",
+          "summaryZh": "这一张把“你说了什么”“你写了什么”“消费者能依赖什么”串起来。因为一旦陈述不准确，很快就会变成法律问题。",
+          "mustKnow": [
+            {
+              "en": "Representations should be clear and truthful.",
+              "zh": "陈述必须清楚且真实。"
+            },
+            {
+              "en": "Contracts and disclosures carry weight.",
+              "zh": "合同和披露都很重要。"
+            },
+            {
+              "en": "Consumer protection focuses on trust and fairness.",
+              "zh": "消费者保护的核心是信任与公平。"
+            }
+          ],
+          "examTrap": "If two options both sound helpful, choose the one that keeps the consumer informed without exaggeration.",
+          "memoryHook": "Truth protects trust."
+        },
+        {
+          "kicker": "Card 4",
+          "titleEn": "Privacy, Advertising, and Digital Conduct",
+          "titleZh": "隐私、广告与电子行为",
+          "badge": "Digital",
+          "summary": "Modern real estate is full of emails, text messages, social posts, and digital ads. This card reminds you that privacy, advertising accuracy, and professional communication all interact in one workflow.",
+          "summaryZh": "现代房地产离不开邮件、短信、社交媒体和数字广告。这张卡提醒你：隐私、广告准确性和专业沟通是连在一起的。",
+          "mustKnow": [
+            {
+              "en": "Protect personal data.",
+              "zh": "保护个人数据。"
+            },
+            {
+              "en": "Do not make misleading claims in advertising.",
+              "zh": "广告里不能误导。"
+            },
+            {
+              "en": "Treat digital communication like professional recordkeeping.",
+              "zh": "把电子沟通当作专业记录的一部分。"
+            }
+          ],
+          "examTrap": "A scenario about a post, ad, or message may really be asking about records or disclosure instead of social media etiquette.",
+          "memoryHook": "Digital still needs discipline."
+        }
+      ]
+    },
+    {
+      "id": "study-module-7",
+      "code": "Module 7",
+      "title": "Other Relevant Legislation and Regulations",
+      "zhTitle": "其他相关法律与法规",
+      "time": "8 hrs 20 mins",
+      "status": "Outline-based placeholder; refine after unlock / 基于课程大纲的占位版，解锁后再校正",
+      "summary": "Laws that impact trading activities and influence the decisions of sellers and buyers.",
+      "zhSummary": "影响交易行为，以及卖方和买方决策的法律。",
+      "focus": [
+        "Trading activities",
+        "Buyer and seller decisions",
+        "Cross-cutting regulations"
+      ],
+      "cards": [
+        {
+          "kicker": "Card 1",
+          "titleEn": "Residential Tenancies and Leasing",
+          "titleZh": "住宅租赁与出租",
+          "badge": "Lease",
+          "summary": "This card covers tenant and landlord basics, lease agreements, and the rules that shape how residential space can be occupied and managed.",
+          "summaryZh": "这一张讲租客和房东的基础、租赁协议，以及住宅空间如何被占用和管理的规则。",
+          "mustKnow": [
+            {
+              "en": "Tenant and landlord rights are not symmetric.",
+              "zh": "租客和房东的权利并不完全对称。"
+            },
+            {
+              "en": "Occupancy can be a legal issue, not just a practical one.",
+              "zh": "居住/占用有时是法律问题，不只是实际问题。"
+            },
+            {
+              "en": "Lease language can affect future buyer decisions.",
+              "zh": "租约措辞会影响未来买家的决策。"
+            }
+          ],
+          "examTrap": "If the answer mentions renting, occupancy, or notice, check whether the question is really about tenancy law rather than sales law.",
+          "memoryHook": "Lease = legal occupancy."
+        },
+        {
+          "kicker": "Card 2",
+          "titleEn": "Zoning, Planning, and Municipal Rules",
+          "titleZh": "分区、规划与市政规则",
+          "badge": "Use",
+          "summary": "A seller or buyer may care about what the land can be used for, whether a renovation is allowed, and whether the local by-law supports the intended use. That is where zoning and municipal rules come in.",
+          "summaryZh": "卖方或买家可能关心土地能做什么用途、能不能装修、当地条例允不允许预期用途，这就是 zoning 和市政规则的重点。",
+          "mustKnow": [
+            {
+              "en": "Zoning controls use.",
+              "zh": "zoning 管用途。"
+            },
+            {
+              "en": "By-laws can affect timing and permissions.",
+              "zh": "by-law 会影响时间和许可。"
+            },
+            {
+              "en": "Planning issues often appear as practical barriers in scenarios.",
+              "zh": "规划问题常常在场景题里表现为实际障碍。"
+            }
+          ],
+          "examTrap": "If a choice talks about permitted use, setbacks, or building permissions, think zoning before thinking negotiation.",
+          "memoryHook": "Use is regulated locally."
+        },
+        {
+          "kicker": "Card 3",
+          "titleEn": "Environmental, Building, and Site Issues",
+          "titleZh": "环境、建筑与场地问题",
+          "badge": "Risk",
+          "summary": "Environmental contamination, site conditions, building issues, and physical risk all matter because they can change value and buyer willingness. These topics are often tested as decision factors rather than pure law memorization.",
+          "summaryZh": "环境污染、场地状况、建筑问题和物理风险都会影响价值和买家意愿。这些内容常常是以“决策因素”而不是纯背法条的方式出现。",
+          "mustKnow": [
+            {
+              "en": "Environmental risk can affect disclosure and due diligence.",
+              "zh": "环境风险会影响披露和尽调。"
+            },
+            {
+              "en": "A building issue may change marketability.",
+              "zh": "建筑问题会影响可售性。"
+            },
+            {
+              "en": "Site conditions can influence financing and closing decisions.",
+              "zh": "场地条件会影响融资和成交决策。"
+            }
+          ],
+          "examTrap": "A scenario with smell, contamination, or physical damage is probably testing risk analysis, not just vocabulary.",
+          "memoryHook": "Risk changes the deal."
+        },
+        {
+          "kicker": "Card 4",
+          "titleEn": "Scenario Filter for Sellers and Buyers",
+          "titleZh": "卖方与买方的场景过滤器",
+          "badge": "Strategy",
+          "summary": "This final card is your shortcut for Module 7 questions. Ask whether the issue is tenancy, zoning, environmental risk, permit rules, or another external law that changes the parties’ choices.",
+          "summaryZh": "最后这张是 Module 7 的做题捷径。先判断问题是租赁、分区、环境风险、许可规则，还是别的外部法律在影响买卖双方选择。",
+          "mustKnow": [
+            {
+              "en": "External laws shape decision making.",
+              "zh": "外部法律会影响决策。"
+            },
+            {
+              "en": "Not every problem is solved by the transaction form.",
+              "zh": "不是所有问题都能靠交易形式解决。"
+            },
+            {
+              "en": "The question may be testing who should investigate next.",
+              "zh": "题目也可能在考下一步该由谁调查。"
+            }
+          ],
+          "examTrap": "If the scenario sounds broad, slow down and identify the legal bucket first before you read the answer choices.",
+          "memoryHook": "Bucket first, answer second."
+        }
+      ]
+    }
+  ],
+  "pptSlides": [
+    {
+      "tag": "Course 1",
+      "title": "Real Estate Essentials / 基础入门",
+      "lines": [
+        {
+          "en": "TRESA sets the legal rules for real estate trading.",
+          "zh": "TRESA 是房地产交易的法律规则底座。"
+        },
+        {
+          "en": "RECO administers and enforces the system.",
+          "zh": "RECO 负责执行和监管。"
+        },
+        {
+          "en": "Registration, ethics, and professional roles are the core exam language.",
+          "zh": "注册、道德和角色关系是最核心的考试语言。"
+        },
+        {
+          "en": "Budgeting is an important professional skill because commission income may fluctuate over time.",
+          "zh": "因为佣金收入可能随时间波动，所以预算是一项重要的职业技能。"
+        }
+      ],
+      "note": "This is the study version next to the official Module 1 lesson. Hover the hard words, then select them to add to your wordbook. / 这是官方 Module 1 课件旁边的复习版。鼠标悬停看中文，选词自动进单词本。"
+    },
+    {
+      "tag": "Course 2",
+      "title": "Residential Transactions / 住宅交易",
+      "lines": [
+        {
+          "en": "Start with seller and buyer services, then move to property features and marketing.",
+          "zh": "先看卖方/买方服务，再看房屋属性和营销。"
+        },
+        {
+          "en": "Agreement of Purchase and Sale is the spine of the deal.",
+          "zh": "买卖协议是整笔交易的脊梁。"
+        },
+        {
+          "en": "Conditions, deposits, counteroffers, and closing logic keep showing up on exams.",
+          "zh": "附条件、定金、反要约和成交逻辑会反复考。"
+        },
+        {
+          "en": "Study guides emphasize lots of scenario-style questions.",
+          "zh": "学习资料普遍提到题目很爱出场景题。"
+        }
+      ],
+      "note": "This course is where the paperwork starts to feel real. / 这一课会让文件流程真正连起来。"
+    },
+    {
+      "tag": "Course 3",
+      "title": "Additional Residential Transactions / 进阶住宅",
+      "lines": [
+        {
+          "en": "Condominiums, new homes, rural properties, leasing, and financing are major themes.",
+          "zh": "公寓、新房、乡村物业、租赁和融资是重点。"
+        },
+        {
+          "en": "Expect more specialized rules, more vocabulary, and more scenario questions.",
+          "zh": "会有更多专业规则、术语和场景题。"
+        },
+        {
+          "en": "Study checklists say to review the end-of-course report and repeat the hardest lessons.",
+          "zh": "学习清单建议看课程总结报告，并反复回头刷难课。"
+        },
+        {
+          "en": "NOT questions and scenario matching show up a lot.",
+          "zh": "NOT 题和场景匹配题很常见。"
+        }
+      ],
+      "note": "This is the course where people say they start feeling the load. / 很多人会在这一课开始感觉难度上来。"
+    },
+    {
+      "tag": "Course 4",
+      "title": "Commercial Real Estate / 商业地产",
+      "lines": [
+        {
+          "en": "Commercial transactions add business use, leases, valuation, zoning, and environmental due diligence.",
+          "zh": "商业交易会加上用途、租约、估价、分区和环境尽调。"
+        },
+        {
+          "en": "The language becomes more technical and more layered.",
+          "zh": "语言更技术化，也更分层。"
+        },
+        {
+          "en": "Study notes say to watch for lots of factual distinction questions.",
+          "zh": "学习笔记提示会有很多细节辨析题。"
+        },
+        {
+          "en": "Keep a glossary because the terminology compounds fast.",
+          "zh": "一定要做词库，因为术语会迅速堆起来。"
+        }
+      ],
+      "note": "Commercial topics benefit a lot from a flashcard style review. / 商业地产特别适合用卡片复习。"
+    }
+  ],
+  "courseModules": [
+    {
+      "id": "course-1",
+      "code": "Module 1",
+      "title": "Introducing the Real Estate Profession",
+      "zhTitle": "房地产职业导论",
+      "time": "2 hrs 50 mins",
+      "status": "You are here / 当前模块",
+      "summary": "Overview of the real estate profession in Ontario and what to expect in a career in real estate.",
+      "zhSummary": "介绍安省房地产职业，以及未来工作会是什么样子。",
+      "focus": [
+        "TRESA / RECO / Code of Ethics",
+        "Registration and professional roles",
+        "Core skills and budgeting"
+      ]
+    },
+    {
+      "id": "course-2",
+      "code": "Module 2",
+      "title": "Introducing the Fundamentals of Real Estate",
+      "zhTitle": "房地产基础入门",
+      "time": "3 hrs 20 mins",
+      "status": "Locked until available / 未开放",
+      "summary": "Standard real estate terms, categories of residential and commercial structures, and RECO’s regulatory role.",
+      "zhSummary": "标准术语、住宅和商业结构分类，以及 RECO 的监管角色。",
+      "focus": [
+        "Terminology and structure types",
+        "Provincial government oversight",
+        "RECO regulatory framework"
+      ]
+    },
+    {
+      "id": "course-3",
+      "code": "Module 3",
+      "title": "Introducing Property Ownership, Rights, and Limitations",
+      "zhTitle": "产权、权利与限制",
+      "time": "3 hrs 50 mins",
+      "status": "Locked until available / 未开放",
+      "summary": "Different property ownership options, rights, and limitations associated with each option.",
+      "zhSummary": "不同产权形式，以及每种形式对应的权利和限制。",
+      "focus": [
+        "Ownership types",
+        "Rights and restrictions",
+        "Client service implications"
+      ]
+    },
+    {
+      "id": "course-4",
+      "code": "Module 4",
+      "title": "Introducing Land Description and Land Registration",
+      "zhTitle": "土地描述与登记",
+      "time": "3 hrs 40 mins",
+      "status": "Locked until available / 未开放",
+      "summary": "Land description, surveys, metes and bounds, land registration, documentation, land titles, and POLARIS.",
+      "zhSummary": "土地描述、测量、地界、登记、文件、土地权属和 POLARIS。",
+      "focus": [
+        "Surveys and descriptions",
+        "Registration process",
+        "POLARIS and land titles"
+      ]
+    },
+    {
+      "id": "course-5",
+      "code": "Module 5",
+      "title": "TRESA",
+      "zhTitle": "TRESA",
+      "time": "2 hrs 45 mins",
+      "status": "Locked until available / 未开放",
+      "summary": "Registration of brokerages, brokers, and salespersons in Ontario and daily obligations under TRESA.",
+      "zhSummary": "安省 brokerage、broker、salesperson 的注册，以及日常义务。",
+      "focus": [
+        "Registration and conduct",
+        "Day-to-day obligations",
+        "Compliance resources"
+      ]
+    },
+    {
+      "id": "course-6",
+      "code": "Module 6",
+      "title": "Key Legislation and Regulations",
+      "zhTitle": "关键法律与法规",
+      "time": "9 hrs 45 mins",
+      "status": "Locked until available / 未开放",
+      "summary": "The laws that impact the activities of a salesperson.",
+      "zhSummary": "影响销售人员工作的主要法律。",
+      "focus": [
+        "Core legislation",
+        "Regulatory impact",
+        "Application to daily practice"
+      ]
+    },
+    {
+      "id": "course-7",
+      "code": "Module 7",
+      "title": "Other Relevant Legislation and Regulations",
+      "zhTitle": "其他相关法律与法规",
+      "time": "8 hrs 20 mins",
+      "status": "Locked until available / 未开放",
+      "summary": "Laws that impact trading activities and influence the decisions of sellers and buyers.",
+      "zhSummary": "影响交易行为，以及卖方和买方决策的法律。",
+      "focus": [
+        "Trading activities",
+        "Buyer and seller decision factors",
+        "Cross-cutting regulations"
+      ]
+    }
+  ]
+}
