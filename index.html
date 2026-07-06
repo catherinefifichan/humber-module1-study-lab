@@ -5576,6 +5576,5593 @@
               <p id="vocabTestMeta">Press Start test and I will quiz the current batch of 10 words.</p>
             </div>
             <div class="test-score" id="vocabTestScore">0 / 0</div>
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CatherineEcho | Ontario Real Estate Companion</title>
+  <meta name="description" content="CatherineEcho is a bilingual Ontario Real Estate companion for Humber Course 1 and beyond, with lessons, exam practice, and vocabulary review." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-deep: #10251f;
+      --bg-deeper: #091612;
+      --panel: rgba(255, 255, 255, 0.8);
+      --panel-strong: rgba(255, 255, 255, 0.96);
+      --panel-dark: rgba(10, 25, 21, 0.78);
+      --text: #11241d;
+      --muted: #4f645b;
+      --line: rgba(16, 37, 31, 0.12);
+      --green: #1c7c5d;
+      --green-2: #0f5f4d;
+      --lime: #7cc36f;
+      --gold: #d39a39;
+      --red: #b43f3f;
+      --shadow: 0 22px 60px rgba(14, 31, 25, 0.14);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    :focus-visible {
+      outline: 3px solid rgba(28, 124, 93, 0.42);
+      outline-offset: 3px;
+    }
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 195, 111, 0.22), transparent 33%),
+        radial-gradient(circle at 80% 10%, rgba(211, 154, 57, 0.18), transparent 26%),
+        linear-gradient(180deg, #f9f5ee 0%, #f1eadf 40%, #eef2ee 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    section.section[data-panel] {
+      scroll-margin-top: 18px;
+    }
+
+    .section[data-panel] {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.24s ease, transform 0.24s ease;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .section-header,
+    .layout,
+    .sidebar,
+    .lesson-grid,
+    .lesson-card,
+    .lesson-page-shell,
+    .lesson-page-head,
+    .lesson-page-card,
+    .lesson-page-columns,
+    .lesson-page-details,
+    .lesson-extra-grid,
+    .lesson-page-block,
+    .study-stack,
+    .module-block,
+    .module-block-head,
+    .module-card-grid,
+    .study-card,
+    .insight-grid,
+    .callout,
+    .quiz-shell,
+    .quiz-meta,
+    .quiz-toolbar,
+    .quiz-stage,
+    .quiz-grid,
+    .quiz-sidebar,
+    .question,
+    .question-head,
+    .options,
+    .option,
+    .review,
+    .review-item,
+    .review-meta,
+    .notebook-grid,
+    .notebook-card,
+    .notebook-list,
+    .notebook-item,
+    .ppt-shell,
+    .ppt-strip,
+    .ppt-slide,
+    .info-card,
+    .exam-card,
+    .mini,
+    .stat,
+    .chip,
+    .badge,
+    .product-name,
+    .lesson-detail,
+    .lesson-compare-card,
+    .lesson-confusion-card,
+    .lesson-vocab-card,
+    .lesson-tip-card {
+      min-width: 0;
+    }
+
+    .hero-copy p,
+    .product-name,
+    .section-header p,
+    .lesson-card p,
+    .lesson-card li,
+    .info-card p,
+    .info-card li,
+    .quiz-card p,
+    .lesson-page-head p,
+    .lesson-page-head li,
+    .lesson-page-block p,
+    .lesson-page-block li,
+    .lesson-page-zh,
+    .lesson-page-meta,
+    .lesson-page-nav,
+    .module-block-note,
+    .study-card p,
+    .study-card .study-zh,
+    .question h4,
+    .question .zh,
+    .review-meta,
+    .review-item,
+    .stat .label,
+    .mini span,
+    .chip,
+    .badge,
+    .timer,
+    .quiz-chip,
+    .option label,
+    .footer,
+    .fineprint,
+    .lesson-compare-card,
+    .lesson-confusion-card,
+    .lesson-vocab-card,
+    .lesson-tip-card {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .brand-line {
+      min-width: 0;
+      flex-wrap: wrap;
+    }
+
+    .brand-line > span:last-child {
+      min-width: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(17, 36, 29, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 36, 29, 0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(125deg, rgba(9, 22, 18, 0.94), rgba(17, 42, 34, 0.92) 62%, rgba(28, 124, 93, 0.8)),
+        radial-gradient(circle at top right, rgba(124, 195, 111, 0.22), transparent 34%);
+      color: #f6f2ea;
+      padding: 30px;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -54% auto;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 195, 111, 0.24), transparent 68%);
+      filter: blur(12px);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(246, 242, 234, 0.7);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--lime), #cff5c3);
+      box-shadow: 0 0 0 6px rgba(124, 195, 111, 0.12);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 4.9rem);
+      max-width: 11ch;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 24px;
+      align-items: end;
+    }
+
+    .hero-copy p {
+      max-width: 65ch;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: rgba(246, 242, 234, 0.84);
+      margin: 18px 0 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(246, 242, 234, 0.92);
+      font-size: 0.92rem;
+      backdrop-filter: blur(14px);
+    }
+
+    .chip strong { color: #fff; }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 26px;
+      padding: 18px;
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-panel h3 {
+      font-family: "Manrope", sans-serif;
+      letter-spacing: -0.01em;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat .num {
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .stat .label {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: rgba(246, 242, 234, 0.8);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .top-nav {
+      margin: 18px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scroll-padding-inline: 12px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-snap-type: x proximity;
+      align-items: center;
+    }
+
+    .top-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .top-nav button {
+      text-decoration: none;
+      color: #183029;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(16, 37, 31, 0.1);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .top-nav button:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .top-nav button.is-active {
+      background: linear-gradient(135deg, rgba(28, 124, 93, 0.18), rgba(124, 195, 111, 0.18));
+      border-color: rgba(28, 124, 93, 0.28);
+      color: #0d3329;
+      box-shadow: 0 10px 24px rgba(16, 37, 31, 0.12);
+      transform: translateY(-1px);
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .skeleton-card,
+    .skeleton-line,
+    .skeleton-pill {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, rgba(16, 37, 31, 0.06) 25%, rgba(16, 37, 31, 0.12) 37%, rgba(16, 37, 31, 0.06) 63%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s linear infinite;
+    }
+
+    .skeleton-card {
+      border-radius: 24px;
+      min-height: 220px;
+    }
+
+    .skeleton-line {
+      height: 12px;
+      border-radius: 999px;
+    }
+
+    .skeleton-pill {
+      height: 34px;
+      border-radius: 999px;
+    }
+
+    .loading-board {
+      display: grid;
+      gap: 14px;
+    }
+
+    .loading-board.two-up {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .loading-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .brand-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(246, 242, 234, 0.92);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark strong {
+      color: #fff;
+    }
+
+    .product-name {
+      display: block;
+      margin-top: 10px;
+      color: rgba(246, 242, 234, 0.9);
+      font-size: 1.08rem;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+    }
+
+    .section[data-panel] {
+      display: none;
+    }
+
+    .section[data-panel].is-visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: panelFadeIn 0.24s ease;
+    }
+
+    @keyframes panelFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ppt-shell {
+      padding: 18px 28px 28px;
+    }
+
+    .ppt-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(320px, 1fr);
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x proximity;
+    }
+
+    .ppt-slide {
+      scroll-snap-align: start;
+      background:
+        linear-gradient(160deg, rgba(16, 37, 31, 0.97), rgba(32, 63, 50, 0.95)),
+        radial-gradient(circle at top right, rgba(124, 195, 111, 0.18), transparent 32%);
+      color: #f7f2ea;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ppt-slide .deck-tag {
+      display: inline-flex;
+      align-self: start;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(247, 242, 234, 0.92);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .ppt-slide h3 {
+      font-size: 1.55rem;
+      line-height: 1.12;
+      color: #fff;
+    }
+
+    .ppt-lines {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .ppt-line {
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      line-height: 1.55;
+    }
+
+    .ppt-line .en {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .ppt-line .zh {
+      display: block;
+      margin-top: 6px;
+      color: rgba(247, 242, 234, 0.82);
+    }
+
+    .ppt-note {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      color: rgba(247, 242, 234, 0.84);
+      line-height: 1.6;
+      font-size: 0.94rem;
+    }
+
+    .ppt-caption {
+      margin-bottom: 14px;
+      color: #4f645b;
+      line-height: 1.6;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .dashboard-card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+      display: grid;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .dashboard-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    .dashboard-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .dashboard-note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .dashboard-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .dashboard-action-row .btn,
+    .dashboard-toggle .btn {
+      color: #10251f;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      box-shadow: none;
+    }
+
+    .dashboard-action-row .btn.is-emphasis {
+      color: #0d1d17;
+      background: linear-gradient(135deg, #f6de99, #d39a39);
+      border-color: transparent;
+      box-shadow: 0 14px 32px rgba(211, 154, 57, 0.28);
+    }
+
+    .dashboard-action-row .btn.is-emphasis:hover {
+      background: linear-gradient(135deg, #fae3a7, #dda642);
+    }
+
+    .dashboard-action-row .btn:hover,
+    .dashboard-toggle .btn:hover {
+      background: #fff;
+    }
+
+    .dashboard-toggle .btn.is-active {
+      background: linear-gradient(135deg, rgba(28, 124, 93, 0.12), rgba(124, 195, 111, 0.16));
+      border-color: rgba(28, 124, 93, 0.24);
+      color: var(--green-2);
+    }
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .dashboard-stat {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      line-height: 1.5;
+    }
+
+    .dashboard-stat .label,
+    .dashboard-review-item .label,
+    .lesson-why-card .label {
+      display: block;
+      margin-bottom: 6px;
+      color: #153026;
+      font-weight: 800;
+    }
+
+    .dashboard-stat .value {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .dashboard-review-list,
+    .dashboard-why-list,
+    .lesson-why-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .dashboard-review-item,
+    .lesson-why-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(16, 37, 31, 0.03);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      line-height: 1.55;
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .dashboard-review-item p,
+    .lesson-why-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .dashboard-review-item .actions,
+    .lesson-why-card .actions {
+      margin-top: 4px;
+    }
+
+    .lesson-why-card .why-note {
+      color: #27453a;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .lesson-page-nav-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .lesson-page-nav .btn,
+    .quiz-actions-bottom .btn {
+      color: #10251f;
+    }
+
+    .lesson-page-nav .btn.is-active {
+      background: linear-gradient(135deg, rgba(28, 124, 93, 0.12), rgba(124, 195, 111, 0.16));
+      border-color: rgba(28, 124, 93, 0.24);
+      color: var(--green-2);
+    }
+
+    .question .review-meta,
+    .question .review-meta div,
+    .question .review-meta strong {
+      color: #10251f;
+    }
+
+    .term {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted rgba(28, 124, 93, 0.56);
+      cursor: help;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .term::after {
+      content: attr(data-zh);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%) translateY(6px);
+      opacity: 0;
+      pointer-events: none;
+      white-space: normal;
+      max-width: min(340px, 76vw);
+      overflow: hidden;
+      background: #10251f;
+      color: #f7f2ea;
+      padding: 8px 10px;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(16, 37, 31, 0.24);
+      transition: opacity 0.16s ease, transform 0.16s ease;
+      z-index: 2;
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .term:hover::after,
+    .term:focus::after,
+    .term:focus-visible::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .term:hover,
+    .term:focus,
+    .term:focus-visible {
+      color: #0f5f4d;
+      outline: none;
+    }
+
+    .term:focus-visible {
+      box-shadow: 0 0 0 3px rgba(28, 124, 93, 0.14);
+      border-radius: 4px;
+    }
+
+    .vocab-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .vocab-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+      min-width: 0;
+    }
+
+    .vocab-card.is-hidden {
+      display: none;
+    }
+
+    .vocab-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .vocab-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.16rem;
+      color: #182b25;
+      margin-bottom: 8px;
+    }
+
+    .vocab-card-head p,
+    .vocab-hint,
+    .vocab-test-head p,
+    .vocab-search span,
+    .vocab-browse-meta {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .vocab-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .vocab-action-bar {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .vocab-controls,
+    .vocab-browse-tools {
+      display: grid;
+      gap: 12px;
+      margin: 14px 0 12px;
+    }
+
+    .vocab-mode-switch,
+    .vocab-batch-nav,
+    .vocab-mastery-row,
+    .vocab-test-actions,
+    .vocab-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .vocab-batch-nav {
+      justify-content: space-between;
+    }
+
+    .vocab-search {
+      display: grid;
+      gap: 8px;
+    }
+
+    .vocab-search input {
+      appearance: none;
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      padding: 14px 16px;
+      font: inherit;
+      color: #13241f;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .vocab-search input::placeholder {
+      color: #7c8f87;
+    }
+
+    .seg-btn {
+      appearance: none;
+      border: 1px solid rgba(16, 37, 31, 0.14);
+      background: rgba(255, 255, 255, 0.78);
+      color: #183029;
+      border-radius: 999px;
+      padding: 11px 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .seg-btn.is-active {
+      background: rgba(28, 124, 93, 0.12);
+      border-color: rgba(28, 124, 93, 0.24);
+      color: var(--green-2);
+    }
+
+    .vocab-batch-info,
+    .vocab-stats,
+    .vocab-browse-meta,
+    .test-score {
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(16, 37, 31, 0.06);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #234238;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .vocab-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .vocab-stats span,
+    .vocab-browse-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #244139;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .vocab-flashcard {
+      appearance: none;
+      width: 100%;
+      border: 0;
+      border-radius: 24px;
+      padding: 22px;
+      background:
+        linear-gradient(160deg, rgba(16, 37, 31, 0.98), rgba(22, 52, 42, 0.96)),
+        radial-gradient(circle at top right, rgba(124, 195, 111, 0.18), transparent 32%);
+      color: #f5f2ea;
+      min-height: 240px;
+      display: grid;
+      align-content: center;
+      gap: 10px;
+      text-align: left;
+      box-shadow: 0 18px 36px rgba(13, 32, 25, 0.12);
+      cursor: pointer;
+    }
+
+    .vocab-flashcard:hover {
+      transform: translateY(-1px);
+    }
+
+    .vocab-face {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.05;
+      color: #fff;
+    }
+
+    .vocab-face small {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.92rem;
+      color: rgba(245, 242, 234, 0.72);
+      margin-top: 8px;
+    }
+
+    .vocab-hint {
+      font-size: 0.95rem;
+    }
+
+    .vocab-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .vocab-test {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(16, 37, 31, 0.06);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .vocab-test-head h4 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .vocab-test-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .vocab-test-panel {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+    }
+
+    .test-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .test-card .word {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      line-height: 1.1;
+      color: #13251f;
+    }
+
+    .test-card .prompt {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .test-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .test-option {
+      width: 100%;
+      justify-content: flex-start;
+      text-align: left;
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      color: #17312a;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .test-option.is-correct {
+      border-color: rgba(28, 124, 93, 0.32);
+      background: rgba(28, 124, 93, 0.08);
+    }
+
+    .test-option.is-wrong {
+      border-color: rgba(180, 63, 63, 0.32);
+      background: rgba(180, 63, 63, 0.08);
+    }
+
+    .test-feedback {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .vocab-item {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      display: grid;
+      gap: 8px;
+    }
+
+    .vocab-item.is-active {
+      background: rgba(28, 124, 93, 0.08);
+      border-color: rgba(28, 124, 93, 0.18);
+    }
+
+    .vocab-item b {
+      display: block;
+      margin-bottom: 6px;
+      color: #162922;
+    }
+
+    .vocab-item .meta {
+      font-size: 0.88rem;
+      color: #5d726a;
+    }
+
+    .mastery-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: rgba(28, 124, 93, 0.1);
+      color: var(--green-2);
+    }
+
+    .vocab-item .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .vocab-item .actions .fav-toggle {
+      flex: 1 1 0;
+      justify-content: center;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%) translateY(18px);
+      opacity: 0;
+      pointer-events: none;
+      background: rgba(16, 37, 31, 0.96);
+      color: #f7f2ea;
+      padding: 12px 14px;
+      border-radius: 999px;
+      box-shadow: 0 16px 36px rgba(16, 37, 31, 0.26);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 30;
+      font-size: 0.92rem;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: #0d1d17;
+      background: linear-gradient(135deg, #f6de99, #d39a39);
+      box-shadow: 0 14px 32px rgba(211, 154, 57, 0.28);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .btn.is-emphasis {
+      color: #0d3329;
+      background: linear-gradient(135deg, rgba(246, 222, 153, 0.98), rgba(211, 154, 57, 0.98));
+      border: 1px solid transparent;
+      box-shadow: 0 14px 32px rgba(211, 154, 57, 0.24);
+    }
+
+    .btn.is-emphasis:hover {
+      background: linear-gradient(135deg, rgba(250, 227, 167, 0.98), rgba(221, 166, 66, 0.98));
+    }
+
+    .section {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .section-header {
+      padding: 26px 28px 0;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.7rem, 2.3vw, 2.4rem);
+      color: #13251f;
+    }
+
+    .section-header p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 72ch;
+    }
+
+    .roadmap {
+      padding: 18px 28px 28px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(16, 37, 31, 0.94);
+      color: #f5f2ea;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.96);
+    }
+
+    .sidebar ol {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+      line-height: 1.45;
+      color: rgba(245, 242, 234, 0.88);
+    }
+
+    .sidebar a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover { text-decoration: underline; }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .lesson-overview-card {
+      grid-column: 1 / -1;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .lesson-overview-head {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .lesson-overview-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .lesson-index-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .lesson-index-card {
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 210px;
+    }
+
+    .lesson-index-card .lesson-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .lesson-page-shell {
+      display: grid;
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .lesson-page-card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+      display: grid;
+      gap: 18px;
+    }
+
+    .lesson-page-head {
+      display: grid;
+      gap: 12px;
+    }
+
+    .lesson-page-head h2 {
+      font-size: clamp(1.6rem, 2vw, 2.3rem);
+      margin: 0;
+      line-height: 1.12;
+    }
+
+    .lesson-page-zh {
+      font-weight: 700;
+      color: #264a3d;
+      margin-top: -2px;
+    }
+
+    .lesson-page-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .lesson-page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .lesson-page-nav-top {
+      position: sticky;
+      top: 12px;
+      z-index: 12;
+      padding: 12px;
+      margin: 0 -2px;
+      border-radius: 22px;
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      background: linear-gradient(180deg, rgba(244, 239, 230, 0.97), rgba(244, 239, 230, 0.9));
+      box-shadow: 0 14px 32px rgba(13, 32, 25, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .lesson-page-nav-bottom {
+      margin-top: 2px;
+      padding-top: 2px;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+    }
+
+    .lesson-page-nav .btn {
+      padding-inline: 16px;
+      flex: 1 1 180px;
+      min-width: 0;
+      color: #10251f;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      box-shadow: none;
+    }
+
+    .lesson-page-nav .btn:hover {
+      background: #fff;
+    }
+
+    body.is-loading .section[data-panel] {
+      opacity: 0.9;
+      transform: none;
+    }
+
+    body.is-loading .section[data-panel].is-visible {
+      animation: none;
+    }
+
+    .lesson-page-columns {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+
+    .lesson-page-block {
+      border-radius: 20px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .lesson-page-block h4 {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .lesson-page-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .lesson-page-block ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      line-height: 1.55;
+      color: #29463a;
+    }
+
+    .lesson-page-details {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .lesson-extra-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .lesson-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .lesson-flow span {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      background: rgba(16, 37, 31, 0.04);
+      color: #254336;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .lesson-flow span.is-arrow {
+      background: rgba(28, 124, 93, 0.12);
+      color: var(--green-2);
+      font-weight: 800;
+    }
+
+    .lesson-compare-list,
+    .lesson-confusion-grid,
+    .lesson-vocab-list,
+    .lesson-tip-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .lesson-compare-card,
+    .lesson-confusion-card,
+    .lesson-vocab-card,
+    .lesson-tip-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(16, 37, 31, 0.03);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      line-height: 1.55;
+    }
+
+    .lesson-compare-card .label,
+    .lesson-confusion-card .label,
+    .lesson-vocab-card .label,
+    .lesson-tip-card .label {
+      display: block;
+      font-weight: 800;
+      color: #153026;
+      margin-bottom: 6px;
+    }
+
+    .lesson-compare-card .muted,
+    .lesson-confusion-card .muted,
+    .lesson-vocab-card .muted,
+    .lesson-tip-card .muted {
+      color: var(--muted);
+    }
+
+    .study-stack {
+      display: grid;
+      gap: 18px;
+      padding: 18px 28px 28px;
+    }
+
+    .module-block {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 245, 237, 0.98));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .module-block-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .module-block-note {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .module-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .study-card {
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 238px;
+    }
+
+    .study-card .study-kicker {
+      display: inline-flex;
+      align-self: start;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(28, 124, 93, 0.12);
+      color: var(--green-2);
+      border: 1px solid rgba(28, 124, 93, 0.16);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .study-card h4 {
+      font-size: 1.14rem;
+      line-height: 1.18;
+      margin: 0;
+    }
+
+    .study-card .study-zh {
+      font-weight: 700;
+      color: #264a3d;
+      line-height: 1.4;
+    }
+
+    .study-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .study-card footer {
+      margin-top: auto;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+      padding-top: 12px;
+      color: #39554a;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .lesson-card, .info-card, .quiz-card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .lesson-card {
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .lesson-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .lesson-kicker {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .lesson-title {
+      font-size: 1.35rem;
+      margin-top: 8px;
+      line-height: 1.2;
+    }
+
+    .lesson-zh {
+      margin-top: 6px;
+      font-weight: 700;
+      color: #264a3d;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(28, 124, 93, 0.12);
+      color: var(--green-2);
+      border: 1px solid rgba(28, 124, 93, 0.16);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .lesson-card p, .info-card p, .quiz-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pill-list li {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(16, 37, 31, 0.05);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #254336;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .lesson-card footer {
+      margin-top: auto;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+      padding-top: 14px;
+      color: #39554a;
+      font-size: 0.92rem;
+    }
+
+    .lesson-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .lesson-detail {
+      border-radius: 16px;
+      padding: 12px 13px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      line-height: 1.55;
+    }
+
+    .lesson-detail b {
+      display: block;
+      margin-bottom: 6px;
+      color: #153026;
+      font-size: 0.95rem;
+    }
+
+    .lesson-detail p {
+      margin: 0;
+      color: #4f645b;
+      line-height: 1.55;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .fav-toggle {
+      appearance: none;
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      background: rgba(16, 37, 31, 0.04);
+      color: #244035;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-weight: 800;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .fav-toggle.is-active {
+      background: rgba(211, 154, 57, 0.14);
+      border-color: rgba(211, 154, 57, 0.4);
+      color: #9b6b15;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .exam-card {
+      background:
+        linear-gradient(180deg, rgba(16, 37, 31, 0.96), rgba(16, 37, 31, 0.9)),
+        linear-gradient(145deg, rgba(124, 195, 111, 0.16), transparent 60%);
+      color: #f5f2ea;
+      border-radius: 26px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .exam-card h3, .exam-card p, .exam-card li { color: inherit; }
+    .exam-card p { color: rgba(245, 242, 234, 0.84); }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .mini {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mini b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .mini span {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(245, 242, 234, 0.82);
+    }
+
+    .callout {
+      display: grid;
+      gap: 12px;
+    }
+
+    .callout .info-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 245, 237, 0.98));
+    }
+
+    .info-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+      color: #182b25;
+      font-family: "Manrope", sans-serif;
+    }
+
+    .info-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: #355146;
+      line-height: 1.5;
+    }
+
+    .quiz-shell {
+      padding: 18px 28px 28px;
+    }
+
+    .quiz-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+
+    .quiz-progress {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .quiz-progress-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(16, 37, 31, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(16, 37, 31, 0.06);
+    }
+
+    .quiz-progress-track span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #1c7c5d, #7cc36f);
+      transition: width 0.25s ease;
+    }
+
+    .quiz-progress-label {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #244035;
+    }
+
+    .quiz-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 37, 31, 0.06);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #244035;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .quiz-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      min-width: 0;
+    }
+
+    .timer {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 37, 31, 0.06);
+      color: #244035;
+      font-weight: 800;
+    }
+
+    .timer strong {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.05rem;
+    }
+
+    .quiz-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+      display: grid;
+      gap: 12px;
+    }
+
+    .quiz-actions-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-actions-bottom .btn {
+      flex: 1 1 160px;
+      min-width: 0;
+      color: #10251f;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      box-shadow: none;
+    }
+
+    .quiz-actions-bottom .btn.is-secondary-outline {
+      color: #244035;
+      background: rgba(16, 37, 31, 0.05);
+      border-color: rgba(16, 37, 31, 0.08);
+    }
+
+    .quiz-actions-bottom .btn:hover {
+      background: #fff;
+    }
+
+    .quiz-actions-bottom .btn:disabled {
+      color: rgba(16, 37, 31, 0.38);
+      background: rgba(255, 255, 255, 0.72);
+      border-color: rgba(16, 37, 31, 0.08);
+      box-shadow: none;
+    }
+
+    #submitExam.is-emphasis,
+    #confirmExam.is-emphasis {
+      color: #10251f;
+      background: linear-gradient(135deg, #f6de99, #d39a39);
+      border-color: transparent;
+      box-shadow: 0 14px 32px rgba(211, 154, 57, 0.28);
+    }
+
+    .quiz-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .quiz-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .exam-rail {
+      border-radius: 22px;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(16, 37, 31, 0.96), rgba(28, 124, 93, 0.84));
+      color: #f6f2ea;
+      display: grid;
+      gap: 12px;
+      min-height: 100%;
+    }
+
+    .exam-rail h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .exam-rail p,
+    .exam-rail li {
+      color: rgba(246, 242, 234, 0.84);
+      line-height: 1.55;
+    }
+
+    .exam-progress {
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 800;
+    }
+
+    .question {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 246, 240, 0.98));
+      padding: 18px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .question.correct {
+      border-color: rgba(124, 195, 111, 0.48);
+      box-shadow: 0 0 0 3px rgba(124, 195, 111, 0.12);
+    }
+
+    .question.wrong {
+      border-color: rgba(180, 63, 63, 0.4);
+      box-shadow: 0 0 0 3px rgba(180, 63, 63, 0.08);
+    }
+
+    .question h4 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      line-height: 1.45;
+      color: #172b24;
+    }
+
+    .question-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .question .zh {
+      margin-top: 0;
+      color: #587267;
+      font-size: 0.92rem;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 13px;
+      border-radius: 16px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid transparent;
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      border-color: rgba(28, 124, 93, 0.18);
+      background: rgba(28, 124, 93, 0.05);
+    }
+
+    .option.is-selected {
+      border-color: rgba(28, 124, 93, 0.3);
+      background: rgba(28, 124, 93, 0.08);
+    }
+
+    .option.is-correct {
+      border-color: rgba(124, 195, 111, 0.48);
+      background: rgba(124, 195, 111, 0.12);
+    }
+
+    .option.is-wrong {
+      border-color: rgba(180, 63, 63, 0.4);
+      background: rgba(180, 63, 63, 0.08);
+    }
+
+    .option input { margin-top: 3px; }
+
+    .option label {
+      cursor: pointer;
+      line-height: 1.5;
+      color: #27453a;
+      width: 100%;
+    }
+
+    .result {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 244, 236, 0.98));
+      color: #10251f;
+      border: 1px solid rgba(16, 37, 31, 0.1);
+      display: none;
+    }
+
+    .result.show { display: block; }
+
+    .result h3 { font-family: "Manrope", sans-serif; font-size: 1.08rem; margin-bottom: 8px; }
+    .result p { color: #355146; }
+
+    .review {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .review-item {
+      border-radius: 18px;
+      padding: 12px 14px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+    }
+
+    .review-item b {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .review-meta {
+      margin-top: 8px;
+      display: grid;
+      gap: 6px;
+      color: #1b2f28;
+    }
+
+    .review-meta strong {
+      color: #091612;
+    }
+
+    .result .review-meta {
+      color: #244035;
+    }
+
+    .result .review-item {
+      background: rgba(28, 124, 93, 0.05);
+    }
+
+    .result .review-item strong {
+      color: #10251f;
+    }
+
+    .result .review-item,
+    .result .review-meta,
+    .result .review-meta strong {
+      color: #10251f;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .result-actions .btn {
+      color: #10251f;
+      background: rgba(16, 37, 31, 0.045);
+      border: 1px solid rgba(16, 37, 31, 0.1);
+      box-shadow: none;
+    }
+
+    .footer {
+      padding: 18px 28px 28px;
+      color: #4d645a;
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    .notebook-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .notebook-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    .notebook-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.16rem;
+      color: #182b25;
+      margin-bottom: 10px;
+    }
+
+    .notebook-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .notebook-item {
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+    }
+
+    .notebook-item b {
+      display: block;
+      margin-bottom: 6px;
+      color: #162922;
+    }
+
+    .notebook-item button {
+      margin-top: 10px;
+    }
+
+    .sources {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .sources a {
+      color: var(--green-2);
+      text-decoration: none;
+    }
+
+    .sources a:hover { text-decoration: underline; }
+
+    .fineprint {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #687b73;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .layout, .insight-grid, .module-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-grid,
+      .dashboard-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .quiz-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .notebook-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-extra-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .module-block-head {
+        flex-direction: column;
+      }
+
+      .vocab-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 18px, 1200px); padding-top: 12px; }
+      .hero, .section { border-radius: 24px; }
+      .hero, .roadmap, .insight-grid, .quiz-shell, .footer, .section-header, .study-stack { padding-left: 16px; padding-right: 16px; }
+      .hero { padding-top: 20px; padding-bottom: 22px; }
+      .section-header { padding-top: 18px; }
+      .brand-line {
+        display: grid;
+        gap: 8px;
+      }
+      .brand-mark {
+        width: fit-content;
+        max-width: 100%;
+      }
+      .hero-copy p,
+      .product-name {
+        max-width: none;
+      }
+      .chips {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .chip {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .stat-grid, .mini-grid { grid-template-columns: 1fr; }
+      .dashboard-grid,
+      .dashboard-stats {
+        grid-template-columns: 1fr;
+      }
+      .lesson-index-grid, .lesson-page-columns, .lesson-page-details, .lesson-extra-grid { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .lesson-page-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .lesson-page-nav-top {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        top: 8px;
+        padding: 10px;
+      }
+      .lesson-page-nav-top .btn,
+      .lesson-page-nav-top .fav-toggle {
+        width: 100%;
+      }
+      .lesson-page-nav-bottom {
+        position: sticky;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        z-index: 11;
+        padding: 10px;
+        margin-top: 12px;
+        border-top: 0;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.92));
+        box-shadow: 0 12px 28px rgba(13, 32, 25, 0.08);
+        backdrop-filter: blur(10px);
+      }
+      .lesson-page-nav .btn,
+      .lesson-page-nav .fav-toggle {
+        width: 100%;
+      }
+      .quiz-footer {
+        position: sticky;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        z-index: 11;
+        padding: 10px;
+        margin-top: 12px;
+        border-top: 0;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.92));
+        box-shadow: 0 12px 28px rgba(13, 32, 25, 0.08);
+        backdrop-filter: blur(10px);
+      }
+      .quiz-actions-bottom {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .quiz-actions-bottom .btn {
+        width: 100%;
+      }
+      .quiz-actions-bottom .btn,
+      .lesson-page-nav .btn {
+        color: #10251f !important;
+      }
+      .quiz-actions-bottom .btn.is-emphasis {
+        color: #0d3329;
+        background: linear-gradient(135deg, rgba(246, 222, 153, 0.98), rgba(211, 154, 57, 0.98));
+        border-color: transparent;
+        box-shadow: 0 14px 28px rgba(211, 154, 57, 0.24);
+      }
+      .top-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        overscroll-behavior-x: contain;
+        touch-action: pan-x;
+        padding: 10px 6px 8px;
+        margin: 18px -6px 0;
+        position: sticky;
+        top: 10px;
+        z-index: 8;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.82));
+        backdrop-filter: blur(10px);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .top-nav button {
+        scroll-snap-align: start;
+      }
+      .top-nav {
+        scroll-snap-type: x mandatory;
+      }
+      .quiz-toolbar {
+        align-items: stretch;
+        position: sticky;
+        top: 10px;
+        z-index: 7;
+        gap: 10px;
+        padding: 10px 12px;
+        margin-bottom: 14px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.9));
+        backdrop-filter: blur(10px);
+        box-shadow: 0 12px 30px rgba(13, 32, 25, 0.08);
+      }
+      .quiz-toolbar .actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+      }
+      .quiz-toolbar .btn {
+        width: 100%;
+      }
+      .vocab-card-head {
+        flex-direction: column;
+      }
+      .vocab-mode-switch,
+      .vocab-filter-row {
+        width: 100%;
+      }
+      .vocab-mode-switch .seg-btn,
+      .vocab-filter-row .seg-btn {
+        flex: 1 1 calc(50% - 8px);
+      }
+      .vocab-flashcard {
+        min-height: 220px;
+      }
+      .vocab-action-bar {
+        position: sticky;
+        bottom: 10px;
+        z-index: 11;
+        padding: 10px;
+        margin-top: 12px;
+        border-top: 0;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.92));
+        box-shadow: 0 12px 28px rgba(13, 32, 25, 0.08);
+        backdrop-filter: blur(10px);
+      }
+      .vocab-toolbar,
+      .vocab-mastery-row {
+        width: 100%;
+      }
+      .vocab-toolbar .btn,
+      .vocab-mastery-row .seg-btn {
+        flex: 1 1 calc(50% - 8px);
+      }
+      .vocab-test-actions .btn {
+        width: 100%;
+      }
+      .option label,
+      .review-meta,
+      .review-meta strong {
+        color: #10251f;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow brand-line">
+            <span class="brand-mark"><strong>CatherineEcho</strong></span>
+            <span>Ontario Real Estate Companion</span>
+          </div>
+          <h1>Learn. Understand. Apply.</h1>
+          <div class="product-name">Ontario Real Estate Companion · Humber Course 1 and beyond</div>
+          <p>
+            CatherineEcho 是一个长期维护的 Ontario Real Estate 学习平台。
+            现在先从 Humber Course 1 开始，把官方课件、双语理解、模拟考试和错题复习串成一条完整学习流程。
+          </p>
+          <div class="chips">
+            <span class="chip"><strong>7</strong> modules / 7 个模块</span>
+            <span class="chip"><strong>35h</strong> eLearning total / 总学习时长</span>
+            <span class="chip"><strong>2h</strong> Exam 1 official duration / 官方考试时长</span>
+            <span class="chip"><strong>EN + 中文</strong> 双语理解</span>
+            <span class="chip"><strong>Mock exam</strong> 练习模式</span>
+          </div>
+          <div class="actions">
+            <button class="btn btn-secondary" type="button" data-panel-target="dashboard">Dashboard</button>
+            <button class="btn btn-primary" type="button" data-panel-target="lessons">Key Points</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="quiz">Mock Exam</button>
+            <a class="btn btn-secondary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">Official Module 1</a>
+            <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
+          </div>
+          <nav class="top-nav" aria-label="Study navigation">
+            <button type="button" data-panel-target="dashboard">Dashboard</button>
+            <button type="button" data-panel-target="lessons">M1</button>
+            <button type="button" data-panel-target="module2">M2–7</button>
+            <button type="button" data-panel-target="ppt">Lessons</button>
+            <button type="button" data-panel-target="exam">Key Points</button>
+            <button type="button" data-panel-target="quiz">Mock Exam</button>
+            <button type="button" data-panel-target="notebook">Review</button>
+            <button type="button" data-panel-target="vocab">Vocabulary</button>
+            <button type="button" data-panel-target="roadmap">Roadmap</button>
+            <button type="button" data-panel-target="all">All</button>
+          </nav>
+        </div>
+        <aside class="hero-panel" aria-label="Study snapshot">
+          <h3>Study Snapshot / 学习速览</h3>
+          <div class="stat-grid">
+            <div class="stat">
+              <span class="num">TRESA</span>
+              <span class="label">Lesson 1 的核心法律框架 / the law and ethics base</span>
+            </div>
+            <div class="stat">
+              <span class="num">RECO</span>
+              <span class="label">省级监管与执法角色 / provincial regulator</span>
+            </div>
+            <div class="stat">
+              <span class="num">24 mo.</span>
+              <span class="label">Pre-registration 24-month window / 预注册 24 个月窗口</span>
+            </div>
+            <div class="stat">
+              <span class="num">Budget</span>
+              <span class="label">佣金收入可能波动，所以预算和规划都很重要 / commission income can fluctuate, so budgeting matters</span>
+            </div>
+          </div>
+          <div class="stat-grid" style="margin-top:12px">
+            <div class="stat">
+              <span class="num">Passit</span>
+              <span class="label">刷题入口 / practice link</span>
+            </div>
+            <div class="stat">
+              <span class="num">CatherineEcho</span>
+              <span class="label">长期更新的学习平台 / long-term study system</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section is-visible" id="dashboard" data-panel="dashboard">
+      <div class="section-header">
+        <h2>Dashboard / 今日学习台</h2>
+        <p>
+          这里是每天打开网站后先看的地方。先看今天要学什么，再进入 Lesson、Mock Exam、Vocabulary 和错题本，
+          让整个复习流程保持一致。
+        </p>
+      </div>
+      <div class="dashboard-grid" id="dashboardGrid"></div>
+    </section>
+
+    <section class="section" id="ppt" data-panel="ppt">
+      <div class="section-header">
+        <h2>官方 Module 1 课件 / Official Module 1 Lesson</h2>
+        <p>
+          我没有把 Humber 的 PPT 直接镜像到本地，而是把你账号里能打开的官方 Module 1 在线课件接进来。
+          下面这一块仍然保留我的双语复习版，英文在上、中文在下，鼠标停词和选词也都能用。
+        </p>
+      </div>
+      <div class="ppt-shell">
+        <p class="ppt-caption">
+          先打开官方 Module 1 课件，再用下面的双语复习卡回看重点。等你学完 Module 1，后面模块再按你解锁的进度继续补。
+        </p>
+        <div class="actions" style="margin-top: 0; margin-bottom: 16px">
+          <a class="btn btn-primary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
+          <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Module 1</button>
+        </div>
+        <div class="ppt-strip" id="pptStrip"></div>
+      </div>
+    </section>
+
+    <section class="section" id="lessons" data-panel="lessons">
+      <div class="section-header">
+        <h2>Module 1 重点总览 / Lesson Map</h2>
+        <p>
+          这里是 Module 1 的总入口。先从总览页挑一课，再进入单课页慢慢看，这样不会一屏塞太多内容。
+        </p>
+      </div>
+      <div class="roadmap">
+        <div class="layout">
+          <aside class="sidebar">
+            <h3>Quick Navigation / 快速跳转</h3>
+            <ol>
+              <li><a href="#lesson-1">Lesson 1 · Regulatory Environment</a></li>
+              <li><a href="#lesson-2">Lesson 2 · Education and Registration Requirements</a></li>
+              <li><a href="#lesson-3">Lesson 3 · Skills Used by a Salesperson</a></li>
+              <li><a href="#lesson-4">Lesson 4 · Role, Tasks, and Activities</a></li>
+              <li><a href="#lesson-5">Lesson 5 · Remuneration and Budgeting</a></li>
+              <li><a href="#lesson-6">Lesson 6 · Module Summary</a></li>
+            </ol>
+          </aside>
+          <div class="lesson-grid" id="lessonGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="lessonPages"></div>
+
+    <section class="section" id="module2" data-panel="module2">
+      <div class="section-header">
+        <h2>Module 2-7 详细学习卡 / Detailed Study Cards</h2>
+        <p>
+          这一块是按 Humber 课程大纲先做出来的占位版学习卡，重点是帮你预习结构。
+          等你后面把模块解锁，我再按官方课件和你的新笔记继续校正细节。
+        </p>
+      </div>
+      <div class="study-stack" id="moduleStudyGrid"></div>
+    </section>
+
+    <section class="section" id="roadmap" data-panel="roadmap">
+      <div class="section-header">
+        <h2>Full Course Roadmap / 全课程路线图</h2>
+        <p>
+          这是我根据你 Humber 课程主页抓到的官方模块结构整理出来的完整路线图。
+          你可以把它当作整门课的导航图，先知道每一模块在讲什么，再进入细学和刷题。
+        </p>
+      </div>
+      <div class="roadmap">
+        <div class="lesson-grid" id="roadmapGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="exam" data-panel="exam">
+        <div class="section-header">
+        <h2>考试高频点 / Exam Focus</h2>
+        <p>
+          这里不是官方蓝图，而是根据 Humber 官方学习路径、考试页，以及公开课程资料整理出的
+          <strong>高概率考点</strong>。适合你做复习优先级排序。
+        </p>
+      </div>
+      <div class="insight-grid">
+        <div class="exam-card">
+          <h3>Official info / 官方信息</h3>
+          <p>
+            RECO 的 Course 1, Exam 1 是 <strong>two-hour theory exam</strong>，
+            考试现在由 <strong>Meazure Learning</strong> 承接。费用会变，建议以 Humber / RECO 当前官方页面为准；
+            课程说明写明它覆盖 Course 1 的内容。
+          </p>
+          <div class="mini-grid">
+            <div class="mini">
+              <b>最值得背的词</b>
+              <span>TRESA, RECO, registrant, brokerage, broker, broker of record</span>
+            </div>
+            <div class="mini">
+              <b>最容易考的逻辑</b>
+              <span>谁负责监管，谁负责执法，谁能注册，谁对 brokerage 最终负责</span>
+            </div>
+            <div class="mini">
+              <b>技能题核心</b>
+              <span>confidence, persistence, math, computer literacy, organizing, negotiation</span>
+            </div>
+            <div class="mini">
+              <b>钱和时间题核心</b>
+              <span>commission income can fluctuate, so budgeting and planning matter</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="info-card">
+            <h3>Most likely question clusters / 常见出题簇</h3>
+            <ul class="info-list">
+              <li>TRESA 和 Code of Ethics 的目的是什么？/ What do they protect?</li>
+              <li>RECO、Ministry、brokerage、broker of record 各自干什么？</li>
+              <li>注册步骤、保险要求、pre-registration window 是什么？</li>
+              <li>Lesson 3 里的“成功技能”有哪些？哪些是最常被问的？</li>
+              <li>销售人员如何根据市场条件调整工作节奏和任务？</li>
+              <li>为什么 Lesson 5 特别强调预算？commission 为什么会让现金流波动？</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Study strategy / 复习策略</h3>
+            <p>
+              如果你时间有限，先背 <strong>Lesson 1 + Lesson 2 + Lesson 5</strong>，
+              再补 Lesson 3 和 4。考试最怕把名词混在一起，所以每次都要把
+              <strong>“法律、监管、注册、职责、报酬”</strong> 五条线分开。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quiz" data-panel="quiz">
+      <div class="section-header">
+        <h2>Mock Exam</h2>
+        <p>
+          This section is a clean practice exam. Questions are original, answers are randomized,
+          and wrong questions are saved automatically for review.
+        </p>
+      </div>
+      <div class="quiz-shell">
+        <div class="quiz-meta">
+          <div class="quiz-chip" id="examProgress">Question 1 / 1</div>
+          <div class="quiz-chip" id="examStatus">In progress</div>
+          <div class="quiz-chip" id="examTimeUsed">Time used: 00:00</div>
+        </div>
+        <div class="quiz-progress" aria-label="Exam progress">
+          <div class="quiz-progress-track" aria-hidden="true"><span id="examProgressFill"></span></div>
+          <div class="quiz-progress-label" id="examProgressLabel">Question 1 / 1</div>
+        </div>
+        <div class="quiz-toolbar">
+          <div class="timer">Exam timer <strong id="timerValue">25:00</strong></div>
+          <button class="btn btn-primary" id="startTimer" type="button">Start timer</button>
+        </div>
+        <div class="quiz-stage">
+          <div class="quiz-grid" id="quizGrid"></div>
+        </div>
+        <div class="quiz-footer">
+          <div class="quiz-actions-bottom">
+            <button class="btn btn-secondary" id="examPrevious" type="button">Previous</button>
+            <button class="btn btn-secondary" id="examNext" type="button">Next</button>
+            <button class="btn btn-secondary" id="submitExam" type="button">Submit Exam</button>
+            <button class="btn btn-secondary" id="confirmExam" type="button">Confirm</button>
+            <button class="btn btn-secondary" id="toggleExamPause" type="button">Pause</button>
+            <button class="btn btn-secondary is-secondary-outline" id="toggleExamFlag" type="button">Mark for Review</button>
+            <button class="btn btn-secondary is-secondary-outline" id="retryIncorrectOnly" type="button">Retry incorrect only</button>
+            <button class="btn btn-secondary" id="resetQuiz" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="result" id="quizResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="notebook" data-panel="notebook">
+      <div class="section-header">
+        <h2>错题本 / 收藏夹</h2>
+        <p>
+          做题时如果点了“收藏”，或者答错后系统会自动记进错题本。
+          下次复习可以先清这里，再从 Lesson 1 / Lesson 2 / Lesson 5 回炉。
+        </p>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
+        </div>
+      </div>
+      <div class="notebook-grid">
+        <div class="notebook-card">
+          <h3>Favorites / 收藏</h3>
+          <p>你标记过的 lesson 和题目都会出现在这里。</p>
+          <div class="notebook-list" id="favoritesList"></div>
+        </div>
+        <div class="notebook-card">
+          <h3>Wrong Book / 错题本</h3>
+          <p>答错一次不怕，重要的是把解释记下来。</p>
+          <div class="notebook-list" id="wrongBookList"></div>
+          <div class="actions" style="margin-top:14px">
+            <button class="btn btn-secondary" id="clearNotebook" type="button">Clear records</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sources" data-panel="sources">
+      <div class="footer">
+        <strong>Source notes / 来源说明</strong>
+        <p class="fineprint">
+          这个站点是我根据 Humber 的官方课程路径、RECO 的官方预注册和考试页面，以及公开课程预览整理出来的学习版，
+          用来帮你复习，不是官方试卷。Official Blackboard course materials and Humber/RECO policies take precedence; public resources are supplementary references only.
+          考试细节如果 Humber 或 RECO 更新了，以官方页面为准。
+        </p>
+        <div class="sources">
+          <a href="https://humber.ca/realestateeducation/programs/real-estate-salesperson/learning-path" target="_blank" rel="noreferrer">Humber Real Estate Salesperson Program Learning Path</a>
+          <a href="https://humber.ca/realestateeducation/programs/real-estate-salesperson/fees" target="_blank" rel="noreferrer">Humber Real Estate Salesperson Program Fees</a>
+          <a href="https://realestateprograms.humber.ca/search/publicCourseSearchDetails.do?courseId=17706&method=load" target="_blank" rel="noreferrer">PREX-1010A Exam 1: Invigilated Theory Exam</a>
+          <a href="https://www.reco.on.ca/learners/becoming-a-real-estate-agent" target="_blank" rel="noreferrer">RECO Real Estate Salesperson Program: Pre-Registration</a>
+          <a href="https://www.reco.on.ca/learners/examinations" target="_blank" rel="noreferrer">RECO Real Estate Exams: Transition to Meazure Learning</a>
+          <a href="https://www.reco.on.ca/agents-and-brokerages/tresa-explained" target="_blank" rel="noreferrer">RECO TRESA Explained</a>
+          <a href="https://dokumen.pub/course-1-real-estate-essentials-humber-real-estate-education-7nbsped.html" target="_blank" rel="noreferrer">Public course preview used for lesson structure</a>
+          <a href="https://www.studocu.com/en-ca/document/humber-polytechnic/real-estate-salesperson/real-estate-module-1-none/74836886" target="_blank" rel="noreferrer">Public module preview used for lesson wording</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="vocab" data-panel="vocab">
+      <div class="section-header">
+        <h2>Vocabulary / 单词本</h2>
+        <p>
+          选中任意难词后会自动加入单词本。Learn 模式像 flashcard 一样一张张背，
+          Browse 模式可以搜索整本词库，再按 New / Learning / Mastered 筛选。
+        </p>
+      </div>
+      <div class="vocab-shell">
+        <div class="vocab-card" id="vocabLearnCard">
+          <div class="vocab-card-head">
+            <div>
+              <h3>Learn / 学习卡</h3>
+              <p>Tap the card to flip, then grade yourself before you move on.</p>
+            </div>
+            <div class="vocab-mode-switch" role="tablist" aria-label="Vocabulary mode">
+              <button class="seg-btn is-active" type="button" data-vocab-mode="learn">Learn</button>
+              <button class="seg-btn" type="button" data-vocab-mode="browse">Browse</button>
+            </div>
+          </div>
+          <div class="vocab-stats" id="vocabStats"></div>
+          <div class="vocab-batch-info" id="vocabBatchInfo">Batch 1 / 10 words</div>
+          <button class="vocab-flashcard" id="vocabFlashcard" type="button" aria-label="Reveal meaning">
+            <div class="vocab-face" id="vocabFace">Select an English word first</div>
+          </button>
+          <div class="vocab-hint" id="vocabHint">
+            You can select a word in lessons or in the quiz. It will be saved here with a Chinese meaning.
+          </div>
+          <div class="vocab-action-bar">
+            <div class="vocab-toolbar">
+              <button class="btn btn-secondary" id="vocabPrev" type="button">Previous</button>
+              <button class="btn btn-secondary" id="vocabReveal" type="button">Reveal meaning</button>
+              <button class="btn btn-secondary" id="vocabNext" type="button">Next</button>
+              <button class="btn btn-secondary" id="vocabShuffle" type="button">Random</button>
+              <button class="btn btn-secondary" id="vocabSpeak" type="button">Read aloud</button>
+            </div>
+            <div class="vocab-mastery-row">
+              <button class="seg-btn" id="vocabMasteryHard" type="button">Again</button>
+              <button class="seg-btn" id="vocabMasteryMaybe" type="button">Learning</button>
+              <button class="seg-btn" id="vocabMasteryEasy" type="button">Mastered</button>
+            </div>
+          </div>
+          <div class="vocab-test" id="vocabTest">
+            <div class="vocab-test-head">
+              <h4>Quiz / 当前组测试</h4>
+              <p id="vocabTestMeta">Press Start test and I will quiz the current batch of 10 words.</p>
+            </div>
+            <div class="test-score" id="vocabTestScore">0 / 0</div>
+            <div class="vocab-test-panel" id="vocabQuizPanel">
+              No test has started yet. Pick a batch and press Start test.
+            </div>
+            <div class="vocab-test-actions">
+              <button class="btn btn-secondary" id="startVocabTest" type="button">Start test</button>
+              <button class="btn btn-secondary" id="nextVocabQuestion" type="button">Next question</button>
+              <button class="btn btn-secondary" id="finishVocabTest" type="button">Submit</button>
+              <button class="btn btn-secondary" id="resetVocabTest" type="button">Reset</button>
+            </div>
+          </div>
+        </div>
+        <div class="vocab-card" id="vocabBrowseCard">
+          <div class="vocab-card-head">
+            <div>
+              <h3>Browse / 全部词库</h3>
+              <p>Search the whole wordbook and jump back into Learn whenever you want.</p>
+            </div>
+          </div>
+          <div class="vocab-browse-tools">
+            <label class="vocab-search" for="vocabSearchInput">
+              <span>Search vocabulary</span>
+              <input id="vocabSearchInput" type="search" placeholder="Search English or Chinese" />
+            </label>
+            <div class="vocab-filter-row" role="tablist" aria-label="Vocabulary filters">
+              <button class="seg-btn is-active" type="button" data-vocab-filter="all">All</button>
+              <button class="seg-btn" type="button" data-vocab-filter="new">New</button>
+              <button class="seg-btn" type="button" data-vocab-filter="learning">Learning</button>
+              <button class="seg-btn" type="button" data-vocab-filter="mastered">Mastered</button>
+            </div>
+            <div class="vocab-browse-meta" id="vocabBrowseMeta"></div>
+          </div>
+          <div class="vocab-list" id="vocabList"></div>
+          <div class="actions" style="margin-top:14px">
+            <button class="btn btn-secondary" id="clearVocab" type="button">Clear wordbook</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script>
+    const COURSE_DATA_URL = "./course-data.json";
+
+    const storageKeys = {
+      favorites: "humber-study-favorites",
+      wrongBook: "humber-study-wrongbook",
+      lessonProgress: "humber-study-lesson-progress",
+      vocab: "humber-study-vocab",
+      translationCache: "humber-study-translation-cache",
+      extraGlossary: "humber-study-extra-glossary",
+      vocabMode: "humber-study-vocab-mode",
+      vocabBatchIndex: "humber-study-vocab-batch-index",
+      vocabSearch: "humber-study-vocab-search",
+      vocabFilter: "humber-study-vocab-filter",
+      vocabMastery: "humber-study-vocab-mastery",
+      vocabTestState: "humber-study-vocab-test-state",
+      examState: "humber-study-exam-state",
+      whyMode: "humber-study-why-mode"
+    };
+
+    let lessons = [];
+    let quizQuestions = [];
+    let glossary = [];
+    let commonGlossary = [];
+    let moduleStudyModules = [];
+    let pptSlides = [];
+    let courseModules = [];
+
+    const officialModule1Url = "https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1";
+    document.querySelectorAll("[data-official-module1-link]").forEach((link) => {
+      link.href = officialModule1Url;
+    });
+
+    function getLessonProgress() {
+      return readStore(storageKeys.lessonProgress).filter((item) => item && item.id);
+    }
+
+    function isLessonCompleted(id) {
+      const normalized = String(id || "");
+      return getLessonProgress().some((item) => item.id === normalized && item.completed);
+    }
+
+    function toggleLessonCompleted(id) {
+      const normalized = String(id || "");
+      if (!normalized) return;
+      const list = getLessonProgress();
+      const index = list.findIndex((item) => item.id === normalized);
+      const next = { id: normalized, completed: index >= 0 ? !list[index].completed : true, updatedAt: new Date().toISOString() };
+      if (index >= 0) list[index] = next; else list.push(next);
+      writeStore(storageKeys.lessonProgress, list);
+      renderDashboard();
+      renderLessons();
+      renderLessonPages();
+      syncActivePanel();
+    }
+
+    function getLessonProgressStats() {
+      const completed = lessons.filter((lesson) => isLessonCompleted(lesson.id)).length;
+      return { completed, total: lessons.length };
+    }
+
+    function getCurrentStudyLesson() {
+      const nextLesson = lessons.find((lesson) => !isLessonCompleted(lesson.id));
+      if (nextLesson) return nextLesson;
+      return lessons[lessons.length - 1] || null;
+    }
+
+    function getWhyModeValue() {
+      const stored = localStorage.getItem(storageKeys.whyMode);
+      return stored === "1" || stored === "true" || stored === "on";
+    }
+
+    function setWhyModeValue(nextValue) {
+      whyMode = Boolean(nextValue);
+      localStorage.setItem(storageKeys.whyMode, whyMode ? "1" : "0");
+      renderDashboard();
+      renderLessonPages();
+      syncActivePanel();
+      showToast(whyMode ? "Why mode enabled" : "Why mode disabled");
+    }
+
+    function toggleWhyMode() {
+      setWhyModeValue(!whyMode);
+    }
+
+    function getLessonWhyCards(lesson) {
+      const lessonId = lesson?.id || "";
+      const whyMap = {
+        "lesson-1": [
+          {
+            titleEn: "Why the chain matters",
+            titleZh: "为什么先学监管链条",
+            en: "The exam keeps asking who creates the law, who enforces it, and who actually works under it. If you can trace the chain, you can untangle most regulation questions.",
+            zh: "考试一直在问：谁制定法律、谁执行法律、谁在法律之下工作。只要你能顺着这条链走，大部分监管题就不会乱。"
+          },
+          {
+            titleEn: "Why TRESA vs RECO matters",
+            titleZh: "为什么要分清 TRESA 和 RECO",
+            en: "TRESA is the legislation and RECO is the regulator. Mixing them up turns a simple definition question into a trap.",
+            zh: "TRESA 是法律，RECO 是监管机构。把两者混在一起，简单的定义题就会变成陷阱题。"
+          },
+          {
+            titleEn: "Why broker of record matters",
+            titleZh: "为什么 broker of record 会考",
+            en: "A brokerage needs someone who carries the final responsibility for supervision and compliance. That role shows up in responsibility questions, not just vocabulary questions.",
+            zh: "brokerage 需要一个承担最终监督和合规责任的人。这个角色会出现在责任题里，不只是单词题里。"
+          }
+        ],
+        "lesson-2": [
+          {
+            titleEn: "Why the 24-month window matters",
+            titleZh: "为什么 24 个月窗口重要",
+            en: "The exam likes timing questions. This number only makes sense when you attach it to the pre-registration phase, so keep the starting point and the phase together.",
+            zh: "考试很喜欢时间题。这个数字只有放进预注册阶段才有意义，所以一定要把起点和阶段一起记。"
+          },
+          {
+            titleEn: "Why sequence matters",
+            titleZh: "为什么顺序题重要",
+            en: "Real estate education is a process, not a single step. If you know the sequence, you can answer order questions even when the wording changes.",
+            zh: "房地产学习不是单一步骤，而是一整套流程。只要顺序记住了，不管题目怎么换说法，你都能答顺序题。"
+          },
+          {
+            titleEn: "Why separate phases matter",
+            titleZh: "为什么要分开阶段",
+            en: "Pre-registration and post-registration are not the same thing. Keeping them separate prevents you from importing the wrong rule into the exam answer.",
+            zh: "预注册和注册后不是同一件事。把它们分开，才能避免把错误规则带进考试答案。"
+          }
+        ],
+        "lesson-3": [
+          {
+            titleEn: "Why this skills list is broad",
+            titleZh: "为什么技能表这么广",
+            en: "A salesperson works with people, numbers, technology, planning, and follow-through at the same time. The broad answer is the accurate answer.",
+            zh: "销售人员要同时处理人、数字、技术、规划和执行。答案越全面，越接近真实工作。"
+          },
+          {
+            titleEn: "Why people skills matter",
+            titleZh: "为什么人际能力重要",
+            en: "Real estate is client-driven. Confidence, persistence, negotiation, and communication are not extras; they are part of the job itself.",
+            zh: "房地产本质上是以客户为中心的工作。自信、坚持、谈判和沟通不是加分项，而是工作本身的一部分。"
+          },
+          {
+            titleEn: "Why tech and math show up",
+            titleZh: "为什么技术和数学会考",
+            en: "Modern real estate uses calculators, systems, email, documents, and digital communication. The exam wants you to connect the skill to the job, not just memorize the word.",
+            zh: "现代房地产离不开计算、系统、邮件、文件和数字沟通。考试要你把技能和工作联系起来，而不是只背单词。"
+          }
+        ],
+        "lesson-4": [
+          {
+            titleEn: "Why workload changes matter",
+            titleZh: "为什么工作量变化重要",
+            en: "The job does not run on a fixed schedule. Market conditions change the number of showings, follow-ups, and offers, so the role has to stay flexible.",
+            zh: "这份工作不是固定班表。市场会改变看房、跟进和出价的数量，所以角色必须保持弹性。"
+          },
+          {
+            titleEn: "Why organization is essential",
+            titleZh: "为什么组织能力是核心",
+            en: "If the schedule changes all the time, the only way to stay effective is to prioritize, track details, and manage time carefully.",
+            zh: "如果日程一直变化，想保持效率就只能靠优先排序、跟踪细节和认真管理时间。"
+          },
+          {
+            titleEn: "Why the role is broader than selling",
+            titleZh: "为什么不只是卖房",
+            en: "The exam often tests whether you understand the full work cycle: research, communication, documents, coordination, and adapting to the market.",
+            zh: "考试常常在考你是否理解完整工作链：研究、沟通、文件、协调，以及根据市场变化调整。"
+          }
+        ],
+        "lesson-5": [
+          {
+            titleEn: "Why budgeting matters",
+            titleZh: "为什么预算重要",
+            en: "Commission income can fluctuate, so budgeting is a professional habit rather than a nice-to-have. This is one of the clearest practical lessons in Module 1.",
+            zh: "佣金收入会波动，所以预算是职业习惯，不是可有可无。这个模块里最实用的点之一就是这个。"
+          },
+          {
+            titleEn: "Why cash flow matters",
+            titleZh: "为什么现金流重要",
+            en: "Income may not arrive in a straight line. When the question hints at uneven earnings, the safest answer usually mentions planning ahead.",
+            zh: "收入不会总是平直到来。题目一旦在暗示收入不均匀，最稳的答案通常都会提到提前规划。"
+          },
+          {
+            titleEn: "Why sharing remuneration matters",
+            titleZh: "为什么报酬分配会考",
+            en: "The lesson is also about how remuneration can be shared between brokerages and registrants. The exam likes to test who can receive what and under what structure.",
+            zh: "这一课也在讲报酬如何在 brokerages 和注册人员之间分配。考试很爱考谁可以拿什么、在什么结构下拿。"
+          }
+        ],
+        "lesson-6": [
+          {
+            titleEn: "Why the summary is not optional",
+            titleZh: "为什么总结课不能跳过",
+            en: "The summary lesson ties the whole module together. If one part still feels fuzzy here, the earlier lesson needs another pass.",
+            zh: "总结课是把整个模块串起来的地方。只要这里还模糊，前面的内容就还需要再回看一次。"
+          },
+          {
+            titleEn: "Why teaching it out loud helps",
+            titleZh: "为什么要讲出来",
+            en: "If you can explain the module in your own words, you are much closer to exam-ready than if you only recognize the terms on the page.",
+            zh: "如果你能用自己的话讲出整个模块，就比只会看懂页面上的词更接近考试状态。"
+          },
+          {
+            titleEn: "Why summary exposes weak spots",
+            titleZh: "为什么总结能暴露弱点",
+            en: "The final review always reveals whether law, process, skills, or remuneration is still weak. That is why the summary lesson is part of the study loop, not an afterthought.",
+            zh: "最终回顾总能看出法律、流程、技能或报酬哪一块还弱。也正因为这样，总结课是学习闭环的一部分，不是最后才顺手看一眼。"
+          }
+        ]
+      };
+      return whyMap[lessonId] || [
+        {
+          titleEn: "Why this matters",
+          titleZh: "为什么重要",
+          en: lesson?.summary || "This page connects the lesson content to the exam and to real-world practice.",
+          zh: lesson?.summaryZh || "这一页把课件内容、考试逻辑和真实工作连接起来。"
+        }
+      ];
+    }
+
+    function buildDailyReviewItems() {
+      const items = [];
+      const coreLessons = ["lesson-1", "lesson-2", "lesson-5"]
+        .map((id) => getLessonById(id))
+        .filter(Boolean);
+
+      coreLessons.forEach((lesson) => {
+        const prompts = {
+          "lesson-1": {
+            titleEn: "Regulatory structure",
+            titleZh: "监管结构",
+            en: "Rebuild the chain: Ontario Government → TRESA → RECO → brokerage → broker / salesperson.",
+            zh: "先把监管链条重新顺一遍：Ontario Government → TRESA → RECO → brokerage → broker / salesperson.",
+            panel: "lesson-1",
+            button: "Open lesson"
+          },
+          "lesson-2": {
+            titleEn: "Sequence and timing",
+            titleZh: "顺序与时间",
+            en: "Say the path out loud: education → employment → registration → insurance → ongoing education.",
+            zh: "把路径大声说一遍：education → employment → registration → insurance → ongoing education。",
+            panel: "lesson-2",
+            button: "Open lesson"
+          },
+          "lesson-5": {
+            titleEn: "Commission and budgeting",
+            titleZh: "佣金与预算",
+            en: "Commission income can fluctuate, so budgeting is the safest practical takeaway.",
+            zh: "佣金收入会波动，所以预算是最稳的实用结论。",
+            panel: "lesson-5",
+            button: "Open lesson"
+          }
+        };
+        items.push({
+          lessonId: lesson.id,
+          ...prompts[lesson.id]
+        });
+      });
+
+      const wrongBook = readStore(storageKeys.wrongBook).filter((item) => item && item.id);
+      const savedWords = getVocab();
+      const currentLesson = getCurrentStudyLesson();
+      const fallbackLesson = currentLesson && !["lesson-1", "lesson-2", "lesson-5"].includes(currentLesson.id)
+        ? currentLesson
+        : getLessonById("lesson-6") || null;
+      if (wrongBook.length) {
+        items.push({
+          lessonId: "notebook",
+          titleEn: `${wrongBook.length} wrong question${wrongBook.length === 1 ? "" : "s"}`,
+          titleZh: "错题回炉",
+          en: "Review the wrong book before you move on. That is the fastest way to convert mistakes into points.",
+          zh: `先回看错题本里的 ${wrongBook.length} 道题，再继续往下学。`,
+          panel: "notebook",
+          button: "Open review"
+        });
+      } else if (savedWords.length) {
+        items.push({
+          lessonId: "vocab",
+          titleEn: `${savedWords.length} saved word${savedWords.length === 1 ? "" : "s"}`,
+          titleZh: "单词复习",
+          en: "Run one short vocabulary batch before you start the lesson.",
+          zh: "先做一组短词汇复习，再进入新内容。",
+          panel: "vocab",
+          button: "Open vocabulary"
+        });
+      } else if (fallbackLesson) {
+        items.push({
+          lessonId: fallbackLesson.id,
+          titleEn: `${fallbackLesson.number} · ${fallbackLesson.titleEn}`,
+          titleZh: fallbackLesson.titleZh,
+          en: fallbackLesson.summary,
+          zh: fallbackLesson.summaryZh,
+          panel: fallbackLesson.id,
+          button: "Continue"
+        });
+      }
+
+      return items.slice(0, 4);
+    }
+
+    function renderDashboard() {
+      if (!dashboardGrid) return;
+      const progress = getLessonProgressStats();
+      const currentLesson = getCurrentStudyLesson();
+      const savedWords = getVocab().length;
+      const wrongCount = readStore(storageKeys.wrongBook).filter((item) => item && item.id).length;
+      const favoriteCount = readStore(storageKeys.favorites).filter((item) => item && item.id).length;
+      const reviewItems = buildDailyReviewItems();
+      const whyCards = getLessonWhyCards(currentLesson).slice(0, 2);
+      const progressPercent = progress.total ? Math.round((progress.completed / progress.total) * 100) : 0;
+      const currentLessonLabel = currentLesson ? `${currentLesson.number} · ${currentLesson.titleEn}` : "Module 1";
+      const currentLessonZh = currentLesson ? currentLesson.titleZh : "模块总览";
+      const primaryButtonLabel = progress.total && progress.completed >= progress.total ? "Review lesson" : "Continue lesson";
+
+      dashboardGrid.innerHTML = `
+        <article class="dashboard-card dashboard-card-wide">
+          <div class="dashboard-card-head">
+            <div>
+              <div class="lesson-kicker">Continue Learning / 继续学习</div>
+              <h3 class="lesson-title">${decorateEnglish(currentLessonLabel)}</h3>
+              <div class="lesson-zh">${escapeHtml(currentLessonZh)}</div>
+            </div>
+            <div class="badge">${progress.completed}/${progress.total} lessons done</div>
+          </div>
+          <p class="dashboard-note">${decorateEnglish(currentLesson?.summary || "Open the current lesson and continue the Humber Module 1 loop.")}</p>
+          <p class="dashboard-note">${escapeHtml(currentLesson?.summaryZh || "先从当前课继续，保持“学一课、复习一课、再做题”的节奏。")}</p>
+          <div class="dashboard-stats">
+            <div class="dashboard-stat">
+              <span class="label">Module progress</span>
+              <span class="value">${progressPercent}% complete</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="label">Saved words</span>
+              <span class="value">${savedWords} in your wordbook</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="label">Wrong questions</span>
+              <span class="value">${wrongCount} ready for review</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="label">Favorites</span>
+              <span class="value">${favoriteCount} saved for later</span>
+            </div>
+          </div>
+          <div class="dashboard-action-row">
+            <button class="btn btn-primary is-emphasis" type="button" data-panel-target="${currentLesson?.id || "lessons"}">${currentLesson ? primaryButtonLabel : "Open lesson map"}</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="quiz">Mock Exam</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="vocab">Vocabulary</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="notebook">Review</button>
+          </div>
+        </article>
+        <article class="dashboard-card">
+          <div class="dashboard-card-head">
+            <div>
+              <div class="lesson-kicker">Daily Review / 今日复习</div>
+              <h3 class="lesson-title">先划重点，再开始学</h3>
+              <div class="lesson-zh">把最容易考、最容易混的内容放在前面。</div>
+            </div>
+          </div>
+          <div class="dashboard-review-list">
+            ${reviewItems.map((item) => `
+              <div class="dashboard-review-item">
+                <span class="label">${escapeHtml(item.titleEn)}<br>${escapeHtml(item.titleZh)}</span>
+                <p class="why-note">${decorateEnglish(item.en)}</p>
+                <p>${escapeHtml(item.zh)}</p>
+                <div class="actions">
+                  <button class="btn btn-secondary" type="button" data-panel-target="${item.panel}">${escapeHtml(item.button)}</button>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </article>
+        <article class="dashboard-card">
+          <div class="dashboard-card-head">
+            <div>
+              <div class="lesson-kicker">Why mode / 为什么模式</div>
+              <h3 class="lesson-title">${whyMode ? "On" : "Off"}</h3>
+              <div class="lesson-zh">${whyMode ? "解释层已开启" : "解释层未开启"}</div>
+            </div>
+            <div class="dashboard-toggle">
+              <button class="btn ${whyMode ? "is-active" : ""}" type="button" data-toggle-why-mode>${whyMode ? "Turn off" : "Turn on"}</button>
+            </div>
+          </div>
+          <p class="dashboard-note">
+            ${whyMode
+              ? "Every lesson now shows a short Why section so you can connect the facts to exam logic and real-world work."
+              : "Turn this on when you want each lesson to explain why the point matters, not just what the answer is."}
+          </p>
+          <div class="dashboard-why-list">
+            ${whyCards.map((item) => `
+              <article class="lesson-why-card">
+                <span class="label">${escapeHtml(item.titleEn)}<br>${escapeHtml(item.titleZh)}</span>
+                <p class="why-note">${decorateEnglish(item.en)}</p>
+                <p>${escapeHtml(item.zh)}</p>
+              </article>
+            `).join("")}
+          </div>
+        </article>
+        <article class="dashboard-card">
+          <div class="dashboard-card-head">
+            <div>
+              <div class="lesson-kicker">Quick access / 快速入口</div>
+              <h3 class="lesson-title">打开你今天最常用的页面</h3>
+              <div class="lesson-zh">先记住你每天最常用的入口。</div>
+            </div>
+          </div>
+          <div class="dashboard-action-row">
+            <button class="btn btn-secondary" type="button" data-panel-target="lessons">Lesson Map</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="roadmap">Roadmap</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="exam">Exam Focus</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="sources">Sources</button>
+            <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Passit Practice</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function loadCustomGlossary() {
+      try {
+        const extras = JSON.parse(localStorage.getItem(storageKeys.extraGlossary) || "[]");
+        if (Array.isArray(extras)) {
+          extras.forEach((item) => {
+            if (!item?.term || !item?.zh) return;
+            if (isBadTranslation(item.zh)) return;
+            const normalized = normalizeToken(item.term).toLowerCase();
+            if (!normalized) return;
+            const exists = glossary.some((entry) => normalizeToken(entry.term).toLowerCase() === normalized);
+            if (!exists) {
+              glossary.push({ term: item.term, zh: item.zh });
+            }
+          });
+          glossary.sort((a, b) => b.term.length - a.term.length);
+        }
+      } catch {
+        // Ignore malformed cache and continue with the base glossary.
+      }
+    }
+
+    async function loadCourseData() {
+      const response = await fetch(COURSE_DATA_URL + '?v=1.0.0', { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error('Unable to load course data: ' + response.status);
+      }
+      const data = await response.json();
+      lessons = Array.isArray(data.lessons) ? data.lessons : [];
+      quizQuestions = Array.isArray(data.quizQuestions) ? data.quizQuestions : [];
+      glossary = Array.isArray(data.glossary) ? [...data.glossary] : [];
+      commonGlossary = Array.isArray(data.commonGlossary) ? [...data.commonGlossary] : [];
+      moduleStudyModules = Array.isArray(data.moduleStudyModules) ? data.moduleStudyModules : [];
+      pptSlides = Array.isArray(data.pptSlides) ? data.pptSlides : [];
+      courseModules = Array.isArray(data.courseModules) ? data.courseModules : [];
+
+      commonGlossary.forEach((entry) => {
+        const normalized = normalizeToken(entry.term).toLowerCase();
+        if (!normalized) return;
+        const exists = glossary.some((item) => normalizeToken(item.term).toLowerCase() === normalized);
+        if (!exists) glossary.push(entry);
+      });
+      glossary.sort((a, b) => b.term.length - a.term.length);
+
+      sanitizeTranslationStores();
+      loadCustomGlossary();
+      examState = loadExamState() || createExamState();
+      timerSeconds = Number(examState.timerSeconds) || 25 * 60;
+      timerValue.textContent = formatTime(timerSeconds);
+      if (examState.status === 'paused') {
+        startTimer.textContent = 'Resume timer';
+      }
+    }
+
+    const lessonGrid = document.getElementById("lessonGrid");
+    const lessonPages = document.getElementById("lessonPages");
+    const dashboardGrid = document.getElementById("dashboardGrid");
+    const moduleStudyGrid = document.getElementById("moduleStudyGrid");
+    const roadmapGrid = document.getElementById("roadmapGrid");
+    const pptStrip = document.getElementById("pptStrip");
+    const quizGrid = document.getElementById("quizGrid");
+    const quizResult = document.getElementById("quizResult");
+    const examProgress = document.getElementById("examProgress");
+    const examProgressLabel = document.getElementById("examProgressLabel");
+    const examProgressFill = document.getElementById("examProgressFill");
+    const examStatus = document.getElementById("examStatus");
+    const examTimeUsed = document.getElementById("examTimeUsed");
+    const examRailProgress = document.getElementById("examRailProgress");
+    const timerValue = document.getElementById("timerValue");
+    const startTimer = document.getElementById("startTimer");
+    const examPrevious = document.getElementById("examPrevious");
+    const examNext = document.getElementById("examNext");
+    const submitExam = document.getElementById("submitExam");
+    const confirmExamButton = document.getElementById("confirmExam");
+    const toggleExamPauseButton = document.getElementById("toggleExamPause");
+    const toggleExamFlagButton = document.getElementById("toggleExamFlag");
+    const retryIncorrectOnlyButton = document.getElementById("retryIncorrectOnly");
+    const resetQuiz = document.getElementById("resetQuiz");
+    const favoritesList = document.getElementById("favoritesList");
+    const wrongBookList = document.getElementById("wrongBookList");
+    const clearNotebook = document.getElementById("clearNotebook");
+    const vocabLearnCard = document.getElementById("vocabLearnCard");
+    const vocabBrowseCard = document.getElementById("vocabBrowseCard");
+    const vocabSearchInput = document.getElementById("vocabSearchInput");
+    const vocabBrowseMeta = document.getElementById("vocabBrowseMeta");
+    const vocabFlashcard = document.getElementById("vocabFlashcard");
+    const vocabReveal = document.getElementById("vocabReveal");
+    const vocabSpeak = document.getElementById("vocabSpeak");
+    const vocabList = document.getElementById("vocabList");
+    const vocabFace = document.getElementById("vocabFace");
+    const vocabHint = document.getElementById("vocabHint");
+    const vocabStats = document.getElementById("vocabStats");
+    const vocabBatchInfo = document.getElementById("vocabBatchInfo");
+    const vocabQuizPanel = document.getElementById("vocabQuizPanel");
+    const vocabTestMeta = document.getElementById("vocabTestMeta");
+    const vocabTestScore = document.getElementById("vocabTestScore");
+    const vocabPrev = document.getElementById("vocabPrev");
+    const vocabNext = document.getElementById("vocabNext");
+    const vocabShuffle = document.getElementById("vocabShuffle");
+    const vocabBatchPrev = document.getElementById("vocabBatchPrev");
+    const vocabBatchNext = document.getElementById("vocabBatchNext");
+    const startVocabTestBtn = document.getElementById("startVocabTest");
+    const nextVocabQuestionBtn = document.getElementById("nextVocabQuestion");
+    const finishVocabTestBtn = document.getElementById("finishVocabTest");
+    const resetVocabTestBtn = document.getElementById("resetVocabTest");
+    const vocabMasteryHard = document.getElementById("vocabMasteryHard");
+    const vocabMasteryMaybe = document.getElementById("vocabMasteryMaybe");
+    const vocabMasteryEasy = document.getElementById("vocabMasteryEasy");
+    const clearVocab = document.getElementById("clearVocab");
+    const toast = document.getElementById("toast");
+    function getPanelButtons() {
+      return Array.from(document.querySelectorAll("[data-panel-target]"));
+    }
+
+    function getPanelSections() {
+      return Array.from(document.querySelectorAll("section.section[data-panel]"));
+    }
+
+    let timerSeconds = 25 * 60;
+    let timerHandle = null;
+    let timerRunning = false;
+    let vocabSide = "en";
+    let vocabIndex = 0;
+    let vocabTimer = null;
+    let activeVocabId = null;
+    let vocabMode = getVocabModeValue();
+    let vocabSearchQuery = getVocabSearchValue();
+    let vocabFilterMode = getVocabFilterValue();
+    let vocabBatchIndex = Number(localStorage.getItem(storageKeys.vocabBatchIndex) || 0);
+    let whyMode = getWhyModeValue();
+    let vocabTestState = {
+      active: false,
+      index: 0,
+      score: 0,
+      answered: false,
+      submitted: false,
+      questions: [],
+      lastResult: ""
+    };
+
+    function readStore(key) {
+      try {
+        return JSON.parse(localStorage.getItem(key) || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function writeStore(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function normalizeToken(text) {
+      return text
+        .replace(/\s+/g, " ")
+        .replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "")
+        .trim();
+    }
+
+    function findGlossary(term) {
+      const normalized = normalizeToken(term).toLowerCase();
+      return glossary.find((item) => item.term.toLowerCase() === normalized);
+    }
+
+    function cssEscapeValue(value) {
+      if (window.CSS && typeof CSS.escape === "function") return CSS.escape(value);
+      return String(value).replace(/["\\]/g, "\\$&");
+    }
+
+    function setPanel(panel, options = {}) {
+      let target = panel || "lessons";
+      const showAll = target === "all";
+      const panelButtons = getPanelButtons();
+      const panelSections = getPanelSections();
+      const availablePanels = new Set(panelSections.map((section) => section.getAttribute("data-panel")));
+      if (target !== "all" && !availablePanels.has(target)) {
+        target = "lessons";
+      }
+      panelSections.forEach((section) => {
+        const visible = showAll || section.getAttribute("data-panel") === target;
+        section.classList.toggle("is-visible", visible);
+      });
+      panelButtons.forEach((button) => {
+        const isActive = button.getAttribute("data-panel-target") === target;
+        button.classList.toggle("is-active", isActive);
+        if (isActive) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+      if (options.updateHash !== false) {
+        if (target === "lessons") {
+          history.replaceState(null, "", "#lessons");
+        } else if (target !== "all") {
+          history.replaceState(null, "", `#${target}`);
+        }
+      }
+      if (options.scroll !== false) {
+        const destination = showAll ? document.getElementById("home") : panelSections.find((section) => section.getAttribute("data-panel") === target);
+        if (destination) {
+          destination.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+      const activeButton = panelButtons.find((button) => button.getAttribute("data-panel-target") === target);
+      if (activeButton && target !== "all") {
+        requestAnimationFrame(() => {
+          activeButton.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        });
+      }
+      const primeRoot = showAll ? document : panelSections.find((section) => section.getAttribute("data-panel") === target) || document;
+      void primeWordTranslations(primeRoot);
+    }
+
+    function syncActivePanel() {
+      const panel = location.hash.replace(/^#/, "") || "dashboard";
+      setPanel(panel, { scroll: false, updateHash: false });
+    }
+
+    function getTranslationCache() {
+      return readStore(storageKeys.translationCache);
+    }
+
+    function getCachedTranslation(term) {
+      const normalized = normalizeToken(term).toLowerCase();
+      const entry = getTranslationCache().find((item) => item.id === normalized);
+      return entry?.zh || "";
+    }
+
+    function normalizeTranslatedText(text) {
+      const cleaned = String(text || "")
+        .replace(/^\s*[a-z]\.\s*/i, "")
+        .replace(/\s*[,，]\s*/g, " / ")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (/MYMEMORY WARNING|free translations for today|next available/i.test(cleaned)) return "";
+      return cleaned;
+    }
+
+    function isBadTranslation(text) {
+      return /MYMEMORY WARNING|free translations for today|next available/i.test(String(text || ""));
+    }
+
+    function sanitizeTranslationStores() {
+      const cache = readStore(storageKeys.translationCache).filter((item) => item?.term && item?.zh && !isBadTranslation(item.zh));
+      const extras = readStore(storageKeys.extraGlossary).filter((item) => item?.term && item?.zh && !isBadTranslation(item.zh));
+      writeStore(storageKeys.translationCache, cache);
+      writeStore(storageKeys.extraGlossary, extras);
+    }
+
+    function cacheTranslation(term, zh) {
+      const cleanTerm = normalizeToken(term);
+      const cleanZh = normalizeTranslatedText(zh);
+      if (!cleanTerm || !cleanZh || isBadTranslation(cleanZh)) return cleanZh;
+      const normalized = cleanTerm.toLowerCase();
+      const list = getTranslationCache();
+      const index = list.findIndex((item) => item.id === normalized);
+      const next = { id: normalized, term: cleanTerm, zh: cleanZh };
+      if (index >= 0) list[index] = next; else list.unshift(next);
+      writeStore(storageKeys.translationCache, list);
+      return cleanZh;
+    }
+
+    function syncCustomGlossary(term, zh) {
+      const cleanTerm = normalizeToken(term);
+      const cleanZh = normalizeTranslatedText(zh);
+      if (!cleanTerm || !cleanZh || isBadTranslation(cleanZh)) return;
+      const normalized = cleanTerm.toLowerCase();
+      const index = glossary.findIndex((item) => item.term.toLowerCase() === normalized);
+      if (index >= 0) {
+        glossary[index].zh = cleanZh;
+      } else {
+        glossary.push({ term: cleanTerm, zh: cleanZh });
+        glossary.sort((a, b) => b.term.length - a.term.length);
+      }
+      const list = readStore(storageKeys.extraGlossary);
+      const extraIndex = list.findIndex((item) => normalizeToken(item.term).toLowerCase() === normalized);
+      const entry = { term: cleanTerm, zh: cleanZh };
+      if (extraIndex >= 0) list[extraIndex] = entry; else list.unshift(entry);
+      writeStore(storageKeys.extraGlossary, list);
+    }
+
+    async function lookupChinese(term) {
+      const clean = normalizeToken(term);
+      if (!clean) return "";
+      const glossaryMatch = findGlossary(clean);
+      if (glossaryMatch?.zh) return glossaryMatch.zh;
+      const cached = getCachedTranslation(clean);
+      if (cached) return cached;
+      try {
+        const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(clean)}&langpair=en|zh-CN`);
+        const data = await response.json();
+        const translated = normalizeTranslatedText(data?.responseData?.translatedText || "");
+        const finalZh = translated && !isBadTranslation(translated) ? translated : "翻译暂缺";
+        cacheTranslation(clean, finalZh);
+        if (finalZh !== "翻译暂缺") syncCustomGlossary(clean, finalZh);
+        return finalZh;
+      } catch {
+        const fallback = "翻译暂缺";
+        cacheTranslation(clean, fallback);
+        return fallback;
+      }
+    }
+
+    function decorateEnglish(text) {
+      const source = String(text ?? "");
+      const regex = /[A-Za-z]+(?:[’'][A-Za-z]+)?(?:-[A-Za-z]+(?:[’'][A-Za-z]+)?)*|[A-Z]{2,}/g;
+      let lastIndex = 0;
+      let html = "";
+      let match;
+
+      while ((match = regex.exec(source)) !== null) {
+        const token = match[0];
+        const prior = source.slice(lastIndex, match.index);
+        html += escapeHtml(prior);
+        const glossaryMatch = findGlossary(token);
+        const cached = getCachedTranslation(token);
+        const zh = glossaryMatch?.zh || cached || "翻译中...";
+        html += `<span class="term" data-word="${escapeHtml(token)}" data-zh="${escapeHtml(zh)}" title="${escapeHtml(zh)}" aria-label="${escapeHtml(token)}：${escapeHtml(zh)}">${escapeHtml(token)}</span>`;
+        lastIndex = match.index + token.length;
+      }
+
+      html += escapeHtml(source.slice(lastIndex));
+      return html;
+    }
+
+    function updateWordNodes(term, zh) {
+      const clean = normalizeToken(term);
+      if (!clean) return;
+      const selector = `.term[data-word="${cssEscapeValue(clean)}"]`;
+      document.querySelectorAll(selector).forEach((node) => {
+        node.setAttribute("data-zh", zh);
+      });
+    }
+
+    async function primeWordTranslations(root = document) {
+      const nodes = Array.from(root.querySelectorAll(".term[data-word]"));
+      const seen = new Set();
+      const queue = [];
+      nodes.forEach((node) => {
+        const word = normalizeToken(node.getAttribute("data-word") || node.textContent || "");
+        if (!word) return;
+        const key = word.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        const zh = node.getAttribute("data-zh") || "";
+        if (zh && zh !== "翻译中..." && zh !== "待补充") return;
+        queue.push(word);
+      });
+
+      const concurrency = 4;
+      const maxPrefetch = 16;
+      const limitedQueue = queue.slice(0, maxPrefetch);
+      let cursor = 0;
+      const workers = Array.from({ length: Math.min(concurrency, limitedQueue.length) }, async () => {
+        while (cursor < limitedQueue.length) {
+          const index = cursor++;
+          const word = limitedQueue[index];
+          const translated = await lookupChinese(word);
+          updateWordNodes(word, translated || word);
+        }
+      });
+      await Promise.all(workers);
+    }
+
+    const hoveredTerms = new Set();
+
+    async function resolveHoveredTerm(node) {
+      if (!node) return;
+      const word = normalizeToken(node.getAttribute("data-word") || node.textContent || "");
+      if (!word || hoveredTerms.has(word.toLowerCase())) return;
+      const current = node.getAttribute("data-zh") || "";
+      if (current && current !== "翻译中..." && current !== "待补充" && current !== "翻译暂缺") return;
+      hoveredTerms.add(word.toLowerCase());
+      node.setAttribute("data-zh", "翻译中...");
+      const translated = await lookupChinese(word);
+      updateWordNodes(word, translated || "翻译暂缺");
+    }
+
+    function isFavorite(type, id) {
+      return readStore(storageKeys.favorites).some((item) => item.type === type && item.id === id);
+    }
+
+    function toggleFavorite(type, id, title, note) {
+      const list = readStore(storageKeys.favorites);
+      const index = list.findIndex((item) => item.type === type && item.id === id);
+      if (index >= 0) {
+        list.splice(index, 1);
+      } else {
+        list.push({ type, id, title, note });
+      }
+      writeStore(storageKeys.favorites, list);
+      renderFavorites();
+      syncFavoriteButtons();
+    }
+
+    function syncFavoriteButtons() {
+      document.querySelectorAll("[data-fav]").forEach((button) => {
+        const type = button.getAttribute("data-fav-type");
+        const id = button.getAttribute("data-fav-id");
+        const active = isFavorite(type, id);
+        button.classList.toggle("is-active", active);
+        button.textContent = active ? "★ Favorite" : "☆ Favorite";
+      });
+    }
+
+    function renderFavorites() {
+      const favorites = readStore(storageKeys.favorites);
+      if (!favorites.length) {
+        favoritesList.innerHTML = "<div class='notebook-item'>还没有收藏。可以先给一个 lesson 或题目点星标。</div>";
+        return;
+      }
+      favoritesList.innerHTML = favorites.map((item) => `
+        <div class="notebook-item">
+          <b>${item.title}</b>
+          <div>${item.note || ""}</div>
+          <button class="fav-toggle is-active" data-remove-fav="${item.type}:${item.id}" type="button">Remove</button>
+        </div>
+      `).join("");
+    }
+
+    function renderWrongBook() {
+      const wrongBook = readStore(storageKeys.wrongBook);
+      if (!wrongBook.length) {
+        wrongBookList.innerHTML = "<div class='notebook-item'>还没有错题。先做一轮模拟考试，这里就会开始积累。</div>";
+        return;
+      }
+      const grouped = wrongBook.reduce((acc, item) => {
+        const key = item.lessonId || "other";
+        if (!acc[key]) acc[key] = [];
+        acc[key].push(item);
+        return acc;
+      }, {});
+      wrongBookList.innerHTML = Object.entries(grouped).map(([lessonId, items]) => {
+        const lesson = lessons.find((entry) => entry.id === lessonId);
+        const title = lesson ? `${lesson.number} · ${lesson.titleEn}` : "Other / 其他";
+        return `
+          <div class="notebook-item">
+            <b>${escapeHtml(title)}</b>
+            <div style="display:grid;gap:10px;margin-top:10px">
+              ${items.map((item) => `
+                <div class="notebook-item" style="background:rgba(255,255,255,0.6)">
+                  <b>${escapeHtml(item.title)}</b>
+                  <div>${escapeHtml(item.yourAnswer ? `Your answer: ${item.yourAnswer}` : "")}</div>
+                  <div>${escapeHtml(item.correctAnswer ? `Correct answer: ${item.correctAnswer}` : "")}</div>
+                  <div>${escapeHtml(item.explanation || "")}</div>
+                  <div class="actions" style="margin-top:10px">
+                    ${lesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${lesson.id}">Go to Lesson</button>` : ""}
+                    <button class="btn btn-secondary" type="button" data-wrong-mastered="${item.id}">${item.mastered ? "Mastered" : "Mark Mastered"}</button>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function saveWrongBook(entries) {
+      const existing = readStore(storageKeys.wrongBook);
+      const byId = new Map(existing.map((item) => [item.id, item]));
+      entries.forEach((entry) => {
+        const prior = byId.get(entry.id);
+        byId.set(entry.id, { ...entry, mastered: prior?.mastered || false });
+      });
+      writeStore(storageKeys.wrongBook, Array.from(byId.values()));
+      renderDashboard();
+      renderWrongBook();
+    }
+
+    function toggleWrongMastered(id) {
+      const list = readStore(storageKeys.wrongBook);
+      const index = list.findIndex((item) => item.id === id);
+      if (index < 0) return;
+      list[index] = { ...list[index], mastered: !list[index].mastered, masteredAt: new Date().toISOString() };
+      writeStore(storageKeys.wrongBook, list);
+      renderDashboard();
+      renderWrongBook();
+    }
+
+    function getLessonById(id) {
+      return lessons.find((lesson) => lesson.id === id) || null;
+    }
+
+    function shuffleExamOptions(question) {
+      const correctOption = question.options[question.answer];
+      const shuffledOptions = shuffleArray(question.options.map((option, index) => ({ ...option, originalIndex: index })));
+      const answerIndex = shuffledOptions.findIndex((option) => option.originalIndex === question.answer);
+      return {
+        ...question,
+        quizId: question.lessonId ? `${question.lessonId}-${question.en.slice(0, 18).replace(/[^a-z0-9]+/gi, "-").toLowerCase()}` : question.en.slice(0, 18),
+        options: shuffledOptions,
+        answer: answerIndex >= 0 ? answerIndex : Math.max(0, shuffledOptions.findIndex((option) => option.en === correctOption.en && option.zh === correctOption.zh))
+      };
+    }
+
+    function getExamQuestionKey(question) {
+      const lessonPart = question.lessonId ? `${question.lessonId}-` : "";
+      return `${lessonPart}${String(question.en || "").slice(0, 18).replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    }
+
+    function buildExamQuestions(pool = quizQuestions) {
+      return shuffleArray(Array.isArray(pool) ? pool : []).map((question, index) => ({
+        ...shuffleExamOptions(question),
+        id: question.id || getExamQuestionKey(question) || `exam-q${index}`
+      }));
+    }
+
+    function createExamState(sourceQuestions = quizQuestions, overrides = {}) {
+      return {
+        status: overrides.status || "in-progress",
+        index: Math.max(0, Number(overrides.index) || 0),
+        selected: overrides.selected && typeof overrides.selected === "object" ? overrides.selected : {},
+        questions: buildExamQuestions(sourceQuestions),
+        startedAt: Number(overrides.startedAt) || Date.now(),
+        finishedAt: overrides.finishedAt ? Number(overrides.finishedAt) : null,
+        result: overrides.result || null,
+        flags: overrides.flags && typeof overrides.flags === "object" ? overrides.flags : {},
+        timerSeconds: Number.isFinite(Number(overrides.timerSeconds)) ? Number(overrides.timerSeconds) : 25 * 60,
+        savedAt: overrides.savedAt || null
+      };
+    }
+
+    function loadExamState() {
+      try {
+        const raw = localStorage.getItem(storageKeys.examState);
+        if (!raw) return null;
+        const saved = JSON.parse(raw);
+        if (!saved || !Array.isArray(saved.questions) || !saved.questions.length) return null;
+        return {
+          status: ["in-progress", "paused", "finished", "confirm", "result"].includes(saved.status) ? saved.status : "in-progress",
+          index: Math.max(0, Math.min(Number(saved.index) || 0, saved.questions.length - 1)),
+          selected: saved.selected && typeof saved.selected === "object" ? saved.selected : {},
+          questions: saved.questions,
+          startedAt: Number(saved.startedAt) || Date.now(),
+          finishedAt: saved.finishedAt ? Number(saved.finishedAt) : null,
+          result: saved.result || null,
+          flags: saved.flags && typeof saved.flags === "object" ? saved.flags : {},
+          timerSeconds: Number.isFinite(Number(saved.timerSeconds)) ? Number(saved.timerSeconds) : 25 * 60,
+          savedAt: saved.savedAt || Date.now()
+        };
+      } catch {
+        return null;
+      }
+    }
+
+    function saveExamState() {
+      try {
+        const snapshot = {
+          status: examState.status,
+          index: examState.index,
+          selected: examState.selected,
+          questions: examState.questions,
+          startedAt: examState.startedAt,
+          finishedAt: examState.finishedAt,
+          result: examState.result,
+          flags: examState.flags || {},
+          timerSeconds,
+          savedAt: Date.now()
+        };
+        localStorage.setItem(storageKeys.examState, JSON.stringify(snapshot));
+      } catch {
+        // Ignore storage write failures and keep the exam working in memory.
+      }
+    }
+
+    let examState = {
+      status: "loading",
+      index: 0,
+      selected: {},
+      questions: [],
+      startedAt: null,
+      finishedAt: null,
+      result: null,
+      flags: {},
+      timerSeconds: 25 * 60,
+      savedAt: null
+    };
+
+    function getExamElapsedMs() {
+      const remaining = Number.isFinite(Number(examState.timerSeconds)) ? Number(examState.timerSeconds) : timerSeconds;
+      return Math.max(0, (25 * 60 - remaining) * 1000);
+    }
+
+    function formatDuration(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, "0");
+      const seconds = (totalSeconds % 60).toString().padStart(2, "0");
+      return `${minutes}:${seconds}`;
+    }
+
+    function formatTime(seconds) {
+      return formatDuration(Math.max(0, Number(seconds) || 0) * 1000);
+    }
+
+    function getSelectedAnswer(questionIndex) {
+      return examState.selected[questionIndex];
+    }
+
+    function setSelectedAnswer(questionIndex, optionIndex) {
+      examState.selected = { ...examState.selected, [questionIndex]: optionIndex };
+      saveExamState();
+      renderQuiz();
+    }
+
+    function currentExamQuestion() {
+      return examState.questions[examState.index] || null;
+    }
+
+    function moveExamQuestion(delta) {
+      if (!examState.questions.length || ["result", "confirm", "paused"].includes(examState.status)) return;
+      if (examState.index === examState.questions.length - 1 && delta > 0) {
+        showToast("This is the last question. Use Finish when you're ready.");
+        return;
+      }
+      const next = Math.max(0, Math.min(examState.index + delta, examState.questions.length - 1));
+      examState.index = next;
+      saveExamState();
+      renderQuiz();
+    }
+
+    function finishExamStage() {
+      if (examState.status === "result" || examState.status === "paused") return;
+      examState.status = "finished";
+      saveExamState();
+      renderQuiz();
+    }
+
+    function openSubmitStage() {
+      if (examState.status === "result" || examState.status === "paused") return;
+      examState.status = "confirm";
+      saveExamState();
+      renderQuiz();
+    }
+
+    function pauseExam() {
+      if (examState.status === "result") return;
+      if (timerRunning) stopCountdown();
+      examState.status = "paused";
+      saveExamState();
+      renderQuiz();
+      showToast("Exam saved. You can continue later.");
+    }
+
+    function resumeExam() {
+      if (examState.status !== "paused") return;
+      examState.status = "in-progress";
+      saveExamState();
+      renderQuiz();
+      startCountdown();
+    }
+
+    function toggleExamFlag() {
+      const question = currentExamQuestion();
+      if (!question) return;
+      const next = { ...(examState.flags || {}) };
+      next[question.id] = !next[question.id];
+      if (!next[question.id]) delete next[question.id];
+      examState.flags = next;
+      saveExamState();
+      renderQuiz();
+    }
+
+    function gradeExam() {
+      const review = [];
+      let correctCount = 0;
+      examState.questions.forEach((question, index) => {
+        const selectedIndex = getSelectedAnswer(index);
+        const selectedOption = typeof selectedIndex === "number" ? question.options[selectedIndex] : null;
+        const correctOption = question.options[question.answer];
+        const isCorrect = typeof selectedIndex === "number" && selectedIndex === question.answer;
+        if (isCorrect) correctCount += 1;
+        if (!isCorrect) {
+          review.push({
+            id: question.id,
+            title: question.en,
+            lessonId: question.lessonId,
+            lessonTitle: getLessonById(question.lessonId)?.titleEn || "Module 1",
+            yourAnswer: selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${selectedOption.en}` : "No answer",
+            correctAnswer: `${String.fromCharCode(65 + question.answer)}. ${correctOption.en}`,
+            explanation: question.why,
+            mastered: false
+          });
+        }
+      });
+
+      const incorrectCount = examState.questions.length - correctCount;
+      const percentage = Math.round((correctCount / examState.questions.length) * 100);
+      const result = {
+        scoreText: `${correctCount} / ${examState.questions.length}`,
+        percentage,
+        correctCount,
+        incorrectCount,
+        timeUsedText: formatDuration(getExamElapsedMs()),
+        review
+      };
+      examState.status = "result";
+      examState.finishedAt = Date.now();
+      examState.result = result;
+      examState.timerSeconds = timerSeconds;
+      saveWrongBook(review);
+      saveExamState();
+      renderQuiz();
+      renderWrongBook();
+    }
+
+    function resetExamState() {
+      localStorage.removeItem(storageKeys.examState);
+      examState = createExamState();
+      timerSeconds = 25 * 60;
+      timerValue.textContent = formatTime(timerSeconds);
+      stopCountdown({ reset: true });
+      examState.timerSeconds = timerSeconds;
+      saveExamState();
+      renderQuiz();
+    }
+
+    function retryIncorrectOnly() {
+      const reviewIds = Array.isArray(examState.result?.review) ? examState.result.review.map((item) => item.id) : [];
+      if (!reviewIds.length) {
+        showToast("No wrong questions to retry.");
+        return;
+      }
+      const retryPool = quizQuestions.filter((question) => reviewIds.includes(getExamQuestionKey(question)));
+      if (!retryPool.length) {
+        showToast("The wrong question list is empty.");
+        return;
+      }
+      examState = createExamState(retryPool);
+      timerSeconds = examState.timerSeconds;
+      timerValue.textContent = formatTime(timerSeconds);
+      stopCountdown({ reset: true });
+      saveExamState();
+      renderQuiz();
+      showToast("Retrying wrong questions only.");
+    }
+
+    function renderLessons() {
+      const progress = getLessonProgressStats();
+      lessonGrid.innerHTML = `
+        <article class="lesson-overview-card">
+          <div class="lesson-overview-head">
+            <div class="lesson-kicker">Module 1 Overview / 模块 1 总览</div>
+            <h3 class="lesson-title">先选一课，再进入单课页</h3>
+            <div class="lesson-zh">总览页只保留入口，所有细节已经拆到每一课自己的页面里。</div>
+            <p>你可以先看这张导航图，再点进 Lesson 1 到 Lesson 6。每一页都保留英文、中文、必背点、考试陷阱和记忆钩子，但不会再挤在同一屏。</p>
+            <div class="lesson-detail-grid" style="margin-top:16px">
+              <div class="lesson-detail">
+                <b>Progress / 进度</b>
+                <p>${progress.completed} / ${progress.total} lessons completed</p>
+              </div>
+              <div class="lesson-detail">
+                <b>Study loop / 学习闭环</b>
+                <p>Blackboard → CatherineEcho → Passit → Wrong Questions → Exam</p>
+              </div>
+              <div class="lesson-detail">
+                <b>Product / 产品定位</b>
+                <p>Ontario Real Estate Companion</p>
+              </div>
+            </div>
+          </div>
+          <div class="lesson-index-grid">
+            ${lessons.map((lesson, index) => `
+              <article class="lesson-index-card" id="${lesson.id}-index">
+                <div class="lesson-top">
+                  <div>
+                    <div class="lesson-kicker">${lesson.number}</div>
+                    <h3 class="lesson-title">${decorateEnglish(lesson.titleEn)}</h3>
+                    <div class="lesson-zh">${lesson.titleZh}</div>
+                  </div>
+                  <div class="badge">${lesson.badge}${isLessonCompleted(lesson.id) ? " · done" : ""}</div>
+                </div>
+                <p>${decorateEnglish(lesson.summary)}</p>
+                <p>${lesson.summaryZh}</p>
+                <div class="lesson-actions">
+                  <button class="btn btn-primary" type="button" data-panel-target="${lesson.id}">Open Lesson</button>
+                  <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ Favorite</button>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </article>
+      `;
+    }
+
+    function renderLessonPages() {
+      if (!lessonPages) return;
+      lessonPages.innerHTML = lessons.map((lesson, index) => {
+        const prevLesson = lessons[index - 1];
+        const nextLesson = lessons[index + 1];
+        return `
+          <section class="section" id="${lesson.id}" data-panel="${lesson.id}">
+            <div class="section-header lesson-page-head">
+              <div class="lesson-page-meta">
+                <div class="badge">Page ${index + 1} / ${lessons.length}</div>
+                <div class="badge">${escapeHtml(lesson.badge)}</div>
+              </div>
+              <h2>${decorateEnglish(lesson.titleEn)}</h2>
+              <div class="lesson-page-zh">${lesson.titleZh}</div>
+              <p>${decorateEnglish(lesson.summary)}</p>
+              <p>${lesson.summaryZh}</p>
+            </div>
+            <div class="lesson-page-shell">
+              <div class="lesson-page-nav lesson-page-nav-top">
+                <button class="btn btn-secondary" type="button" data-panel-target="lessons">Lesson Map</button>
+                <button class="btn btn-secondary ${whyMode ? "is-active" : ""}" type="button" data-toggle-why-mode>${whyMode ? "Why mode: ON" : "Why mode: OFF"}</button>
+                <button class="btn btn-secondary" type="button" data-lesson-complete="${lesson.id}">${isLessonCompleted(lesson.id) ? "Done" : "Mark Done"}</button>
+                <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">Favorite</button>
+              </div>
+              <article class="lesson-page-card">
+                <div class="lesson-page-columns">
+                  <div class="lesson-page-block">
+                    <h4>Must know / 必背点</h4>
+                    <ul>
+                      ${lesson.mustKnow.map((item) => `<li><strong>EN:</strong> ${decorateEnglish(item.en)}<br><strong>中文:</strong> ${escapeHtml(item.zh)}</li>`).join("")}
+                    </ul>
+                  </div>
+                  <div class="lesson-page-block">
+                    <h4>Exam hook / 考试抓手</h4>
+                    <p>${decorateEnglish(lesson.examTrap)}</p>
+                    <p>${decorateEnglish(lesson.memoryHook)}</p>
+                  </div>
+                </div>
+                <div class="lesson-page-details">
+                  ${lesson.details.map((item) => `
+                    <div class="lesson-page-block">
+                      <h4>${escapeHtml(item.titleEn)}<br>${escapeHtml(item.titleZh)}</h4>
+                      <p>${decorateEnglish(item.en)}</p>
+                      <p>${escapeHtml(item.zh)}</p>
+                    </div>
+                  `).join("")}
+                </div>
+                ${lesson.regulatoryStructure ? `
+                  <div class="lesson-extra-grid">
+                    <div class="lesson-page-block">
+                      <h4>${escapeHtml(lesson.regulatoryStructure.titleEn)}<br>${escapeHtml(lesson.regulatoryStructure.titleZh)}</h4>
+                      <div class="lesson-flow">
+                        ${lesson.regulatoryStructure.flow.map((node) => `<span class="${node.kind === 'arrow' ? 'is-arrow' : ''}">${escapeHtml(node.text)}</span>`).join("")}
+                      </div>
+                    </div>
+                    <div class="lesson-page-block">
+                      <h4>Comparison / 对比表</h4>
+                      <div class="lesson-compare-list">
+                        ${lesson.regulatoryStructure.rows.map((row) => `
+                          <div class="lesson-compare-card">
+                            <span class="label">${escapeHtml(row.item)}</span>
+                            <div class="muted">${escapeHtml(row.what)}</div>
+                            <div>${escapeHtml(row.resp)}</div>
+                          </div>
+                        `).join("")}
+                      </div>
+                    </div>
+                  </div>
+                ` : ""}
+                ${lesson.commonConfusions ? `
+                  <div class="lesson-page-block">
+                    <h4>Common Confusions / 常见易混点</h4>
+                    <div class="lesson-confusion-grid">
+                      ${lesson.commonConfusions.map((item) => `
+                        <div class="lesson-confusion-card">
+                          <span class="label">${escapeHtml(item.qEn)}<br>${escapeHtml(item.qZh)}</span>
+                          <div class="muted">${escapeHtml(item.aEn)}</div>
+                          <div>${escapeHtml(item.aZh)}</div>
+                        </div>
+                      `).join("")}
+                    </div>
+                  </div>
+                ` : ""}
+                ${lesson.vocab ? `
+                  <div class="lesson-page-block">
+                    <h4>Lesson Vocabulary / 本课词汇</h4>
+                    <div class="lesson-vocab-list">
+                      ${lesson.vocab.map((item) => `
+                        <div class="lesson-vocab-card">
+                          <span class="label">${decorateEnglish(item.en)}</span>
+                          <div>${escapeHtml(item.zh)}</div>
+                        </div>
+                      `).join("")}
+                    </div>
+                  </div>
+                ` : ""}
+                ${lesson.examTips ? `
+                  <div class="lesson-page-block">
+                    <h4>Exam Tips / 考试提示</h4>
+                    <div class="lesson-tip-list">
+                      ${lesson.examTips.map((tip) => `
+                        <div class="lesson-tip-card">
+                          <span class="label">Tip</span>
+                          <div>${decorateEnglish(tip)}</div>
+                        </div>
+                      `).join("")}
+                    </div>
+                  </div>
+                ` : ""}
+                ${whyMode ? `
+                  <div class="lesson-page-block">
+                    <h4>Why this matters / 为什么重要</h4>
+                    <div class="lesson-why-list">
+                      ${getLessonWhyCards(lesson).map((item) => `
+                        <article class="lesson-why-card">
+                          <span class="label">${escapeHtml(item.titleEn)}<br>${escapeHtml(item.titleZh)}</span>
+                          <p class="why-note">${decorateEnglish(item.en)}</p>
+                          <p>${escapeHtml(item.zh)}</p>
+                        </article>
+                      `).join("")}
+                    </div>
+                  </div>
+                ` : ""}
+                <div class="lesson-page-columns">
+                  <div class="lesson-page-block">
+                    <h4>What this page helps you do / 这页帮你做到什么</h4>
+                    <p>${decorateEnglish(lesson.summary)}</p>
+                    <p>${lesson.summaryZh}</p>
+                  </div>
+                  <div class="lesson-page-block">
+                    <h4>Quick recall / 快速回忆</h4>
+                    <ul>
+                      <li>${decorateEnglish(lesson.memoryHook)}</li>
+                      <li>${decorateEnglish(lesson.examTrap)}</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="lesson-page-nav-label">Page navigation / 页面跳转</div>
+                <div class="lesson-page-nav lesson-page-nav-bottom">
+                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">Previous page</button>` : ""}
+                  <button class="btn btn-secondary" type="button" data-panel-target="lessons">Lesson Map</button>
+                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next page</button>` : ""}
+                  <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Passit Practice</a>
+                </div>
+              </article>
+            </div>
+          </section>
+        `;
+      }).join("");
+    }
+
+    function renderModuleStudyCards() {
+      moduleStudyGrid.innerHTML = moduleStudyModules.map((module) => `
+        <article class="module-block" id="${module.id}">
+          <div class="module-block-head">
+            <div style="min-width:0">
+              <div class="lesson-kicker">${module.code}</div>
+              <h3 class="lesson-title">${decorateEnglish(module.title)}</h3>
+              <div class="lesson-zh">${module.zhTitle}</div>
+              <p class="module-block-note">${decorateEnglish(module.summary)}</p>
+              <p class="module-block-note">${module.zhSummary}</p>
+              <ul class="pill-list" style="margin-top: 12px">
+                ${module.focus.map((item) => `<li>${decorateEnglish(item)}</li>`).join("")}
+              </ul>
+            </div>
+            <div style="display:grid; gap:8px; justify-items:end">
+              <div class="badge">${module.time}</div>
+              <button class="fav-toggle" data-fav data-fav-type="study-module" data-fav-id="${module.id}" data-fav-title="${escapeHtml(module.title)}" data-fav-note="${escapeHtml(module.zhSummary)}" type="button">☆ Favorite</button>
+              <div class="badge" style="background: rgba(211, 154, 57, 0.12); color: #9b6b15; border-color: rgba(211, 154, 57, 0.28)">${module.status}</div>
+            </div>
+          </div>
+          <div class="module-card-grid">
+            ${module.cards.map((card) => `
+              <article class="study-card">
+                <div class="study-kicker">${card.kicker}</div>
+                <h4>${decorateEnglish(card.titleEn)}</h4>
+                <div class="study-zh">${card.titleZh}</div>
+                <p>${decorateEnglish(card.summary)}</p>
+                <p>${card.summaryZh}</p>
+                <ul class="pill-list">
+                  ${card.mustKnow.map((item) => `<li><strong>EN:</strong> ${decorateEnglish(item.en)}<br><strong>中文:</strong> ${item.zh}</li>`).join("")}
+                </ul>
+                <footer>
+                  <strong>Exam trap / 考试陷阱：</strong> ${decorateEnglish(card.examTrap)}<br>
+                  <strong>Memory hook / 记忆钩子：</strong> ${decorateEnglish(card.memoryHook)}
+                </footer>
+              </article>
+            `).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderCourseRoadmap() {
+      roadmapGrid.innerHTML = courseModules.map((mod) => `
+        <article class="lesson-card" id="${mod.id}">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-kicker">${mod.code}</div>
+              <h3 class="lesson-title">${decorateEnglish(mod.title)}</h3>
+              <div class="lesson-zh">${mod.zhTitle}</div>
+            </div>
+            <div class="badge">${mod.time}</div>
+          </div>
+          <div class="card-actions">
+            <button class="fav-toggle" data-fav data-fav-type="module" data-fav-id="${mod.id}" data-fav-title="${escapeHtml(mod.title)}" data-fav-note="${escapeHtml(mod.zhSummary)}" type="button">☆ Favorite</button>
+          </div>
+          <p>${decorateEnglish(mod.summary)}</p>
+          <p>${mod.zhSummary}</p>
+          <ul class="pill-list">
+            ${mod.focus.map((item) => `<li>${decorateEnglish(item)}</li>`).join("")}
+          </ul>
+          <footer>
+            <strong>Status / 状态：</strong> ${mod.status}
+          </footer>
+        </article>
+      `).join("");
+    }
+
+    function renderPPT() {
+      pptStrip.innerHTML = pptSlides.map((slide) => `
+        <article class="ppt-slide">
+          <div class="deck-tag">${slide.tag}</div>
+          <h3>${decorateEnglish(slide.title)}</h3>
+          <ul class="ppt-lines">
+            ${slide.lines.map((line) => `
+              <li class="ppt-line">
+                <span class="en">${decorateEnglish(line.en)}</span>
+                <span class="zh">${line.zh}</span>
+              </li>
+            `).join("")}
+          </ul>
+          <div class="ppt-note">${decorateEnglish(slide.note)}</div>
+        </article>
+      `).join("");
+    }
+
+    function getVocab() {
+      return readStore(storageKeys.vocab);
+    }
+
+    function setVocab(list) {
+      writeStore(storageKeys.vocab, list);
+      renderDashboard();
+      renderVocab();
+    }
+
+    function getVocabModeValue() {
+      const stored = localStorage.getItem(storageKeys.vocabMode) || "learn";
+      if (stored === "browse") return "browse";
+      return "learn";
+    }
+
+    function setVocabModeValue(mode) {
+      vocabMode = mode === "browse" ? "browse" : "learn";
+      localStorage.setItem(storageKeys.vocabMode, vocabMode);
+      renderVocab();
+    }
+
+    function getVocabSearchValue() {
+      return localStorage.getItem(storageKeys.vocabSearch) || "";
+    }
+
+    function setVocabSearchValue(value) {
+      vocabSearchQuery = String(value || "");
+      localStorage.setItem(storageKeys.vocabSearch, vocabSearchQuery);
+      renderVocab();
+    }
+
+    function getVocabFilterValue() {
+      const stored = localStorage.getItem(storageKeys.vocabFilter) || "all";
+      return ["all", "new", "learning", "mastered"].includes(stored) ? stored : "all";
+    }
+
+    function setVocabFilterValue(filter) {
+      vocabFilterMode = ["all", "new", "learning", "mastered"].includes(filter) ? filter : "all";
+      localStorage.setItem(storageKeys.vocabFilter, vocabFilterMode);
+      renderVocab();
+    }
+
+    function getMasteryList() {
+      return readStore(storageKeys.vocabMastery).filter((item) => item && item.id);
+    }
+
+    function getMasteryLevel(id) {
+      const normalized = String(id || "").toLowerCase();
+      const item = getMasteryList().find((entry) => String(entry.id || "").toLowerCase() === normalized);
+      return Number(item?.level || 0);
+    }
+
+    function setMasteryLevel(id, level) {
+      const normalized = String(id || "").toLowerCase();
+      if (!normalized) return;
+      const list = getMasteryList();
+      const index = list.findIndex((entry) => String(entry.id || "").toLowerCase() === normalized);
+      const next = { id: normalized, level: Math.max(0, Math.min(3, Number(level) || 0)), updatedAt: new Date().toISOString() };
+      if (index >= 0) list[index] = next; else list.push(next);
+      writeStore(storageKeys.vocabMastery, list);
+    }
+
+    function getStudyVocabList() {
+      return getVocab().slice().sort((a, b) => {
+        const diff = getMasteryLevel(a.id) - getMasteryLevel(b.id);
+        if (diff !== 0) return diff;
+        return Number(b.addedAtTs || 0) - Number(a.addedAtTs || 0);
+      });
+    }
+
+    function getVocabBatchMeta(list, batchIndex) {
+      const total = list.length;
+      const totalBatches = Math.max(1, Math.ceil(total / 10));
+      const safeBatch = Math.max(0, Math.min(batchIndex, totalBatches - 1));
+      const start = safeBatch * 10;
+      return {
+        batchIndex: safeBatch,
+        totalBatches,
+        start,
+        end: Math.min(start + 10, total),
+        batch: list.slice(start, start + 10)
+      };
+    }
+
+    function getVocabModeLabel() {
+      return vocabMode === "browse" ? "Browse" : "Learn";
+    }
+
+    function getVocabStatus(level) {
+      if (level >= 3) return "mastered";
+      if (level > 0) return "learning";
+      return "new";
+    }
+
+    function vocabMasteryLabel(level) {
+      if (level >= 3) return "Mastered";
+      if (level > 0) return "Learning";
+      return "New";
+    }
+
+    function vocabFilterLabel(filter) {
+      if (filter === "new") return "New";
+      if (filter === "learning") return "Learning";
+      if (filter === "mastered") return "Mastered";
+      return "All";
+    }
+
+    function normalizeSearchQuery(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function matchesVocabSearch(item, query) {
+      const clean = normalizeSearchQuery(query);
+      if (!clean) return true;
+      const en = String(item.term || "").toLowerCase();
+      const zh = String(item.zh || item.note || "").toLowerCase();
+      const source = String(item.source || "").toLowerCase();
+      return en.includes(clean) || zh.includes(clean) || source.includes(clean);
+    }
+
+    function getFilteredVocabList(list) {
+      const filter = getVocabFilterValue();
+      const query = getVocabSearchValue();
+      return list.filter((item) => {
+        const mastery = getMasteryLevel(item.id);
+        const status = getVocabStatus(mastery);
+        if (filter !== "all" && status !== filter) return false;
+        return matchesVocabSearch(item, query);
+      });
+    }
+
+    function shuffleArray(items) {
+      const next = items.slice();
+      for (let i = next.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [next[i], next[j]] = [next[j], next[i]];
+      }
+      return next;
+    }
+
+    function buildVocabTestQuestions(batch, fullList) {
+      const pool = fullList.length ? fullList : batch;
+      const wrongAnswers = pool.map((item) => item.zh || item.note || item.term).filter(Boolean);
+      return batch.map((item) => {
+        const correct = item.zh || item.note || item.term;
+        const distractors = shuffleArray(wrongAnswers.filter((text) => text !== correct)).slice(0, 3);
+        const options = Array.from(new Set(shuffleArray([correct, ...distractors])));
+        while (options.length < 4) {
+          const fallback = pool[Math.floor(Math.random() * pool.length)]?.zh || pool[Math.floor(Math.random() * pool.length)]?.term;
+          if (fallback && !options.includes(fallback)) options.push(fallback);
+          else break;
+        }
+        const finalOptions = shuffleArray(options).slice(0, 4);
+        return {
+          id: item.id,
+          term: item.term,
+          correct,
+          options: finalOptions
+        };
+      });
+    }
+
+    function ensureCurrentVocabIndex(listLength) {
+      if (!listLength) {
+        vocabIndex = 0;
+        vocabBatchIndex = 0;
+        localStorage.setItem(storageKeys.vocabBatchIndex, "0");
+        return 0;
+      }
+      if (vocabIndex >= listLength) vocabIndex = 0;
+      if (vocabIndex < 0) vocabIndex = 0;
+      const batchIndex = Math.floor(vocabIndex / 10);
+      vocabBatchIndex = batchIndex;
+      localStorage.setItem(storageKeys.vocabBatchIndex, String(batchIndex));
+      return batchIndex;
+    }
+
+    function renderVocab() {
+      vocabMode = getVocabModeValue();
+      vocabFilterMode = getVocabFilterValue();
+      vocabSearchQuery = getVocabSearchValue();
+      const list = getStudyVocabList();
+      const preferredId = activeVocabId || list[vocabIndex]?.id;
+      if (preferredId) {
+        const preferredIndex = list.findIndex((item) => item.id === preferredId);
+        if (preferredIndex >= 0) vocabIndex = preferredIndex;
+      }
+      const batchIndex = ensureCurrentVocabIndex(list.length);
+      const batchMeta = getVocabBatchMeta(list, batchIndex);
+      const masteryEntries = getMasteryList();
+      const masteredCount = masteryEntries.filter((item) => Number(item.level || 0) >= 3).length;
+      const learningCount = masteryEntries.filter((item) => Number(item.level || 0) > 0 && Number(item.level || 0) < 3).length;
+      const newCount = list.length - masteryEntries.filter((item) => Number(item.level || 0) > 0).length;
+      const browseList = getFilteredVocabList(list);
+
+      document.querySelectorAll("[data-vocab-mode]").forEach((button) => {
+        const active = button.getAttribute("data-vocab-mode") === vocabMode;
+        button.classList.toggle("is-active", active);
+        if (active) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+      document.querySelectorAll("[data-vocab-filter]").forEach((button) => {
+        const active = button.getAttribute("data-vocab-filter") === vocabFilterMode;
+        button.classList.toggle("is-active", active);
+        if (active) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+      if (vocabSearchInput) {
+        if (vocabSearchInput.value !== vocabSearchQuery) vocabSearchInput.value = vocabSearchQuery;
+      }
+      if (vocabLearnCard) vocabLearnCard.classList.toggle("is-hidden", vocabMode === "browse");
+      if (vocabBrowseCard) vocabBrowseCard.classList.toggle("is-hidden", vocabMode !== "browse");
+      vocabBatchInfo.textContent = list.length
+        ? `Batch ${batchMeta.batchIndex + 1} / ${batchMeta.totalBatches} · Words ${batchMeta.start + 1}-${batchMeta.end}`
+        : "Batch 1 / 10 words";
+      vocabStats.innerHTML = list.length
+        ? `<span>${list.length} saved</span><span>${masteredCount} mastered</span><span>${learningCount} learning</span><span>${Math.max(0, newCount)} new</span>`
+        : `<span>0 saved</span><span>0 mastered</span><span>0 learning</span><span>0 new</span>`;
+
+      if (!list.length) {
+        vocabList.innerHTML = "<div class='vocab-item'>No saved words yet. Select a word in lessons and it will appear here automatically.</div>";
+        vocabFace.innerHTML = "Select an English word first<small>Then your wordbook will fill itself up.</small>";
+        vocabHint.textContent = "You can select a word in lessons or in the quiz. It will be saved here with a Chinese meaning.";
+        activeVocabId = null;
+        vocabQuizPanel.innerHTML = "Add a few words first, then you can start the test.";
+        vocabTestMeta.textContent = "No words available for testing yet.";
+        vocabTestScore.textContent = "0 / 0";
+        if (vocabBrowseMeta) vocabBrowseMeta.innerHTML = "<span>0 matched</span><span>0 saved</span>";
+        return;
+      }
+
+      if (vocabIndex >= list.length) vocabIndex = 0;
+      const current = list[vocabIndex];
+      const currentMastery = getMasteryLevel(current.id);
+      vocabFace.innerHTML = vocabSide === "en"
+        ? `${decorateEnglish(current.term)}<small>${current.note || current.zh || "Tap Reveal meaning"} · ${vocabMasteryLabel(currentMastery)}</small>`
+        : `${escapeHtml(current.zh || current.note || "Translating...")}<small>${escapeHtml(current.term)} · ${vocabMasteryLabel(currentMastery)}</small>`;
+      vocabHint.innerHTML = `
+        <div><strong>Meaning:</strong> ${escapeHtml(current.zh || current.note || "Translating...")}</div>
+        <div><strong>Source:</strong> ${escapeHtml(current.source || "selection")} · <strong>Added:</strong> ${escapeHtml(current.addedAt || "")}</div>
+        <div><strong>Status:</strong> ${escapeHtml(vocabMasteryLabel(currentMastery))}</div>
+      `;
+      activeVocabId = current.id;
+
+      const activeId = current.id;
+      vocabList.innerHTML = browseList.length
+        ? browseList.map((item) => {
+            const mastery = getMasteryLevel(item.id);
+            return `
+            <div class="vocab-item ${item.id === activeId ? 'is-active' : ''}">
+              <b>${decorateEnglish(item.term)}</b>
+              <div>${escapeHtml(item.zh || item.note || "Translating...")}</div>
+              <div class="meta">Source: ${escapeHtml(item.source || "selection")} · Added: ${escapeHtml(item.addedAt || "")}</div>
+              <div class="mastery-pill">${escapeHtml(vocabMasteryLabel(mastery))}</div>
+              <div class="actions" style="margin-top:10px">
+                <button class="fav-toggle" data-vocab-jump="${item.id}" type="button">Study</button>
+                <button class="fav-toggle" data-vocab-speak="${escapeHtml(item.term)}" type="button">Read aloud</button>
+                <button class="fav-toggle" data-vocab-delete="${item.id}" type="button">Delete</button>
+              </div>
+            </div>
+          `;
+          }).join("")
+        : "<div class='vocab-item'>No matches yet. Try a different search or filter.</div>";
+      if (vocabBrowseMeta) {
+        vocabBrowseMeta.innerHTML = browseList.length
+          ? `<span>${browseList.length} matched</span><span>${list.length} saved</span><span>${vocabFilterLabel(vocabFilterMode)}</span>`
+          : `<span>No matches</span><span>${list.length} saved</span><span>${vocabFilterLabel(vocabFilterMode)}</span>`;
+      }
+
+      const batch = batchMeta.batch;
+      if (batch.length) {
+        const questions = buildVocabTestQuestions(batch, list);
+        if (!vocabTestState.questions.length || vocabTestState.questions.length !== questions.length) {
+          vocabTestState = {
+            active: false,
+            index: 0,
+            score: 0,
+            answered: false,
+            submitted: false,
+            questions,
+            lastResult: ""
+          };
+        } else {
+          vocabTestState.questions = questions;
+        }
+      } else {
+        vocabTestState = {
+          active: false,
+          index: 0,
+          score: 0,
+          answered: false,
+          submitted: false,
+          questions: [],
+          lastResult: ""
+        };
+      }
+      renderVocabTest();
+    }
+
+    async function hydrateVocabTranslations() {
+      const list = getVocab();
+      let changed = false;
+      for (const item of list) {
+        if (item.zh && item.zh !== "翻译中..." && item.zh !== "待补充") continue;
+        const translated = await lookupChinese(item.term);
+        item.zh = translated || item.term;
+        item.note = item.zh;
+        changed = true;
+      }
+      if (changed) {
+        writeStore(storageKeys.vocab, list);
+        renderVocab();
+      }
+    }
+
+    function updateVocabFace() {
+      renderVocab();
+    }
+
+    function getCurrentVocabListItem() {
+      const list = getStudyVocabList();
+      if (!list.length) return null;
+      if (vocabIndex >= list.length) vocabIndex = 0;
+      return list[vocabIndex] || null;
+    }
+
+    async function addVocab(term, zh, source = "selection") {
+      const clean = normalizeToken(term);
+      if (!clean) return;
+      const list = getVocab();
+      const id = clean.toLowerCase();
+      if (list.some((item) => item.id === id)) {
+        showToast(`Already saved: ${clean}`);
+        return;
+      }
+      const matched = findGlossary(clean);
+      let resolvedZh = zh || matched?.zh || "翻译中...";
+      if (!zh && !matched?.zh) {
+        resolvedZh = "翻译中...";
+      }
+      const entry = {
+        id,
+        term: clean,
+        zh: resolvedZh,
+        source,
+        note: matched ? matched.zh : resolvedZh,
+        addedAt: new Date().toLocaleString(),
+        addedAtTs: Date.now()
+      };
+      list.unshift(entry);
+      setVocab(list);
+      vocabIndex = 0;
+      vocabSide = "en";
+      updateVocabFace();
+      showToast(`Saved to wordbook: ${clean}`);
+
+      if (!matched?.zh || zh === "翻译中...") {
+        const translated = await lookupChinese(clean);
+        const nextZh = translated || clean;
+        const nextList = getVocab();
+        const nextIndex = nextList.findIndex((item) => item.id === id);
+        if (nextIndex >= 0) {
+          nextList[nextIndex] = {
+            ...nextList[nextIndex],
+            zh: nextZh,
+            note: nextZh
+          };
+          setVocab(nextList);
+          vocabIndex = nextIndex;
+          vocabSide = "en";
+          updateVocabFace();
+        }
+      }
+    }
+
+    function moveVocabIndex(delta) {
+      const list = getStudyVocabList();
+      if (!list.length) return;
+      vocabIndex = (vocabIndex + delta + list.length) % list.length;
+      vocabBatchIndex = Math.floor(vocabIndex / 10);
+      localStorage.setItem(storageKeys.vocabBatchIndex, String(vocabBatchIndex));
+      vocabSide = "en";
+      updateVocabFace();
+    }
+
+    function setVocabBatchByStep(step) {
+      const list = getStudyVocabList();
+      if (!list.length) return;
+      const totalBatches = Math.max(1, Math.ceil(list.length / 10));
+      vocabBatchIndex = (vocabBatchIndex + step + totalBatches) % totalBatches;
+      vocabIndex = vocabBatchIndex * 10;
+      localStorage.setItem(storageKeys.vocabBatchIndex, String(vocabBatchIndex));
+      vocabSide = "en";
+      updateVocabFace();
+    }
+
+    function getActiveVocabBatch() {
+      const list = getStudyVocabList();
+      if (!list.length) return [];
+      const meta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
+      return meta.batch;
+    }
+
+    function renderVocabTest() {
+      const list = getStudyVocabList();
+      if (!list.length) {
+        vocabQuizPanel.innerHTML = "Add a few words first, then start the test.";
+        vocabTestMeta.textContent = "No words available for testing.";
+        vocabTestScore.textContent = "0 / 0";
+        return;
+      }
+
+      const batchMeta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
+      const batch = batchMeta.batch;
+      if (!batch.length) {
+        vocabQuizPanel.innerHTML = "This batch is empty.";
+        vocabTestMeta.textContent = `Batch ${batchMeta.batchIndex + 1} is empty.`;
+        vocabTestScore.textContent = "0 / 0";
+        return;
+      }
+
+      vocabTestMeta.textContent = `Batch ${batchMeta.batchIndex + 1} contains ${batch.length} words.`;
+      const total = vocabTestState.questions.length || batch.length;
+      const currentIndex = Math.min(vocabTestState.index, Math.max(0, total - 1));
+      const current = vocabTestState.questions[currentIndex] || buildVocabTestQuestions(batch, list)[0];
+      const score = vocabTestState.score || 0;
+      vocabTestScore.textContent = vocabTestState.active
+        ? `${score} / ${Math.max(total, 0)}`
+        : `0 / ${batch.length}`;
+
+      if (!vocabTestState.active) {
+        vocabQuizPanel.innerHTML = `
+          <div class="test-card">
+            <div class="word">${decorateEnglish(batch[0].term)}</div>
+            <div class="prompt">${escapeHtml(batch[0].zh || batch[0].note || "Press Start test and I will generate questions automatically.")}</div>
+            <div class="test-feedback">Press Start test and I will quiz the current batch of 10 words.</div>
+          </div>
+        `;
+        return;
+      }
+
+      if (!current) {
+        vocabQuizPanel.innerHTML = "<div class='test-feedback'>This batch has no questions yet.</div>";
+        return;
+      }
+
+      const answered = vocabTestState.answered;
+      const selected = vocabTestState.lastResult;
+      vocabQuizPanel.innerHTML = `
+        <div class="test-card">
+          <div class="word">${decorateEnglish(current.term)}</div>
+          <div class="prompt">Choose the best Chinese meaning.</div>
+          <div class="test-options">
+            ${current.options.map((option) => `
+              <button class="test-option ${answered && option === current.correct ? 'is-correct' : ''} ${selected === option && option !== current.correct ? 'is-wrong' : ''}" type="button" data-vocab-answer="${escapeHtml(option)}">
+                ${escapeHtml(option)}
+              </button>
+            `).join("")}
+          </div>
+          <div class="test-feedback">${answered ? (selected === current.correct ? "Correct. Move on to the next question." : `Correct answer: ${escapeHtml(current.correct)}`) : "Choose an answer to reveal the result."}</div>
+        </div>
+      `;
+    }
+
+    function beginVocabTest() {
+      const list = getStudyVocabList();
+      if (!list.length) {
+        showToast("Add a few words first, then start the test.");
+        return;
+      }
+      const batchMeta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
+      vocabTestState = {
+        active: true,
+        index: 0,
+        score: 0,
+        answered: false,
+        submitted: false,
+        questions: buildVocabTestQuestions(batchMeta.batch, list),
+        lastResult: ""
+      };
+      renderVocabTest();
+      showToast("Test started");
+    }
+
+    function answerVocabTest(choice) {
+      if (!vocabTestState.active || !vocabTestState.questions.length) return;
+      if (vocabTestState.answered) return;
+      const current = vocabTestState.questions[vocabTestState.index];
+      if (!current) return;
+      vocabTestState.answered = true;
+      vocabTestState.lastResult = choice;
+      if (choice === current.correct) {
+        vocabTestState.score += 1;
+        setMasteryLevel(current.id, Math.max(2, getMasteryLevel(current.id)));
+      } else {
+        setMasteryLevel(current.id, 0);
+      }
+      renderVocab();
+      renderVocabTest();
+    }
+
+    function advanceVocabQuestion() {
+      if (!vocabTestState.active || !vocabTestState.questions.length) return;
+      if (!vocabTestState.answered) {
+        showToast("Answer this question first.");
+        return;
+      }
+      const nextIndex = vocabTestState.index + 1;
+      if (nextIndex >= vocabTestState.questions.length) {
+        submitVocabTest();
+        return;
+      }
+      vocabTestState.index = nextIndex;
+      vocabTestState.answered = false;
+      vocabTestState.lastResult = "";
+      renderVocab();
+      renderVocabTest();
+    }
+
+    function submitVocabTest() {
+      if (!vocabTestState.questions.length) return;
+      vocabTestState.submitted = true;
+      vocabTestState.active = false;
+      const total = vocabTestState.questions.length;
+      const score = vocabTestState.score;
+      vocabTestScore.textContent = `${score} / ${total}`;
+      vocabQuizPanel.innerHTML = `
+        <div class="test-card">
+          <div class="word">Test complete</div>
+          <div class="prompt">Score: ${score} / ${total}</div>
+          <div class="test-feedback">${score === total ? "You nailed this batch. Move to the next one when you're ready." : "Review the missed words and try another round."}</div>
+        </div>
+      `;
+      showToast(`Score ${score} / ${total}`);
+    }
+
+    function clearVocabTestSession() {
+      vocabTestState = {
+        active: false,
+        index: 0,
+        score: 0,
+        answered: false,
+        submitted: false,
+        questions: [],
+        lastResult: ""
+      };
+      renderVocabTest();
+      showToast("Test reset");
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    function selectVocabById(id) {
+      const list = getStudyVocabList();
+      const index = list.findIndex((item) => item.id === id);
+      if (index >= 0) {
+        vocabIndex = index;
+        vocabBatchIndex = Math.floor(vocabIndex / 10);
+        localStorage.setItem(storageKeys.vocabBatchIndex, String(vocabBatchIndex));
+        setVocabModeValue("learn");
+        vocabSide = "en";
+        updateVocabFace();
+        showToast(`Switched to: ${list[index].term}`);
+      }
+    }
+
+    function deleteVocab(id) {
+      const list = getVocab().filter((item) => item.id !== id);
+      setVocab(list);
+      if (vocabIndex >= list.length) vocabIndex = Math.max(0, list.length - 1);
+      setMasteryLevel(id, 0);
+      if (activeVocabId === id) activeVocabId = null;
+      updateVocabFace();
+    }
+
+    function toggleVocabReveal() {
+      const current = getCurrentVocabListItem();
+      if (!current) return;
+      vocabSide = vocabSide === "en" ? "zh" : "en";
+      updateVocabFace();
+      if (vocabFlashcard) {
+        vocabFlashcard.setAttribute("aria-label", vocabSide === "en" ? "Reveal meaning" : "Reveal word");
+      }
+    }
+
+    function speakVocab(term) {
+      const text = normalizeToken(term || getCurrentVocabListItem()?.term || "");
+      if (!text) return;
+      if (!("speechSynthesis" in window)) {
+        showToast("Speech is not available in this browser.");
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "en-US";
+        window.speechSynthesis.speak(utterance);
+      } catch {
+        showToast("Could not play pronunciation.");
+      }
+    }
+
+    let selectionCaptureTimer = null;
+    let lastCapturedSelection = "";
+
+    function captureSelectionText() {
+      const selection = window.getSelection();
+      if (!selection) return;
+      const raw = normalizeToken(selection.toString());
+      if (!raw || raw.length < 2 || raw.length > 40) return;
+      if (!/[A-Za-z]/.test(raw)) return;
+      if (raw.split(" ").length > 4) return;
+
+      const active = document.activeElement;
+      if (active && ["INPUT", "TEXTAREA"].includes(active.tagName)) return;
+
+      const termNode = selection.anchorNode?.parentElement?.closest?.(".term");
+      const zh = termNode?.getAttribute("data-zh") || findGlossary(raw)?.zh || "翻译中...";
+      if (raw.toLowerCase() === lastCapturedSelection) return;
+      lastCapturedSelection = raw.toLowerCase();
+      addVocab(raw, zh);
+      setTimeout(() => {
+        if (lastCapturedSelection === raw.toLowerCase()) lastCapturedSelection = "";
+      }, 1200);
+      selection.removeAllRanges();
+    }
+
+    function queueSelectionCapture(delay = 0) {
+      clearTimeout(selectionCaptureTimer);
+      selectionCaptureTimer = setTimeout(() => {
+        captureSelectionText();
+      }, delay);
+    }
+
+    function renderQuiz() {
+      const total = examState.questions.length || quizQuestions.length || 1;
+      const question = currentExamQuestion();
+      const quizProgress = document.getElementById("examProgress");
+      const quizProgressLabel = document.getElementById("examProgressLabel");
+      const quizProgressFill = document.getElementById("examProgressFill");
+      const quizStatus = document.getElementById("examStatus");
+      const quizTimeUsed = document.getElementById("examTimeUsed");
+      const quizRail = document.getElementById("examRailProgress");
+      const previousButton = document.getElementById("examPrevious");
+      const nextButton = document.getElementById("examNext");
+      const submitButton = document.getElementById("submitExam");
+      const confirmButton = document.getElementById("confirmExam");
+      const pauseButton = document.getElementById("toggleExamPause");
+      const flagButton = document.getElementById("toggleExamFlag");
+      const retryButton = document.getElementById("retryIncorrectOnly");
+
+      const currentNumber = Math.min(examState.index + 1, total);
+      const progressPercent = Math.max(0, Math.min(100, Math.round((currentNumber / total) * 100)));
+      if (quizProgress) quizProgress.textContent = `Question ${currentNumber} / ${total}`;
+      if (quizProgressLabel) quizProgressLabel.textContent = `Question ${currentNumber} / ${total} · ${progressPercent}%`;
+      if (quizProgressFill) quizProgressFill.style.width = `${progressPercent}%`;
+      if (quizStatus) {
+        quizStatus.textContent =
+          examState.status === "result" ? "Result" :
+          examState.status === "confirm" ? "Confirm submission" :
+          examState.status === "finished" ? "Ready to submit" :
+          examState.status === "paused" ? "Paused" :
+          "In progress";
+      }
+      if (startTimer) {
+        if (timerRunning) {
+          startTimer.textContent = "Running";
+        } else if (examState.status === "paused" || timerSeconds < 25 * 60) {
+          startTimer.textContent = "Resume timer";
+        } else {
+          startTimer.textContent = "Start timer";
+        }
+        startTimer.disabled = ["result", "confirm", "finished"].includes(examState.status);
+      }
+      if (quizTimeUsed) quizTimeUsed.textContent = `Time used: ${formatDuration(getExamElapsedMs())}`;
+      if (quizRail) {
+        const statusText =
+          examState.status === "paused" ? "Paused. Your progress is saved." :
+          examState.status === "confirm" ? "Confirm before you submit." :
+          examState.status === "finished" ? "Ready to submit." :
+          examState.status === "result" ? "Result view." :
+          "Answer one question at a time.";
+        quizRail.textContent = question
+          ? `Question ${currentNumber} of ${total}. ${statusText}`
+          : "No question loaded.";
+      }
+
+      const nextDisabled = ["result", "confirm", "paused"].includes(examState.status);
+      const inProgressMode = examState.status === "in-progress";
+      const isLastQuestion = Boolean(question) && currentNumber === total;
+      if (previousButton) {
+        previousButton.hidden = !question || !inProgressMode;
+        previousButton.disabled = nextDisabled || examState.index === 0;
+        previousButton.classList.toggle("is-emphasis", inProgressMode && examState.index > 0);
+      }
+      if (nextButton) {
+        nextButton.hidden = !question || !inProgressMode || isLastQuestion;
+        nextButton.disabled = nextDisabled;
+        nextButton.classList.toggle("is-emphasis", inProgressMode && !isLastQuestion);
+      }
+      if (submitButton) {
+        submitButton.hidden = !question || !inProgressMode || !isLastQuestion;
+        submitButton.disabled = nextDisabled;
+        submitButton.textContent = "Submit Exam";
+        submitButton.classList.toggle("is-emphasis", inProgressMode && isLastQuestion);
+      }
+      if (confirmButton) {
+        confirmButton.hidden = examState.status !== "confirm";
+        confirmButton.disabled = examState.status !== "confirm";
+      }
+      if (pauseButton) {
+        pauseButton.hidden = examState.status === "result";
+        pauseButton.disabled = examState.status === "result";
+        pauseButton.textContent = examState.status === "paused" ? "Resume" : "Pause";
+        pauseButton.classList.toggle("is-secondary-outline", examState.status === "paused");
+      }
+      if (flagButton) {
+        const flagged = Boolean(question && examState.flags && examState.flags[question.id]);
+        flagButton.disabled = !question || examState.status === "result";
+        flagButton.textContent = flagged ? "Unflag review" : "Mark for Review";
+        flagButton.classList.toggle("is-secondary-outline", flagged);
+      }
+      if (retryButton) {
+        const hasReview = Array.isArray(examState.result?.review) && examState.result.review.length > 0;
+        retryButton.hidden = examState.status !== "result";
+        retryButton.disabled = examState.status !== "result" || !hasReview;
+      }
+      if (confirmButton) confirmButton.classList.toggle("is-emphasis", examState.status === "confirm");
+
+      const isPausedMode = examState.status === "paused";
+      const isResultMode = examState.status === "result";
+      const isConfirmMode = examState.status === "confirm";
+      const isFinishedMode = examState.status === "finished";
+
+      if (!question) {
+        quizGrid.innerHTML = "<div class='question'><h4>No exam questions available.</h4></div>";
+        quizResult.classList.remove("show");
+        quizResult.innerHTML = "";
+        return;
+      }
+
+      const selectedIndex = getSelectedAnswer(examState.index);
+      const selectedOption = typeof selectedIndex === "number" ? question.options[selectedIndex] : null;
+      const correctOption = question.options[question.answer];
+      const hasSelectedAnswer = typeof selectedIndex === "number";
+      const revealAnswer = isResultMode || isConfirmMode || isFinishedMode || hasSelectedAnswer;
+      const showExplanation = isResultMode || isConfirmMode || isFinishedMode;
+      const optionsLocked = isResultMode || isConfirmMode || isFinishedMode || isPausedMode;
+      const flagged = Boolean(examState.flags && examState.flags[question.id]);
+
+      quizGrid.innerHTML = `
+        <article class="question ${isResultMode && selectedIndex === question.answer ? "correct" : ""} ${isResultMode && selectedIndex !== question.answer ? "wrong" : ""}" data-question="${examState.index}">
+          <div class="question-head">
+            <div>
+              <h4>${examState.index + 1}. ${decorateEnglish(question.en)}</h4>
+            </div>
+            <button class="fav-toggle" data-fav data-fav-type="question" data-fav-id="${question.id}" data-fav-title="Q${examState.index + 1}. ${escapeHtml(question.en)}" data-fav-note="${escapeHtml(question.why)}" type="button">☆ Favorite</button>
+          </div>
+          <div class="options">
+            ${question.options.map((option, optionIndex) => `
+              <button class="option ${selectedIndex === optionIndex ? 'is-selected' : ''} ${revealAnswer && optionIndex === question.answer ? 'is-correct' : ''} ${revealAnswer && selectedIndex === optionIndex && optionIndex !== question.answer ? 'is-wrong' : ''}" type="button" data-exam-answer="${optionIndex}" ${optionsLocked ? "disabled" : ""}>
+                <span><strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${decorateEnglish(option.en)}</span>
+              </button>
+            `).join("")}
+          </div>
+          <div class="review-meta">
+            <div><strong>Your answer:</strong> ${selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${decorateEnglish(selectedOption.en)}` : "Not answered yet."}</div>
+            ${revealAnswer ? `<div><strong>Correct answer:</strong> ${String.fromCharCode(65 + question.answer)}. ${decorateEnglish(correctOption.en)}</div>` : "<div>Select an answer to reveal the correct answer.</div>"}
+            <div><strong>Related lesson:</strong> ${escapeHtml(getLessonById(question.lessonId)?.titleEn || "General review")}</div>
+            <div><strong>Status:</strong> ${flagged ? "Marked for review" : "No review flag"}</div>
+            ${showExplanation ? `<div><strong>Explanation:</strong> ${decorateEnglish(question.why)}</div>` : ""}
+          </div>
+        </article>
+      `;
+
+      if (!quizResult) return;
+      if (isPausedMode) {
+        quizResult.innerHTML = `
+          <h3>Exam paused</h3>
+          <p>Your progress is saved locally. Resume when you're ready.</p>
+          <div class="review">
+            <div class="review-item"><b>Saved state</b><div>The current question, your answers, and the timer are saved in this browser.</div></div>
+          </div>
+        `;
+        quizResult.classList.add("show");
+        return;
+      }
+
+      if (isConfirmMode) {
+        const answered = Object.keys(examState.selected).length;
+        quizResult.innerHTML = `
+          <h3>Confirm submission</h3>
+          <p>You have answered ${answered} / ${total} questions. Confirming will score the exam, show the result page, and save wrong questions to your wrong book.</p>
+          <div class="review">
+            <div class="review-item"><b>What happens next</b><div>The system will score your exam, show the result page, and save wrong questions automatically.</div></div>
+            <div class="review-item"><b>Use the bottom controls</b><div>Use the buttons below to confirm or go back before you submit.</div></div>
+          </div>
+        `;
+        quizResult.classList.add("show");
+        return;
+      }
+
+      if (isFinishedMode) {
+        const answered = Object.keys(examState.selected).length;
+        quizResult.innerHTML = `
+          <h3>Ready to submit</h3>
+          <p>You have completed ${answered} / ${total} questions. Review any blank answers before you submit.</p>
+          <div class="review">
+            <div class="review-item"><b>Reminder</b><div>Use the bottom controls when you are ready to submit and confirm.</div></div>
+          </div>
+        `;
+        quizResult.classList.add("show");
+        return;
+      }
+
+      if (isResultMode && examState.result) {
+        const result = examState.result;
+        const reviewHtml = result.review.map((item) => `
+          <div class="review-item">
+            <b>${escapeHtml(item.title)}</b>
+            <div><strong>Your answer:</strong> ${escapeHtml(item.yourAnswer)}</div>
+            <div><strong>Correct answer:</strong> ${escapeHtml(item.correctAnswer)}</div>
+            <div><strong>Explanation:</strong> ${decorateEnglish(item.explanation)}</div>
+            <div><strong>Related lesson:</strong> ${escapeHtml(item.lessonTitle)}</div>
+            <div class="actions" style="margin-top:10px">
+              <button class="btn btn-secondary" type="button" data-panel-target="${item.lessonId || 'lessons'}">Open lesson</button>
+              <button class="btn btn-secondary" type="button" data-wrong-mastered="${item.id}">Mark mastered</button>
+            </div>
+          </div>
+        `).join("");
+        quizResult.innerHTML = `
+          <h3>Result</h3>
+          <p><strong>${result.percentage}%</strong> · ${result.scoreText} correct · ${result.incorrectCount} incorrect · Time used ${result.timeUsedText}</p>
+          <p>Review wrong questions first, then open the related lesson to study the weak points.</p>
+          <div class="result-actions">
+            <button class="btn btn-secondary" type="button" data-panel-target="notebook">Review wrong questions</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="lessons">Review lesson map</button>
+            <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Passit Practice</a>
+          </div>
+          <div class="review">${reviewHtml || "<div class='review-item'><b>Perfect</b><div>No wrong questions this time.</div></div>"}</div>
+        `;
+        quizResult.classList.add("show");
+        return;
+      }
+
+      quizResult.classList.remove("show");
+      quizResult.innerHTML = `
+        <h3>Ready</h3>
+        <p>Choose an answer to reveal the correct answer, then use the bottom buttons to move to the next question.</p>
+      `;
+    }
+
+    function renderLoadingState() {
+      document.body.classList.add("is-loading");
+      if (dashboardGrid) {
+        dashboardGrid.innerHTML = `
+          <article class="dashboard-card dashboard-card-wide skeleton-card" style="min-height:220px"></article>
+          <div class="loading-board two-up">
+            <article class="dashboard-card skeleton-card"></article>
+            <article class="dashboard-card skeleton-card"></article>
+          </div>
+        `;
+      }
+      if (lessonGrid) {
+        lessonGrid.innerHTML = `
+          <article class="lesson-overview-card skeleton-card">
+            <div class="loading-stack">
+              <div class="skeleton-line" style="width:42%;height:18px"></div>
+              <div class="skeleton-line" style="width:70%"></div>
+              <div class="skeleton-line" style="width:88%"></div>
+              <div class="loading-board two-up">
+                <div class="skeleton-card" style="min-height:150px"></div>
+                <div class="skeleton-card" style="min-height:150px"></div>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+      if (lessonPages) {
+        lessonPages.innerHTML = `
+          <section class="section is-visible">
+            <div class="lesson-page-shell">
+              <div class="skeleton-card" style="min-height:120px"></div>
+              <div class="loading-board two-up">
+                <div class="skeleton-card" style="min-height:220px"></div>
+                <div class="skeleton-card" style="min-height:220px"></div>
+              </div>
+            </div>
+          </section>
+        `;
+      }
+      if (moduleStudyGrid) {
+        moduleStudyGrid.innerHTML = `
+          <div class="loading-board two-up">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+        `;
+      }
+      if (roadmapGrid) {
+        roadmapGrid.innerHTML = `
+          <div class="loading-board two-up">
+            <div class="skeleton-card" style="min-height:210px"></div>
+            <div class="skeleton-card" style="min-height:210px"></div>
+          </div>
+        `;
+      }
+      if (pptStrip) {
+        pptStrip.innerHTML = `
+          <div class="skeleton-card" style="min-height:320px"></div>
+          <div class="skeleton-card" style="min-height:320px"></div>
+          <div class="skeleton-card" style="min-height:320px"></div>
+        `;
+      }
+      if (quizGrid) {
+        quizGrid.innerHTML = `
+          <div class="skeleton-question">
+            <div class="skeleton-line" style="width:72%;height:18px"></div>
+            <div class="skeleton-line" style="width:48%"></div>
+            <div class="skeleton-row">
+              <div class="skeleton-pill"></div>
+              <div class="skeleton-pill"></div>
+              <div class="skeleton-pill"></div>
+              <div class="skeleton-pill"></div>
+            </div>
+          </div>
+        `;
+      }
+      if (quizResult) {
+        quizResult.classList.remove("show");
+        quizResult.innerHTML = "";
+      }
+      if (favoritesList) favoritesList.innerHTML = `<div class="skeleton-card" style="min-height:120px"></div>`;
+      if (wrongBookList) wrongBookList.innerHTML = `<div class="skeleton-card" style="min-height:120px"></div>`;
+      if (vocabList) vocabList.innerHTML = `<div class="skeleton-card" style="min-height:120px"></div>`;
+      if (examProgress) examProgress.textContent = "Loading course data...";
+      if (examProgressLabel) examProgressLabel.textContent = "Loading course data...";
+      if (timerValue) timerValue.textContent = "25:00";
+      if (startTimer) startTimer.textContent = "Loading...";
+    }
+
+    function showBootstrapError(error) {
+      const message = error?.message || String(error || "Unknown error");
+      document.body.classList.remove("is-loading");
+      if (dashboardGrid) {
+        dashboardGrid.innerHTML = `
+          <article class="dashboard-card dashboard-card-wide">
+            <div class="lesson-kicker">Loading error</div>
+            <h3 class="lesson-title">课程数据没有加载出来</h3>
+            <p class="dashboard-note">先刷新页面，再确认 <code>course-data.json</code> 已经部署到同一个目录。</p>
+            <p class="dashboard-note">${escapeHtml(message)}</p>
+          </article>
+        `;
+      }
+      if (lessonGrid) {
+        lessonGrid.innerHTML = `
+          <article class="lesson-overview-card">
+            <div class="lesson-kicker">Loading error</div>
+            <h3 class="lesson-title">课程数据没有加载出来</h3>
+            <p>先刷新页面，再确认 <code>course-data.json</code> 已经部署到同一个目录。</p>
+            <p>${escapeHtml(message)}</p>
+          </article>
+        `;
+      }
+      if (quizGrid) {
+        quizGrid.innerHTML = "<div class='question'><h4>Course data unavailable</h4><p>Please refresh after deployment finishes.</p></div>";
+      }
+      if (quizResult) {
+        quizResult.classList.add("show");
+        quizResult.innerHTML = `
+          <h3>Loading error</h3>
+          <p>The study data failed to load. Check that <code>course-data.json</code> is deployed beside <code>index.html</code>.</p>
+        `;
+      }
+      showToast(`Data load failed: ${message}`);
+    }
+
+    function startCountdown() {
+      if (timerRunning) return;
+      if (timerSeconds <= 0) {
+        showToast("Timer has already reached 00:00.");
+        return;
+      }
+      timerRunning = true;
+      startTimer.textContent = "Running";
+      if (!examState.startedAt) examState.startedAt = Date.now();
+      timerHandle = setInterval(() => {
+        timerSeconds = Math.max(timerSeconds - 1, 0);
+        timerValue.textContent = formatTime(timerSeconds);
+        examState.timerSeconds = timerSeconds;
+        saveExamState();
+        if (timerSeconds === 0) {
+          clearInterval(timerHandle);
+          timerHandle = null;
+          timerRunning = false;
+          startTimer.textContent = "Time up";
+          saveExamState();
+        }
+      }, 1000);
+    }
+
+    function stopCountdown(options = {}) {
+      if (timerHandle) {
+        clearInterval(timerHandle);
+        timerHandle = null;
+      }
+      timerRunning = false;
+      const shouldReset = Boolean(options.reset);
+      if (shouldReset) {
+        timerSeconds = 25 * 60;
+        timerValue.textContent = formatTime(timerSeconds);
+        startTimer.textContent = "Start timer";
+      } else {
+        startTimer.textContent = timerSeconds > 0 ? "Resume timer" : "Time up";
+      }
+      examState.timerSeconds = timerSeconds;
+      saveExamState();
+    }
+
+    function confirmExamSubmission() {
+      if (examState.status !== "confirm") return;
+      gradeExam();
+    }
+
+    function reset() {
+      resetExamState();
+      quizResult.classList.remove("show");
+      quizResult.innerHTML = "";
+    }
+
+    function wireNotebookActions() {
+      document.body.addEventListener("click", (event) => {
+        const whyToggleButton = event.target.closest("[data-toggle-why-mode]");
+        if (whyToggleButton) {
+          toggleWhyMode();
+          return;
+        }
+
+        const panelButton = event.target.closest("[data-panel-target]");
+        if (panelButton) {
+          setPanel(panelButton.getAttribute("data-panel-target"));
+          return;
+        }
+
+        const lessonCompleteButton = event.target.closest("[data-lesson-complete]");
+        if (lessonCompleteButton) {
+          toggleLessonCompleted(lessonCompleteButton.getAttribute("data-lesson-complete"));
+          return;
+        }
+
+        const examAnswerButton = event.target.closest("[data-exam-answer]");
+        if (examAnswerButton) {
+          if (examState.status !== "in-progress") return;
+          const choiceIndex = Number(examAnswerButton.getAttribute("data-exam-answer"));
+          setSelectedAnswer(examState.index, choiceIndex);
+          return;
+        }
+
+        const examMasteredButton = event.target.closest("[data-wrong-mastered]");
+        if (examMasteredButton) {
+          toggleWrongMastered(examMasteredButton.getAttribute("data-wrong-mastered"));
+          return;
+        }
+
+        const favButton = event.target.closest("[data-fav]");
+        if (favButton) {
+          const type = favButton.getAttribute("data-fav-type");
+          const id = favButton.getAttribute("data-fav-id");
+          const title = favButton.getAttribute("data-fav-title") || id;
+          const note = favButton.getAttribute("data-fav-note") || "";
+          toggleFavorite(type, id, title, note);
+          return;
+        }
+
+        const removeButton = event.target.closest("[data-remove-fav]");
+        if (removeButton) {
+          const [type, id] = removeButton.getAttribute("data-remove-fav").split(":");
+          const list = readStore(storageKeys.favorites).filter((item) => !(item.type === type && item.id === id));
+          writeStore(storageKeys.favorites, list);
+          renderFavorites();
+          syncFavoriteButtons();
+          return;
+        }
+
+        const jumpButton = event.target.closest("[data-vocab-jump]");
+        if (jumpButton) {
+          selectVocabById(jumpButton.getAttribute("data-vocab-jump"));
+          return;
+        }
+
+        const deleteButton = event.target.closest("[data-vocab-delete]");
+        if (deleteButton) {
+          deleteVocab(deleteButton.getAttribute("data-vocab-delete"));
+          return;
+        }
+
+        const speakButton = event.target.closest("[data-vocab-speak]");
+        if (speakButton) {
+          speakVocab(speakButton.getAttribute("data-vocab-speak"));
+          return;
+        }
+      });
+    }
+
+    function wireVocabControls() {
+      document.querySelectorAll("[data-vocab-mode]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setVocabModeValue(button.getAttribute("data-vocab-mode"));
+        });
+      });
+
+      document.querySelectorAll("[data-vocab-filter]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setVocabFilterValue(button.getAttribute("data-vocab-filter"));
+        });
+      });
+
+      if (vocabSearchInput) {
+        vocabSearchInput.addEventListener("input", () => {
+          setVocabSearchValue(vocabSearchInput.value);
+        });
+      }
+
+      if (vocabFlashcard) {
+        vocabFlashcard.addEventListener("click", toggleVocabReveal);
+      }
+      if (vocabReveal) {
+        vocabReveal.addEventListener("click", toggleVocabReveal);
+      }
+      if (vocabSpeak) {
+        vocabSpeak.addEventListener("click", () => {
+          speakVocab();
+        });
+      }
+
+      if (vocabBatchPrev) {
+        vocabBatchPrev.addEventListener("click", () => setVocabBatchByStep(-1));
+      }
+      if (vocabBatchNext) {
+        vocabBatchNext.addEventListener("click", () => setVocabBatchByStep(1));
+      }
+
+      vocabPrev.addEventListener("click", () => {
+        const list = getStudyVocabList();
+        if (!list.length) return;
+        moveVocabIndex(-1);
+      });
+
+      vocabNext.addEventListener("click", () => {
+        const list = getStudyVocabList();
+        if (!list.length) return;
+        moveVocabIndex(1);
+      });
+
+      vocabShuffle.addEventListener("click", () => {
+        const list = getStudyVocabList();
+        if (!list.length) return;
+        vocabIndex = Math.floor(Math.random() * list.length);
+        vocabSide = "en";
+        updateVocabFace();
+      });
+
+      vocabMasteryHard.addEventListener("click", () => {
+        const current = getCurrentVocabListItem();
+        if (!current) return;
+        setMasteryLevel(current.id, 0);
+        showToast("Marked: Again");
+        renderVocab();
+      });
+
+      vocabMasteryMaybe.addEventListener("click", () => {
+        const current = getCurrentVocabListItem();
+        if (!current) return;
+        setMasteryLevel(current.id, 1);
+        showToast("Marked: Learning");
+        renderVocab();
+      });
+
+      vocabMasteryEasy.addEventListener("click", () => {
+        const current = getCurrentVocabListItem();
+        if (!current) return;
+        setMasteryLevel(current.id, 3);
+        showToast("Marked: Mastered");
+        renderVocab();
+      });
+
+      startVocabTestBtn.addEventListener("click", beginVocabTest);
+      nextVocabQuestionBtn.addEventListener("click", advanceVocabQuestion);
+      finishVocabTestBtn.addEventListener("click", submitVocabTest);
+      resetVocabTestBtn.addEventListener("click", clearVocabTestSession);
+
+      vocabQuizPanel.addEventListener("click", (event) => {
+        const answerButton = event.target.closest("[data-vocab-answer]");
+        if (!answerButton) return;
+        answerVocabTest(answerButton.getAttribute("data-vocab-answer"));
+      });
+
+      clearVocab.addEventListener("click", () => {
+        localStorage.removeItem(storageKeys.vocab);
+        localStorage.removeItem(storageKeys.vocabMastery);
+        localStorage.removeItem(storageKeys.vocabTestState);
+        localStorage.removeItem(storageKeys.vocabMode);
+        localStorage.removeItem(storageKeys.vocabBatchIndex);
+        localStorage.removeItem(storageKeys.vocabSearch);
+        localStorage.removeItem(storageKeys.vocabFilter);
+        vocabIndex = 0;
+        vocabSide = "en";
+        vocabBatchIndex = 0;
+        vocabMode = "learn";
+        vocabSearchQuery = "";
+        vocabFilterMode = "all";
+        vocabTestState = {
+          active: false,
+          index: 0,
+          score: 0,
+          answered: false,
+          submitted: false,
+          questions: [],
+          lastResult: ""
+        };
+        renderDashboard();
+        renderVocab();
+        showToast("Wordbook cleared");
+      });
+    }
+
+    async function bootStudyLab() {
+      renderLoadingState();
+      try {
+        await loadCourseData();
+      } catch (error) {
+        showBootstrapError(error);
+        return;
+      }
+
+      document.body.classList.remove("is-loading");
+      renderDashboard();
+      renderLessons();
+      renderLessonPages();
+      renderCourseRoadmap();
+      renderModuleStudyCards();
+      renderPPT();
+      renderQuiz();
+      saveExamState();
+      renderFavorites();
+      renderWrongBook();
+      renderVocab();
+      hydrateVocabTranslations();
+      wireNotebookActions();
+      wireVocabControls();
+      timerValue.textContent = formatTime(timerSeconds);
+      syncFavoriteButtons();
+
+      const initialPanel = location.hash ? location.hash.replace(/^#/, "") : "dashboard";
+      setPanel(initialPanel, { scroll: false, updateHash: false });
+      void primeWordTranslations(document.querySelector(`section.section[data-panel="${initialPanel === "all" ? "lessons" : initialPanel}"]`) || document);
+
+      window.addEventListener("hashchange", () => {
+        const panel = location.hash.replace(/^#/, "") || "dashboard";
+        setPanel(panel, { scroll: false, updateHash: false });
+      });
+
+      startTimer.addEventListener("click", () => {
+        if (examState.status === "paused") {
+          resumeExam();
+          return;
+        }
+        startCountdown();
+      });
+      examPrevious.addEventListener("click", () => moveExamQuestion(-1));
+      examNext.addEventListener("click", () => moveExamQuestion(1));
+      submitExam.addEventListener("click", openSubmitStage);
+      confirmExamButton.addEventListener("click", confirmExamSubmission);
+      toggleExamPauseButton.addEventListener("click", () => {
+        if (examState.status === "paused") {
+          resumeExam();
+        } else {
+          pauseExam();
+        }
+      });
+      toggleExamFlagButton.addEventListener("click", toggleExamFlag);
+      retryIncorrectOnlyButton.addEventListener("click", retryIncorrectOnly);
+      resetQuiz.addEventListener("click", reset);
+      clearNotebook.addEventListener("click", () => {
+        localStorage.removeItem(storageKeys.favorites);
+        localStorage.removeItem(storageKeys.wrongBook);
+        renderDashboard();
+        renderFavorites();
+        renderWrongBook();
+        syncFavoriteButtons();
+      });
+
+      document.addEventListener("mouseup", () => queueSelectionCapture(0));
+      document.addEventListener("keyup", () => queueSelectionCapture(0));
+      document.addEventListener("pointerup", () => queueSelectionCapture(140));
+      document.addEventListener("touchend", () => queueSelectionCapture(180), { passive: true });
+      document.addEventListener("selectionchange", () => queueSelectionCapture(220));
+      document.addEventListener("pointerover", (event) => {
+        const termNode = event.target?.closest?.(".term[data-word]");
+        if (termNode) void resolveHoveredTerm(termNode);
+      });
+    }
+
+    void bootStudyLab();
+  </script>
+</body>
+</html>
             <div class="vocab-test-panel" id="vocabQuizPanel">
               No test has started yet. Pick a batch and press Start test.
             </div>
