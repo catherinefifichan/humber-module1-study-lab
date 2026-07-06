@@ -1011,6 +1011,14 @@
       padding-inline: 16px;
       flex: 1 1 180px;
       min-width: 0;
+      color: #10251f;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      box-shadow: none;
+    }
+
+    .lesson-page-nav .btn:hover {
+      background: #fff;
     }
 
     .lesson-page-columns {
@@ -1466,6 +1474,40 @@
       font-size: 1.05rem;
     }
 
+    .quiz-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+      display: grid;
+      gap: 12px;
+    }
+
+    .quiz-actions-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-actions-bottom .btn {
+      flex: 1 1 160px;
+      min-width: 0;
+      color: #10251f;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      box-shadow: none;
+    }
+
+    .quiz-actions-bottom .btn:hover {
+      background: #fff;
+    }
+
+    .quiz-actions-bottom .btn:disabled {
+      color: rgba(16, 37, 31, 0.38);
+      background: rgba(255, 255, 255, 0.72);
+      border-color: rgba(16, 37, 31, 0.08);
+      box-shadow: none;
+    }
+
     #submitExam.is-emphasis,
     #confirmExam.is-emphasis {
       color: #10251f;
@@ -1774,6 +1816,14 @@
       .lesson-page-nav .fav-toggle {
         width: 100%;
       }
+      .quiz-actions-bottom {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .quiz-actions-bottom .btn {
+        width: 100%;
+      }
       .top-nav {
         display: grid;
         grid-auto-flow: column;
@@ -2030,48 +2080,50 @@
 
     <section class="section" id="quiz" data-panel="quiz">
       <div class="section-header">
-        <h2>模拟考试 / Mock Exam</h2>
+        <h2>Mock Exam</h2>
         <p>
-          这部分可以直接做题。提交后会显示分数、对错和中英双语解释。
-          题目是我按课件重点自己整理的原创复习题，不直接复制 Humber 或 Passit 原题。
+          This section is a clean practice exam. Questions are original, answers are randomized,
+          and wrong questions are saved automatically for review.
         </p>
       </div>
       <div class="quiz-shell">
         <div class="quiz-meta">
           <div class="quiz-chip" id="examProgress">Question 1 / 1</div>
-          <div class="quiz-chip" id="examStatus">In progress / 作答中</div>
+          <div class="quiz-chip" id="examStatus">In progress</div>
           <div class="quiz-chip" id="examTimeUsed">Time used: 00:00</div>
         </div>
         <div class="quiz-toolbar">
-          <div class="timer">Exam timer / 计时器 <strong id="timerValue">25:00</strong></div>
-          <div class="actions" style="margin-top:0">
-            <button class="btn btn-primary" id="startTimer" type="button">开始计时 / Start</button>
-            <button class="btn btn-secondary" id="examNext" type="button">Next / 下一题</button>
-            <button class="btn btn-secondary" id="finishExam" type="button">Finish / 完成</button>
-            <button class="btn btn-secondary" id="submitExam" type="button">Submit / 交卷</button>
-            <button class="btn btn-secondary" id="confirmExam" type="button">Confirm / 确认</button>
-            <button class="btn btn-secondary" id="resetQuiz" type="button">重置 / Reset</button>
-          </div>
+          <div class="timer">Exam timer <strong id="timerValue">25:00</strong></div>
+          <button class="btn btn-primary" id="startTimer" type="button">Start timer</button>
         </div>
         <div class="quiz-stage">
           <div class="quiz-grid" id="quizGrid"></div>
           <aside class="quiz-sidebar">
             <div class="exam-rail">
-              <h3>How this works / 使用方式</h3>
-              <p>Question → Next → Finish / 完成 → Submit / 交卷 → Confirm / 确认 → Result</p>
-              <div class="exam-progress" id="examRailProgress">Answer one question at a time. / 一题一题做。</div>
+              <h3>How it works</h3>
+              <p>Answer one question at a time, then use the bottom buttons to move through the exam.</p>
+              <div class="exam-progress" id="examRailProgress">Answer one question at a time.</div>
               <ul style="margin:0;padding-left:18px;display:grid;gap:8px;">
-                <li>Answers are randomized each session.</li>
+                <li>Questions are randomized each session.</li>
                 <li>Wrong questions move into the review book automatically.</li>
                 <li>Click a related lesson to jump back and study.</li>
               </ul>
             </div>
             <div class="info-card">
               <h3>Go to Passit Practice</h3>
-              <p>先用 CatherineEcho 理解，再去 Passit 刷题。</p>
+              <p>Use CatherineEcho to understand first, then use Passit for extra drilling.</p>
               <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Open Passit</a>
             </div>
           </aside>
+        </div>
+        <div class="quiz-footer">
+          <div class="quiz-actions-bottom">
+            <button class="btn btn-secondary" id="examNext" type="button">Next</button>
+            <button class="btn btn-secondary" id="finishExam" type="button">Finish</button>
+            <button class="btn btn-secondary" id="submitExam" type="button">Submit</button>
+            <button class="btn btn-secondary" id="confirmExam" type="button">Confirm</button>
+            <button class="btn btn-secondary" id="resetQuiz" type="button">Reset</button>
+          </div>
         </div>
         <div class="result" id="quizResult" aria-live="polite"></div>
       </div>
@@ -4013,7 +4065,7 @@
     function moveExamQuestion(delta) {
       if (!examState.questions.length || examState.status === "result") return;
       if (examState.index === examState.questions.length - 1 && delta > 0) {
-        showToast("This is the last question. Use Finish / 完成 when ready.");
+        showToast("This is the last question. Use Finish when you're ready.");
         return;
       }
       const next = Math.max(0, Math.min(examState.index + delta, examState.questions.length - 1));
@@ -4048,7 +4100,7 @@
             title: question.en,
             lessonId: question.lessonId,
             lessonTitle: getLessonById(question.lessonId)?.titleEn || "Module 1",
-            yourAnswer: selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${selectedOption.en}` : "No answer / 未作答",
+            yourAnswer: selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${selectedOption.en}` : "No answer",
             correctAnswer: `${String.fromCharCode(65 + question.answer)}. ${correctOption.en}`,
             explanation: question.why,
             mastered: false
@@ -4149,9 +4201,7 @@
             </div>
             <div class="lesson-page-shell">
               <div class="lesson-page-nav lesson-page-nav-top">
-                ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous page / 上一页</button>` : ""}
                 <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map / 返回总览</button>
-                ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next page → / 下一页</button>` : ""}
                 <button class="btn btn-secondary" type="button" data-lesson-complete="${lesson.id}">${isLessonCompleted(lesson.id) ? "Completed / 已完成" : "Mark completed / 标记完成"}</button>
                 <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
               </div>
@@ -4888,14 +4938,14 @@
       if (quizProgress) quizProgress.textContent = `Question ${Math.min(examState.index + 1, total)} / ${total}`;
       if (quizStatus) {
         quizStatus.textContent =
-          examState.status === "result" ? "Result / 成绩" :
-          examState.status === "confirm" ? "Confirm / 确认提交" :
-          examState.status === "finished" ? "Ready to submit / 等待提交" :
-          "In progress / 作答中";
+          examState.status === "result" ? "Result" :
+          examState.status === "confirm" ? "Confirm submission" :
+          examState.status === "finished" ? "Ready to submit" :
+          "In progress";
       }
       if (quizTimeUsed) quizTimeUsed.textContent = `Time used: ${formatDuration(getExamElapsedMs())}`;
       if (quizRail) quizRail.textContent = question
-        ? `Current question ${examState.index + 1} / ${total}.`
+        ? `Question ${examState.index + 1} of ${total}.`
         : "No question loaded.";
 
       const nextDisabled = examState.status === "result" || examState.status === "confirm";
@@ -4919,29 +4969,31 @@
       const isResultMode = examState.status === "result";
       const isConfirmMode = examState.status === "confirm";
       const isFinishedMode = examState.status === "finished";
-      const revealAnswer = isResultMode || isConfirmMode || isFinishedMode;
+      const hasSelectedAnswer = typeof selectedIndex === "number";
+      const revealAnswer = isResultMode || isConfirmMode || isFinishedMode || hasSelectedAnswer;
+      const showExplanation = isResultMode || isConfirmMode || isFinishedMode;
+      const optionsLocked = isResultMode || isConfirmMode || isFinishedMode;
 
       quizGrid.innerHTML = `
         <article class="question ${isResultMode && selectedIndex === question.answer ? "correct" : ""} ${isResultMode && selectedIndex !== question.answer ? "wrong" : ""}" data-question="${examState.index}">
           <div class="question-head">
             <div>
               <h4>${examState.index + 1}. ${decorateEnglish(question.en)}</h4>
-              <p class="zh">${question.zh}</p>
             </div>
             <button class="fav-toggle" data-fav data-fav-type="question" data-fav-id="${question.id}" data-fav-title="Q${examState.index + 1}. ${escapeHtml(question.en)}" data-fav-note="${escapeHtml(question.why)}" type="button">☆ 收藏</button>
           </div>
           <div class="options">
             ${question.options.map((option, optionIndex) => `
-              <button class="option ${selectedIndex === optionIndex ? 'is-selected' : ''} ${revealAnswer && optionIndex === question.answer ? 'is-correct' : ''} ${revealAnswer && selectedIndex === optionIndex && optionIndex !== question.answer ? 'is-wrong' : ''}" type="button" data-exam-answer="${optionIndex}" ${revealAnswer ? "disabled" : ""}>
-                <span><strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${decorateEnglish(option.en)}<br><span style="color:#61766e">${escapeHtml(option.zh)}</span></span>
+              <button class="option ${selectedIndex === optionIndex ? 'is-selected' : ''} ${revealAnswer && optionIndex === question.answer ? 'is-correct' : ''} ${revealAnswer && selectedIndex === optionIndex && optionIndex !== question.answer ? 'is-wrong' : ''}" type="button" data-exam-answer="${optionIndex}" ${optionsLocked ? "disabled" : ""}>
+                <span><strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${decorateEnglish(option.en)}</span>
               </button>
             `).join("")}
           </div>
           <div class="review-meta">
-            <div><strong>Your answer:</strong> ${selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${decorateEnglish(selectedOption.en)}` : "Not answered / 未作答"}</div>
-            <div><strong>Correct answer:</strong> ${String.fromCharCode(65 + question.answer)}. ${decorateEnglish(correctOption.en)}</div>
+            <div><strong>Your answer:</strong> ${selectedOption ? `${String.fromCharCode(65 + selectedIndex)}. ${decorateEnglish(selectedOption.en)}` : "Not answered yet."}</div>
+            ${revealAnswer ? `<div><strong>Correct answer:</strong> ${String.fromCharCode(65 + question.answer)}. ${decorateEnglish(correctOption.en)}</div>` : "<div>Select an answer to reveal the correct answer.</div>"}
             <div><strong>Related lesson:</strong> ${escapeHtml(getLessonById(question.lessonId)?.titleEn || "General review")}</div>
-            ${revealAnswer ? `<div><strong>Explanation:</strong> ${decorateEnglish(question.why)}</div>` : ""}
+            ${showExplanation ? `<div><strong>Explanation:</strong> ${decorateEnglish(question.why)}</div>` : ""}
           </div>
         </article>
       `;
@@ -4950,13 +5002,11 @@
       if (examState.status === "confirm") {
         const answered = Object.keys(examState.selected).length;
         quizResult.innerHTML = `
-          <h3>Confirm submission / 确认交卷</h3>
-          <p>你已经完成了 ${answered} / ${total} 题。确认后会生成结果页，并把错题存进错题本。</p>
+          <h3>Confirm submission</h3>
+          <p>You have answered ${answered} / ${total} questions. Confirming will score the exam, show the result page, and save wrong questions to your wrong book.</p>
           <div class="review">
-            <div class="review-item"><b>What happens next / 下一步</b><div>System will score your exam, show the result page, and save wrong questions automatically.</div></div>
-          </div>
-          <div class="actions" style="margin-top:12px">
-            <button class="btn btn-primary" type="button" data-inline-confirm>Confirm / 确认提交</button>
+            <div class="review-item"><b>What happens next</b><div>The system will score your exam, show the result page, and save wrong questions automatically.</div></div>
+            <div class="review-item"><b>Use the bottom controls</b><div>Use the buttons below to confirm or go back before you submit.</div></div>
           </div>
         `;
         quizResult.classList.add("show");
@@ -4966,13 +5016,10 @@
       if (examState.status === "finished") {
         const answered = Object.keys(examState.selected).length;
         quizResult.innerHTML = `
-          <h3>Exam finished / 已完成</h3>
-          <p>你已经完成 ${answered} / ${total} 题。现在可以点 Submit，再点 Confirm 生成结果页。</p>
+          <h3>Ready to submit</h3>
+          <p>You have completed ${answered} / ${total} questions. Review any blank answers before you submit.</p>
           <div class="review">
-            <div class="review-item"><b>Reminder / 提醒</b><div>先检查一下空题，再确认提交。</div></div>
-          </div>
-          <div class="actions" style="margin-top:12px">
-            <button class="btn btn-primary" type="button" data-inline-submit>Submit / 交卷</button>
+            <div class="review-item"><b>Reminder</b><div>Use the bottom controls when you are ready to submit and confirm.</div></div>
           </div>
         `;
         quizResult.classList.add("show");
@@ -4995,10 +5042,10 @@
           </div>
         `).join("");
         quizResult.innerHTML = `
-          <h3>Result / 结果</h3>
+          <h3>Result</h3>
           <p><strong>${result.percentage}%</strong> · ${result.scoreText} correct · ${result.incorrectCount} incorrect · Time used ${result.timeUsedText}</p>
-          <p>先看错题，再回对应 Lesson 复习。每次提交后，错题都会进入 Wrong Question Book。</p>
-          <div class="review">${reviewHtml || "<div class='review-item'><b>Perfect / 全对</b><div>No wrong questions this time.</div></div>"}</div>
+          <p>Review wrong questions first, then open the related lesson to study the weak points.</p>
+          <div class="review">${reviewHtml || "<div class='review-item'><b>Perfect</b><div>No wrong questions this time.</div></div>"}</div>
         `;
         quizResult.classList.add("show");
         return;
@@ -5006,15 +5053,15 @@
 
       quizResult.classList.remove("show");
       quizResult.innerHTML = `
-        <h3>Ready / 准备中</h3>
-        <p>先做题，做完再 Finish / 完成。答案会随机排列，不会总是 A。</p>
+        <h3>Ready</h3>
+        <p>Choose an answer to reveal the correct answer, then use the bottom buttons to move to the next question.</p>
       `;
     }
 
     function startCountdown() {
       if (timerRunning) return;
       timerRunning = true;
-      startTimer.textContent = "计时中 / Running";
+      startTimer.textContent = "Running";
       if (!examState.startedAt) examState.startedAt = Date.now();
       timerHandle = setInterval(() => {
         timerSeconds = Math.max(timerSeconds - 1, 0);
@@ -5023,7 +5070,7 @@
           clearInterval(timerHandle);
           timerHandle = null;
           timerRunning = false;
-          startTimer.textContent = "重新开始 / Restart";
+          startTimer.textContent = "Restart timer";
         }
       }, 1000);
     }
@@ -5034,7 +5081,7 @@
         timerHandle = null;
       }
       timerRunning = false;
-      startTimer.textContent = "开始计时 / Start";
+      startTimer.textContent = "Start timer";
       timerSeconds = 25 * 60;
       timerValue.textContent = formatTime(timerSeconds);
     }
@@ -5075,18 +5122,6 @@
         const examMasteredButton = event.target.closest("[data-wrong-mastered]");
         if (examMasteredButton) {
           toggleWrongMastered(examMasteredButton.getAttribute("data-wrong-mastered"));
-          return;
-        }
-
-        const inlineSubmitButton = event.target.closest("[data-inline-submit]");
-        if (inlineSubmitButton) {
-          openSubmitStage();
-          return;
-        }
-
-        const inlineConfirmButton = event.target.closest("[data-inline-confirm]");
-        if (inlineConfirmButton) {
-          confirmExamSubmission();
           return;
         }
 
