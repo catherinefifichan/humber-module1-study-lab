@@ -210,11 +210,62 @@
       margin-top: 24px;
     }
 
+    .status-bar {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .status-pill {
+      padding: 11px 13px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(246, 242, 234, 0.92);
+      line-height: 1.45;
+      font-size: 0.9rem;
+    }
+
+    .status-pill strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 4px;
+      font-size: 0.96rem;
+    }
+
+    .quick-guide {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .guide-step {
+      padding: 14px 15px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(246, 242, 234, 0.9);
+      line-height: 1.5;
+      font-size: 0.92rem;
+    }
+
+    .guide-step strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 6px;
+      font-size: 0.94rem;
+    }
+
     .top-nav {
       margin: 18px 0 0;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
     }
 
     .top-nav button {
@@ -227,6 +278,7 @@
       font-weight: 800;
       font-size: 0.9rem;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .top-nav button:hover {
@@ -344,6 +396,7 @@
       border-bottom: 1px dotted rgba(28, 124, 93, 0.56);
       cursor: help;
       color: inherit;
+      text-decoration: none;
     }
 
     .term::after {
@@ -368,13 +421,23 @@
       line-height: 1.35;
     }
 
-    .term:hover::after {
+    .term:hover::after,
+    .term:focus::after,
+    .term:focus-visible::after {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
 
-    .term:hover {
+    .term:hover,
+    .term:focus,
+    .term:focus-visible {
       color: #0f5f4d;
+      outline: none;
+    }
+
+    .term:focus-visible {
+      box-shadow: 0 0 0 3px rgba(28, 124, 93, 0.14);
+      border-radius: 4px;
     }
 
     .vocab-shell {
@@ -1066,6 +1129,10 @@
         grid-template-columns: 1fr;
       }
 
+      .status-bar, .quick-guide {
+        grid-template-columns: 1fr;
+      }
+
       .notebook-grid {
         grid-template-columns: 1fr;
       }
@@ -1092,6 +1159,10 @@
       .stat-grid, .mini-grid { grid-template-columns: 1fr; }
       .actions { flex-direction: column; }
       .btn { width: 100%; }
+      .top-nav {
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
     }
   </style>
 </head>
@@ -1119,15 +1190,26 @@
             <button class="btn btn-secondary" type="button" data-panel-target="quiz">直接做模拟考试</button>
             <a class="btn btn-secondary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
           </div>
+          <div class="status-bar" aria-label="Study status">
+            <div class="status-pill"><strong>Current</strong> 只学 Module 1，2-7 继续保留锁定状态</div>
+            <div class="status-pill"><strong>Words</strong> 鼠标停词看中文，选词自动进单词本</div>
+            <div class="status-pill"><strong>Practice</strong> 模拟考试会自动记错题，方便回炉</div>
+            <div class="status-pill"><strong>Access</strong> 手机和外网都可打开这个网站</div>
+          </div>
+          <div class="quick-guide" aria-label="How to use">
+            <div class="guide-step"><strong>1. 先看 Module 1</strong> 把重点、陷阱和中英对照先过一遍。</div>
+            <div class="guide-step"><strong>2. 随时点词</strong> 术语会浮出中文，陌生词会自动存进单词本。</div>
+            <div class="guide-step"><strong>3. 再做模拟题</strong> 做完直接看错题解释，再回重点卡复习。</div>
+          </div>
           <nav class="top-nav" aria-label="Study navigation">
-            <button type="button" data-panel-target="lessons">Module 1</button>
-            <button type="button" data-panel-target="module2">Module 2-7</button>
-            <button type="button" data-panel-target="ppt">官方课件</button>
-            <button type="button" data-panel-target="exam">Exam Focus</button>
-            <button type="button" data-panel-target="quiz">Mock Exam</button>
-            <button type="button" data-panel-target="notebook">错题本</button>
-            <button type="button" data-panel-target="vocab">单词本</button>
-            <button type="button" data-panel-target="roadmap">Roadmap</button>
+            <button type="button" data-panel-target="lessons">M1</button>
+            <button type="button" data-panel-target="module2">M2-7</button>
+            <button type="button" data-panel-target="ppt">课件</button>
+            <button type="button" data-panel-target="exam">考点</button>
+            <button type="button" data-panel-target="quiz">模考</button>
+            <button type="button" data-panel-target="notebook">错题</button>
+            <button type="button" data-panel-target="vocab">单词</button>
+            <button type="button" data-panel-target="roadmap">路线</button>
             <button type="button" data-panel-target="all">全部</button>
           </nav>
         </div>
@@ -1723,12 +1805,138 @@
       { term: "records", zh: "记录" }
     ].sort((a, b) => b.term.length - a.term.length);
 
+    const commonGlossary = [
+      { term: "lesson", zh: "课 / 课程单元" },
+      { term: "lessons", zh: "课程单元（复数）" },
+      { term: "module", zh: "模块" },
+      { term: "modules", zh: "模块（复数）" },
+      { term: "overview", zh: "概览 / 总览" },
+      { term: "summary", zh: "总结 / 概要" },
+      { term: "focus", zh: "重点 / 聚焦" },
+      { term: "focuses", zh: "聚焦于" },
+      { term: "practice", zh: "练习 / 操练" },
+      { term: "review", zh: "复习 / 回顾" },
+      { term: "current", zh: "当前的" },
+      { term: "future", zh: "未来的" },
+      { term: "official", zh: "官方的" },
+      { term: "available", zh: "可用的 / 可开放的" },
+      { term: "locked", zh: "锁定的 / 未开放的" },
+      { term: "open", zh: "打开 / 开放" },
+      { term: "using", zh: "使用中" },
+      { term: "use", zh: "使用 / 运用" },
+      { term: "used", zh: "已使用的" },
+      { term: "help", zh: "帮助" },
+      { term: "guide", zh: "指南 / 引导" },
+      { term: "quick", zh: "快速的" },
+      { term: "simple", zh: "简单的" },
+      { term: "clear", zh: "清楚的" },
+      { term: "basic", zh: "基础的" },
+      { term: "main", zh: "主要的" },
+      { term: "start", zh: "开始" },
+      { term: "study", zh: "学习 / 研习" },
+      { term: "studies", zh: "学习内容" },
+      { term: "learn", zh: "学习 / 了解" },
+      { term: "learning", zh: "学习中的" },
+      { term: "understand", zh: "理解" },
+      { term: "explain", zh: "解释 / 说明" },
+      { term: "explains", zh: "解释" },
+      { term: "show", zh: "展示 / 显示" },
+      { term: "shown", zh: "显示出来的" },
+      { term: "keep", zh: "保持 / 继续" },
+      { term: "keeps", zh: "保持" },
+      { term: "change", zh: "变化 / 改变" },
+      { term: "changes", zh: "变化" },
+      { term: "daily", zh: "日常的" },
+      { term: "result", zh: "结果" },
+      { term: "results", zh: "结果（复数）" },
+      { term: "action", zh: "动作 / 操作" },
+      { term: "actions", zh: "操作" },
+      { term: "role", zh: "角色 / 职责" },
+      { term: "roles", zh: "角色（复数）" },
+      { term: "work", zh: "工作 / 运作" },
+      { term: "works", zh: "运作 / 工作" },
+      { term: "time", zh: "时间" },
+      { term: "before", zh: "在……之前" },
+      { term: "after", zh: "在……之后" },
+      { term: "during", zh: "在……期间" },
+      { term: "when", zh: "当……时" },
+      { term: "who", zh: "谁" },
+      { term: "what", zh: "什么" },
+      { term: "why", zh: "为什么" },
+      { term: "how", zh: "如何 / 怎么" },
+      { term: "because", zh: "因为" },
+      { term: "important", zh: "重要的" },
+      { term: "core", zh: "核心的" },
+      { term: "note", zh: "笔记 / 说明" },
+      { term: "notes", zh: "笔记" },
+      { term: "step", zh: "步骤" },
+      { term: "steps", zh: "步骤（复数）" },
+      { term: "legal", zh: "法律的" },
+      { term: "professional", zh: "专业的" },
+      { term: "public", zh: "公众的 / 公共的" },
+      { term: "consumer", zh: "消费者" },
+      { term: "property", zh: "物业 / 财产" },
+      { term: "properties", zh: "物业 / 财产（复数）" },
+      { term: "buyer", zh: "买方" },
+      { term: "seller", zh: "卖方" },
+      { term: "regulatory", zh: "监管的 / 监管相关的" },
+      { term: "environment", zh: "环境 / 环境背景" },
+      { term: "educational", zh: "教育相关的" },
+      { term: "education", zh: "教育 / 学习" },
+      { term: "registration", zh: "注册 / 登记" },
+      { term: "requirements", zh: "要求（复数）" },
+      { term: "requirement", zh: "要求" },
+      { term: "skills", zh: "技能" },
+      { term: "skill", zh: "技能" },
+      { term: "salesperson", zh: "销售人员" },
+      { term: "salespeople", zh: "销售人员（复数）" },
+      { term: "tasks", zh: "任务（复数）" },
+      { term: "task", zh: "任务" },
+      { term: "activities", zh: "活动 / 日常工作（复数）" },
+      { term: "activity", zh: "活动 / 行为" },
+      { term: "remuneration", zh: "报酬 / 酬金" },
+      { term: "budgeting", zh: "预算编制" },
+      { term: "legislation", zh: "立法 / 法律" },
+      { term: "regulations", zh: "法规（复数）" },
+      { term: "regulation", zh: "法规 / 管制" },
+      { term: "ownership", zh: "所有权 / 产权" },
+      { term: "limitations", zh: "限制（复数）" },
+      { term: "limitation", zh: "限制" },
+      { term: "description", zh: "描述 / 说明" },
+      { term: "rights", zh: "权利（复数）" },
+      { term: "right", zh: "权利 / 正确的" },
+      { term: "land", zh: "土地" },
+      { term: "profession", zh: "职业 / 行业" },
+      { term: "professionalism", zh: "专业精神" },
+      { term: "transaction", zh: "交易" },
+      { term: "transactions", zh: "交易（复数）" },
+      { term: "consolidation", zh: "整合 / 汇总" },
+      { term: "detailing", zh: "细化 / 详细说明" },
+      { term: "detailed", zh: "详细的" },
+      { term: "highlight", zh: "强调 / 重点" },
+      { term: "highlights", zh: "重点 / 要点" },
+      { term: "course", zh: "课程" },
+      { term: "courses", zh: "课程（复数）" },
+      { term: "officially", zh: "正式地 / 官方地" }
+    ];
+
+    commonGlossary.forEach((entry) => {
+      const normalized = normalizeToken(entry.term).toLowerCase();
+      if (!normalized) return;
+      const exists = glossary.some((item) => normalizeToken(item.term).toLowerCase() === normalized);
+      if (!exists) glossary.push(entry);
+    });
+    glossary.sort((a, b) => b.term.length - a.term.length);
+
+    sanitizeTranslationStores();
+
     (function loadCustomGlossary() {
       try {
         const extras = JSON.parse(localStorage.getItem(storageKeys.extraGlossary) || "[]");
         if (Array.isArray(extras)) {
           extras.forEach((item) => {
             if (!item?.term || !item?.zh) return;
+            if (isBadTranslation(item.zh)) return;
             const normalized = normalizeToken(item.term).toLowerCase();
             if (!normalized) return;
             const exists = glossary.some((entry) => normalizeToken(entry.term).toLowerCase() === normalized);
@@ -2441,17 +2649,30 @@
     }
 
     function normalizeTranslatedText(text) {
-      return String(text || "")
+      const cleaned = String(text || "")
         .replace(/^\s*[a-z]\.\s*/i, "")
         .replace(/\s*[,，]\s*/g, " / ")
         .replace(/\s+/g, " ")
         .trim();
+      if (/MYMEMORY WARNING|free translations for today|next available/i.test(cleaned)) return "";
+      return cleaned;
+    }
+
+    function isBadTranslation(text) {
+      return /MYMEMORY WARNING|free translations for today|next available/i.test(String(text || ""));
+    }
+
+    function sanitizeTranslationStores() {
+      const cache = readStore(storageKeys.translationCache).filter((item) => item?.term && item?.zh && !isBadTranslation(item.zh));
+      const extras = readStore(storageKeys.extraGlossary).filter((item) => item?.term && item?.zh && !isBadTranslation(item.zh));
+      writeStore(storageKeys.translationCache, cache);
+      writeStore(storageKeys.extraGlossary, extras);
     }
 
     function cacheTranslation(term, zh) {
       const cleanTerm = normalizeToken(term);
       const cleanZh = normalizeTranslatedText(zh);
-      if (!cleanTerm || !cleanZh) return cleanZh;
+      if (!cleanTerm || !cleanZh || isBadTranslation(cleanZh)) return cleanZh;
       const normalized = cleanTerm.toLowerCase();
       const list = getTranslationCache();
       const index = list.findIndex((item) => item.id === normalized);
@@ -2464,7 +2685,7 @@
     function syncCustomGlossary(term, zh) {
       const cleanTerm = normalizeToken(term);
       const cleanZh = normalizeTranslatedText(zh);
-      if (!cleanTerm || !cleanZh) return;
+      if (!cleanTerm || !cleanZh || isBadTranslation(cleanZh)) return;
       const normalized = cleanTerm.toLowerCase();
       const index = glossary.findIndex((item) => item.term.toLowerCase() === normalized);
       if (index >= 0) {
@@ -2491,14 +2712,13 @@
         const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(clean)}&langpair=en|zh-CN`);
         const data = await response.json();
         const translated = normalizeTranslatedText(data?.responseData?.translatedText || "");
-        const finalZh = translated || clean;
+        const finalZh = translated && !isBadTranslation(translated) ? translated : "翻译暂缺";
         cacheTranslation(clean, finalZh);
-        syncCustomGlossary(clean, finalZh);
+        if (finalZh !== "翻译暂缺") syncCustomGlossary(clean, finalZh);
         return finalZh;
       } catch {
-        const fallback = clean;
+        const fallback = "翻译暂缺";
         cacheTranslation(clean, fallback);
-        syncCustomGlossary(clean, fallback);
         return fallback;
       }
     }
@@ -2517,7 +2737,7 @@
         const glossaryMatch = findGlossary(token);
         const cached = getCachedTranslation(token);
         const zh = glossaryMatch?.zh || cached || "翻译中...";
-        html += `<span class="term" data-word="${escapeHtml(token)}" data-zh="${escapeHtml(zh)}">${escapeHtml(token)}</span>`;
+        html += `<span class="term" data-word="${escapeHtml(token)}" data-zh="${escapeHtml(zh)}" title="${escapeHtml(zh)}" aria-label="${escapeHtml(token)}：${escapeHtml(zh)}">${escapeHtml(token)}</span>`;
         lastIndex = match.index + token.length;
       }
 
@@ -2549,17 +2769,33 @@
         queue.push(word);
       });
 
-      const concurrency = 8;
+      const concurrency = 4;
+      const maxPrefetch = 16;
+      const limitedQueue = queue.slice(0, maxPrefetch);
       let cursor = 0;
-      const workers = Array.from({ length: Math.min(concurrency, queue.length) }, async () => {
-        while (cursor < queue.length) {
+      const workers = Array.from({ length: Math.min(concurrency, limitedQueue.length) }, async () => {
+        while (cursor < limitedQueue.length) {
           const index = cursor++;
-          const word = queue[index];
+          const word = limitedQueue[index];
           const translated = await lookupChinese(word);
           updateWordNodes(word, translated || word);
         }
       });
       await Promise.all(workers);
+    }
+
+    const hoveredTerms = new Set();
+
+    async function resolveHoveredTerm(node) {
+      if (!node) return;
+      const word = normalizeToken(node.getAttribute("data-word") || node.textContent || "");
+      if (!word || hoveredTerms.has(word.toLowerCase())) return;
+      const current = node.getAttribute("data-zh") || "";
+      if (current && current !== "翻译中..." && current !== "待补充" && current !== "翻译暂缺") return;
+      hoveredTerms.add(word.toLowerCase());
+      node.setAttribute("data-zh", "翻译中...");
+      const translated = await lookupChinese(word);
+      updateWordNodes(word, translated || "翻译暂缺");
     }
 
     function isFavorite(type, id) {
@@ -3110,6 +3346,10 @@
 
     document.addEventListener("mouseup", handleSelectionCapture);
     document.addEventListener("keyup", handleSelectionCapture);
+    document.addEventListener("pointerover", (event) => {
+      const termNode = event.target?.closest?.(".term[data-word]");
+      if (termNode) void resolveHoveredTerm(termNode);
+    });
   </script>
 </body>
 </html>
