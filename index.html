@@ -1790,6 +1790,38 @@
       padding: 18px 28px 28px;
     }
 
+    .quiz-launch-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+      margin: 18px 28px 28px;
+      padding: 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(16, 37, 31, 0.1);
+      background: linear-gradient(180deg, rgba(244, 239, 230, 0.92), rgba(255, 255, 255, 0.96));
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .quiz-launch-card h3 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.12;
+    }
+
+    .quiz-launch-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 60ch;
+    }
+
+    .quiz-launch-card .btn {
+      align-self: center;
+      white-space: nowrap;
+    }
+
     .quiz-meta {
       display: flex;
       flex-wrap: wrap;
@@ -2381,6 +2413,13 @@
       .quiz-toolbar .btn {
         width: 100%;
       }
+      .quiz-launch-card {
+        grid-template-columns: 1fr;
+        margin: 18px 16px 24px;
+      }
+      .quiz-launch-card .btn {
+        width: 100%;
+      }
       .vocab-card-head {
         flex-direction: column;
       }
@@ -2645,13 +2684,23 @@
 
     <section class="section" id="quiz" data-panel="quiz">
       <div class="section-header">
-        <h2>Mock Exam</h2>
+        <h2>Start Clean Mock Exam</h2>
         <p>
-          This section is a clean practice exam. Questions are original, answers are randomized,
-          and wrong questions are saved automatically for review.
+          All real exam flow now lives in the dedicated exam page. Use this card as the only homepage entry,
+          then jump into the clean practice route when you are ready.
         </p>
       </div>
-      <div class="quiz-shell">
+      <div class="quiz-launch-card">
+        <div>
+          <h3>Start Clean Mock Exam</h3>
+          <p>
+            No old How it works block, no Passit card, and no mixed exam controls on the homepage.
+            Click through to the dedicated exam page for the full practice flow.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="./exam.html">Open exam page</a>
+      </div>
+      <div class="quiz-shell" hidden>
         <div class="quiz-meta">
           <div class="quiz-chip" id="examProgress">Question 1 / 1</div>
           <div class="quiz-chip" id="examStatus">In progress</div>
