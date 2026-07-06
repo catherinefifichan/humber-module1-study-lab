@@ -2700,37 +2700,6 @@
         </div>
         <a class="btn btn-primary" href="./exam.html">Open exam page</a>
       </div>
-      <div class="quiz-shell" hidden>
-        <div class="quiz-meta">
-          <div class="quiz-chip" id="examProgress">Question 1 / 1</div>
-          <div class="quiz-chip" id="examStatus">In progress</div>
-          <div class="quiz-chip" id="examTimeUsed">Time used: 00:00</div>
-        </div>
-        <div class="quiz-progress" aria-label="Exam progress">
-          <div class="quiz-progress-track" aria-hidden="true"><span id="examProgressFill"></span></div>
-          <div class="quiz-progress-label" id="examProgressLabel">Question 1 / 1</div>
-        </div>
-        <div class="quiz-toolbar">
-          <div class="timer">Exam timer <strong id="timerValue">25:00</strong></div>
-          <button class="btn btn-primary" id="startTimer" type="button">Start timer</button>
-        </div>
-        <div class="quiz-stage">
-          <div class="quiz-grid" id="quizGrid"></div>
-        </div>
-        <div class="quiz-footer">
-          <div class="quiz-actions-bottom">
-            <button class="btn btn-secondary" id="examPrevious" type="button">Previous</button>
-            <button class="btn btn-secondary" id="examNext" type="button">Next</button>
-            <button class="btn btn-secondary" id="submitExam" type="button">Submit Exam</button>
-            <button class="btn btn-secondary" id="confirmExam" type="button">Confirm</button>
-            <button class="btn btn-secondary" id="toggleExamPause" type="button">Pause</button>
-            <button class="btn btn-secondary is-secondary-outline" id="toggleExamFlag" type="button">Mark for Review</button>
-            <button class="btn btn-secondary is-secondary-outline" id="retryIncorrectOnly" type="button">Retry incorrect only</button>
-            <button class="btn btn-secondary" id="resetQuiz" type="button">Reset</button>
-          </div>
-        </div>
-        <div class="result" id="quizResult" aria-live="polite"></div>
-      </div>
     </section>
 
     <section class="section" id="notebook" data-panel="notebook">
@@ -3335,8 +3304,8 @@
       loadCustomGlossary();
       examState = loadExamState() || createExamState();
       timerSeconds = Number(examState.timerSeconds) || 25 * 60;
-      timerValue.textContent = formatTime(timerSeconds);
-      if (examState.status === 'paused') {
+      if (timerValue) timerValue.textContent = formatTime(timerSeconds);
+      if (examState.status === 'paused' && startTimer) {
         startTimer.textContent = 'Resume timer';
       }
     }
@@ -3397,6 +3366,28 @@
     const vocabMasteryEasy = document.getElementById("vocabMasteryEasy");
     const clearVocab = document.getElementById("clearVocab");
     const toast = document.getElementById("toast");
+
+    const hasEmbeddedQuiz = Boolean(
+      quizGrid &&
+      quizResult &&
+      examProgress &&
+      examProgressLabel &&
+      examProgressFill &&
+      examStatus &&
+      examTimeUsed &&
+      examRailProgress &&
+      timerValue &&
+      startTimer &&
+      examPrevious &&
+      examNext &&
+      submitExam &&
+      confirmExamButton &&
+      toggleExamPauseButton &&
+      toggleExamFlagButton &&
+      retryIncorrectOnlyButton &&
+      resetQuiz
+    );
+
     function getPanelButtons() {
       return Array.from(document.querySelectorAll("[data-panel-target]"));
     }
@@ -4965,6 +4956,7 @@
     }
 
     function renderQuiz() {
+      if (!hasEmbeddedQuiz) return;
       const total = examState.questions.length || quizQuestions.length || 1;
       const question = currentExamQuestion();
       const quizProgress = document.getElementById("examProgress");
@@ -5586,7 +5578,7 @@
       hydrateVocabTranslations();
       wireNotebookActions();
       wireVocabControls();
-      timerValue.textContent = formatTime(timerSeconds);
+      if (timerValue) timerValue.textContent = formatTime(timerSeconds);
       syncFavoriteButtons();
 
       const initialPanel = location.hash ? location.hash.replace(/^#/, "") : "dashboard";
@@ -5598,27 +5590,29 @@
         setPanel(panel, { scroll: false, updateHash: false });
       });
 
-      startTimer.addEventListener("click", () => {
-        if (examState.status === "paused") {
-          resumeExam();
-          return;
-        }
-        startCountdown();
-      });
-      examPrevious.addEventListener("click", () => moveExamQuestion(-1));
-      examNext.addEventListener("click", () => moveExamQuestion(1));
-      submitExam.addEventListener("click", openSubmitStage);
-      confirmExamButton.addEventListener("click", confirmExamSubmission);
-      toggleExamPauseButton.addEventListener("click", () => {
-        if (examState.status === "paused") {
-          resumeExam();
-        } else {
-          pauseExam();
-        }
-      });
-      toggleExamFlagButton.addEventListener("click", toggleExamFlag);
-      retryIncorrectOnlyButton.addEventListener("click", retryIncorrectOnly);
-      resetQuiz.addEventListener("click", reset);
+      if (hasEmbeddedQuiz) {
+        startTimer.addEventListener("click", () => {
+          if (examState.status === "paused") {
+            resumeExam();
+            return;
+          }
+          startCountdown();
+        });
+        examPrevious.addEventListener("click", () => moveExamQuestion(-1));
+        examNext.addEventListener("click", () => moveExamQuestion(1));
+        submitExam.addEventListener("click", openSubmitStage);
+        confirmExamButton.addEventListener("click", confirmExamSubmission);
+        toggleExamPauseButton.addEventListener("click", () => {
+          if (examState.status === "paused") {
+            resumeExam();
+          } else {
+            pauseExam();
+          }
+        });
+        toggleExamFlagButton.addEventListener("click", toggleExamFlag);
+        retryIncorrectOnlyButton.addEventListener("click", retryIncorrectOnly);
+        resetQuiz.addEventListener("click", reset);
+      }
       clearNotebook.addEventListener("click", () => {
         localStorage.removeItem(storageKeys.favorites);
         localStorage.removeItem(storageKeys.wrongBook);
