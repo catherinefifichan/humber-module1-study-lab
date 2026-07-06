@@ -791,6 +791,852 @@
     async function boot() {
       const res = await fetch('./course-data.json?v=20260706', { cache: 'no-store' });
       dataCache = await res.json();
+      const freshQuestions = shuffle((dataCache.quizQuestions || []).map(prepareQuestion));
+      const savedQuestions = Array.isArray(state.questions) ? state.questions : [];
+      const savedLooksValid =
+        savedQuestions.length === freshQuestions.length &&
+        savedQuestions.every((item) => item && typeof item.id === 'string' && typeof item.answer === 'number');
+
+      if (state.started && savedLooksValid) {
+        // keep saved shuffled questions for resume
+      } else {
+        state.questions = freshQuestions;
+        if (state.started) {
+          state.index = Math.min(state.index, Math.max(0, freshQuestions.length - 1));
+          state.selected = {};
+          state.flagged = {};
+          state.result = null;
+          state.startedAt = Date.now();
+          state.finishedAt = null;
+          state.status = freshQuestions.length ? 'in-progress' : 'intro';
+        }
+        saveState();
+      }
+
+      el.startExam.onclick = beginExam;
+      el.beginExam.onclick = beginExam;
+      el.prevBtn.onclick = () => go(-1);
+      el.nextBtn.onclick = () => go(1);
+      el.submitBtn.onclick = openSubmitStage;
+      el.confirmBtn.onclick = confirmSubmit;
+      el.pauseBtn.onclick = pauseExam;
+      el.resetBtn.onclick = resetExam;
+      el.flagQuestion.onclick = toggleFlag;
+      el.answerGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-idx]');
+        if (!btn || state.status !== 'in-progress') return;
+        setSelection(Number(btn.dataset.idx));
+      });
+
+      if (state.started && Array.isArray(state.questions) && state.questions.length) {
+        el.introCard.classList.add('hidden');
+        el.content.classList.remove('hidden');
+        el.footerBar.classList.remove('hidden');
+        if (state.status === 'paused' || state.status === 'in-progress') startTimer();
+      }
+      render();
+    }
+
+    boot().catch((error) => {
+      el.resultCard.classList.add('show');
+      el.resultCard.innerHTML = `<h2>Loading error</h2><p class="muted">${esc(error?.message || error)}</p>`;
+    });
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>CatherineEcho | Clean Mock Exam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f4efe6;
+      --panel:#ffffff;
+      --panel-soft:rgba(255,255,255,.92);
+      --green:#18352d;
+      --green2:#1c7c5d;
+      --line:rgba(24,53,45,.12);
+      --text:#10251f;
+      --muted:#587165;
+      --gold:#d3a33e;
+      --shadow:0 22px 60px rgba(10,24,20,.12);
+      --radius-xl:28px;
+      --radius-lg:20px;
+      --radius-md:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124,195,111,.2), transparent 32%),
+        radial-gradient(circle at 90% 10%, rgba(211,163,62,.18), transparent 26%),
+        linear-gradient(180deg, #f6f2ea 0%, #f2ebdf 100%);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{
+      width:min(1120px, calc(100vw - 24px));
+      margin:0 auto;
+      padding:18px 0 28px;
+    }
+    .hero{
+      border-radius:var(--radius-xl);
+      padding:22px;
+      background:linear-gradient(180deg, rgba(13,32,25,.98), rgba(31,120,88,.88));
+      color:#f7f4ed;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:.8rem;
+    }
+    h1{
+      margin:16px 0 8px;
+      font-family:"Fraunces",Georgia,serif;
+      font-size:clamp(2.2rem, 8vw, 4.4rem);
+      line-height:.95;
+      letter-spacing:-.03em;
+    }
+    .sub{
+      margin:0;
+      max-width:70ch;
+      color:rgba(247,244,237,.82);
+      line-height:1.65;
+      font-size:1.02rem;
+    }
+    .meta{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .chip{
+      border-radius:999px;
+      padding:10px 14px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:700;
+      color:#f6f2e7;
+    }
+    .shell{
+      margin-top:16px;
+      border-radius:var(--radius-xl);
+      background:var(--panel-soft);
+      border:1px solid rgba(24,53,45,.08);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .bar{
+      display:grid;
+      gap:10px;
+    }
+    .bar-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .timer{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(24,53,45,.06);
+      color:#234037;
+      font-weight:800;
+    }
+    .timer strong{
+      font-family:"Fraunces",Georgia,serif;
+      font-size:1.04rem;
+    }
+    .progress{
+      width:100%;
+      height:12px;
+      border-radius:999px;
+      overflow:hidden;
+      background:rgba(24,53,45,.08);
+      border:1px solid rgba(24,53,45,.08);
+    }
+    .progress span{
+      display:block;
+      height:100%;
+      width:0;
+      border-radius:inherit;
+      background:linear-gradient(90deg, #7cc36f, #d3a33e);
+      transition:width .25s ease;
+    }
+    .progress-label{
+      color:var(--muted);
+      font-weight:800;
+      letter-spacing:.01em;
+    }
+    .intro{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+      padding:18px;
+      border-radius:var(--radius-lg);
+      background:linear-gradient(180deg, rgba(24,53,45,.94), rgba(28,124,93,.86));
+      color:#f7f4ed;
+    }
+    .intro h2,.result h2{
+      margin:0;
+      font-family:"Fraunces",Georgia,serif;
+      font-size:1.7rem;
+    }
+    .intro p,.result p{margin:0;line-height:1.65}
+    .bullets{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:8px;
+      color:rgba(247,244,237,.84);
+    }
+    .controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .btn{
+      border:0;
+      border-radius:999px;
+      padding:14px 18px;
+      min-height:48px;
+      font-weight:800;
+      font-size:1rem;
+      cursor:pointer;
+      color:var(--text);
+      background:#fff;
+      border:1px solid rgba(24,53,45,.12);
+      box-shadow:none;
+    }
+    .btn.primary{
+      color:#10251f;
+      background:linear-gradient(135deg, #f6de99, #d3a33e);
+      border-color:transparent;
+    }
+    .btn.secondary{
+      background:rgba(255,255,255,.95);
+    }
+    .btn:disabled{
+      opacity:.46;
+      cursor:not-allowed;
+    }
+    .content{
+      margin-top:18px;
+      display:grid;
+      gap:14px;
+    }
+    .question{
+      border-radius:var(--radius-lg);
+      background:var(--panel);
+      border:1px solid var(--line);
+      padding:18px;
+    }
+    .qhead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .qtitle{
+      margin:0;
+      font-size:clamp(1.2rem, 4vw, 1.6rem);
+      line-height:1.35;
+    }
+    .fav{
+      border:1px solid rgba(24,53,45,.12);
+      background:rgba(24,53,45,.04);
+      color:#20382f;
+    }
+    .answer-grid{
+      margin-top:16px;
+      display:grid;
+      gap:10px;
+    }
+    .option{
+      width:100%;
+      text-align:left;
+      border-radius:18px;
+      padding:14px 16px;
+      border:1px solid rgba(24,53,45,.12);
+      background:#f9f8f4;
+      color:#173129;
+      line-height:1.55;
+    }
+    .option.selected{
+      border-color:rgba(28,124,93,.46);
+      background:rgba(124,195,111,.12);
+    }
+    .option.correct{
+      border-color:rgba(28,124,93,.48);
+      background:rgba(124,195,111,.16);
+    }
+    .option.wrong{
+      border-color:rgba(180,63,63,.4);
+      background:rgba(180,63,63,.08);
+    }
+    .review{
+      margin-top:14px;
+      display:grid;
+      gap:10px;
+      color:var(--text);
+    }
+    .review .card{
+      border-radius:16px;
+      padding:12px 14px;
+      background:rgba(24,53,45,.04);
+      border:1px solid rgba(24,53,45,.08);
+    }
+    .review .card b{display:block;margin-bottom:6px}
+    .footer{
+      margin-top:16px;
+      display:grid;
+      gap:12px;
+      position:sticky;
+      bottom:12px;
+      z-index:4;
+      padding:12px;
+      border-radius:18px;
+      background:rgba(244,239,230,.96);
+      box-shadow:0 12px 28px rgba(13,32,25,.08);
+      backdrop-filter:blur(10px);
+    }
+    .footer .controls .btn{flex:1 1 160px; min-width:0; color:#10251f;}
+    .footer .controls .btn.primary{
+      color:#0f3028;
+      box-shadow:0 12px 26px rgba(211,163,62,.22);
+    }
+    .hidden{display:none !important;}
+    .result{
+      border-radius:var(--radius-lg);
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,244,236,.98));
+      border:1px solid rgba(24,53,45,.1);
+      display:none;
+    }
+    .result.show{display:block;}
+    .result-actions{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .result-actions .btn{
+      background:rgba(24,53,45,.04);
+      color:#10251f;
+    }
+    .muted{color:var(--muted)}
+    @media (max-width: 720px){
+      .wrap{width:min(100vw - 16px, 1120px); padding:8px 0 18px;}
+      .hero,.shell{border-radius:22px; padding:16px;}
+      .footer{padding:10px;}
+      .footer .controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+      .footer .controls .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">CatherineEcho · Clean Exam</div>
+      <h1>Mock Exam</h1>
+      <p class="sub">
+        This page is the uncluttered exam route. No How it works block in the middle, no Passit card while you are answering,
+        and no Finish button stealing space from the real exam flow.
+      </p>
+      <div class="meta">
+        <div class="chip">Question flow</div>
+        <div class="chip">Mobile friendly</div>
+        <div class="chip">Answers reveal after choice</div>
+      </div>
+    </section>
+
+    <section class="shell" aria-live="polite">
+      <div class="bar">
+        <div class="bar-top">
+          <div class="timer">Exam timer <strong id="timerValue">25:00</strong></div>
+          <button class="btn primary" id="startExam" type="button">Start exam</button>
+        </div>
+        <div class="progress" aria-label="Exam progress"><span id="progressFill"></span></div>
+        <div class="progress-label" id="progressLabel">Ready to start</div>
+      </div>
+
+      <div class="intro" id="introCard">
+        <h2>How it works</h2>
+        <p>Do one question at a time. Pick an answer, read the explanation, then move to the next question.</p>
+        <ul class="bullets">
+          <li>Questions are randomized each session.</li>
+          <li>Wrong questions are saved locally for review.</li>
+          <li>Result page shows your score, wrong answers, and review links.</li>
+        </ul>
+        <div class="controls">
+          <button class="btn primary" id="beginExam" type="button">Start exam</button>
+        </div>
+      </div>
+
+      <div id="content" class="content hidden">
+        <article class="question" id="questionCard">
+          <div class="qhead">
+            <div>
+              <div class="muted" id="questionMeta">Question 1 / 1</div>
+              <h2 class="qtitle" id="questionText">Loading...</h2>
+            </div>
+            <button class="btn fav" id="flagQuestion" type="button">Mark for Review</button>
+          </div>
+          <div class="answer-grid" id="answerGrid"></div>
+          <div class="review" id="reviewMeta"></div>
+        </article>
+      </div>
+
+      <div class="footer hidden" id="footerBar">
+        <div class="controls">
+          <button class="btn secondary" id="prevBtn" type="button">Previous</button>
+          <button class="btn secondary" id="nextBtn" type="button">Next</button>
+          <button class="btn primary hidden" id="submitBtn" type="button">Submit Exam</button>
+          <button class="btn secondary hidden" id="confirmBtn" type="button">Confirm</button>
+          <button class="btn secondary" id="pauseBtn" type="button">Pause</button>
+          <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+
+      <section class="result" id="resultCard"></section>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'catherineecho.clean.exam.v1';
+    const REVIEW_KEY = 'catherineecho.clean.wrongbook.v1';
+    const TIMER_TOTAL = 25 * 60;
+
+    const el = {
+      startExam: document.getElementById('startExam'),
+      beginExam: document.getElementById('beginExam'),
+      introCard: document.getElementById('introCard'),
+      content: document.getElementById('content'),
+      footerBar: document.getElementById('footerBar'),
+      resultCard: document.getElementById('resultCard'),
+      timerValue: document.getElementById('timerValue'),
+      progressFill: document.getElementById('progressFill'),
+      progressLabel: document.getElementById('progressLabel'),
+      questionMeta: document.getElementById('questionMeta'),
+      questionText: document.getElementById('questionText'),
+      answerGrid: document.getElementById('answerGrid'),
+      reviewMeta: document.getElementById('reviewMeta'),
+      flagQuestion: document.getElementById('flagQuestion'),
+      prevBtn: document.getElementById('prevBtn'),
+      nextBtn: document.getElementById('nextBtn'),
+      submitBtn: document.getElementById('submitBtn'),
+      confirmBtn: document.getElementById('confirmBtn'),
+      pauseBtn: document.getElementById('pauseBtn'),
+      resetBtn: document.getElementById('resetBtn'),
+    };
+
+    const state = loadState() || {
+      started: false,
+      status: 'intro',
+      index: 0,
+      selected: {},
+      flagged: {},
+      questions: [],
+      timerSeconds: TIMER_TOTAL,
+      startedAt: null,
+      finishedAt: null,
+      result: null
+    };
+
+    let timerHandle = null;
+    let timerRunning = false;
+    let dataCache = null;
+
+    function esc(text) {
+      return String(text ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function formatTime(sec) {
+      const s = Math.max(0, Math.floor(Number(sec) || 0));
+      const m = String(Math.floor(s / 60)).padStart(2, '0');
+      const r = String(s % 60).padStart(2, '0');
+      return `${m}:${r}`;
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          ...state,
+          timerSeconds: state.timerSeconds,
+          savedAt: Date.now()
+        }));
+      } catch {}
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function loadWrongBook() {
+      try {
+        return JSON.parse(localStorage.getItem(REVIEW_KEY) || '[]');
+      } catch {
+        return [];
+      }
+    }
+
+    function saveWrongBook(items) {
+      try {
+        localStorage.setItem(REVIEW_KEY, JSON.stringify(items));
+      } catch {}
+    }
+
+    function shuffle(arr) {
+      const out = arr.slice();
+      for (let i = out.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [out[i], out[j]] = [out[j], out[i]];
+      }
+      return out;
+    }
+
+    function prepareQuestion(raw) {
+      const options = raw.options.map((opt, idx) => ({ ...opt, _idx: idx }));
+      const shuffled = shuffle(options);
+      const answer = shuffled.findIndex((opt) => opt._idx === raw.answer);
+      return {
+        id: raw.lessonId + '::' + raw.en,
+        lessonId: raw.lessonId,
+        en: raw.en,
+        zh: raw.zh,
+        why: raw.why,
+        options: shuffled.map(({ _idx, ...opt }) => opt),
+        answer
+      };
+    }
+
+    function startTimer() {
+      if (timerRunning) return;
+      timerRunning = true;
+      el.startExam.textContent = 'Running';
+      timerHandle = setInterval(() => {
+        state.timerSeconds = Math.max(0, state.timerSeconds - 1);
+        el.timerValue.textContent = formatTime(state.timerSeconds);
+        saveState();
+        if (state.timerSeconds === 0) {
+          clearInterval(timerHandle);
+          timerHandle = null;
+          timerRunning = false;
+          el.startExam.textContent = 'Time up';
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (timerHandle) clearInterval(timerHandle);
+      timerHandle = null;
+      timerRunning = false;
+    }
+
+    function beginExam() {
+      if (state.started) return;
+      state.started = true;
+      state.status = 'in-progress';
+      state.index = 0;
+      state.selected = {};
+      state.flagged = {};
+      state.questions = shuffle((dataCache.quizQuestions || []).map(prepareQuestion));
+      state.timerSeconds = TIMER_TOTAL;
+      state.startedAt = Date.now();
+      state.finishedAt = null;
+      state.result = null;
+      saveState();
+      el.introCard.classList.add('hidden');
+      el.content.classList.remove('hidden');
+      el.footerBar.classList.remove('hidden');
+      startTimer();
+      render();
+    }
+
+    function currentQuestion() {
+      return state.questions[state.index] || null;
+    }
+
+    function setSelection(optionIndex) {
+      state.selected[state.index] = optionIndex;
+      saveState();
+      render();
+    }
+
+    function toggleFlag() {
+      const q = currentQuestion();
+      if (!q) return;
+      if (state.flagged[q.id]) delete state.flagged[q.id];
+      else state.flagged[q.id] = true;
+      saveState();
+      render();
+    }
+
+    function go(delta) {
+      if (state.status !== 'in-progress' && state.status !== 'paused') return;
+      if (delta > 0 && state.index === state.questions.length - 1) return;
+      state.index = Math.max(0, Math.min(state.index + delta, state.questions.length - 1));
+      saveState();
+      render();
+    }
+
+    function pauseExam() {
+      if (state.status === 'result') return;
+      if (state.status === 'paused') {
+        state.status = 'in-progress';
+        startTimer();
+        el.pauseBtn.textContent = 'Pause';
+      } else {
+        state.status = 'paused';
+        stopTimer();
+        el.pauseBtn.textContent = 'Resume';
+      }
+      saveState();
+      render();
+    }
+
+    function resetExam() {
+      stopTimer();
+      localStorage.removeItem(STORAGE_KEY);
+      state.started = false;
+      state.status = 'intro';
+      state.index = 0;
+      state.selected = {};
+      state.flagged = {};
+      state.questions = [];
+      state.timerSeconds = TIMER_TOTAL;
+      state.startedAt = null;
+      state.finishedAt = null;
+      state.result = null;
+      el.introCard.classList.remove('hidden');
+      el.content.classList.add('hidden');
+      el.footerBar.classList.add('hidden');
+      el.resultCard.classList.remove('show');
+      el.resultCard.innerHTML = '';
+      el.startExam.textContent = 'Start exam';
+      el.pauseBtn.textContent = 'Pause';
+      render();
+    }
+
+    function openSubmitStage() {
+      if (state.status !== 'in-progress') return;
+      state.status = 'confirm';
+      saveState();
+      render();
+    }
+
+    function confirmSubmit() {
+      if (state.status !== 'confirm') return;
+      stopTimer();
+      state.status = 'result';
+      state.finishedAt = Date.now();
+      const total = state.questions.length || 1;
+      let correct = 0;
+      const review = [];
+      state.questions.forEach((q, idx) => {
+        const selected = state.selected[idx];
+        const selectedOpt = typeof selected === 'number' ? q.options[selected] : null;
+        const correctOpt = q.options[q.answer];
+        const isCorrect = selected === q.answer;
+        if (isCorrect) correct++;
+        if (!isCorrect) {
+          review.push({
+            id: q.id,
+            title: `Q${idx + 1}. ${q.en}`,
+            yourAnswer: selectedOpt ? `${String.fromCharCode(65 + selected)}. ${selectedOpt.en}` : 'Not answered',
+            correctAnswer: `${String.fromCharCode(65 + q.answer)}. ${correctOpt.en}`,
+            explanation: q.why,
+            lessonId: q.lessonId
+          });
+        }
+      });
+      const incorrectCount = total - correct;
+      const percentage = Math.round((correct / total) * 100);
+      const timeUsed = formatTime(TIMER_TOTAL - state.timerSeconds);
+      state.result = { total, correct, incorrectCount, percentage, timeUsed, review };
+      saveState();
+      const wrongBook = loadWrongBook();
+      review.forEach((item) => {
+        if (!wrongBook.some((x) => x.id === item.id)) wrongBook.push({ ...item, mastered: false });
+      });
+      saveWrongBook(wrongBook);
+      render();
+    }
+
+    function render() {
+      const total = state.questions.length || 1;
+      const q = currentQuestion();
+      const currentNumber = Math.min(state.index + 1, total);
+      const progress = Math.round((currentNumber / total) * 100);
+      el.timerValue.textContent = formatTime(state.timerSeconds);
+      el.progressFill.style.width = `${progress}%`;
+      el.progressLabel.textContent = state.status === 'intro'
+        ? 'Ready to start'
+        : `Question ${currentNumber} / ${total} · ${progress}%`;
+
+      el.prevBtn.disabled = state.index === 0 || ['confirm', 'result', 'paused'].includes(state.status);
+      el.nextBtn.disabled = ['confirm', 'result', 'paused'].includes(state.status);
+      const lastQuestion = state.index === total - 1;
+      el.nextBtn.classList.toggle('hidden', !state.started || lastQuestion || state.status !== 'in-progress');
+      el.submitBtn.classList.toggle('hidden', !(state.started && state.status === 'in-progress' && lastQuestion));
+      el.confirmBtn.classList.toggle('hidden', state.status !== 'confirm');
+      el.pauseBtn.textContent = state.status === 'paused' ? 'Resume' : 'Pause';
+      el.flagQuestion.textContent = state.flagged[q?.id] ? 'Unflag review' : 'Mark for Review';
+
+      if (!state.started) {
+        el.questionText.textContent = 'Tap Start exam to begin';
+        el.questionMeta.textContent = 'Clean exam mode';
+        el.answerGrid.innerHTML = '';
+        el.reviewMeta.innerHTML = '';
+        el.resultCard.classList.remove('show');
+        return;
+      }
+
+      if (!q) {
+        el.questionText.textContent = 'No questions loaded';
+        el.answerGrid.innerHTML = '';
+        el.reviewMeta.innerHTML = '';
+        return;
+      }
+
+      const selected = state.selected[state.index];
+      const selectedOpt = typeof selected === 'number' ? q.options[selected] : null;
+      const correctOpt = q.options[q.answer];
+      const reveal = typeof selected === 'number' || state.status === 'confirm' || state.status === 'result';
+      const locked = state.status !== 'in-progress';
+      const showAnswerDetails = reveal;
+
+      el.questionMeta.textContent = `Question ${currentNumber} / ${total}`;
+      el.questionText.innerHTML = esc(q.en);
+      el.flagQuestion.textContent = state.flagged[q.id] ? 'Unflag review' : 'Mark for Review';
+
+      el.answerGrid.innerHTML = q.options.map((opt, idx) => {
+        const cls = [
+          'option',
+          selected === idx ? 'selected' : '',
+          reveal && idx === q.answer ? 'correct' : '',
+          reveal && selected === idx && idx !== q.answer ? 'wrong' : ''
+        ].filter(Boolean).join(' ');
+        return `<button class="${cls}" ${locked ? 'disabled' : ''} data-idx="${idx}" type="button"><strong>${String.fromCharCode(65 + idx)}.</strong> ${esc(opt.en)}<br><span class="muted">${esc(opt.zh)}</span></button>`;
+      }).join('');
+
+      el.reviewMeta.innerHTML = `
+        <div class="card"><b>Your answer</b>${selectedOpt ? `${String.fromCharCode(65 + selected)}. ${esc(selectedOpt.en)}` : 'Not answered yet.'}</div>
+        ${showAnswerDetails ? `<div class="card"><b>Correct answer</b>${String.fromCharCode(65 + q.answer)}. ${esc(correctOpt.en)}</div>` : `<div class="card"><b>Correct answer</b>Choose an option first to reveal the answer.</div>`}
+        <div class="card"><b>Related lesson</b>${esc(q.lessonId || 'General')}</div>
+        ${showAnswerDetails ? `<div class="card"><b>Explanation</b>${esc(q.why)}</div>` : `<div class="card"><b>Explanation</b>Locked until you pick an answer.</div>`}
+      `;
+
+      if (state.status === 'confirm') {
+        el.resultCard.classList.add('show');
+        el.resultCard.innerHTML = `
+          <h2>Confirm submission</h2>
+          <p>You are about to score the exam and save wrong answers into your local review book.</p>
+          <div class="result-actions">
+            <button class="btn primary" id="confirmNow" type="button">Confirm</button>
+            <button class="btn secondary" id="backToExam" type="button">Back</button>
+          </div>
+        `;
+        document.getElementById('confirmNow').onclick = confirmSubmit;
+        document.getElementById('backToExam').onclick = () => {
+          state.status = 'in-progress';
+          saveState();
+          render();
+        };
+        return;
+      }
+
+      if (state.status === 'result' && state.result) {
+        const r = state.result;
+        const reviewHtml = r.review.map((item) => `
+          <div class="card">
+            <b>${esc(item.title)}</b>
+            <div><strong>Your answer:</strong> ${esc(item.yourAnswer)}</div>
+            <div><strong>Correct answer:</strong> ${esc(item.correctAnswer)}</div>
+            <div><strong>Explanation:</strong> ${esc(item.explanation)}</div>
+          </div>
+        `).join('');
+        el.resultCard.classList.add('show');
+        el.resultCard.innerHTML = `
+          <h2>Result</h2>
+          <p><strong>${r.percentage}%</strong> · ${r.correct} correct · ${r.incorrectCount} incorrect · Time used ${r.timeUsed}</p>
+          <div class="result-actions">
+            <a class="btn secondary" href="./index.html" rel="noreferrer">Back to main site</a>
+            <a class="btn secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Passit Practice</a>
+            <button class="btn secondary" id="retryWrong" type="button">Retry incorrect only</button>
+          </div>
+          <div class="review">${reviewHtml || '<div class="card"><b>Perfect</b>No wrong questions this time.</div>'}</div>
+        `;
+        const retry = document.getElementById('retryWrong');
+        if (retry) retry.onclick = () => {
+          const items = state.result.review.map((item) => ({
+            en: item.title.replace(/^Q\\d+\\.\\s*/, ''),
+            why: item.explanation,
+            lessonId: item.lessonId,
+            options: [],
+            answer: 0
+          }));
+          const selectedWrong = state.questions
+            .filter((q, idx) => state.selected[idx] !== q.answer)
+            .map((q) => q);
+          if (selectedWrong.length) {
+            state.questions = selectedWrong;
+            state.index = 0;
+            state.selected = {};
+            state.flagged = {};
+            state.status = 'in-progress';
+            state.result = null;
+            state.timerSeconds = TIMER_TOTAL;
+            startTimer();
+            saveState();
+            render();
+          }
+        };
+        return;
+      }
+
+      el.resultCard.classList.remove('show');
+      el.resultCard.innerHTML = '';
+    }
+
+    async function boot() {
+      const res = await fetch('./course-data.json?v=20260706', { cache: 'no-store' });
+      dataCache = await res.json();
       if (state.started && Array.isArray(state.questions) && state.questions.length) {
         // keep saved shuffled questions
       } else {
