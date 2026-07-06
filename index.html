@@ -44,6 +44,106 @@
       overflow-x: hidden;
     }
 
+    section.section[data-panel] {
+      scroll-margin-top: 18px;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .section-header,
+    .layout,
+    .sidebar,
+    .lesson-grid,
+    .lesson-card,
+    .lesson-page-shell,
+    .lesson-page-head,
+    .lesson-page-card,
+    .lesson-page-columns,
+    .lesson-page-details,
+    .lesson-extra-grid,
+    .lesson-page-block,
+    .study-stack,
+    .module-block,
+    .module-block-head,
+    .module-card-grid,
+    .study-card,
+    .insight-grid,
+    .callout,
+    .quiz-shell,
+    .quiz-meta,
+    .quiz-toolbar,
+    .quiz-stage,
+    .quiz-grid,
+    .quiz-sidebar,
+    .question,
+    .question-head,
+    .options,
+    .option,
+    .review,
+    .review-item,
+    .review-meta,
+    .notebook-grid,
+    .notebook-card,
+    .notebook-list,
+    .notebook-item,
+    .ppt-shell,
+    .ppt-strip,
+    .ppt-slide,
+    .info-card,
+    .exam-card,
+    .mini,
+    .stat,
+    .chip,
+    .badge,
+    .product-name,
+    .lesson-detail,
+    .lesson-compare-card,
+    .lesson-confusion-card,
+    .lesson-vocab-card,
+    .lesson-tip-card {
+      min-width: 0;
+    }
+
+    .hero-copy p,
+    .product-name,
+    .section-header p,
+    .lesson-card p,
+    .lesson-card li,
+    .info-card p,
+    .info-card li,
+    .quiz-card p,
+    .lesson-page-head p,
+    .lesson-page-head li,
+    .lesson-page-block p,
+    .lesson-page-block li,
+    .lesson-page-zh,
+    .lesson-page-meta,
+    .lesson-page-nav,
+    .module-block-note,
+    .study-card p,
+    .study-card .study-zh,
+    .question h4,
+    .question .zh,
+    .review-meta,
+    .review-item,
+    .stat .label,
+    .mini span,
+    .chip,
+    .badge,
+    .timer,
+    .quiz-chip,
+    .option label,
+    .footer,
+    .fineprint,
+    .lesson-compare-card,
+    .lesson-confusion-card,
+    .lesson-vocab-card,
+    .lesson-tip-card {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
     body::before {
       content: "";
       position: fixed;
@@ -217,7 +317,13 @@
       gap: 10px;
       overflow-x: auto;
       padding-bottom: 4px;
-      scrollbar-width: thin;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-snap-type: x proximity;
+    }
+
+    .top-nav::-webkit-scrollbar {
+      display: none;
     }
 
     .top-nav button {
@@ -231,6 +337,7 @@
       font-size: 0.9rem;
       cursor: pointer;
       white-space: nowrap;
+      scroll-snap-align: start;
     }
 
     .top-nav button:hover {
@@ -1325,6 +1432,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 16px;
+      min-width: 0;
     }
 
     .timer {
@@ -1341,6 +1449,14 @@
     .timer strong {
       font-family: "Fraunces", Georgia, serif;
       font-size: 1.05rem;
+    }
+
+    #submitExam.is-emphasis,
+    #confirmExam.is-emphasis {
+      color: #10251f;
+      background: linear-gradient(135deg, #f6de99, #d39a39);
+      border-color: transparent;
+      box-shadow: 0 14px 32px rgba(211, 154, 57, 0.28);
     }
 
     .quiz-grid {
@@ -1514,11 +1630,11 @@
       margin-top: 8px;
       display: grid;
       gap: 6px;
-      color: rgba(245, 242, 234, 0.86);
+      color: #355146;
     }
 
     .review-meta strong {
-      color: #fff;
+      color: #13251f;
     }
 
     .footer {
@@ -1631,18 +1747,61 @@
       .lesson-index-grid, .lesson-page-columns, .lesson-page-details, .lesson-extra-grid { grid-template-columns: 1fr; }
       .actions { flex-direction: column; }
       .btn { width: 100%; }
+      .lesson-page-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .lesson-page-nav .btn,
+      .lesson-page-nav .fav-toggle {
+        width: 100%;
+      }
       .top-nav {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: 8px;
         flex-wrap: nowrap;
         -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        overscroll-behavior-x: contain;
+        touch-action: pan-x;
+        padding: 10px 6px 8px;
+        margin: 18px -6px 0;
         position: sticky;
         top: 10px;
         z-index: 8;
-        padding: 10px 0 6px;
         background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.82));
         backdrop-filter: blur(10px);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .top-nav button {
+        scroll-snap-align: start;
       }
       .quiz-toolbar {
         align-items: stretch;
+        position: sticky;
+        top: 10px;
+        z-index: 7;
+        gap: 10px;
+        padding: 10px 12px;
+        margin-bottom: 14px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.9));
+        backdrop-filter: blur(10px);
+        box-shadow: 0 12px 30px rgba(13, 32, 25, 0.08);
+      }
+      .quiz-toolbar .actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+      }
+      .quiz-toolbar .btn {
+        width: 100%;
       }
     }
   </style>
@@ -1870,9 +2029,9 @@
           <div class="actions" style="margin-top:0">
             <button class="btn btn-primary" id="startTimer" type="button">开始计时 / Start</button>
             <button class="btn btn-secondary" id="examNext" type="button">Next / 下一题</button>
-            <button class="btn btn-secondary" id="finishExam" type="button">Finish Exam</button>
-            <button class="btn btn-secondary" id="submitExam" type="button">Submit</button>
-            <button class="btn btn-secondary" id="confirmExam" type="button">Confirm</button>
+            <button class="btn btn-secondary" id="finishExam" type="button">Finish / 完成</button>
+            <button class="btn btn-secondary" id="submitExam" type="button">Submit / 交卷</button>
+            <button class="btn btn-secondary" id="confirmExam" type="button">Confirm / 确认</button>
             <button class="btn btn-secondary" id="resetQuiz" type="button">重置 / Reset</button>
           </div>
         </div>
@@ -1881,7 +2040,7 @@
           <aside class="quiz-sidebar">
             <div class="exam-rail">
               <h3>How this works / 使用方式</h3>
-              <p>Question → Next → Finish Exam → Submit → Confirm → Result</p>
+              <p>Question → Next → Finish / 完成 → Submit / 交卷 → Confirm / 确认 → Result</p>
               <div class="exam-progress" id="examRailProgress">Answer one question at a time. / 一题一题做。</div>
               <ul style="margin:0;padding-left:18px;display:grid;gap:8px;">
                 <li>Answers are randomized each session.</li>
@@ -3836,7 +3995,7 @@
     function moveExamQuestion(delta) {
       if (!examState.questions.length || examState.status === "result") return;
       if (examState.index === examState.questions.length - 1 && delta > 0) {
-        showToast("This is the last question. Use Finish Exam when ready.");
+        showToast("This is the last question. Use Finish / 完成 when ready.");
         return;
       }
       const next = Math.max(0, Math.min(examState.index + delta, examState.questions.length - 1));
@@ -4078,9 +4237,9 @@
                   </div>
                 </div>
                 <div class="lesson-page-nav lesson-page-nav-bottom">
-                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous</button>` : ""}
+                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous page</button>` : ""}
                   <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map</button>
-                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next →</button>` : ""}
+                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next page →</button>` : ""}
                   <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
                 </div>
               </article>
@@ -4723,9 +4882,11 @@
 
       const nextDisabled = examState.status === "result" || examState.status === "confirm";
       if (nextButton) nextButton.disabled = nextDisabled;
-      if (finishButton) finishButton.disabled = examState.status === "result";
-      if (submitButton) submitButton.disabled = examState.status === "result" || examState.status === "in-progress";
+      if (finishButton) finishButton.disabled = examState.status !== "in-progress";
+      if (submitButton) submitButton.disabled = examState.status !== "finished";
       if (confirmButton) confirmButton.disabled = examState.status !== "confirm";
+      if (submitButton) submitButton.classList.toggle("is-emphasis", examState.status === "finished");
+      if (confirmButton) confirmButton.classList.toggle("is-emphasis", examState.status === "confirm");
 
       if (!question) {
         quizGrid.innerHTML = "<div class='question'><h4>No exam questions available.</h4></div>";
@@ -4776,6 +4937,9 @@
           <div class="review">
             <div class="review-item"><b>What happens next / 下一步</b><div>System will score your exam, show the result page, and save wrong questions automatically.</div></div>
           </div>
+          <div class="actions" style="margin-top:12px">
+            <button class="btn btn-primary" type="button" data-inline-confirm>Confirm / 确认提交</button>
+          </div>
         `;
         quizResult.classList.add("show");
         return;
@@ -4788,6 +4952,9 @@
           <p>你已经完成 ${answered} / ${total} 题。现在可以点 Submit，再点 Confirm 生成结果页。</p>
           <div class="review">
             <div class="review-item"><b>Reminder / 提醒</b><div>先检查一下空题，再确认提交。</div></div>
+          </div>
+          <div class="actions" style="margin-top:12px">
+            <button class="btn btn-primary" type="button" data-inline-submit>Submit / 交卷</button>
           </div>
         `;
         quizResult.classList.add("show");
@@ -4822,7 +4989,7 @@
       quizResult.classList.remove("show");
       quizResult.innerHTML = `
         <h3>Ready / 准备中</h3>
-        <p>先做题，做完再 Finish Exam。答案会随机排列，不会总是 A。</p>
+        <p>先做题，做完再 Finish / 完成。答案会随机排列，不会总是 A。</p>
       `;
     }
 
@@ -4890,6 +5057,18 @@
         const examMasteredButton = event.target.closest("[data-wrong-mastered]");
         if (examMasteredButton) {
           toggleWrongMastered(examMasteredButton.getAttribute("data-wrong-mastered"));
+          return;
+        }
+
+        const inlineSubmitButton = event.target.closest("[data-inline-submit]");
+        if (inlineSubmitButton) {
+          openSubmitStage();
+          return;
+        }
+
+        const inlineConfirmButton = event.target.closest("[data-inline-confirm]");
+        if (inlineConfirmButton) {
+          confirmExamSubmission();
           return;
         }
 
