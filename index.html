@@ -1,0 +1,3115 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Humber Course 1 Study Lab | Humber 房地产 Module 1-7 学习站</title>
+  <meta name="description" content="Humber Real Estate Course 1 bilingual study lab with detailed lesson highlights, exam focus, mock test, and vocabulary review." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-deep: #10251f;
+      --bg-deeper: #091612;
+      --panel: rgba(255, 255, 255, 0.8);
+      --panel-strong: rgba(255, 255, 255, 0.96);
+      --panel-dark: rgba(10, 25, 21, 0.78);
+      --text: #11241d;
+      --muted: #4f645b;
+      --line: rgba(16, 37, 31, 0.12);
+      --green: #1c7c5d;
+      --green-2: #0f5f4d;
+      --lime: #7cc36f;
+      --gold: #d39a39;
+      --red: #b43f3f;
+      --shadow: 0 22px 60px rgba(14, 31, 25, 0.14);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 195, 111, 0.22), transparent 33%),
+        radial-gradient(circle at 80% 10%, rgba(211, 154, 57, 0.18), transparent 26%),
+        linear-gradient(180deg, #f9f5ee 0%, #f1eadf 40%, #eef2ee 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(17, 36, 29, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 36, 29, 0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(125deg, rgba(9, 22, 18, 0.94), rgba(17, 42, 34, 0.92) 62%, rgba(28, 124, 93, 0.8)),
+        radial-gradient(circle at top right, rgba(124, 195, 111, 0.22), transparent 34%);
+      color: #f6f2ea;
+      padding: 30px;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -54% auto;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 195, 111, 0.24), transparent 68%);
+      filter: blur(12px);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(246, 242, 234, 0.7);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--lime), #cff5c3);
+      box-shadow: 0 0 0 6px rgba(124, 195, 111, 0.12);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 4.9rem);
+      max-width: 11ch;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 24px;
+      align-items: end;
+    }
+
+    .hero-copy p {
+      max-width: 65ch;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: rgba(246, 242, 234, 0.84);
+      margin: 18px 0 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(246, 242, 234, 0.92);
+      font-size: 0.92rem;
+      backdrop-filter: blur(14px);
+    }
+
+    .chip strong { color: #fff; }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 26px;
+      padding: 18px;
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-panel h3 {
+      font-family: "Manrope", sans-serif;
+      letter-spacing: -0.01em;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat .num {
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .stat .label {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: rgba(246, 242, 234, 0.8);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .top-nav {
+      margin: 18px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .top-nav button {
+      text-decoration: none;
+      color: #183029;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(16, 37, 31, 0.1);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .top-nav button:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .top-nav button.is-active {
+      background: rgba(28, 124, 93, 0.14);
+      border-color: rgba(28, 124, 93, 0.24);
+      color: var(--green-2);
+    }
+
+    .section[data-panel] {
+      display: none;
+    }
+
+    .section[data-panel].is-visible {
+      display: block;
+    }
+
+    .ppt-shell {
+      padding: 18px 28px 28px;
+    }
+
+    .ppt-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(320px, 1fr);
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x proximity;
+    }
+
+    .ppt-slide {
+      scroll-snap-align: start;
+      background:
+        linear-gradient(160deg, rgba(16, 37, 31, 0.97), rgba(32, 63, 50, 0.95)),
+        radial-gradient(circle at top right, rgba(124, 195, 111, 0.18), transparent 32%);
+      color: #f7f2ea;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ppt-slide .deck-tag {
+      display: inline-flex;
+      align-self: start;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(247, 242, 234, 0.92);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .ppt-slide h3 {
+      font-size: 1.55rem;
+      line-height: 1.12;
+      color: #fff;
+    }
+
+    .ppt-lines {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .ppt-line {
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      line-height: 1.55;
+    }
+
+    .ppt-line .en {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .ppt-line .zh {
+      display: block;
+      margin-top: 6px;
+      color: rgba(247, 242, 234, 0.82);
+    }
+
+    .ppt-note {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      color: rgba(247, 242, 234, 0.84);
+      line-height: 1.6;
+      font-size: 0.94rem;
+    }
+
+    .ppt-caption {
+      margin-bottom: 14px;
+      color: #4f645b;
+      line-height: 1.6;
+    }
+
+    .term {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted rgba(28, 124, 93, 0.56);
+      cursor: help;
+      color: inherit;
+    }
+
+    .term::after {
+      content: attr(data-zh);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%) translateY(6px);
+      opacity: 0;
+      pointer-events: none;
+      white-space: normal;
+      max-width: min(340px, 76vw);
+      overflow: hidden;
+      background: #10251f;
+      color: #f7f2ea;
+      padding: 8px 10px;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(16, 37, 31, 0.24);
+      transition: opacity 0.16s ease, transform 0.16s ease;
+      z-index: 2;
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .term:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .term:hover {
+      color: #0f5f4d;
+    }
+
+    .vocab-shell {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .vocab-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .vocab-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.16rem;
+      color: #182b25;
+      margin-bottom: 8px;
+    }
+
+    .vocab-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .vocab-review {
+      border-radius: 22px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(16, 37, 31, 0.96), rgba(18, 42, 34, 0.92));
+      color: #f5f2ea;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .vocab-face {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      line-height: 1.1;
+    }
+
+    .vocab-face small {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.92rem;
+      color: rgba(245, 242, 234, 0.72);
+      margin-top: 8px;
+    }
+
+    .vocab-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .vocab-item {
+      border-radius: 18px;
+      padding: 12px 14px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+    }
+
+    .vocab-item b {
+      display: block;
+      margin-bottom: 6px;
+      color: #162922;
+    }
+
+    .vocab-item .meta {
+      font-size: 0.88rem;
+      color: #5d726a;
+      margin-top: 8px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%) translateY(18px);
+      opacity: 0;
+      pointer-events: none;
+      background: rgba(16, 37, 31, 0.96);
+      color: #f7f2ea;
+      padding: 12px 14px;
+      border-radius: 999px;
+      box-shadow: 0 16px 36px rgba(16, 37, 31, 0.26);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 30;
+      font-size: 0.92rem;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: #0d1d17;
+      background: linear-gradient(135deg, #f6de99, #d39a39);
+      box-shadow: 0 14px 32px rgba(211, 154, 57, 0.28);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .section {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .section-header {
+      padding: 26px 28px 0;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.7rem, 2.3vw, 2.4rem);
+      color: #13251f;
+    }
+
+    .section-header p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 72ch;
+    }
+
+    .roadmap {
+      padding: 18px 28px 28px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(16, 37, 31, 0.94);
+      color: #f5f2ea;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.96);
+    }
+
+    .sidebar ol {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+      line-height: 1.45;
+      color: rgba(245, 242, 234, 0.88);
+    }
+
+    .sidebar a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover { text-decoration: underline; }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .study-stack {
+      display: grid;
+      gap: 18px;
+      padding: 18px 28px 28px;
+    }
+
+    .module-block {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 245, 237, 0.98));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .module-block-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .module-block-note {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .module-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .study-card {
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 238px;
+    }
+
+    .study-card .study-kicker {
+      display: inline-flex;
+      align-self: start;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(28, 124, 93, 0.12);
+      color: var(--green-2);
+      border: 1px solid rgba(28, 124, 93, 0.16);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .study-card h4 {
+      font-size: 1.14rem;
+      line-height: 1.18;
+      margin: 0;
+    }
+
+    .study-card .study-zh {
+      font-weight: 700;
+      color: #264a3d;
+      line-height: 1.4;
+    }
+
+    .study-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .study-card footer {
+      margin-top: auto;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+      padding-top: 12px;
+      color: #39554a;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .lesson-card, .info-card, .quiz-card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .lesson-card {
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .lesson-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .lesson-kicker {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .lesson-title {
+      font-size: 1.35rem;
+      margin-top: 8px;
+      line-height: 1.2;
+    }
+
+    .lesson-zh {
+      margin-top: 6px;
+      font-weight: 700;
+      color: #264a3d;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(28, 124, 93, 0.12);
+      color: var(--green-2);
+      border: 1px solid rgba(28, 124, 93, 0.16);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .lesson-card p, .info-card p, .quiz-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pill-list li {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(16, 37, 31, 0.05);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #254336;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .lesson-card footer {
+      margin-top: auto;
+      border-top: 1px dashed rgba(16, 37, 31, 0.12);
+      padding-top: 14px;
+      color: #39554a;
+      font-size: 0.92rem;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .fav-toggle {
+      appearance: none;
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      background: rgba(16, 37, 31, 0.04);
+      color: #244035;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-weight: 800;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .fav-toggle.is-active {
+      background: rgba(211, 154, 57, 0.14);
+      border-color: rgba(211, 154, 57, 0.4);
+      color: #9b6b15;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .exam-card {
+      background:
+        linear-gradient(180deg, rgba(16, 37, 31, 0.96), rgba(16, 37, 31, 0.9)),
+        linear-gradient(145deg, rgba(124, 195, 111, 0.16), transparent 60%);
+      color: #f5f2ea;
+      border-radius: 26px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .exam-card h3, .exam-card p, .exam-card li { color: inherit; }
+    .exam-card p { color: rgba(245, 242, 234, 0.84); }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .mini {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mini b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .mini span {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(245, 242, 234, 0.82);
+    }
+
+    .callout {
+      display: grid;
+      gap: 12px;
+    }
+
+    .callout .info-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 245, 237, 0.98));
+    }
+
+    .info-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+      color: #182b25;
+      font-family: "Manrope", sans-serif;
+    }
+
+    .info-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: #355146;
+      line-height: 1.5;
+    }
+
+    .quiz-shell {
+      padding: 18px 28px 28px;
+    }
+
+    .quiz-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .timer {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 37, 31, 0.06);
+      color: #244035;
+      font-weight: 800;
+    }
+
+    .timer strong {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.05rem;
+    }
+
+    .quiz-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .question {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 246, 240, 0.98));
+      padding: 18px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .question.correct {
+      border-color: rgba(124, 195, 111, 0.48);
+      box-shadow: 0 0 0 3px rgba(124, 195, 111, 0.12);
+    }
+
+    .question.wrong {
+      border-color: rgba(180, 63, 63, 0.4);
+      box-shadow: 0 0 0 3px rgba(180, 63, 63, 0.08);
+    }
+
+    .question h4 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      line-height: 1.45;
+      color: #172b24;
+    }
+
+    .question-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .question .zh {
+      margin-top: 0;
+      color: #587267;
+      font-size: 0.92rem;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 13px;
+      border-radius: 16px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid transparent;
+    }
+
+    .option:hover {
+      border-color: rgba(28, 124, 93, 0.18);
+      background: rgba(28, 124, 93, 0.05);
+    }
+
+    .option input { margin-top: 3px; }
+
+    .option label {
+      cursor: pointer;
+      line-height: 1.5;
+      color: #27453a;
+      width: 100%;
+    }
+
+    .result {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(16, 37, 31, 0.95), rgba(28, 124, 93, 0.9));
+      color: #f6f2ea;
+      display: none;
+    }
+
+    .result.show { display: block; }
+
+    .result h3 { font-family: "Manrope", sans-serif; font-size: 1.08rem; margin-bottom: 8px; }
+    .result p { color: rgba(245, 242, 234, 0.86); }
+
+    .review {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .review-item {
+      border-radius: 18px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .review-item b {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer {
+      padding: 18px 28px 28px;
+      color: #4d645a;
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    .notebook-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .notebook-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    .notebook-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.16rem;
+      color: #182b25;
+      margin-bottom: 10px;
+    }
+
+    .notebook-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .notebook-item {
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+    }
+
+    .notebook-item b {
+      display: block;
+      margin-bottom: 6px;
+      color: #162922;
+    }
+
+    .notebook-item button {
+      margin-top: 10px;
+    }
+
+    .sources {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .sources a {
+      color: var(--green-2);
+      text-decoration: none;
+    }
+
+    .sources a:hover { text-decoration: underline; }
+
+    .fineprint {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #687b73;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .layout, .insight-grid, .module-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .notebook-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .module-block-head {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 18px, 1200px); padding-top: 12px; }
+      .hero, .section { border-radius: 24px; }
+      .hero, .roadmap, .insight-grid, .quiz-shell, .footer, .section-header, .study-stack { padding-left: 16px; padding-right: 16px; }
+      .hero { padding-top: 20px; padding-bottom: 22px; }
+      .section-header { padding-top: 18px; }
+      .stat-grid, .mini-grid { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Humber Real Estate · Course 1 · Module 1-7</div>
+          <h1>把 Humber Course 1 变成一张能复习、能做题的网站</h1>
+          <p>
+            这个页面把 Humber Real Estate Course 1 的 Module 1-7
+            都整理成中英双语学习卡、考试高频点和一个可直接使用的模拟考试。
+            你之后复习时，可以先看重点，再做题，最后回到错题解释。
+          </p>
+          <div class="chips">
+            <span class="chip"><strong>7</strong> modules / 7 个模块</span>
+            <span class="chip"><strong>35h</strong> eLearning total / 总学习时长</span>
+            <span class="chip"><strong>2h</strong> Exam 1 official duration / 官方考试时长</span>
+            <span class="chip"><strong>EN + 中文</strong> 双语重点</span>
+            <span class="chip"><strong>Mock exam</strong> 练习模式</span>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" type="button" data-panel-target="lessons">先看重点</button>
+            <button class="btn btn-secondary" type="button" data-panel-target="quiz">直接做模拟考试</button>
+            <a class="btn btn-secondary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
+          </div>
+          <nav class="top-nav" aria-label="Study navigation">
+            <button type="button" data-panel-target="lessons">Module 1</button>
+            <button type="button" data-panel-target="module2">Module 2-7</button>
+            <button type="button" data-panel-target="ppt">官方课件</button>
+            <button type="button" data-panel-target="exam">Exam Focus</button>
+            <button type="button" data-panel-target="quiz">Mock Exam</button>
+            <button type="button" data-panel-target="notebook">错题本</button>
+            <button type="button" data-panel-target="vocab">单词本</button>
+            <button type="button" data-panel-target="roadmap">Roadmap</button>
+            <button type="button" data-panel-target="all">全部</button>
+          </nav>
+        </div>
+        <aside class="hero-panel" aria-label="Study snapshot">
+          <h3>Study Snapshot / 学习速览</h3>
+          <div class="stat-grid">
+            <div class="stat">
+              <span class="num">REBBA</span>
+              <span class="label">Lesson 1 的核心法律框架 / the law and ethics base</span>
+            </div>
+            <div class="stat">
+              <span class="num">RECO</span>
+              <span class="label">省级监管与执法角色 / provincial regulator</span>
+            </div>
+            <div class="stat">
+              <span class="num">24 mo.</span>
+              <span class="label">初始注册后 24 个月内完成继续教育 / post-registration window</span>
+            </div>
+            <div class="stat">
+              <span class="num">Budget</span>
+              <span class="label">佣金不稳定，所以预算是必考思路 / commission needs budgeting</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section" id="ppt" data-panel="ppt">
+      <div class="section-header">
+        <h2>官方 Module 1 课件 / Official Module 1 Lesson</h2>
+        <p>
+          我没有把 Humber 的 PPT 直接镜像到本地，而是把你账号里能打开的官方 Module 1 在线课件接进来。
+          下面这一块仍然保留我的双语复习版，英文在上、中文在下，鼠标停词和选词也都能用。
+        </p>
+      </div>
+      <div class="ppt-shell">
+        <p class="ppt-caption">
+          先打开官方 Module 1 课件，再用下面的双语复习卡回看重点。等你学完 Module 1，后面模块再按你解锁的进度继续补。
+        </p>
+        <div class="actions" style="margin-top: 0; margin-bottom: 16px">
+          <a class="btn btn-primary" data-official-module1-link href="https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1" target="_blank" rel="noreferrer">打开官方 Module 1 课件</a>
+          <button class="btn btn-secondary" type="button" data-panel-target="lessons">回到 Module 1 重点</button>
+        </div>
+        <div class="ppt-strip" id="pptStrip"></div>
+      </div>
+    </section>
+
+    <section class="section is-visible" id="lessons" data-panel="lessons">
+      <div class="section-header">
+        <h2>Module 1 重点总览 / Lesson Map</h2>
+        <p>
+          下面的内容是按 Humber Course 1, Module 1 的 lesson 结构整理的。
+          我把它做成「英文标题 + 中文提示 + 必背考点 + 常见出题陷阱」，方便你边看边背。
+        </p>
+      </div>
+      <div class="roadmap">
+        <div class="layout">
+          <aside class="sidebar">
+            <h3>Quick Navigation / 快速跳转</h3>
+            <ol>
+              <li><a href="#lesson-1">Lesson 1 · Regulatory Environment</a></li>
+              <li><a href="#lesson-2">Lesson 2 · Education and Registration Requirements</a></li>
+              <li><a href="#lesson-3">Lesson 3 · Skills Used by a Salesperson</a></li>
+              <li><a href="#lesson-4">Lesson 4 · Role, Tasks, and Activities</a></li>
+              <li><a href="#lesson-5">Lesson 5 · Remuneration and Budgeting</a></li>
+              <li><a href="#lesson-6">Module Summary · 模块总结</a></li>
+            </ol>
+          </aside>
+          <div class="lesson-grid" id="lessonGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="module2" data-panel="module2">
+      <div class="section-header">
+        <h2>Module 2-7 详细学习卡 / Detailed Study Cards</h2>
+        <p>
+          这一块是按 Humber 官方模块摘要 + 公开考试心得整理出来的细化卡包。
+          我把 Module 2 到 Module 7 都拆成和 Module 1 一样的学习颗粒度，方便你按卡背、按主题、按场景复习。
+        </p>
+      </div>
+      <div class="study-stack" id="moduleStudyGrid"></div>
+    </section>
+
+    <section class="section" id="roadmap" data-panel="roadmap">
+      <div class="section-header">
+        <h2>Full Course Roadmap / 全课程路线图</h2>
+        <p>
+          这是我根据你 Humber 课程主页抓到的官方模块结构整理出来的完整路线图。
+          你可以把它当作整门课的导航图，先知道每一模块在讲什么，再进入细学和刷题。
+        </p>
+      </div>
+      <div class="roadmap">
+        <div class="lesson-grid" id="roadmapGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="exam" data-panel="exam">
+      <div class="section-header">
+        <h2>考试高频点 / Exam Focus</h2>
+        <p>
+          这里不是官方蓝图，而是根据 Humber 官方学习路径、考试页，以及公开课程资料整理出的
+          <strong>高概率考点</strong>。适合你做复习优先级排序。
+        </p>
+      </div>
+      <div class="insight-grid">
+        <div class="exam-card">
+          <h3>Official info / 官方信息</h3>
+          <p>
+            Humber 的 Course 1, Exam 1 是 <strong>invigilated theory exam</strong>，
+            时长为 <strong>2 hours</strong>。官方课程/考试页也列出了 Exam 1 的费用，
+            在我这次检索时显示为 <strong>$120</strong>。课程说明写明它覆盖 Course 1 的内容。
+          </p>
+          <div class="mini-grid">
+            <div class="mini">
+              <b>最值得背的词</b>
+              <span>REBBA, RECO, registrant, brokerage, broker, broker of record</span>
+            </div>
+            <div class="mini">
+              <b>最容易考的逻辑</b>
+              <span>谁负责监管，谁负责执法，谁能注册，谁对 brokerage 最终负责</span>
+            </div>
+            <div class="mini">
+              <b>技能题核心</b>
+              <span>confidence, persistence, math, computer literacy, organizing, negotiation</span>
+            </div>
+            <div class="mini">
+              <b>钱和时间题核心</b>
+              <span>commission can be irregular, so budgeting and planning matter</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="info-card">
+            <h3>Most likely question clusters / 常见出题簇</h3>
+            <ul class="info-list">
+              <li>REBBA 和 Code of Ethics 的目的是什么？/ What do they protect?</li>
+              <li>RECO、Ministry、brokerage、broker of record 各自干什么？</li>
+              <li>注册步骤、保险要求、继续教育窗口是什么？</li>
+              <li>Lesson 3 里的“成功技能”有哪些？哪些是最常被问的？</li>
+              <li>销售人员如何根据市场条件调整工作节奏和任务？</li>
+              <li>为什么 Lesson 5 特别强调预算？commission 为什么会让现金流波动？</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Study strategy / 复习策略</h3>
+            <p>
+              如果你时间有限，先背 <strong>Lesson 1 + Lesson 2 + Lesson 5</strong>，
+              再补 Lesson 3 和 4。考试最怕把名词混在一起，所以每次都要把
+              <strong>“法律、监管、注册、职责、报酬”</strong> 五条线分开。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quiz" data-panel="quiz">
+      <div class="section-header">
+        <h2>模拟考试 / Mock Exam</h2>
+        <p>
+          这部分可以直接做题。提交后会显示分数、对错和中英双语解释。
+          你可以把它当成「先做题，再回头复习」的练习场。
+        </p>
+      </div>
+      <div class="quiz-shell">
+        <div class="quiz-toolbar">
+          <div class="timer">Exam timer / 计时器 <strong id="timerValue">25:00</strong></div>
+          <div class="actions" style="margin-top:0">
+            <button class="btn btn-primary" id="startTimer" type="button">开始计时 / Start</button>
+            <button class="btn btn-secondary" id="gradeQuiz" type="button">提交批改 / Grade</button>
+            <button class="btn btn-secondary" id="resetQuiz" type="button">重置 / Reset</button>
+          </div>
+        </div>
+        <div class="quiz-grid" id="quizGrid"></div>
+        <div class="result" id="quizResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="notebook" data-panel="notebook">
+      <div class="section-header">
+        <h2>错题本 / 收藏夹</h2>
+        <p>
+          做题时如果点了“收藏”，或者答错后系统会自动记进错题本。
+          下次复习可以先清这里，再从 Lesson 1 / Lesson 2 / Lesson 5 回炉。
+        </p>
+      </div>
+      <div class="notebook-grid">
+        <div class="notebook-card">
+          <h3>Favorites / 收藏</h3>
+          <p>你标记过的 lesson 和题目都会出现在这里。</p>
+          <div class="notebook-list" id="favoritesList"></div>
+        </div>
+        <div class="notebook-card">
+          <h3>Wrong Book / 错题本</h3>
+          <p>答错一次不怕，重要的是把解释记下来。</p>
+          <div class="notebook-list" id="wrongBookList"></div>
+          <div class="actions" style="margin-top:14px">
+            <button class="btn btn-secondary" id="clearNotebook" type="button">清空本地记录</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sources" data-panel="sources">
+      <div class="footer">
+        <strong>Source notes / 来源说明</strong>
+        <p class="fineprint">
+          这个站点是我根据 Humber 官方课程路径、考试信息页和公开课程预览整理出来的学习版，
+          用来帮你复习，不是官方试卷。考试细节如果 Humber 更新了，以官方页面为准。
+        </p>
+        <div class="sources">
+          <a href="https://humber.ca/realestateeducation/programs/real-estate-salesperson/learning-path" target="_blank" rel="noreferrer">Humber Real Estate Salesperson Program Learning Path</a>
+          <a href="https://humber.ca/realestateeducation/programs/real-estate-salesperson/fees" target="_blank" rel="noreferrer">Humber Real Estate Salesperson Program Fees</a>
+          <a href="https://realestateprograms.humber.ca/search/publicCourseSearchDetails.do?courseId=17706&method=load" target="_blank" rel="noreferrer">PREX-1010A Exam 1: Invigilated Theory Exam</a>
+          <a href="https://dokumen.pub/course-1-real-estate-essentials-humber-real-estate-education-7nbsped.html" target="_blank" rel="noreferrer">Public course preview used for lesson structure</a>
+          <a href="https://www.studocu.com/en-ca/document/humber-polytechnic/real-estate-salesperson/real-estate-module-1-none/74836886" target="_blank" rel="noreferrer">Public module preview used for lesson wording</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="vocab" data-panel="vocab">
+      <div class="section-header">
+        <h2>单词本 / Vocabulary Review</h2>
+        <p>
+          选中任意难词后会自动加入单词本。这里可以翻面复习，也可以把已经掌握的词删掉。
+          如果某个词还没在词库里，系统会自动补中文解释，再存进单词本。
+        </p>
+      </div>
+      <div class="vocab-shell">
+        <div class="vocab-card">
+          <h3>Review Card / 复习卡</h3>
+          <div class="vocab-review" id="vocabReview">
+            <div class="vocab-face" id="vocabFace">先选中一个英文单词</div>
+            <div id="vocabHint" style="color:rgba(245,242,234,0.74);line-height:1.6">
+              你可以在课件页、重点卡或题目里直接选词。系统会自动记到单词本。
+            </div>
+            <div class="vocab-toolbar">
+              <button class="btn btn-secondary" id="vocabPrev" type="button">上一词</button>
+              <button class="btn btn-secondary" id="vocabFlip" type="button">翻面</button>
+              <button class="btn btn-secondary" id="vocabNext" type="button">下一词</button>
+              <button class="btn btn-secondary" id="vocabShuffle" type="button">随机</button>
+            </div>
+          </div>
+        </div>
+        <div class="vocab-card">
+          <h3>My Wordbook / 我的单词本</h3>
+          <p>这里会显示你点过的词，复习时先看英语，再翻到中文解释。</p>
+          <div class="vocab-list" id="vocabList"></div>
+          <div class="actions" style="margin-top:14px">
+            <button class="btn btn-secondary" id="clearVocab" type="button">清空单词本</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script>
+    const lessons = [
+      {
+        id: "lesson-1",
+        number: "Lesson 1",
+        titleEn: "Regulatory Environment",
+        titleZh: "监管环境",
+        badge: "Law + Ethics",
+        summary: "This lesson is the legal foundation of the module. It introduces REBBA, the Code of Ethics, RECO, and the key professional roles in a transaction.",
+        summaryZh: "这一课是整个模块的法律底座：REBBA、Code of Ethics、RECO，以及交易中各角色的关系。",
+        mustKnow: [
+          { en: "REBBA regulates real estate trading in Ontario.", zh: "REBBA 监管安省的房地产交易。" },
+          { en: "RECO administers REBBA on behalf of the provincial government.", zh: "RECO 代表省政府执行 REBBA。" },
+          { en: "A registrant is any individual or brokerage registered to trade in real estate.", zh: "registrant 指任何已注册从事房地产交易的个人或 brokerage。" },
+          { en: "The Code of Ethics sets minimum standards for fairness, honesty, and competence.", zh: "Code of Ethics 规定公平、诚实和专业能力等最低标准。" }
+        ],
+        examTrap: "不要把 RECO 和 Ministry 混淆，也不要把 brokerage、broker、broker of record、registrant 混在一起。",
+        memoryHook: "Law = REBBA; regulator = RECO; ethics = fairness + honesty + competence."
+      },
+      {
+        id: "lesson-2",
+        number: "Lesson 2",
+        titleEn: "Education and Registration Requirements",
+        titleZh: "教育与注册要求",
+        badge: "Process",
+        summary: "This lesson explains the path to becoming registered and the ongoing obligations after registration.",
+        summaryZh: "这一课讲注册路径，以及注册后还要继续做什么。",
+        mustKnow: [
+          { en: "Complete the education requirements first.", zh: "先完成教育要求。" },
+          { en: "Register with RECO once employed by a brokerage.", zh: "受雇于 brokerage 后向 RECO 注册。" },
+          { en: "Purchase the required insurance coverage through the RECO insurance program.", zh: "购买 RECO 保险项目要求的保险。" },
+          { en: "Complete post-registration education within the initial 24-month cycle.", zh: "在最初 24 个月周期内完成后续教育。" }
+        ],
+        examTrap: "这课常考顺序题：先学习，再注册，再保险，再持续教育。",
+        memoryHook: "Learn -> Register -> Insure -> Keep learning."
+      },
+      {
+        id: "lesson-3",
+        number: "Lesson 3",
+        titleEn: "Skills Used by a Salesperson",
+        titleZh: "销售人员需要的技能",
+        badge: "People + Systems",
+        summary: "This lesson focuses on the personal and practical skills that help a salesperson succeed in a people-driven, fast-changing career.",
+        summaryZh: "这一课是“做这份工作需要什么能力”，不是法律课。",
+        mustKnow: [
+          { en: "Confidence and persistence", zh: "自信与坚持" },
+          { en: "Mathematical skills", zh: "数学能力" },
+          { en: "Computer literacy and technology proficiency", zh: "电脑素养与技术能力" },
+          { en: "Organizing and planning, research, people skills, negotiation, problem solving", zh: "组织规划、研究、人际沟通、谈判、解决问题" }
+        ],
+        examTrap: "看到“successful career”就想起技能清单，不要误答成法律或注册流程。",
+        memoryHook: "People + numbers + tech + planning + persistence."
+      },
+      {
+        id: "lesson-4",
+        number: "Lesson 4",
+        titleEn: "Salesperson’s Role, Tasks, and Activities",
+        titleZh: "销售人员的角色、任务与日常活动",
+        badge: "Workflow",
+        summary: "This lesson shows how the salesperson actually works with sellers and buyers, and how market conditions change the daily workload.",
+        summaryZh: "这一课讲“日常怎么干活”，以及市场变化会怎样影响节奏。",
+        mustKnow: [
+          { en: "The work is broader than listing and selling.", zh: "工作远不只是挂牌和卖房。" },
+          { en: "Market conditions affect how many showings, offers, and tasks a salesperson handles.", zh: "市场情况会影响看房、出价和日常任务量。" },
+          { en: "Residential and commercial work can create different schedules and priorities.", zh: "住宅和商业工作节奏不同。" },
+          { en: "Organization and time management are essential.", zh: "组织能力和时间管理很关键。" }
+        ],
+        examTrap: "不要只记“sales”这个词，要记住整个工作链条包括沟通、协调、研究和计划。",
+        memoryHook: "Market changes the schedule; planning keeps the job under control."
+      },
+      {
+        id: "lesson-5",
+        number: "Lesson 5",
+        titleEn: "Remuneration and Budgeting",
+        titleZh: "报酬与预算",
+        badge: "Money",
+        summary: "This lesson explains commission-based pay, how remuneration can be shared, and why budgeting matters when income is not fixed.",
+        summaryZh: "这一课核心是：收入常常不稳定，所以预算能力非常重要。",
+        mustKnow: [
+          { en: "Remuneration is often commission-based.", zh: "报酬通常是佣金制。" },
+          { en: "Income can be unpredictable, so budgeting is essential.", zh: "收入不固定，所以预算是必需技能。" },
+          { en: "Remuneration can be shared between brokerages.", zh: "报酬可能在两个 brokerage 之间分配。" },
+          { en: "Remuneration can also be shared between a brokerage and a broker or salesperson.", zh: "报酬也可能在 brokerage 与 broker / salesperson 之间分配。" }
+        ],
+        examTrap: "高频陷阱是 gross 和 net、share 和 split、佣金收入和实际可支配收入。",
+        memoryHook: "Unsteady income = steady budget."
+      },
+      {
+        id: "lesson-6",
+        number: "Module Summary",
+        titleEn: "Module Summary",
+        titleZh: "模块总结",
+        badge: "Review",
+        summary: "The summary lesson is the final consolidation point. Use it to check whether you can explain the whole module without looking at notes.",
+        summaryZh: "总结课不是新知识，而是把整模块串起来。",
+        mustKnow: [
+          { en: "You should be able to explain REBBA, RECO, registration steps, core skills, role/tasks, and remuneration.", zh: "你应该能讲清 REBBA、RECO、注册流程、核心技能、工作职责和报酬。" },
+          { en: "If you can teach the module in your own words, you are much closer to exam-ready.", zh: "如果你能用自己的话讲一遍，就已经接近可考试状态。" },
+          { en: "Use the summary lesson as a self-check before Exam 1.", zh: "把总结课当成 Exam 1 前的自测。" }
+        ],
+        examTrap: "总结课最适合做回顾，不要跳过。很多错题其实都能从这里回头修正。",
+        memoryHook: "Explain it once in your own words."
+      }
+    ];
+
+    const quizQuestions = [
+      {
+        en: "What is the main purpose of REBBA in Ontario?",
+        zh: "REBBA 在安省的主要目的是什么？",
+        options: [
+          { en: "To regulate real estate trading and protect consumers.", zh: "监管房地产交易并保护消费者。" },
+          { en: "To set income tax rates for salespersons.", zh: "为销售人员设定所得税率。" },
+          { en: "To license only commercial buildings.", zh: "只给商业建筑发证。" },
+          { en: "To replace all brokerages with government offices.", zh: "用政府办公室取代所有 brokerage。" }
+        ],
+        answer: 0,
+        why: "REBBA provides the legal framework for the profession and protects the public. / REBBA 是法律框架，重点是保护消费者。"
+      },
+      {
+        en: "Who administers REBBA on behalf of the provincial government?",
+        zh: "谁代表省政府执行 REBBA？",
+        options: [
+          { en: "RECO", zh: "RECO" },
+          { en: "A local brokerage", zh: "本地 brokerage" },
+          { en: "A property inspector", zh: "物业检查员" },
+          { en: "The seller", zh: "卖方" }
+        ],
+        answer: 0,
+        why: "RECO is the regulator named in the module materials. / RECO 是课程里明确写出的监管机构。"
+      },
+      {
+        en: "In Module 1, what does the word registrant refer to?",
+        zh: "在 Module 1 里，registrant 指什么？",
+        options: [
+          { en: "Any individual or brokerage registered to trade in real estate.", zh: "任何已注册从事房地产交易的个人或 brokerage。" },
+          { en: "Only the broker of record.", zh: "只有 broker of record。" },
+          { en: "Any person buying a house.", zh: "任何买房的人。" },
+          { en: "Only a lawyer.", zh: "只有律师。" }
+        ],
+        answer: 0,
+        why: "The course uses registrant for registered individuals and brokerages. / 课程里 registrant 的范围更广。"
+      },
+      {
+        en: "Which set of skills best matches Lesson 3?",
+        zh: "哪组技能最符合 Lesson 3？",
+        options: [
+          { en: "Confidence, persistence, computer literacy, organizing and planning.", zh: "自信、坚持、电脑素养、组织与规划。" },
+          { en: "Painting, carpentry, and plumbing.", zh: "油漆、木工和水管。" },
+          { en: "Only memorizing property taxes.", zh: "只背物业税。" },
+          { en: "Cooking and baking.", zh: "烹饪和烘焙。" }
+        ],
+        answer: 0,
+        why: "Lesson 3 is about transferable success skills, not trade work. / Lesson 3 讲的是可迁移的成功技能。"
+      },
+      {
+        en: "Why does Lesson 4 emphasize organization and time management?",
+        zh: "为什么 Lesson 4 强调组织和时间管理？",
+        options: [
+          { en: "Because market conditions and transaction demands can change a salesperson’s schedule.", zh: "因为市场状况和交易需求会改变销售人员的日程。" },
+          { en: "Because real estate is a fixed-hours factory job.", zh: "因为房地产是固定工时的工厂工作。" },
+          { en: "Because salespeople never work with buyers.", zh: "因为销售人员从不和买家打交道。" },
+          { en: "Because planning is optional.", zh: "因为规划是可选的。" }
+        ],
+        answer: 0,
+        why: "The lesson says market conditions change the workload, so planning matters. / 课程直接把市场变化和日程调整联系起来。"
+      },
+      {
+        en: "What is a key reason Lesson 5 stresses budgeting?",
+        zh: "Lesson 5 为什么强调预算？",
+        options: [
+          { en: "Commission income can be irregular or unpredictable.", zh: "佣金收入可能不稳定、不可预测。" },
+          { en: "All salespeople receive the same fixed salary.", zh: "所有销售人员都有固定工资。" },
+          { en: "Budgeting only matters for landlords.", zh: "预算只对房东重要。" },
+          { en: "Commission is paid daily in cash.", zh: "佣金每天现金发放。" }
+        ],
+        answer: 0,
+        why: "The course highlights commission-based income and the need to plan around it. / 课程强调佣金制和现金流波动。"
+      },
+      {
+        en: "If a buyer asks about a structural concern outside your expertise, what is the best response?",
+        zh: "如果买家问到你专业范围外的结构问题，最好的做法是什么？",
+        options: [
+          { en: "Recommend a qualified property inspector or specialist.", zh: "建议找合资格的验房师或专家。" },
+          { en: "Pretend to know the answer.", zh: "假装知道答案。" },
+          { en: "Guarantee that the house is perfect.", zh: "保证房子没有任何问题。" },
+          { en: "Ignore the question.", zh: "忽略这个问题。" }
+        ],
+        answer: 0,
+        why: "The Code of Ethics stresses competent service and referring services when needed. / Code of Ethics 强调能力边界和必要时转介。"
+      },
+      {
+        en: "How long is Exam 1 according to Humber’s exam information?",
+        zh: "根据 Humber 的考试信息，Exam 1 多长时间？",
+        options: [
+          { en: "2 hours", zh: "2 小时" },
+          { en: "45 minutes", zh: "45 分钟" },
+          { en: "3 days", zh: "3 天" },
+          { en: "No time limit", zh: "没有时间限制" }
+        ],
+        answer: 0,
+        why: "Humber lists Exam 1 as a two-hour invigilated theory exam. / Humber 官方写的是 2 小时的监考理论考试。"
+      },
+      {
+        en: "Which role has ultimate responsibility for the brokerage’s operations?",
+        zh: "谁对 brokerage 的运营承担最终责任？",
+        options: [
+          { en: "Broker of record", zh: "Broker of record" },
+          { en: "Buyer", zh: "买方" },
+          { en: "Property appraiser", zh: "估价师" },
+          { en: "Open house visitor", zh: "开放日访客" }
+        ],
+        answer: 0,
+        why: "Lesson 1 explains the broker of record has ultimate responsibility for brokerage operations. / Lesson 1 直接说明 broker of record 负最终责任。"
+      },
+      {
+        en: "What must a salesperson complete within the initial 24-month cycle after registration?",
+        zh: "注册后的最初 24 个月内，销售人员必须完成什么？",
+        options: [
+          { en: "Post-registration education requirements", zh: "后续注册教育要求" },
+          { en: "Medical school", zh: "医学院" },
+          { en: "Driver training", zh: "驾驶培训" },
+          { en: "A new mortgage", zh: "新的房贷" }
+        ],
+        answer: 0,
+        why: "Lesson 2 notes the post-registration education window. / Lesson 2 提到 24 个月内要完成后续教育。"
+      },
+      {
+        en: "Which statement best describes the salesperson’s work in Module 1?",
+        zh: "哪句话最符合 Module 1 对销售人员工作的描述？",
+        options: [
+          { en: "It includes research, planning, communication, and adapting to market conditions.", zh: "包括研究、规划、沟通和根据市场变化调整。" },
+          { en: "It is only about placing ads online.", zh: "只是在网上发广告。" },
+          { en: "It never involves people skills.", zh: "完全不涉及人际沟通。" },
+          { en: "It is the same every day regardless of the market.", zh: "无论市场如何，每天都一模一样。" }
+        ],
+        answer: 0,
+        why: "Lesson 4 links work variety, market conditions, and coordination tasks. / Lesson 4 讲的是多任务、随市场变化的工作。"
+      },
+      {
+        en: "Which pair best captures the money lesson?",
+        zh: "哪一组最能概括报酬课？",
+        options: [
+          { en: "Commission-based income and budgeting", zh: "佣金收入与预算" },
+          { en: "Fixed salary and retirement only", zh: "固定工资与退休金" },
+          { en: "Dividend investing and stock options", zh: "股息投资与股票期权" },
+          { en: "No need to track expenses", zh: "不需要记开支" }
+        ],
+        answer: 0,
+        why: "Lesson 5 connects remuneration and budgeting because income can vary. / Lesson 5 就是把报酬和预算绑在一起。"
+      }
+    ];
+
+    const storageKeys = {
+      favorites: "humber-study-favorites",
+      wrongBook: "humber-study-wrongbook",
+      vocab: "humber-study-vocab",
+      translationCache: "humber-study-translation-cache",
+      extraGlossary: "humber-study-extra-glossary"
+    };
+
+    const officialModule1Url = "https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1";
+    document.querySelectorAll("[data-official-module1-link]").forEach((link) => {
+      link.href = officialModule1Url;
+    });
+
+    const glossary = [
+      { term: "REBBA", zh: "安省房地产商业法，监管房地产交易" },
+      { term: "RECO", zh: "安省房地产委员会，负责执行 REBBA" },
+      { term: "Code of Ethics", zh: "职业道德准则" },
+      { term: "registrant", zh: "已注册从业者或 brokerage" },
+      { term: "brokerage", zh: "经纪公司" },
+      { term: "broker of record", zh: "负责人经纪人，承担 brokerage 最终责任" },
+      { term: "commission", zh: "佣金，按成交结果计算的报酬" },
+      { term: "budgeting", zh: "预算管理，处理不固定收入" },
+      { term: "consumer", zh: "消费者" },
+      { term: "consumer protection", zh: "消费者保护" },
+      { term: "representation", zh: "代理关系" },
+      { term: "agency", zh: "代理" },
+      { term: "customer", zh: "客户/顾客，不一定有代理关系" },
+      { term: "listing", zh: "挂牌" },
+      { term: "buyer", zh: "买方" },
+      { term: "seller", zh: "卖方" },
+      { term: "condominium", zh: "公寓产权/共管公寓" },
+      { term: "lease", zh: "租约" },
+      { term: "appraisal", zh: "估价" },
+      { term: "zoning", zh: "分区规划/用途管制" },
+      { term: "Agreement of Purchase and Sale", zh: "买卖协议" },
+      { term: "APS", zh: "买卖协议的简称" },
+      { term: "deposit", zh: "定金" },
+      { term: "counteroffer", zh: "反要约" },
+      { term: "conditional", zh: "附条件" },
+      { term: "due diligence", zh: "尽职调查" },
+      { term: "commercial", zh: "商业地产" },
+      { term: "market value", zh: "市场价值" },
+      { term: "mortgage", zh: "房贷/按揭" },
+      { term: "insurance", zh: "保险" },
+      { term: "planning", zh: "规划" },
+      { term: "negotiation", zh: "谈判" },
+      { term: "marketing", zh: "营销" },
+      { term: "technology", zh: "技术" },
+      { term: "fee simple", zh: "完全产权 / 自由保有地产" },
+      { term: "freehold", zh: "自由保有产权" },
+      { term: "leasehold", zh: "租赁产权" },
+      { term: "joint tenancy", zh: "联权共有" },
+      { term: "tenancy in common", zh: "按份共有" },
+      { term: "co-operative", zh: "合作社产权" },
+      { term: "easement", zh: "地役权" },
+      { term: "encroachment", zh: "侵占 / 越界" },
+      { term: "restrictive covenant", zh: "限制性约定" },
+      { term: "expropriation", zh: "征收" },
+      { term: "escheat", zh: "无主财产收归政府" },
+      { term: "metes and bounds", zh: "界址与方位描述法" },
+      { term: "reference plan", zh: "参考平面图" },
+      { term: "land titles", zh: "土地权属登记系统" },
+      { term: "land registry", zh: "土地登记系统" },
+      { term: "POLARIS", zh: "安省土地登记电子系统" },
+      { term: "survey", zh: "测量图 / 地籍测量" },
+      { term: "TRESA", zh: "安省房地产服务法" },
+      { term: "disclosure", zh: "披露" },
+      { term: "supervision", zh: "监督管理" },
+      { term: "misrepresentation", zh: "虚假陈述" },
+      { term: "human rights", zh: "人权 / 平等权利" },
+      { term: "fair housing", zh: "公平住房" },
+      { term: "privacy", zh: "隐私" },
+      { term: "advertising", zh: "广告宣传" },
+      { term: "electronic", zh: "电子的" },
+      { term: "communications", zh: "沟通 / 通讯" },
+      { term: "zoning by-law", zh: "分区条例" },
+      { term: "tenant", zh: "租客" },
+      { term: "landlord", zh: "房东" },
+      { term: "lease agreement", zh: "租赁协议" },
+      { term: "occupancy", zh: "占用 / 居住" },
+      { term: "environmental", zh: "环境相关的" },
+      { term: "compliance", zh: "合规" },
+      { term: "records", zh: "记录" }
+    ].sort((a, b) => b.term.length - a.term.length);
+
+    (function loadCustomGlossary() {
+      try {
+        const extras = JSON.parse(localStorage.getItem(storageKeys.extraGlossary) || "[]");
+        if (Array.isArray(extras)) {
+          extras.forEach((item) => {
+            if (!item?.term || !item?.zh) return;
+            const normalized = normalizeToken(item.term).toLowerCase();
+            if (!normalized) return;
+            const exists = glossary.some((entry) => normalizeToken(entry.term).toLowerCase() === normalized);
+            if (!exists) {
+              glossary.push({ term: item.term, zh: item.zh });
+            }
+          });
+          glossary.sort((a, b) => b.term.length - a.term.length);
+        }
+      } catch {
+        // Ignore malformed cache and continue with the base glossary.
+      }
+    })();
+
+    const moduleStudyModules = [
+      {
+        id: "study-module-2",
+        code: "Module 2",
+        title: "Introducing the Fundamentals of Real Estate",
+        zhTitle: "房地产基础入门",
+        time: "3 hrs 20 mins",
+        status: "Based on official module summary + public exam notes / 官方摘要 + 公开考前心得",
+        summary: "Standard real estate terms, categories of residential and commercial structures, and RECO’s regulatory role.",
+        zhSummary: "标准房地产术语、住宅和商业结构分类，以及 RECO 的监管角色。",
+        focus: ["Trading language", "Property types", "RECO and industry bodies"],
+        cards: [
+          {
+            kicker: "Card 1",
+            titleEn: "Trading Language",
+            titleZh: "交易语言",
+            badge: "Core",
+            summary: "Learn the words that show up when a property changes hands or changes use. Public study notes keep pointing back to acquisition, disposition, sale, purchase, exchange, option, lease, and rental.",
+            summaryZh: "先把“交易语言”吃透，因为公开备考笔记一直在强调 acquisition、disposition、sale、purchase、exchange、option、lease、rental 这些词。",
+            mustKnow: [
+              { en: "Trade is broader than just buy and sell.", zh: "trade 不只是买卖，还包括更广的交易行为。" },
+              { en: "An option gives a right, not an obligation.", zh: "option 是权利，不是义务。" },
+              { en: "Lease and rental can also be trading activities.", zh: "lease 和 rental 也可能算交易活动。" }
+            ],
+            examTrap: "If the question asks NOT a trading activity, first check whether the answer still involves a transfer of value or use rights.",
+            memoryHook: "Trade = more than sale."
+          },
+          {
+            kicker: "Card 2",
+            titleEn: "Property Types and Structure Forms",
+            titleZh: "物业类型与结构形式",
+            badge: "Property",
+            summary: "This card covers the way properties are described: residential versus commercial, and the common structure words that affect marketing, value, and buyer fit.",
+            summaryZh: "这张卡讲房屋本身怎么描述：住宅还是商业、结构类型是什么，以及这些信息如何影响营销、价值和买家匹配。",
+            mustKnow: [
+              { en: "Property type can change buyer demand and pricing.", zh: "物业类型会影响买家需求和价格。" },
+              { en: "Do not confuse property use with ownership form.", zh: "不要把用途和产权形式混在一起。" },
+              { en: "A structure detail can be the difference between two answer choices.", zh: "结构细节常常就是两道选项之间的差别。" }
+            ],
+            examTrap: "When you see detached, semi-detached, townhouse, apartment, or commercial, slow down and ask what the question is really testing.",
+            memoryHook: "Type drives demand."
+          },
+          {
+            kicker: "Card 3",
+            titleEn: "Industry Organizations and Oversight",
+            titleZh: "行业机构与监管",
+            badge: "Regulation",
+            summary: "Public notes often pair the official regulator with industry bodies. Keep the hierarchy clear: who regulates, who represents the profession, and who sets the legal floor.",
+            summaryZh: "公开心得常把监管机构和行业组织放在一起考。关键是分清：谁监管、谁代表行业、谁负责法律底线。",
+            mustKnow: [
+              { en: "RECO is the regulator for the province.", zh: "RECO 是省级监管机构。" },
+              { en: "Industry associations are not the same as the regulator.", zh: "行业协会不等于监管机构。" },
+              { en: "The Ministry sets the broader government frame.", zh: "省政府部门提供更大的政策框架。" }
+            ],
+            examTrap: "Do not collapse association, board, and regulator into one thing.",
+            memoryHook: "Regulator, association, ministry."
+          },
+          {
+            kicker: "Card 4",
+            titleEn: "Scenario Reading and Exam Traps",
+            titleZh: "场景题读题法",
+            badge: "Strategy",
+            summary: "Module 2 looks simple, but exam writers like to hide the answer in wording. Train yourself to identify the transaction stage, the people involved, and whether the question is about compliance, marketing, or the property itself.",
+            summaryZh: "Module 2 表面简单，但出题很爱藏陷阱。你要先找交易阶段、人物角色，再判断题目是在问合规、营销，还是房屋本身。",
+            mustKnow: [
+              { en: "Read the role first, then the action.", zh: "先看角色，再看动作。" },
+              { en: "NOT questions are designed to catch half-remembered definitions.", zh: "NOT 题最爱抓半懂不懂的定义。" },
+              { en: "The best answer matches the stage of the transaction.", zh: "最佳答案要符合交易所处阶段。" }
+            ],
+            examTrap: "If two choices look right, the better one usually matches the exact client role and the exact transaction stage.",
+            memoryHook: "Role first, action second."
+          }
+        ]
+      },
+      {
+        id: "study-module-3",
+        code: "Module 3",
+        title: "Introducing Property Ownership, Rights, and Limitations",
+        zhTitle: "产权、权利与限制",
+        time: "3 hrs 50 mins",
+        status: "Based on official module summary + public exam notes / 官方摘要 + 公开考前心得",
+        summary: "Different property ownership options, rights, and limitations associated with each option.",
+        zhSummary: "不同产权形式，以及每种形式对应的权利和限制。",
+        focus: ["Ownership types", "Rights and restrictions", "Government limitations"],
+        cards: [
+          {
+            kicker: "Card 1",
+            titleEn: "Ownership Types",
+            titleZh: "产权类型",
+            badge: "Core",
+            summary: "This card covers the major ownership forms that appear in study guides and practice questions: freehold, fee simple, leasehold, condominium ownership, joint tenancy, tenancy in common, and co-operative ownership.",
+            summaryZh: "这里先把最常见的产权形式打包：freehold、fee simple、leasehold、condominium、joint tenancy、tenancy in common、co-operative。",
+            mustKnow: [
+              { en: "Ownership form controls how title and transfer work.", zh: "产权形式决定 title 和转让方式。" },
+              { en: "Freehold and leasehold are not the same.", zh: "freehold 和 leasehold 不是一回事。" },
+              { en: "Joint tenancy and tenancy in common differ in survivorship and shares.", zh: "joint tenancy 和 tenancy in common 在继承和份额上不同。" }
+            ],
+            examTrap: "If the question asks who owns what, do not jump to the property use; start with the legal form of ownership.",
+            memoryHook: "Form first, use second."
+          },
+          {
+            kicker: "Card 2",
+            titleEn: "The Bundle of Rights",
+            titleZh: "权利束",
+            badge: "Rights",
+            summary: "Ownership is not just a label. The owner may possess, use, enjoy, exclude others, control, and dispose of the property, but each right can be limited by law or by private agreement.",
+            summaryZh: "产权不只是一个名字。所有者通常拥有占有、使用、享受、排他、控制和处置的权利，但每一项权利都可能被法律或私人协议限制。",
+            mustKnow: [
+              { en: "Rights can be split or limited.", zh: "权利可以被拆分或限制。" },
+              { en: "Excluding others is part of ownership, but not absolute.", zh: "排他权是产权的一部分，但不是绝对的。" },
+              { en: "Use and dispose are common exam words.", zh: "use 和 dispose 是常考词。" }
+            ],
+            examTrap: "Questions sometimes ask what an owner can do, but the real issue is whether there is a restriction on that right.",
+            memoryHook: "Rights are powerful, not unlimited."
+          },
+          {
+            kicker: "Card 3",
+            titleEn: "Private Restrictions",
+            titleZh: "私人限制",
+            badge: "Limits",
+            summary: "Private restrictions include easements, encroachments, and restrictive covenants. These can shape how land is used even when the owner has title.",
+            summaryZh: "私人限制包括地役权、侵占/越界和限制性约定。即使有产权，土地使用也可能被这些限制左右。",
+            mustKnow: [
+              { en: "An easement is a right to use land in a limited way.", zh: "easement 是有限使用他人土地的权利。" },
+              { en: "An encroachment is an intrusion onto another property.", zh: "encroachment 是对他人地产的越界侵占。" },
+              { en: "A restrictive covenant limits how land may be used.", zh: "restrictive covenant 会限制土地用途。" }
+            ],
+            examTrap: "A restrictive covenant is not the same as zoning; one is private, the other is government-based.",
+            memoryHook: "Private limits stay on title."
+          },
+          {
+            kicker: "Card 4",
+            titleEn: "Government Limitations",
+            titleZh: "政府限制",
+            badge: "Public Law",
+            summary: "Government can limit ownership through zoning, bylaws, expropriation, escheat, and other rules that protect the public interest.",
+            summaryZh: "政府可以通过分区、条例、征收、无主财产收归政府等方式限制产权，以保护公共利益。",
+            mustKnow: [
+              { en: "Zoning controls how land may be used.", zh: "zoning 决定土地如何使用。" },
+              { en: "Expropriation is compulsory taking for public use.", zh: "expropriation 是为公共用途强制征收。" },
+              { en: "Escheat sends ownerless property back to the Crown or state.", zh: "escheat 是无主财产归政府。" }
+            ],
+            examTrap: "When the question sounds like a law or planning issue, ask whether the limit comes from government rather than from a private agreement.",
+            memoryHook: "Public limit, public purpose."
+          }
+        ]
+      },
+      {
+        id: "study-module-4",
+        code: "Module 4",
+        title: "Introducing Land Description and Land Registration",
+        zhTitle: "土地描述与登记",
+        time: "3 hrs 40 mins",
+        status: "Based on official module summary + public exam notes / 官方摘要 + 公开考前心得",
+        summary: "Land description, surveys, metes and bounds, land registration, documentation, land titles, and POLARIS.",
+        zhSummary: "土地描述、测量、地界、登记、文件、土地权属和 POLARIS。",
+        focus: ["Surveys and descriptions", "Registration process", "POLARIS and land titles"],
+        cards: [
+          {
+            kicker: "Card 1",
+            titleEn: "Land Description Basics",
+            titleZh: "土地描述基础",
+            badge: "Core",
+            summary: "The module starts by showing how land is legally identified. Learn the difference between a legal description, a street address, and the document that proves how a parcel is described.",
+            summaryZh: "这一模块先讲土地怎么被法律识别。要分清 legal description、街道地址，以及证明地块如何描述的文件。",
+            mustKnow: [
+              { en: "A legal description is more precise than a mailing address.", zh: "legal description 比邮寄地址更精确。" },
+              { en: "Lot and concession systems are used in some areas.", zh: "某些地区会用 lot and concession 体系。" },
+              { en: "Metes and bounds uses boundaries and directions.", zh: "metes and bounds 是用边界和方向描述土地。" }
+            ],
+            examTrap: "If the question asks how a parcel is identified, do not answer with a street name unless the wording really points there.",
+            memoryHook: "Legal description = exact land ID."
+          },
+          {
+            kicker: "Card 2",
+            titleEn: "Surveys and Measurement",
+            titleZh: "测量与图纸",
+            badge: "Survey",
+            summary: "Survey language shows up often because it explains where one property ends and another begins. Public notes also like the old-chain measurement facts: 100 links make a chain and 80 chains make a mile.",
+            summaryZh: "测量题很常见，因为它决定一块地的边界在哪里。公开心得还爱考旧制单位：100 links = 1 chain，80 chains = 1 mile。",
+            mustKnow: [
+              { en: "A survey helps show boundaries and improvements.", zh: "survey 用来显示边界和地上改良。" },
+              { en: "A surveyor’s real property report is more detailed than a simple sketch.", zh: "surveyor’s real property report 比草图更详细。" },
+              { en: "Measurement facts can appear as a one-line NOT question.", zh: "测量数字可能会被做成一行 NOT 题。" }
+            ],
+            examTrap: "Do not treat a rough sketch and a full survey as the same thing.",
+            memoryHook: "Survey = boundary proof."
+          },
+          {
+            kicker: "Card 3",
+            titleEn: "Land Registry and Land Titles",
+            titleZh: "登记系统与权属系统",
+            badge: "Registry",
+            summary: "Understand the difference between recording ownership history and confirming the current title status. The exam often checks whether you know which system stores what, and why registration matters.",
+            summaryZh: "要分清登记历史和确认当前权属状态。考试很爱问：哪个系统记录什么，为什么要登记。",
+            mustKnow: [
+              { en: "Land registry and land titles are not identical concepts.", zh: "land registry 和 land titles 不是完全一样的概念。" },
+              { en: "Registration creates an official record.", zh: "registration 会形成官方记录。" },
+              { en: "Title search logic matters in scenario questions.", zh: "场景题常考 title search 的逻辑。" }
+            ],
+            examTrap: "If the question asks what a system does, focus on recordkeeping, title status, or transfer, not on ownership theory.",
+            memoryHook: "Record the title, then verify it."
+          },
+          {
+            kicker: "Card 4",
+            titleEn: "POLARIS and Documents",
+            titleZh: "POLARIS 与文件",
+            badge: "Tools",
+            summary: "POLARIS is the electronic system that helps manage land records. Pair it with the documents that normally travel with land transactions so you can tell the difference between the system, the record, and the supporting paperwork.",
+            summaryZh: "POLARIS 是管理土地记录的电子系统。要把系统、记录和配套文件分开记。",
+            mustKnow: [
+              { en: "POLARIS is the electronic land registration environment.", zh: "POLARIS 是电子土地登记环境。" },
+              { en: "A title question may depend on the document trail.", zh: "权属题常常取决于文件链条。" },
+              { en: "Public notes often connect POLARIS with land title records.", zh: "公开笔记常把 POLARIS 和土地权属记录一起考。" }
+            ],
+            examTrap: "If the answer choice talks about a system, ask whether it is the software, the record, or the legal effect of registration.",
+            memoryHook: "System, record, result."
+          }
+        ]
+      },
+      {
+        id: "study-module-5",
+        code: "Module 5",
+        title: "TRESA",
+        zhTitle: "TRESA",
+        time: "2 hrs 45 mins",
+        status: "Based on official module summary + public exam notes / 官方摘要 + 公开考前心得",
+        summary: "Registration of brokerages, brokers, and salespersons in Ontario and daily obligations under TRESA.",
+        zhSummary: "安省 brokerage、broker、salesperson 的注册，以及日常义务。",
+        focus: ["Registration and conduct", "Day-to-day obligations", "Compliance resources"],
+        cards: [
+          {
+            kicker: "Card 1",
+            titleEn: "From REBBA to TRESA",
+            titleZh: "从 REBBA 到 TRESA",
+            badge: "Update",
+            summary: "This card is about the legal refresh. Public notes point to the 2023 shift and to consumer protection as the main reason the framework changed.",
+            summaryZh: "这张卡讲法律更新。公开心得经常提到 2023 的变化，以及以消费者保护为主的改革方向。",
+            mustKnow: [
+              { en: "TRESA modernized the old framework.", zh: "TRESA 更新了旧框架。" },
+              { en: "Consumer protection sits at the center of the change.", zh: "消费者保护是这次变化的核心。" },
+              { en: "Date-based questions like to test what changed and when.", zh: "日期题最爱考“什么时候变、变了什么”。" }
+            ],
+            examTrap: "If the question is asking about old versus new language, stop and identify which legal era the wording belongs to.",
+            memoryHook: "Old REBBA, new TRESA."
+          },
+          {
+            kicker: "Card 2",
+            titleEn: "Brokerage, Broker, and Salesperson",
+            titleZh: "Brokerage、Broker 与 Salesperson",
+            badge: "Roles",
+            summary: "Know who can trade, who supervises, and who is responsible for the firm’s day-to-day operations. The role chain matters in almost every compliance scenario.",
+            summaryZh: "要分清谁能交易、谁负责监督、谁管日常运作。角色链条在合规题里几乎必考。",
+            mustKnow: [
+              { en: "A salesperson operates under a brokerage.", zh: "salesperson 依附于 brokerage 开展工作。" },
+              { en: "The broker of record carries key responsibility.", zh: "broker of record 承担关键责任。" },
+              { en: "Supervision is not optional.", zh: "监督不是可有可无。" }
+            ],
+            examTrap: "A question may make the salesperson sound independent, but the legal structure still points back to the brokerage.",
+            memoryHook: "Work under the brokerage."
+          },
+          {
+            kicker: "Card 3",
+            titleEn: "Daily Obligations",
+            titleZh: "日常义务",
+            badge: "Conduct",
+            summary: "The day-to-day side of TRESA is about honesty, competence, records, disclosure, and staying within your role. Think of it as the habits that keep the transaction safe.",
+            summaryZh: "TRESA 的日常部分讲诚实、专业能力、记录、披露，以及待在自己的职责范围内。可以把它理解成保护交易安全的日常习惯。",
+            mustKnow: [
+              { en: "Keep records and communicate accurately.", zh: "保持记录，并准确沟通。" },
+              { en: "Do not blur facts, opinions, and promises.", zh: "不要把事实、意见和承诺混在一起。" },
+              { en: "A professional must stay within their authority.", zh: "专业人员必须待在授权范围内。" }
+            ],
+            examTrap: "If a choice sounds convenient but sloppy, it is usually the wrong compliance answer.",
+            memoryHook: "Honest, accurate, within scope."
+          },
+          {
+            kicker: "Card 4",
+            titleEn: "Compliance Checkpoints",
+            titleZh: "合规检查点",
+            badge: "Scenario",
+            summary: "This card turns TRESA into a test-taking tool. When a scenario appears, ask what was said, what was documented, who was supervised, and whether any disclosure duty was triggered.",
+            summaryZh: "这张卡把 TRESA 变成做题工具。场景题一出来，就先看说了什么、写了什么、谁在监督、有没有触发披露义务。",
+            mustKnow: [
+              { en: "Documentation often decides the answer.", zh: "文件记录常常决定答案。" },
+              { en: "The duty follows the role.", zh: "义务通常跟角色走。" },
+              { en: "Compliance is about prevention, not just punishment.", zh: "合规不只是罚不罚，更是先防住。" }
+            ],
+            examTrap: "Many TRESA questions are really asking whether the professional kept control of the transaction process.",
+            memoryHook: "Who said it, who recorded it, who supervised it?"
+          }
+        ]
+      },
+      {
+        id: "study-module-6",
+        code: "Module 6",
+        title: "Key Legislation and Regulations",
+        zhTitle: "关键法律与法规",
+        time: "9 hrs 45 mins",
+        status: "Based on official module summary + public exam notes / 官方摘要 + 公开考前心得",
+        summary: "The laws that impact the activities of a salesperson.",
+        zhSummary: "影响销售人员工作的主要法律。",
+        focus: ["Core legislation", "Regulatory impact", "Application to daily practice"],
+        cards: [
+          {
+            kicker: "Card 1",
+            titleEn: "Legislation Map",
+            titleZh: "法律地图",
+            badge: "Core",
+            summary: "The safest way to study this module is to build a map: which law applies to which kind of issue? Public study tips suggest that this module is less about memorizing a single rule and more about matching the right law to the right situation.",
+            summaryZh: "学这个模块最稳的方法是先搭一张地图：什么问题对应什么法律？公开心得普遍认为，这一模块更像“配对题”，不是单背一条规则。",
+            mustKnow: [
+              { en: "Identify the issue before naming the law.", zh: "先识别问题，再说法律名字。" },
+              { en: "One scenario can touch more than one law.", zh: "一个场景可能同时碰到多部法律。" },
+              { en: "The exam likes best-fit reasoning.", zh: "考试爱考“最匹配”的法律逻辑。" }
+            ],
+            examTrap: "If you try to memorize laws in isolation, the scenario questions will feel harder than they are.",
+            memoryHook: "Issue first, law second."
+          },
+          {
+            kicker: "Card 2",
+            titleEn: "Human Rights and Fair Housing",
+            titleZh: "人权与公平住房",
+            badge: "Fairness",
+            summary: "This card covers the non-discrimination side of the profession. Think about protected grounds, equal treatment, and how a salesperson must avoid biased language or unequal service.",
+            summaryZh: "这一张讲的是反歧视和公平住房。要想到受保护群体、平等待遇，以及销售人员不能使用带偏见的语言或差别对待客户。",
+            mustKnow: [
+              { en: "Do not discriminate in service or marketing.", zh: "服务和营销都不能歧视。" },
+              { en: "Accommodation issues can matter in real scenarios.", zh: "现实场景里还会涉及合理便利。" },
+              { en: "Words in an ad can create legal risk.", zh: "广告措辞本身就可能产生法律风险。" }
+            ],
+            examTrap: "If a question sounds like a fairness issue, check whether the issue is actually human rights rather than contract law.",
+            memoryHook: "Equal service, equal access."
+          },
+          {
+            kicker: "Card 3",
+            titleEn: "Consumer Protection, Contracts, and Representations",
+            titleZh: "消费者保护、合同与陈述",
+            badge: "Protection",
+            summary: "This card ties together what you say, what you put in writing, and what the consumer is entitled to rely on. Accuracy matters because a misleading statement can turn into a legal problem fast.",
+            summaryZh: "这一张把“你说了什么”“你写了什么”“消费者能依赖什么”串起来。因为一旦陈述不准确，很快就会变成法律问题。",
+            mustKnow: [
+              { en: "Representations should be clear and truthful.", zh: "陈述必须清楚且真实。" },
+              { en: "Contracts and disclosures carry weight.", zh: "合同和披露都很重要。" },
+              { en: "Consumer protection focuses on trust and fairness.", zh: "消费者保护的核心是信任与公平。" }
+            ],
+            examTrap: "If two options both sound helpful, choose the one that keeps the consumer informed without exaggeration.",
+            memoryHook: "Truth protects trust."
+          },
+          {
+            kicker: "Card 4",
+            titleEn: "Privacy, Advertising, and Digital Conduct",
+            titleZh: "隐私、广告与电子行为",
+            badge: "Digital",
+            summary: "Modern real estate is full of emails, text messages, social posts, and digital ads. This card reminds you that privacy, advertising accuracy, and professional communication all interact in one workflow.",
+            summaryZh: "现代房地产离不开邮件、短信、社交媒体和数字广告。这张卡提醒你：隐私、广告准确性和专业沟通是连在一起的。",
+            mustKnow: [
+              { en: "Protect personal data.", zh: "保护个人数据。" },
+              { en: "Do not make misleading claims in advertising.", zh: "广告里不能误导。" },
+              { en: "Treat digital communication like professional recordkeeping.", zh: "把电子沟通当作专业记录的一部分。" }
+            ],
+            examTrap: "A scenario about a post, ad, or message may really be asking about records or disclosure instead of social media etiquette.",
+            memoryHook: "Digital still needs discipline."
+          }
+        ]
+      },
+      {
+        id: "study-module-7",
+        code: "Module 7",
+        title: "Other Relevant Legislation and Regulations",
+        zhTitle: "其他相关法律与法规",
+        time: "8 hrs 20 mins",
+        status: "Based on official module summary + public exam notes / 官方摘要 + 公开考前心得",
+        summary: "Laws that impact trading activities and influence the decisions of sellers and buyers.",
+        zhSummary: "影响交易行为，以及卖方和买方决策的法律。",
+        focus: ["Trading activities", "Buyer and seller decisions", "Cross-cutting regulations"],
+        cards: [
+          {
+            kicker: "Card 1",
+            titleEn: "Residential Tenancies and Leasing",
+            titleZh: "住宅租赁与出租",
+            badge: "Lease",
+            summary: "This card covers tenant and landlord basics, lease agreements, and the rules that shape how residential space can be occupied and managed.",
+            summaryZh: "这一张讲租客和房东的基础、租赁协议，以及住宅空间如何被占用和管理的规则。",
+            mustKnow: [
+              { en: "Tenant and landlord rights are not symmetric.", zh: "租客和房东的权利并不完全对称。" },
+              { en: "Occupancy can be a legal issue, not just a practical one.", zh: "居住/占用有时是法律问题，不只是实际问题。" },
+              { en: "Lease language can affect future buyer decisions.", zh: "租约措辞会影响未来买家的决策。" }
+            ],
+            examTrap: "If the answer mentions renting, occupancy, or notice, check whether the question is really about tenancy law rather than sales law.",
+            memoryHook: "Lease = legal occupancy."
+          },
+          {
+            kicker: "Card 2",
+            titleEn: "Zoning, Planning, and Municipal Rules",
+            titleZh: "分区、规划与市政规则",
+            badge: "Use",
+            summary: "A seller or buyer may care about what the land can be used for, whether a renovation is allowed, and whether the local by-law supports the intended use. That is where zoning and municipal rules come in.",
+            summaryZh: "卖方或买家可能关心土地能做什么用途、能不能装修、当地条例允不允许预期用途，这就是 zoning 和市政规则的重点。",
+            mustKnow: [
+              { en: "Zoning controls use.", zh: "zoning 管用途。" },
+              { en: "By-laws can affect timing and permissions.", zh: "by-law 会影响时间和许可。" },
+              { en: "Planning issues often appear as practical barriers in scenarios.", zh: "规划问题常常在场景题里表现为实际障碍。" }
+            ],
+            examTrap: "If a choice talks about permitted use, setbacks, or building permissions, think zoning before thinking negotiation.",
+            memoryHook: "Use is regulated locally."
+          },
+          {
+            kicker: "Card 3",
+            titleEn: "Environmental, Building, and Site Issues",
+            titleZh: "环境、建筑与场地问题",
+            badge: "Risk",
+            summary: "Environmental contamination, site conditions, building issues, and physical risk all matter because they can change value and buyer willingness. These topics are often tested as decision factors rather than pure law memorization.",
+            summaryZh: "环境污染、场地状况、建筑问题和物理风险都会影响价值和买家意愿。这些内容常常是以“决策因素”而不是纯背法条的方式出现。",
+            mustKnow: [
+              { en: "Environmental risk can affect disclosure and due diligence.", zh: "环境风险会影响披露和尽调。" },
+              { en: "A building issue may change marketability.", zh: "建筑问题会影响可售性。" },
+              { en: "Site conditions can influence financing and closing decisions.", zh: "场地条件会影响融资和成交决策。" }
+            ],
+            examTrap: "A scenario with smell, contamination, or physical damage is probably testing risk analysis, not just vocabulary.",
+            memoryHook: "Risk changes the deal."
+          },
+          {
+            kicker: "Card 4",
+            titleEn: "Scenario Filter for Sellers and Buyers",
+            titleZh: "卖方与买方的场景过滤器",
+            badge: "Strategy",
+            summary: "This final card is your shortcut for Module 7 questions. Ask whether the issue is tenancy, zoning, environmental risk, permit rules, or another external law that changes the parties’ choices.",
+            summaryZh: "最后这张是 Module 7 的做题捷径。先判断问题是租赁、分区、环境风险、许可规则，还是别的外部法律在影响买卖双方选择。",
+            mustKnow: [
+              { en: "External laws shape decision making.", zh: "外部法律会影响决策。" },
+              { en: "Not every problem is solved by the transaction form.", zh: "不是所有问题都能靠交易形式解决。" },
+              { en: "The question may be testing who should investigate next.", zh: "题目也可能在考下一步该由谁调查。" }
+            ],
+            examTrap: "If the scenario sounds broad, slow down and identify the legal bucket first before you read the answer choices.",
+            memoryHook: "Bucket first, answer second."
+          }
+        ]
+      }
+    ];
+
+    const pptSlides = [
+      {
+        tag: "Course 1",
+        title: "Real Estate Essentials / 基础入门",
+        lines: [
+          { en: "REBBA sets the legal rules for real estate trading.", zh: "REBBA 是房地产交易的法律规则底座。" },
+          { en: "RECO administers and enforces the system.", zh: "RECO 负责执行和监管。" },
+          { en: "Registration, ethics, and professional roles are the core exam language.", zh: "注册、道德和角色关系是最核心的考试语言。" },
+          { en: "Budgeting matters because commission income can move up and down.", zh: "因为佣金收入会波动，所以预算很重要。" }
+        ],
+        note: "This is the study version next to the official Module 1 lesson. Hover the hard words, then select them to add to your wordbook. / 这是官方 Module 1 课件旁边的复习版。鼠标悬停看中文，选词自动进单词本。"
+      },
+      {
+        tag: "Course 2",
+        title: "Residential Transactions / 住宅交易",
+        lines: [
+          { en: "Start with seller and buyer services, then move to property features and marketing.", zh: "先看卖方/买方服务，再看房屋属性和营销。" },
+          { en: "Agreement of Purchase and Sale is the spine of the deal.", zh: "买卖协议是整笔交易的脊梁。" },
+          { en: "Conditions, deposits, counteroffers, and closing logic keep showing up on exams.", zh: "附条件、定金、反要约和成交逻辑会反复考。" },
+          { en: "Public study guides emphasize lots of scenario-style questions.", zh: "公开备考资料普遍提到题目很爱出场景题。" }
+        ],
+        note: "This course is where the paperwork starts to feel real. / 这一课会让文件流程真正连起来。"
+      },
+      {
+        tag: "Course 3",
+        title: "Additional Residential Transactions / 进阶住宅",
+        lines: [
+          { en: "Condominiums, new homes, rural properties, leasing, and financing are major themes.", zh: "公寓、新房、乡村物业、租赁和融资是重点。" },
+          { en: "Expect more specialized rules, more vocabulary, and more scenario questions.", zh: "会有更多专业规则、术语和场景题。" },
+          { en: "Public checklists say to review the end-of-course report and repeat the hardest lessons.", zh: "公开心得建议看课程总结报告，并反复回头刷难课。" },
+          { en: "NOT questions and scenario matching show up a lot.", zh: "NOT 题和场景匹配题很常见。" }
+        ],
+        note: "This is the course where people say they start feeling the load. / 很多人会在这一课开始感觉难度上来。"
+      },
+      {
+        tag: "Course 4",
+        title: "Commercial Real Estate / 商业地产",
+        lines: [
+          { en: "Commercial transactions add business use, leases, valuation, zoning, and environmental due diligence.", zh: "商业交易会加上用途、租约、估价、分区和环境尽调。" },
+          { en: "The language becomes more technical and more layered.", zh: "语言更技术化，也更分层。" },
+          { en: "Public study notes say to watch for lots of factual distinction questions.", zh: "公开笔记提示会有很多细节辨析题。" },
+          { en: "Keep a glossary because the terminology compounds fast.", zh: "一定要做词库，因为术语会迅速堆起来。" }
+        ],
+        note: "Commercial topics benefit a lot from a flashcard style review. / 商业地产特别适合用卡片复习。"
+      }
+    ];
+
+    const courseModules = [
+      {
+        id: "course-1",
+        code: "Module 1",
+        title: "Introducing the Real Estate Profession",
+        zhTitle: "房地产职业导论",
+        time: "2 hrs 50 mins",
+        status: "You are here / 当前模块",
+        summary: "Overview of the real estate profession in Ontario and what to expect in a career in real estate.",
+        zhSummary: "介绍安省房地产职业，以及未来工作会是什么样子。",
+        focus: [
+          "REBBA / RECO / Code of Ethics",
+          "Registration and professional roles",
+          "Core skills and budgeting"
+        ]
+      },
+      {
+        id: "course-2",
+        code: "Module 2",
+        title: "Introducing the Fundamentals of Real Estate",
+        zhTitle: "房地产基础入门",
+        time: "3 hrs 20 mins",
+        status: "Locked until available / 未开放",
+        summary: "Standard real estate terms, categories of residential and commercial structures, and RECO’s regulatory role.",
+        zhSummary: "标准术语、住宅和商业结构分类，以及 RECO 的监管角色。",
+        focus: [
+          "Terminology and structure types",
+          "Provincial government oversight",
+          "RECO regulatory framework"
+        ]
+      },
+      {
+        id: "course-3",
+        code: "Module 3",
+        title: "Introducing Property Ownership, Rights, and Limitations",
+        zhTitle: "产权、权利与限制",
+        time: "3 hrs 50 mins",
+        status: "Locked until available / 未开放",
+        summary: "Different property ownership options, rights, and limitations associated with each option.",
+        zhSummary: "不同产权形式，以及每种形式对应的权利和限制。",
+        focus: [
+          "Ownership types",
+          "Rights and restrictions",
+          "Client service implications"
+        ]
+      },
+      {
+        id: "course-4",
+        code: "Module 4",
+        title: "Introducing Land Description and Land Registration",
+        zhTitle: "土地描述与登记",
+        time: "3 hrs 40 mins",
+        status: "Locked until available / 未开放",
+        summary: "Land description, surveys, metes and bounds, land registration, documentation, land titles, and POLARIS.",
+        zhSummary: "土地描述、测量、地界、登记、文件、土地权属和 POLARIS。",
+        focus: [
+          "Surveys and descriptions",
+          "Registration process",
+          "POLARIS and land titles"
+        ]
+      },
+      {
+        id: "course-5",
+        code: "Module 5",
+        title: "TRESA",
+        zhTitle: "TRESA",
+        time: "2 hrs 45 mins",
+        status: "Locked until available / 未开放",
+        summary: "Registration of brokerages, brokers, and salespersons in Ontario and daily obligations under TRESA.",
+        zhSummary: "安省 brokerage、broker、salesperson 的注册，以及日常义务。",
+        focus: [
+          "Registration and conduct",
+          "Day-to-day obligations",
+          "Compliance resources"
+        ]
+      },
+      {
+        id: "course-6",
+        code: "Module 6",
+        title: "Key Legislation and Regulations",
+        zhTitle: "关键法律与法规",
+        time: "9 hrs 45 mins",
+        status: "Locked until available / 未开放",
+        summary: "The laws that impact the activities of a salesperson.",
+        zhSummary: "影响销售人员工作的主要法律。",
+        focus: [
+          "Core legislation",
+          "Regulatory impact",
+          "Application to daily practice"
+        ]
+      },
+      {
+        id: "course-7",
+        code: "Module 7",
+        title: "Other Relevant Legislation and Regulations",
+        zhTitle: "其他相关法律与法规",
+        time: "8 hrs 20 mins",
+        status: "Locked until available / 未开放",
+        summary: "Laws that impact trading activities and influence the decisions of sellers and buyers.",
+        zhSummary: "影响交易行为，以及卖方和买方决策的法律。",
+        focus: [
+          "Trading activities",
+          "Buyer and seller decision factors",
+          "Cross-cutting regulations"
+        ]
+      }
+    ];
+
+    const lessonGrid = document.getElementById("lessonGrid");
+    const moduleStudyGrid = document.getElementById("moduleStudyGrid");
+    const roadmapGrid = document.getElementById("roadmapGrid");
+    const pptStrip = document.getElementById("pptStrip");
+    const quizGrid = document.getElementById("quizGrid");
+    const quizResult = document.getElementById("quizResult");
+    const timerValue = document.getElementById("timerValue");
+    const startTimer = document.getElementById("startTimer");
+    const gradeQuiz = document.getElementById("gradeQuiz");
+    const resetQuiz = document.getElementById("resetQuiz");
+    const favoritesList = document.getElementById("favoritesList");
+    const wrongBookList = document.getElementById("wrongBookList");
+    const clearNotebook = document.getElementById("clearNotebook");
+    const vocabList = document.getElementById("vocabList");
+    const vocabFace = document.getElementById("vocabFace");
+    const vocabHint = document.getElementById("vocabHint");
+    const vocabPrev = document.getElementById("vocabPrev");
+    const vocabFlip = document.getElementById("vocabFlip");
+    const vocabNext = document.getElementById("vocabNext");
+    const vocabShuffle = document.getElementById("vocabShuffle");
+    const clearVocab = document.getElementById("clearVocab");
+    const toast = document.getElementById("toast");
+    const panelButtons = Array.from(document.querySelectorAll("[data-panel-target]"));
+    const panelSections = Array.from(document.querySelectorAll("section.section[data-panel]"));
+
+    let timerSeconds = 25 * 60;
+    let timerHandle = null;
+    let timerRunning = false;
+    let vocabSide = "en";
+    let vocabIndex = 0;
+    let vocabTimer = null;
+    let activeVocabId = null;
+
+    function readStore(key) {
+      try {
+        return JSON.parse(localStorage.getItem(key) || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function writeStore(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function normalizeToken(text) {
+      return text
+        .replace(/\s+/g, " ")
+        .replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "")
+        .trim();
+    }
+
+    function findGlossary(term) {
+      const normalized = normalizeToken(term).toLowerCase();
+      return glossary.find((item) => item.term.toLowerCase() === normalized);
+    }
+
+    function cssEscapeValue(value) {
+      if (window.CSS && typeof CSS.escape === "function") return CSS.escape(value);
+      return String(value).replace(/["\\]/g, "\\$&");
+    }
+
+    function setPanel(panel, options = {}) {
+      const target = panel || "lessons";
+      const showAll = target === "all";
+      panelSections.forEach((section) => {
+        const visible = showAll || section.getAttribute("data-panel") === target;
+        section.classList.toggle("is-visible", visible);
+      });
+      panelButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.getAttribute("data-panel-target") === target);
+      });
+      if (options.scroll !== false) {
+        const destination = showAll ? document.getElementById("home") : panelSections.find((section) => section.getAttribute("data-panel") === target);
+        if (destination) {
+          destination.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+      const primeRoot = showAll ? document : panelSections.find((section) => section.getAttribute("data-panel") === target) || document;
+      void primeWordTranslations(primeRoot);
+    }
+
+    function getTranslationCache() {
+      return readStore(storageKeys.translationCache);
+    }
+
+    function getCachedTranslation(term) {
+      const normalized = normalizeToken(term).toLowerCase();
+      const entry = getTranslationCache().find((item) => item.id === normalized);
+      return entry?.zh || "";
+    }
+
+    function normalizeTranslatedText(text) {
+      return String(text || "")
+        .replace(/^\s*[a-z]\.\s*/i, "")
+        .replace(/\s*[,，]\s*/g, " / ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function cacheTranslation(term, zh) {
+      const cleanTerm = normalizeToken(term);
+      const cleanZh = normalizeTranslatedText(zh);
+      if (!cleanTerm || !cleanZh) return cleanZh;
+      const normalized = cleanTerm.toLowerCase();
+      const list = getTranslationCache();
+      const index = list.findIndex((item) => item.id === normalized);
+      const next = { id: normalized, term: cleanTerm, zh: cleanZh };
+      if (index >= 0) list[index] = next; else list.unshift(next);
+      writeStore(storageKeys.translationCache, list);
+      return cleanZh;
+    }
+
+    function syncCustomGlossary(term, zh) {
+      const cleanTerm = normalizeToken(term);
+      const cleanZh = normalizeTranslatedText(zh);
+      if (!cleanTerm || !cleanZh) return;
+      const normalized = cleanTerm.toLowerCase();
+      const index = glossary.findIndex((item) => item.term.toLowerCase() === normalized);
+      if (index >= 0) {
+        glossary[index].zh = cleanZh;
+      } else {
+        glossary.push({ term: cleanTerm, zh: cleanZh });
+        glossary.sort((a, b) => b.term.length - a.term.length);
+      }
+      const list = readStore(storageKeys.extraGlossary);
+      const extraIndex = list.findIndex((item) => normalizeToken(item.term).toLowerCase() === normalized);
+      const entry = { term: cleanTerm, zh: cleanZh };
+      if (extraIndex >= 0) list[extraIndex] = entry; else list.unshift(entry);
+      writeStore(storageKeys.extraGlossary, list);
+    }
+
+    async function lookupChinese(term) {
+      const clean = normalizeToken(term);
+      if (!clean) return "";
+      const glossaryMatch = findGlossary(clean);
+      if (glossaryMatch?.zh) return glossaryMatch.zh;
+      const cached = getCachedTranslation(clean);
+      if (cached) return cached;
+      try {
+        const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(clean)}&langpair=en|zh-CN`);
+        const data = await response.json();
+        const translated = normalizeTranslatedText(data?.responseData?.translatedText || "");
+        const finalZh = translated || clean;
+        cacheTranslation(clean, finalZh);
+        syncCustomGlossary(clean, finalZh);
+        return finalZh;
+      } catch {
+        const fallback = clean;
+        cacheTranslation(clean, fallback);
+        syncCustomGlossary(clean, fallback);
+        return fallback;
+      }
+    }
+
+    function decorateEnglish(text) {
+      const source = String(text ?? "");
+      const regex = /[A-Za-z]+(?:[’'][A-Za-z]+)?(?:-[A-Za-z]+(?:[’'][A-Za-z]+)?)*|[A-Z]{2,}/g;
+      let lastIndex = 0;
+      let html = "";
+      let match;
+
+      while ((match = regex.exec(source)) !== null) {
+        const token = match[0];
+        const prior = source.slice(lastIndex, match.index);
+        html += escapeHtml(prior);
+        const glossaryMatch = findGlossary(token);
+        const cached = getCachedTranslation(token);
+        const zh = glossaryMatch?.zh || cached || "翻译中...";
+        html += `<span class="term" data-word="${escapeHtml(token)}" data-zh="${escapeHtml(zh)}">${escapeHtml(token)}</span>`;
+        lastIndex = match.index + token.length;
+      }
+
+      html += escapeHtml(source.slice(lastIndex));
+      return html;
+    }
+
+    function updateWordNodes(term, zh) {
+      const clean = normalizeToken(term);
+      if (!clean) return;
+      const selector = `.term[data-word="${cssEscapeValue(clean)}"]`;
+      document.querySelectorAll(selector).forEach((node) => {
+        node.setAttribute("data-zh", zh);
+      });
+    }
+
+    async function primeWordTranslations(root = document) {
+      const nodes = Array.from(root.querySelectorAll(".term[data-word]"));
+      const seen = new Set();
+      const queue = [];
+      nodes.forEach((node) => {
+        const word = normalizeToken(node.getAttribute("data-word") || node.textContent || "");
+        if (!word) return;
+        const key = word.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        const zh = node.getAttribute("data-zh") || "";
+        if (zh && zh !== "翻译中..." && zh !== "待补充") return;
+        queue.push(word);
+      });
+
+      const concurrency = 8;
+      let cursor = 0;
+      const workers = Array.from({ length: Math.min(concurrency, queue.length) }, async () => {
+        while (cursor < queue.length) {
+          const index = cursor++;
+          const word = queue[index];
+          const translated = await lookupChinese(word);
+          updateWordNodes(word, translated || word);
+        }
+      });
+      await Promise.all(workers);
+    }
+
+    function isFavorite(type, id) {
+      return readStore(storageKeys.favorites).some((item) => item.type === type && item.id === id);
+    }
+
+    function toggleFavorite(type, id, title, note) {
+      const list = readStore(storageKeys.favorites);
+      const index = list.findIndex((item) => item.type === type && item.id === id);
+      if (index >= 0) {
+        list.splice(index, 1);
+      } else {
+        list.push({ type, id, title, note });
+      }
+      writeStore(storageKeys.favorites, list);
+      renderFavorites();
+      syncFavoriteButtons();
+    }
+
+    function syncFavoriteButtons() {
+      document.querySelectorAll("[data-fav]").forEach((button) => {
+        const type = button.getAttribute("data-fav-type");
+        const id = button.getAttribute("data-fav-id");
+        const active = isFavorite(type, id);
+        button.classList.toggle("is-active", active);
+        button.textContent = active ? "★ 已收藏" : "☆ 收藏";
+      });
+    }
+
+    function renderFavorites() {
+      const favorites = readStore(storageKeys.favorites);
+      if (!favorites.length) {
+        favoritesList.innerHTML = "<div class='notebook-item'>还没有收藏。可以先给一个 lesson 或题目点星标。</div>";
+        return;
+      }
+      favoritesList.innerHTML = favorites.map((item) => `
+        <div class="notebook-item">
+          <b>${item.title}</b>
+          <div>${item.note || ""}</div>
+          <button class="fav-toggle is-active" data-remove-fav="${item.type}:${item.id}" type="button">取消收藏</button>
+        </div>
+      `).join("");
+    }
+
+    function renderWrongBook() {
+      const wrongBook = readStore(storageKeys.wrongBook);
+      if (!wrongBook.length) {
+        wrongBookList.innerHTML = "<div class='notebook-item'>还没有错题。先做一轮模拟考试，这里就会开始积累。</div>";
+        return;
+      }
+      wrongBookList.innerHTML = wrongBook.map((item) => `
+        <div class="notebook-item">
+          <b>${item.title}</b>
+          <div>${item.explanation}</div>
+        </div>
+      `).join("");
+    }
+
+    function saveWrongBook(entries) {
+      const existing = readStore(storageKeys.wrongBook);
+      const byId = new Map(existing.map((item) => [item.id, item]));
+      entries.forEach((entry) => byId.set(entry.id, entry));
+      writeStore(storageKeys.wrongBook, Array.from(byId.values()));
+      renderWrongBook();
+    }
+
+    function renderLessons() {
+      lessonGrid.innerHTML = lessons.map((lesson) => `
+        <article class="lesson-card" id="${lesson.id}">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-kicker">${lesson.number}</div>
+              <h3 class="lesson-title">${decorateEnglish(lesson.titleEn)}</h3>
+              <div class="lesson-zh">${lesson.titleZh}</div>
+            </div>
+            <div class="badge">${lesson.badge}</div>
+          </div>
+          <div class="card-actions">
+            <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
+          </div>
+          <p>${decorateEnglish(lesson.summary)}</p>
+          <p>${lesson.summaryZh}</p>
+          <ul class="pill-list">
+            ${lesson.mustKnow.map((item) => `<li><strong>EN:</strong> ${decorateEnglish(item.en)}<br><strong>中文:</strong> ${item.zh}</li>`).join("")}
+          </ul>
+          <footer>
+            <strong>Exam trap / 考试陷阱：</strong> ${decorateEnglish(lesson.examTrap)}<br>
+            <strong>Memory hook / 记忆钩子：</strong> ${decorateEnglish(lesson.memoryHook)}
+          </footer>
+        </article>
+      `).join("");
+    }
+
+    function renderModuleStudyCards() {
+      moduleStudyGrid.innerHTML = moduleStudyModules.map((module) => `
+        <article class="module-block" id="${module.id}">
+          <div class="module-block-head">
+            <div style="min-width:0">
+              <div class="lesson-kicker">${module.code}</div>
+              <h3 class="lesson-title">${decorateEnglish(module.title)}</h3>
+              <div class="lesson-zh">${module.zhTitle}</div>
+              <p class="module-block-note">${decorateEnglish(module.summary)}</p>
+              <p class="module-block-note">${module.zhSummary}</p>
+              <ul class="pill-list" style="margin-top: 12px">
+                ${module.focus.map((item) => `<li>${decorateEnglish(item)}</li>`).join("")}
+              </ul>
+            </div>
+            <div style="display:grid; gap:8px; justify-items:end">
+              <div class="badge">${module.time}</div>
+              <button class="fav-toggle" data-fav data-fav-type="study-module" data-fav-id="${module.id}" data-fav-title="${escapeHtml(module.title)}" data-fav-note="${escapeHtml(module.zhSummary)}" type="button">☆ 收藏</button>
+              <div class="badge" style="background: rgba(211, 154, 57, 0.12); color: #9b6b15; border-color: rgba(211, 154, 57, 0.28)">${module.status}</div>
+            </div>
+          </div>
+          <div class="module-card-grid">
+            ${module.cards.map((card) => `
+              <article class="study-card">
+                <div class="study-kicker">${card.kicker}</div>
+                <h4>${decorateEnglish(card.titleEn)}</h4>
+                <div class="study-zh">${card.titleZh}</div>
+                <p>${decorateEnglish(card.summary)}</p>
+                <p>${card.summaryZh}</p>
+                <ul class="pill-list">
+                  ${card.mustKnow.map((item) => `<li><strong>EN:</strong> ${decorateEnglish(item.en)}<br><strong>中文:</strong> ${item.zh}</li>`).join("")}
+                </ul>
+                <footer>
+                  <strong>Exam trap / 考试陷阱：</strong> ${decorateEnglish(card.examTrap)}<br>
+                  <strong>Memory hook / 记忆钩子：</strong> ${decorateEnglish(card.memoryHook)}
+                </footer>
+              </article>
+            `).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderCourseRoadmap() {
+      roadmapGrid.innerHTML = courseModules.map((mod) => `
+        <article class="lesson-card" id="${mod.id}">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-kicker">${mod.code}</div>
+              <h3 class="lesson-title">${decorateEnglish(mod.title)}</h3>
+              <div class="lesson-zh">${mod.zhTitle}</div>
+            </div>
+            <div class="badge">${mod.time}</div>
+          </div>
+          <div class="card-actions">
+            <button class="fav-toggle" data-fav data-fav-type="module" data-fav-id="${mod.id}" data-fav-title="${escapeHtml(mod.title)}" data-fav-note="${escapeHtml(mod.zhSummary)}" type="button">☆ 收藏</button>
+          </div>
+          <p>${decorateEnglish(mod.summary)}</p>
+          <p>${mod.zhSummary}</p>
+          <ul class="pill-list">
+            ${mod.focus.map((item) => `<li>${decorateEnglish(item)}</li>`).join("")}
+          </ul>
+          <footer>
+            <strong>Status / 状态：</strong> ${mod.status}
+          </footer>
+        </article>
+      `).join("");
+    }
+
+    function renderPPT() {
+      pptStrip.innerHTML = pptSlides.map((slide) => `
+        <article class="ppt-slide">
+          <div class="deck-tag">${slide.tag}</div>
+          <h3>${decorateEnglish(slide.title)}</h3>
+          <ul class="ppt-lines">
+            ${slide.lines.map((line) => `
+              <li class="ppt-line">
+                <span class="en">${decorateEnglish(line.en)}</span>
+                <span class="zh">${line.zh}</span>
+              </li>
+            `).join("")}
+          </ul>
+          <div class="ppt-note">${decorateEnglish(slide.note)}</div>
+        </article>
+      `).join("");
+    }
+
+    function getVocab() {
+      return readStore(storageKeys.vocab);
+    }
+
+    function setVocab(list) {
+      writeStore(storageKeys.vocab, list);
+      renderVocab();
+    }
+
+    function renderVocab() {
+      const list = getVocab();
+      if (!list.length) {
+        vocabList.innerHTML = "<div class='vocab-item'>还没有词。先去课件页选一个难词，我会自动帮你记下来。</div>";
+        vocabFace.innerHTML = "先选中一个英文单词<small>Then your wordbook will fill itself up.</small>";
+        vocabHint.textContent = "你可以在课件页、重点卡或题目里直接选词。系统会自动记到单词本。";
+        activeVocabId = null;
+        return;
+      }
+
+      if (vocabIndex >= list.length) vocabIndex = 0;
+      const current = list[vocabIndex];
+      vocabFace.innerHTML = vocabSide === "en"
+        ? `${decorateEnglish(current.term)}<small>${current.note || current.zh || "点击翻面看中文"}</small>`
+        : `${escapeHtml(current.zh || current.note || "翻译中...")}<small>${escapeHtml(current.term)}</small>`;
+      vocabHint.textContent = `${list.length} 个词已保存。你可以翻面、上一词、下一词或随机切换。`;
+      activeVocabId = current.id;
+
+      vocabList.innerHTML = list.map((item, index) => `
+        <div class="vocab-item ${index === vocabIndex ? 'is-active' : ''}">
+          <b>${decorateEnglish(item.term)}</b>
+          <div>${escapeHtml(item.zh || item.note || "翻译中...")}</div>
+          <div class="meta">来源：${escapeHtml(item.source || "selection")} · ${escapeHtml(item.addedAt || "")}</div>
+          <div class="actions" style="margin-top:10px">
+            <button class="fav-toggle" data-vocab-jump="${item.id}" type="button">看这一词</button>
+            <button class="fav-toggle" data-vocab-delete="${item.id}" type="button">删除</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    async function hydrateVocabTranslations() {
+      const list = getVocab();
+      let changed = false;
+      for (const item of list) {
+        if (item.zh && item.zh !== "翻译中..." && item.zh !== "待补充") continue;
+        const translated = await lookupChinese(item.term);
+        item.zh = translated || item.term;
+        item.note = item.zh;
+        changed = true;
+      }
+      if (changed) {
+        writeStore(storageKeys.vocab, list);
+        renderVocab();
+      }
+    }
+
+    function updateVocabFace() {
+      renderVocab();
+    }
+
+    async function addVocab(term, zh, source = "selection") {
+      const clean = normalizeToken(term);
+      if (!clean) return;
+      const list = getVocab();
+      const id = clean.toLowerCase();
+      if (list.some((item) => item.id === id)) {
+        showToast(`已经在单词本里了：${clean}`);
+        return;
+      }
+      const matched = findGlossary(clean);
+      let resolvedZh = zh || matched?.zh || "翻译中...";
+      if (!zh && !matched?.zh) {
+        resolvedZh = "翻译中...";
+      }
+      const entry = {
+        id,
+        term: clean,
+        zh: resolvedZh,
+        source,
+        note: matched ? matched.zh : resolvedZh,
+        addedAt: new Date().toLocaleString()
+      };
+      list.unshift(entry);
+      setVocab(list);
+      vocabIndex = 0;
+      vocabSide = "en";
+      updateVocabFace();
+      showToast(`已加入单词本：${clean}`);
+
+      if (!matched?.zh || zh === "翻译中...") {
+        const translated = await lookupChinese(clean);
+        const nextZh = translated || clean;
+        const nextList = getVocab();
+        const nextIndex = nextList.findIndex((item) => item.id === id);
+        if (nextIndex >= 0) {
+          nextList[nextIndex] = {
+            ...nextList[nextIndex],
+            zh: nextZh,
+            note: nextZh
+          };
+          setVocab(nextList);
+          vocabIndex = nextIndex;
+          vocabSide = "en";
+          updateVocabFace();
+        }
+      }
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    function selectVocabById(id) {
+      const list = getVocab();
+      const index = list.findIndex((item) => item.id === id);
+      if (index >= 0) {
+        vocabIndex = index;
+        vocabSide = "en";
+        updateVocabFace();
+        showToast(`已切换到：${list[index].term}`);
+      }
+    }
+
+    function deleteVocab(id) {
+      const list = getVocab().filter((item) => item.id !== id);
+      setVocab(list);
+      if (vocabIndex >= list.length) vocabIndex = Math.max(0, list.length - 1);
+      updateVocabFace();
+    }
+
+    function handleSelectionCapture() {
+      const selection = window.getSelection();
+      if (!selection) return;
+      const raw = normalizeToken(selection.toString());
+      if (!raw || raw.length < 2 || raw.length > 40) return;
+      if (!/[A-Za-z]/.test(raw)) return;
+      if (raw.split(" ").length > 4) return;
+
+      const active = document.activeElement;
+      if (active && ["INPUT", "TEXTAREA"].includes(active.tagName)) return;
+
+      const termNode = selection.anchorNode?.parentElement?.closest?.(".term");
+      const zh = termNode?.getAttribute("data-zh") || findGlossary(raw)?.zh || "翻译中...";
+      addVocab(raw, zh);
+      selection.removeAllRanges();
+    }
+
+    function renderQuiz() {
+      quizGrid.innerHTML = quizQuestions.map((question, index) => `
+        <article class="question" data-question="${index}">
+          <div class="question-head">
+            <div>
+              <h4>${index + 1}. ${decorateEnglish(question.en)}</h4>
+              <p class="zh">${question.zh}</p>
+            </div>
+            <button class="fav-toggle" data-fav data-fav-type="question" data-fav-id="q${index}" data-fav-title="Q${index + 1}. ${escapeHtml(question.en)}" data-fav-note="${escapeHtml(question.why)}" type="button">☆ 收藏</button>
+          </div>
+          <div class="options">
+            ${question.options.map((option, optionIndex) => `
+              <div class="option">
+                <input type="radio" id="q${index}-${optionIndex}" name="q${index}" value="${optionIndex}">
+                <label for="q${index}-${optionIndex}">
+                  <strong>${String.fromCharCode(65 + optionIndex)}.</strong> ${decorateEnglish(option.en)}<br>
+                  <span style="color:#61766e">${option.zh}</span>
+                </label>
+              </div>
+            `).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60).toString().padStart(2, "0");
+      const s = (seconds % 60).toString().padStart(2, "0");
+      return `${m}:${s}`;
+    }
+
+    function startCountdown() {
+      if (timerRunning) return;
+      timerRunning = true;
+      startTimer.textContent = "计时中 / Running";
+      timerHandle = setInterval(() => {
+        timerSeconds = Math.max(timerSeconds - 1, 0);
+        timerValue.textContent = formatTime(timerSeconds);
+        if (timerSeconds === 0) {
+          clearInterval(timerHandle);
+          timerHandle = null;
+          timerRunning = false;
+          startTimer.textContent = "重新开始 / Restart";
+        }
+      }, 1000);
+    }
+
+    function stopCountdown() {
+      if (timerHandle) {
+        clearInterval(timerHandle);
+        timerHandle = null;
+      }
+      timerRunning = false;
+      startTimer.textContent = "开始计时 / Start";
+      timerSeconds = 25 * 60;
+      timerValue.textContent = formatTime(timerSeconds);
+    }
+
+    function grade() {
+      let score = 0;
+      const reviewHtml = [];
+      const wrongEntries = [];
+
+      quizQuestions.forEach((question, index) => {
+        const chosen = document.querySelector(`input[name="q${index}"]:checked`);
+        const card = document.querySelector(`[data-question="${index}"]`);
+        const picked = chosen ? Number(chosen.value) : null;
+        const correct = picked === question.answer;
+
+        card.classList.remove("correct", "wrong");
+        card.classList.add(correct ? "correct" : "wrong");
+
+        if (correct) score += 1;
+        if (!correct) {
+          wrongEntries.push({
+            id: `q${index}`,
+            title: `${index + 1}. ${question.en}`,
+            explanation: question.why
+          });
+        }
+
+        reviewHtml.push(`
+          <div class="review-item">
+            <b>${index + 1}. ${correct ? "Correct / 对了" : "Review / 需要回看"}</b>
+            <div>${decorateEnglish(question.en)}</div>
+            <div style="margin-top:4px;color:rgba(255,255,255,0.84)">${question.zh}</div>
+            <div style="margin-top:8px"><strong>Answer:</strong> ${String.fromCharCode(65 + question.answer)}. ${decorateEnglish(question.options[question.answer].en)}</div>
+            <div style="margin-top:6px"><strong>解释：</strong> ${decorateEnglish(question.why)}</div>
+          </div>
+        `);
+      });
+
+      const pct = Math.round((score / quizQuestions.length) * 100);
+      const band = score >= 10 ? "Very strong / 很稳" : score >= 7 ? "Close / 继续冲" : "Needs review / 先补重点";
+      quizResult.innerHTML = `
+        <h3>Score / 分数：${score} / ${quizQuestions.length} (${pct}%)</h3>
+        <p>${band}. 先看你错的题，再回 Lesson 1, 2, 4, 5 重点卡，效果最好。</p>
+        <div class="review">${reviewHtml.join("")}</div>
+      `;
+      quizResult.classList.add("show");
+      saveWrongBook(wrongEntries);
+      quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function reset() {
+      document.querySelectorAll('input[type="radio"]').forEach((input) => { input.checked = false; });
+      document.querySelectorAll(".question").forEach((card) => card.classList.remove("correct", "wrong"));
+      quizResult.classList.remove("show");
+      quizResult.innerHTML = "";
+      stopCountdown();
+    }
+
+    function wireNotebookActions() {
+      document.body.addEventListener("click", (event) => {
+        const panelButton = event.target.closest("[data-panel-target]");
+        if (panelButton) {
+          setPanel(panelButton.getAttribute("data-panel-target"));
+          return;
+        }
+
+        const favButton = event.target.closest("[data-fav]");
+        if (favButton) {
+          const type = favButton.getAttribute("data-fav-type");
+          const id = favButton.getAttribute("data-fav-id");
+          const title = favButton.getAttribute("data-fav-title") || id;
+          const note = favButton.getAttribute("data-fav-note") || "";
+          toggleFavorite(type, id, title, note);
+          return;
+        }
+
+        const removeButton = event.target.closest("[data-remove-fav]");
+        if (removeButton) {
+          const [type, id] = removeButton.getAttribute("data-remove-fav").split(":");
+          const list = readStore(storageKeys.favorites).filter((item) => !(item.type === type && item.id === id));
+          writeStore(storageKeys.favorites, list);
+          renderFavorites();
+          syncFavoriteButtons();
+          return;
+        }
+
+        const jumpButton = event.target.closest("[data-vocab-jump]");
+        if (jumpButton) {
+          selectVocabById(jumpButton.getAttribute("data-vocab-jump"));
+          return;
+        }
+
+        const deleteButton = event.target.closest("[data-vocab-delete]");
+        if (deleteButton) {
+          deleteVocab(deleteButton.getAttribute("data-vocab-delete"));
+          return;
+        }
+      });
+    }
+
+    function wireVocabControls() {
+      vocabPrev.addEventListener("click", () => {
+        const list = getVocab();
+        if (!list.length) return;
+        vocabIndex = (vocabIndex - 1 + list.length) % list.length;
+        vocabSide = "en";
+        updateVocabFace();
+      });
+
+      vocabNext.addEventListener("click", () => {
+        const list = getVocab();
+        if (!list.length) return;
+        vocabIndex = (vocabIndex + 1) % list.length;
+        vocabSide = "en";
+        updateVocabFace();
+      });
+
+      vocabFlip.addEventListener("click", () => {
+        vocabSide = vocabSide === "en" ? "zh" : "en";
+        updateVocabFace();
+      });
+
+      vocabShuffle.addEventListener("click", () => {
+        const list = getVocab();
+        if (!list.length) return;
+        vocabIndex = Math.floor(Math.random() * list.length);
+        vocabSide = "en";
+        updateVocabFace();
+      });
+
+      clearVocab.addEventListener("click", () => {
+        localStorage.removeItem(storageKeys.vocab);
+        vocabIndex = 0;
+        vocabSide = "en";
+        renderVocab();
+      });
+    }
+
+    renderLessons();
+    renderCourseRoadmap();
+    renderModuleStudyCards();
+    renderPPT();
+    renderQuiz();
+    renderFavorites();
+    renderWrongBook();
+    renderVocab();
+    hydrateVocabTranslations();
+    wireNotebookActions();
+    wireVocabControls();
+    timerValue.textContent = formatTime(timerSeconds);
+    syncFavoriteButtons();
+    setPanel("lessons", { scroll: false });
+    void primeWordTranslations(document.querySelector('section.section[data-panel="lessons"]'));
+
+    startTimer.addEventListener("click", startCountdown);
+    gradeQuiz.addEventListener("click", grade);
+    resetQuiz.addEventListener("click", reset);
+    clearNotebook.addEventListener("click", () => {
+      localStorage.removeItem(storageKeys.favorites);
+      localStorage.removeItem(storageKeys.wrongBook);
+      renderFavorites();
+      renderWrongBook();
+      syncFavoriteButtons();
+    });
+
+    document.addEventListener("mouseup", handleSelectionCapture);
+    document.addEventListener("keyup", handleSelectionCapture);
+  </script>
+</body>
+</html>
