@@ -988,6 +988,19 @@
       gap: 10px;
     }
 
+    .lesson-page-nav-top {
+      position: sticky;
+      top: 12px;
+      z-index: 12;
+      padding: 12px;
+      margin: 0 -2px;
+      border-radius: 22px;
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      background: linear-gradient(180deg, rgba(244, 239, 230, 0.97), rgba(244, 239, 230, 0.9));
+      box-shadow: 0 14px 32px rgba(13, 32, 25, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
     .lesson-page-nav-bottom {
       margin-top: 2px;
       padding-top: 2px;
@@ -996,6 +1009,8 @@
 
     .lesson-page-nav .btn {
       padding-inline: 16px;
+      flex: 1 1 180px;
+      min-width: 0;
     }
 
     .lesson-page-columns {
@@ -1751,6 +1766,9 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+      }
+      .lesson-page-nav-top {
+        top: 8px;
       }
       .lesson-page-nav .btn,
       .lesson-page-nav .fav-toggle {
@@ -4130,10 +4148,10 @@
               <p>${lesson.summaryZh}</p>
             </div>
             <div class="lesson-page-shell">
-              <div class="lesson-page-nav">
-                <button class="btn btn-secondary" type="button" data-panel-target="lessons">回到 Module 1 总览</button>
-                ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">上一课</button>` : ""}
-                ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">下一课</button>` : ""}
+              <div class="lesson-page-nav lesson-page-nav-top">
+                ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous page / 上一页</button>` : ""}
+                <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map / 返回总览</button>
+                ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next page → / 下一页</button>` : ""}
                 <button class="btn btn-secondary" type="button" data-lesson-complete="${lesson.id}">${isLessonCompleted(lesson.id) ? "Completed / 已完成" : "Mark completed / 标记完成"}</button>
                 <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
               </div>
@@ -4237,9 +4255,9 @@
                   </div>
                 </div>
                 <div class="lesson-page-nav lesson-page-nav-bottom">
-                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous page</button>` : ""}
-                  <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map</button>
-                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next page →</button>` : ""}
+                  ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">← Previous page / 上一页</button>` : ""}
+                  <button class="btn btn-secondary" type="button" data-panel-target="lessons">Back to Lesson Map / 返回总览</button>
+                  ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">Next page → / 下一页</button>` : ""}
                   <a class="btn btn-secondary" href="https://www.passit.ca/" target="_blank" rel="noreferrer">Go to Passit Practice</a>
                 </div>
               </article>
