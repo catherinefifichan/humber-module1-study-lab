@@ -600,6 +600,143 @@
       gap: 16px;
     }
 
+    .lesson-overview-card {
+      grid-column: 1 / -1;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+    }
+
+    .lesson-overview-head {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .lesson-overview-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .lesson-index-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .lesson-index-card {
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(16, 37, 31, 0.04);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 210px;
+    }
+
+    .lesson-index-card .lesson-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .lesson-page-shell {
+      display: grid;
+      gap: 16px;
+      padding: 18px 28px 28px;
+    }
+
+    .lesson-page-card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(13, 32, 25, 0.06);
+      display: grid;
+      gap: 18px;
+    }
+
+    .lesson-page-head {
+      display: grid;
+      gap: 12px;
+    }
+
+    .lesson-page-head h2 {
+      font-size: clamp(1.6rem, 2vw, 2.3rem);
+      margin: 0;
+      line-height: 1.12;
+    }
+
+    .lesson-page-zh {
+      font-weight: 700;
+      color: #264a3d;
+      margin-top: -2px;
+    }
+
+    .lesson-page-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .lesson-page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .lesson-page-nav .btn {
+      padding-inline: 16px;
+    }
+
+    .lesson-page-columns {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+
+    .lesson-page-block {
+      border-radius: 20px;
+      background: rgba(16, 37, 31, 0.035);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .lesson-page-block h4 {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .lesson-page-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .lesson-page-block ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      line-height: 1.55;
+      color: #29463a;
+    }
+
+    .lesson-page-details {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
     .study-stack {
       display: grid;
       gap: 18px;
@@ -1133,7 +1270,7 @@
       .hero { padding-top: 20px; padding-bottom: 22px; }
       .section-header { padding-top: 18px; }
       .stat-grid, .mini-grid { grid-template-columns: 1fr; }
-      .lesson-detail-grid { grid-template-columns: 1fr; }
+      .lesson-index-grid, .lesson-page-columns, .lesson-page-details { grid-template-columns: 1fr; }
       .actions { flex-direction: column; }
       .btn { width: 100%; }
       .top-nav {
@@ -1227,8 +1364,7 @@
       <div class="section-header">
         <h2>Module 1 重点总览 / Lesson Map</h2>
         <p>
-          下面的内容是按 Humber Course 1, Module 1 的 lesson 结构整理的。
-          我把它做成「英文标题 + 中文提示 + 必背考点 + 常见出题陷阱」，方便你边看边背。
+          这里是 Module 1 的总入口。先从总览页挑一课，再进入单课页慢慢看，这样不会一屏塞太多内容。
         </p>
       </div>
       <div class="roadmap">
@@ -1241,13 +1377,15 @@
               <li><a href="#lesson-3">Lesson 3 · Skills Used by a Salesperson</a></li>
               <li><a href="#lesson-4">Lesson 4 · Role, Tasks, and Activities</a></li>
               <li><a href="#lesson-5">Lesson 5 · Remuneration and Budgeting</a></li>
-              <li><a href="#lesson-6">Module Summary · 模块总结</a></li>
+              <li><a href="#lesson-6">Lesson 6 · Module Summary</a></li>
             </ol>
           </aside>
           <div class="lesson-grid" id="lessonGrid"></div>
         </div>
       </div>
     </section>
+
+    <div id="lessonPages"></div>
 
     <section class="section" id="module2" data-panel="module2">
       <div class="section-header">
@@ -2634,6 +2772,7 @@
     ];
 
     const lessonGrid = document.getElementById("lessonGrid");
+    const lessonPages = document.getElementById("lessonPages");
     const moduleStudyGrid = document.getElementById("moduleStudyGrid");
     const roadmapGrid = document.getElementById("roadmapGrid");
     const pptStrip = document.getElementById("pptStrip");
@@ -2655,8 +2794,13 @@
     const vocabShuffle = document.getElementById("vocabShuffle");
     const clearVocab = document.getElementById("clearVocab");
     const toast = document.getElementById("toast");
-    const panelButtons = Array.from(document.querySelectorAll("[data-panel-target]"));
-    const panelSections = Array.from(document.querySelectorAll("section.section[data-panel]"));
+    function getPanelButtons() {
+      return Array.from(document.querySelectorAll("[data-panel-target]"));
+    }
+
+    function getPanelSections() {
+      return Array.from(document.querySelectorAll("section.section[data-panel]"));
+    }
 
     let timerSeconds = 25 * 60;
     let timerHandle = null;
@@ -2705,8 +2849,14 @@
     }
 
     function setPanel(panel, options = {}) {
-      const target = panel || "lessons";
+      let target = panel || "lessons";
       const showAll = target === "all";
+      const panelButtons = getPanelButtons();
+      const panelSections = getPanelSections();
+      const availablePanels = new Set(panelSections.map((section) => section.getAttribute("data-panel")));
+      if (target !== "all" && !availablePanels.has(target)) {
+        target = "lessons";
+      }
       panelSections.forEach((section) => {
         const visible = showAll || section.getAttribute("data-panel") === target;
         section.classList.toggle("is-visible", visible);
@@ -2714,6 +2864,13 @@
       panelButtons.forEach((button) => {
         button.classList.toggle("is-active", button.getAttribute("data-panel-target") === target);
       });
+      if (options.updateHash !== false) {
+        if (target === "lessons") {
+          history.replaceState(null, "", "#lessons");
+        } else if (target !== "all") {
+          history.replaceState(null, "", `#${target}`);
+        }
+      }
       if (options.scroll !== false) {
         const destination = showAll ? document.getElementById("home") : panelSections.find((section) => section.getAttribute("data-panel") === target);
         if (destination) {
@@ -2949,41 +3106,104 @@
     }
 
     function renderLessons() {
-      lessonGrid.innerHTML = lessons.map((lesson) => `
-        <article class="lesson-card" id="${lesson.id}">
-          <div class="lesson-top">
-            <div>
-              <div class="lesson-kicker">${lesson.number}</div>
-              <h3 class="lesson-title">${decorateEnglish(lesson.titleEn)}</h3>
-              <div class="lesson-zh">${lesson.titleZh}</div>
-            </div>
-            <div class="badge">${lesson.badge}</div>
+      lessonGrid.innerHTML = `
+        <article class="lesson-overview-card">
+          <div class="lesson-overview-head">
+            <div class="lesson-kicker">Module 1 Overview / 模块 1 总览</div>
+            <h3 class="lesson-title">先选一课，再进入单课页</h3>
+            <div class="lesson-zh">总览页只保留入口，所有细节已经拆到每一课自己的页面里。</div>
+            <p>你可以先看这张导航图，再点进 Lesson 1 到 Lesson 6。每一页都保留英文、中文、必背点、考试陷阱和记忆钩子，但不会再挤在同一屏。</p>
           </div>
-          <div class="card-actions">
-            <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
-          </div>
-          <p>${decorateEnglish(lesson.summary)}</p>
-          <p>${lesson.summaryZh}</p>
-          <ul class="pill-list">
-            ${lesson.mustKnow.map((item) => `<li><strong>EN:</strong> ${decorateEnglish(item.en)}<br><strong>中文:</strong> ${item.zh}</li>`).join("")}
-          </ul>
-          ${lesson.details?.length ? `
-            <div class="lesson-detail-grid">
-              ${lesson.details.map((item) => `
-                <div class="lesson-detail">
-                  <b>${escapeHtml(item.titleEn)}<br>${escapeHtml(item.titleZh)}</b>
-                  <p>${decorateEnglish(item.en)}</p>
-                  <p style="margin-top:6px;color:#355146">${escapeHtml(item.zh)}</p>
+          <div class="lesson-index-grid">
+            ${lessons.map((lesson, index) => `
+              <article class="lesson-index-card" id="${lesson.id}-index">
+                <div class="lesson-top">
+                  <div>
+                    <div class="lesson-kicker">${lesson.number}</div>
+                    <h3 class="lesson-title">${decorateEnglish(lesson.titleEn)}</h3>
+                    <div class="lesson-zh">${lesson.titleZh}</div>
+                  </div>
+                  <div class="badge">${lesson.badge}</div>
                 </div>
-              `).join("")}
-            </div>
-          ` : ""}
-          <footer>
-            <strong>Exam trap / 考试陷阱：</strong> ${decorateEnglish(lesson.examTrap)}<br>
-            <strong>Memory hook / 记忆钩子：</strong> ${decorateEnglish(lesson.memoryHook)}
-          </footer>
+                <p>${decorateEnglish(lesson.summary)}</p>
+                <p>${lesson.summaryZh}</p>
+                <div class="lesson-actions">
+                  <button class="btn btn-primary" type="button" data-panel-target="${lesson.id}">打开单课页</button>
+                  <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
+                </div>
+              </article>
+            `).join("")}
+          </div>
         </article>
-      `).join("");
+      `;
+    }
+
+    function renderLessonPages() {
+      if (!lessonPages) return;
+      lessonPages.innerHTML = lessons.map((lesson, index) => {
+        const prevLesson = lessons[index - 1];
+        const nextLesson = lessons[index + 1];
+        return `
+          <section class="section" id="${lesson.id}" data-panel="${lesson.id}">
+            <div class="section-header lesson-page-head">
+              <div class="lesson-page-meta">
+                <div class="badge">Page ${index + 1} / ${lessons.length}</div>
+                <div class="badge">${escapeHtml(lesson.badge)}</div>
+              </div>
+              <h2>${decorateEnglish(lesson.titleEn)}</h2>
+              <div class="lesson-page-zh">${lesson.titleZh}</div>
+              <p>${decorateEnglish(lesson.summary)}</p>
+              <p>${lesson.summaryZh}</p>
+            </div>
+            <div class="lesson-page-shell">
+              <div class="lesson-page-nav">
+                <button class="btn btn-secondary" type="button" data-panel-target="lessons">回到 Module 1 总览</button>
+                ${prevLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${prevLesson.id}">上一课</button>` : ""}
+                ${nextLesson ? `<button class="btn btn-secondary" type="button" data-panel-target="${nextLesson.id}">下一课</button>` : ""}
+                <button class="fav-toggle" data-fav data-fav-type="lesson" data-fav-id="${lesson.id}" data-fav-title="${escapeHtml(lesson.titleEn)}" data-fav-note="${escapeHtml(lesson.summaryZh)}" type="button">☆ 收藏</button>
+              </div>
+              <article class="lesson-page-card">
+                <div class="lesson-page-columns">
+                  <div class="lesson-page-block">
+                    <h4>Must know / 必背点</h4>
+                    <ul>
+                      ${lesson.mustKnow.map((item) => `<li><strong>EN:</strong> ${decorateEnglish(item.en)}<br><strong>中文:</strong> ${escapeHtml(item.zh)}</li>`).join("")}
+                    </ul>
+                  </div>
+                  <div class="lesson-page-block">
+                    <h4>Exam hook / 考试抓手</h4>
+                    <p>${decorateEnglish(lesson.examTrap)}</p>
+                    <p>${decorateEnglish(lesson.memoryHook)}</p>
+                  </div>
+                </div>
+                <div class="lesson-page-details">
+                  ${lesson.details.map((item) => `
+                    <div class="lesson-page-block">
+                      <h4>${escapeHtml(item.titleEn)}<br>${escapeHtml(item.titleZh)}</h4>
+                      <p>${decorateEnglish(item.en)}</p>
+                      <p>${escapeHtml(item.zh)}</p>
+                    </div>
+                  `).join("")}
+                </div>
+                <div class="lesson-page-columns">
+                  <div class="lesson-page-block">
+                    <h4>What this page helps you do / 这页帮你做到什么</h4>
+                    <p>${decorateEnglish(lesson.summary)}</p>
+                    <p>${lesson.summaryZh}</p>
+                  </div>
+                  <div class="lesson-page-block">
+                    <h4>Quick recall / 快速回忆</h4>
+                    <ul>
+                      <li>${decorateEnglish(lesson.memoryHook)}</li>
+                      <li>${decorateEnglish(lesson.examTrap)}</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        `;
+      }).join("");
     }
 
     function renderModuleStudyCards() {
@@ -3415,6 +3635,7 @@
     }
 
     renderLessons();
+    renderLessonPages();
     renderCourseRoadmap();
     renderModuleStudyCards();
     renderPPT();
@@ -3427,8 +3648,14 @@
     wireVocabControls();
     timerValue.textContent = formatTime(timerSeconds);
     syncFavoriteButtons();
-    setPanel("lessons", { scroll: false });
-    void primeWordTranslations(document.querySelector('section.section[data-panel="lessons"]'));
+    const initialPanel = location.hash ? location.hash.replace(/^#/, "") : "lessons";
+    setPanel(initialPanel, { scroll: false, updateHash: false });
+    void primeWordTranslations(document.querySelector(`section.section[data-panel="${initialPanel === "all" ? "lessons" : initialPanel}"]`) || document);
+
+    window.addEventListener("hashchange", () => {
+      const panel = location.hash.replace(/^#/, "") || "lessons";
+      setPanel(panel, { scroll: false, updateHash: false });
+    });
 
     startTimer.addEventListener("click", startCountdown);
     gradeQuiz.addEventListener("click", grade);
