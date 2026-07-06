@@ -794,7 +794,7 @@
     }
 
     async function boot() {
-      const res = await fetch('./course-data.json?v=20260706', { cache: 'no-store' });
+      const res = await fetch('./course-data.json?v=20260706-1', { cache: 'no-store' });
       dataCache = await res.json();
       const freshQuestions = shuffle((dataCache.quizQuestions || []).map(prepareQuestion));
       if (!freshQuestions.length) {
