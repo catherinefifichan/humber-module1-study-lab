@@ -421,6 +421,61 @@
       margin-top: 14px;
     }
 
+    .vocab-controls {
+      display: grid;
+      gap: 12px;
+      margin: 14px 0 12px;
+    }
+
+    .vocab-mode-switch,
+    .vocab-batch-nav,
+    .vocab-mastery-row,
+    .vocab-test-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .vocab-batch-nav {
+      justify-content: space-between;
+    }
+
+    .seg-btn {
+      appearance: none;
+      border: 1px solid rgba(16, 37, 31, 0.14);
+      background: rgba(255, 255, 255, 0.78);
+      color: #183029;
+      border-radius: 999px;
+      padding: 11px 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .seg-btn.is-active {
+      background: rgba(28, 124, 93, 0.12);
+      border-color: rgba(28, 124, 93, 0.24);
+      color: var(--green-2);
+    }
+
+    .vocab-batch-info,
+    .vocab-stats,
+    .test-score {
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(16, 37, 31, 0.06);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      color: #234238;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .vocab-stats {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
     .vocab-review {
       border-radius: 22px;
       padding: 18px;
@@ -452,11 +507,98 @@
       margin-top: 12px;
     }
 
+    .vocab-test {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(16, 37, 31, 0.06);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .vocab-test-head h4 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .vocab-test-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .vocab-test-panel {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(16, 37, 31, 0.08);
+    }
+
+    .test-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .test-card .word {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      line-height: 1.1;
+      color: #13251f;
+    }
+
+    .test-card .prompt {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .test-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .test-option {
+      width: 100%;
+      justify-content: flex-start;
+      text-align: left;
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid rgba(16, 37, 31, 0.12);
+      color: #17312a;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .test-option.is-correct {
+      border-color: rgba(28, 124, 93, 0.32);
+      background: rgba(28, 124, 93, 0.08);
+    }
+
+    .test-option.is-wrong {
+      border-color: rgba(180, 63, 63, 0.32);
+      background: rgba(180, 63, 63, 0.08);
+    }
+
+    .test-feedback {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
     .vocab-item {
       border-radius: 18px;
       padding: 12px 14px;
       background: rgba(16, 37, 31, 0.04);
       border: 1px solid rgba(16, 37, 31, 0.08);
+    }
+
+    .vocab-item.is-active {
+      background: rgba(28, 124, 93, 0.08);
+      border-color: rgba(28, 124, 93, 0.18);
     }
 
     .vocab-item b {
@@ -469,6 +611,19 @@
       font-size: 0.88rem;
       color: #5d726a;
       margin-top: 8px;
+    }
+
+    .mastery-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: rgba(28, 124, 93, 0.1);
+      color: var(--green-2);
     }
 
     .toast {
@@ -1423,8 +1578,8 @@
         <div class="exam-card">
           <h3>Official info / 官方信息</h3>
           <p>
-            Humber 的 Course 1, Exam 1 是 <strong>invigilated theory exam</strong>，
-            时长为 <strong>2 hours</strong>。考试费用会变，建议以 Humber / Meazure 当前官方页面为准；
+            RECO 的 Course 1, Exam 1 是 <strong>two-hour theory exam</strong>，
+            考试现在由 <strong>Meazure Learning</strong> 承接。费用会变，建议以 Humber / RECO 当前官方页面为准；
             课程说明写明它覆盖 Course 1 的内容。
           </p>
           <div class="mini-grid">
@@ -1521,13 +1676,16 @@
       <div class="footer">
         <strong>Source notes / 来源说明</strong>
         <p class="fineprint">
-          这个站点是我根据 Humber 官方课程路径、考试信息页和公开课程预览整理出来的学习版，
-          用来帮你复习，不是官方试卷。考试细节如果 Humber 更新了，以官方页面为准。
+          这个站点是我根据 Humber 的官方课程路径、RECO 的官方预注册和考试页面，以及公开课程预览整理出来的学习版，
+          用来帮你复习，不是官方试卷。考试细节如果 Humber 或 RECO 更新了，以官方页面为准。
         </p>
         <div class="sources">
           <a href="https://humber.ca/realestateeducation/programs/real-estate-salesperson/learning-path" target="_blank" rel="noreferrer">Humber Real Estate Salesperson Program Learning Path</a>
           <a href="https://humber.ca/realestateeducation/programs/real-estate-salesperson/fees" target="_blank" rel="noreferrer">Humber Real Estate Salesperson Program Fees</a>
           <a href="https://realestateprograms.humber.ca/search/publicCourseSearchDetails.do?courseId=17706&method=load" target="_blank" rel="noreferrer">PREX-1010A Exam 1: Invigilated Theory Exam</a>
+          <a href="https://www.reco.on.ca/learners/becoming-a-real-estate-agent" target="_blank" rel="noreferrer">RECO Real Estate Salesperson Program: Pre-Registration</a>
+          <a href="https://www.reco.on.ca/learners/examinations" target="_blank" rel="noreferrer">RECO Real Estate Exams: Transition to Meazure Learning</a>
+          <a href="https://www.reco.on.ca/agents-and-brokerages/tresa-explained" target="_blank" rel="noreferrer">RECO TRESA Explained</a>
           <a href="https://dokumen.pub/course-1-real-estate-essentials-humber-real-estate-education-7nbsped.html" target="_blank" rel="noreferrer">Public course preview used for lesson structure</a>
           <a href="https://www.studocu.com/en-ca/document/humber-polytechnic/real-estate-salesperson/real-estate-module-1-none/74836886" target="_blank" rel="noreferrer">Public module preview used for lesson wording</a>
         </div>
@@ -1545,6 +1703,18 @@
       <div class="vocab-shell">
         <div class="vocab-card">
           <h3>Review Card / 复习卡</h3>
+          <div class="vocab-controls">
+            <div class="vocab-mode-switch" role="tablist" aria-label="Vocabulary mode">
+              <button class="seg-btn is-active" type="button" data-vocab-mode="study">10词学习</button>
+              <button class="seg-btn" type="button" data-vocab-mode="test">测试模式</button>
+            </div>
+            <div class="vocab-batch-nav">
+              <button class="seg-btn" id="vocabBatchPrev" type="button">上一组</button>
+              <div class="vocab-batch-info" id="vocabBatchInfo">第 1 组 / 每组 10 个</div>
+              <button class="seg-btn" id="vocabBatchNext" type="button">下一组</button>
+            </div>
+          </div>
+          <div class="vocab-stats" id="vocabStats"></div>
           <div class="vocab-review" id="vocabReview">
             <div class="vocab-face" id="vocabFace">先选中一个英文单词</div>
             <div id="vocabHint" style="color:rgba(245,242,234,0.74);line-height:1.6">
@@ -1556,11 +1726,32 @@
               <button class="btn btn-secondary" id="vocabNext" type="button">下一词</button>
               <button class="btn btn-secondary" id="vocabShuffle" type="button">随机</button>
             </div>
+            <div class="vocab-mastery-row">
+              <button class="seg-btn" id="vocabMasteryHard" type="button">还不会</button>
+              <button class="seg-btn" id="vocabMasteryMaybe" type="button">有点熟</button>
+              <button class="seg-btn" id="vocabMasteryEasy" type="button">认识了</button>
+            </div>
+          </div>
+          <div class="vocab-test" id="vocabTest">
+            <div class="vocab-test-head">
+              <h4>Test / 当前组测试</h4>
+              <p id="vocabTestMeta">先点“开始测试”，我会拿当前 10 词出题。</p>
+            </div>
+            <div class="test-score" id="vocabTestScore">0 / 0</div>
+            <div class="vocab-test-panel" id="vocabQuizPanel">
+              还没有开始测试。选好一组后点“开始测试”。
+            </div>
+            <div class="vocab-test-actions">
+              <button class="btn btn-secondary" id="startVocabTest" type="button">开始测试</button>
+              <button class="btn btn-secondary" id="nextVocabQuestion" type="button">下一题</button>
+              <button class="btn btn-secondary" id="finishVocabTest" type="button">交卷</button>
+              <button class="btn btn-secondary" id="resetVocabTest" type="button">重置</button>
+            </div>
           </div>
         </div>
         <div class="vocab-card">
           <h3>My Wordbook / 我的单词本</h3>
-          <p>这里会显示你点过的词，复习时先看英语，再翻到中文解释。</p>
+          <p>这里会显示你点过的词，按掌握度自动排到 10 词一组。每个词都会带中文解释和掌握状态。</p>
           <div class="vocab-list" id="vocabList"></div>
           <div class="actions" style="margin-top:14px">
             <button class="btn btn-secondary" id="clearVocab" type="button">清空单词本</button>
@@ -1581,9 +1772,9 @@
         titleZh: "监管环境",
         badge: "Law + Ethics",
         summary: "This lesson is the legal foundation of the module. It introduces TRESA, the Code of Ethics, RECO, and the key professional roles in a transaction.",
-        summaryZh: "这一课是整个模块的法律底座：TRESA、Code of Ethics、RECO，以及交易中各角色的关系。",
+        summaryZh: "这一课是整个模块的法律底座：TRESA（Trust in Real Estate Services Act, 2002）、Code of Ethics、RECO，以及交易中各角色的关系。",
         mustKnow: [
-          { en: "TRESA regulates real estate trading in Ontario.", zh: "TRESA 监管安省的房地产交易。" },
+          { en: "TRESA (Trust in Real Estate Services Act, 2002) regulates real estate trading in Ontario.", zh: "TRESA（Trust in Real Estate Services Act, 2002）监管安省的房地产交易。" },
           { en: "RECO administers TRESA on behalf of the provincial government.", zh: "RECO 代表省政府执行 TRESA。" },
           { en: "A registrant is any individual or brokerage registered to trade in real estate.", zh: "registrant 指任何已注册从事房地产交易的个人或 brokerage。" },
           { en: "The Code of Ethics sets minimum standards for fairness, honesty, and competence.", zh: "Code of Ethics 规定公平、诚实和专业能力等最低标准。" }
@@ -1617,13 +1808,13 @@
         titleEn: "Education and Registration Requirements",
         titleZh: "教育与注册要求",
         badge: "Process",
-        summary: "This lesson explains the path to becoming registered and the ongoing obligations after registration.",
-        summaryZh: "这一课讲注册路径，以及注册后还要继续做什么。",
+        summary: "This lesson explains the pre-registration path into the profession and keeps post-registration education as a separate step.",
+        summaryZh: "这一课讲进入职业前的预注册路径，同时把注册后的继续教育单独分开。RECO 的官方说明是：从你开始第一门课起，预注册阶段要在 24 个月内完成。",
         mustKnow: [
           { en: "Complete the education requirements first.", zh: "先完成教育要求。" },
           { en: "Register with RECO once employed by a brokerage.", zh: "受雇于 brokerage 后向 RECO 注册。" },
           { en: "Purchase the required insurance coverage through the RECO insurance program.", zh: "购买 RECO 保险项目要求的保险。" },
-          { en: "Complete the pre-registration education requirements within the 24-month window.", zh: "在 24 个月的预注册窗口内完成课程要求。" }
+          { en: "Complete the pre-registration education phase within 24 months from the day you begin your first course.", zh: "从开始第一门课起 24 个月内完成预注册阶段。" }
         ],
         details: [
           {
@@ -1892,7 +2083,7 @@
           { en: "No time limit", zh: "没有时间限制" }
         ],
         answer: 0,
-        why: "Humber lists Exam 1 as a two-hour invigilated theory exam. / Humber 官方写的是 2 小时的监考理论考试。"
+        why: "RECO lists Course 1 Exam 1 as a two-hour theory exam. / RECO 官方把 Course 1 Exam 1 写成 2 小时理论考试。"
       },
       {
         en: "Which role has ultimate responsibility for the brokerage’s operations?",
@@ -1949,7 +2140,11 @@
       wrongBook: "humber-study-wrongbook",
       vocab: "humber-study-vocab",
       translationCache: "humber-study-translation-cache",
-      extraGlossary: "humber-study-extra-glossary"
+      extraGlossary: "humber-study-extra-glossary",
+      vocabMode: "humber-study-vocab-mode",
+      vocabBatchIndex: "humber-study-vocab-batch-index",
+      vocabMastery: "humber-study-vocab-mastery",
+      vocabTestState: "humber-study-vocab-test-state"
     };
 
     const officialModule1Url = "https://humbercorporate.blackboard.com/ultra/courses/_1368_1/outline/scorm/overview/_23590_1?courseId=_1368_1";
@@ -1958,8 +2153,8 @@
     });
 
     const glossary = [
-      { term: "TRESA", zh: "安省房地产商业法，监管房地产交易" },
-      { term: "RECO", zh: "安省房地产委员会，负责执行 TRESA" },
+      { term: "TRESA", zh: "Trust in Real Estate Services Act, 2002（安省房地产服务法）" },
+      { term: "RECO", zh: "Real Estate Council of Ontario（安省房地产委员会）" },
       { term: "Code of Ethics", zh: "职业道德准则" },
       { term: "registrant", zh: "已注册从业者或 brokerage" },
       { term: "brokerage", zh: "经纪公司" },
@@ -2009,7 +2204,7 @@
       { term: "land registry", zh: "土地登记系统" },
       { term: "POLARIS", zh: "安省土地登记电子系统" },
       { term: "survey", zh: "测量图 / 地籍测量" },
-      { term: "TRESA", zh: "安省房地产服务法" },
+      { term: "TRESA", zh: "Trust in Real Estate Services Act, 2002（安省房地产服务法）" },
       { term: "disclosure", zh: "披露" },
       { term: "supervision", zh: "监督管理" },
       { term: "misrepresentation", zh: "虚假陈述" },
@@ -2192,8 +2387,8 @@
             titleEn: "Trading Language",
             titleZh: "交易语言",
             badge: "Core",
-            summary: "Learn the words that show up when a property changes hands or changes use. Public study notes keep pointing back to acquisition, disposition, sale, purchase, exchange, option, lease, and rental.",
-            summaryZh: "先把“交易语言”吃透，因为公开备考笔记一直在强调 acquisition、disposition、sale、purchase、exchange、option、lease、rental 这些词。",
+            summary: "Learn the words that show up when a property changes hands or changes use. Study notes keep pointing back to acquisition, disposition, sale, purchase, exchange, option, lease, and rental.",
+            summaryZh: "先把“交易语言”吃透，因为学习资料一直在强调 acquisition、disposition、sale、purchase、exchange、option、lease、rental 这些词。",
             mustKnow: [
               { en: "Trade is broader than just buy and sell.", zh: "trade 不只是买卖，还包括更广的交易行为。" },
               { en: "An option gives a right, not an obligation.", zh: "option 是权利，不是义务。" },
@@ -2222,8 +2417,8 @@
             titleEn: "Industry Organizations and Oversight",
             titleZh: "行业机构与监管",
             badge: "Regulation",
-            summary: "Public notes often pair the official regulator with industry bodies. Keep the hierarchy clear: who regulates, who represents the profession, and who sets the legal floor.",
-            summaryZh: "公开心得常把监管机构和行业组织放在一起考。关键是分清：谁监管、谁代表行业、谁负责法律底线。",
+            summary: "Study notes often pair the official regulator with industry bodies. Keep the hierarchy clear: who regulates, who represents the profession, and who sets the legal floor.",
+            summaryZh: "学习资料常把监管机构和行业组织放在一起考。关键是分清：谁监管、谁代表行业、谁负责法律底线。",
             mustKnow: [
               { en: "RECO is the regulator for the province.", zh: "RECO 是省级监管机构。" },
               { en: "Industry associations are not the same as the regulator.", zh: "行业协会不等于监管机构。" },
@@ -2353,8 +2548,8 @@
             titleEn: "Surveys and Measurement",
             titleZh: "测量与图纸",
             badge: "Survey",
-            summary: "Survey language shows up often because it explains where one property ends and another begins. Public notes also like the old-chain measurement facts: 100 links make a chain and 80 chains make a mile.",
-            summaryZh: "测量题很常见，因为它决定一块地的边界在哪里。公开心得还爱考旧制单位：100 links = 1 chain，80 chains = 1 mile。",
+            summary: "Survey language shows up often because it explains where one property ends and another begins. Study notes also like the old-chain measurement facts: 100 links make a chain and 80 chains make a mile.",
+            summaryZh: "测量题很常见，因为它决定一块地的边界在哪里。学习资料还爱考旧制单位：100 links = 1 chain，80 chains = 1 mile。",
             mustKnow: [
               { en: "A survey helps show boundaries and improvements.", zh: "survey 用来显示边界和地上改良。" },
               { en: "A surveyor’s real property report is more detailed than a simple sketch.", zh: "surveyor’s real property report 比草图更详细。" },
@@ -2388,7 +2583,7 @@
             mustKnow: [
               { en: "POLARIS is the electronic land registration environment.", zh: "POLARIS 是电子土地登记环境。" },
               { en: "A title question may depend on the document trail.", zh: "权属题常常取决于文件链条。" },
-              { en: "Public notes often connect POLARIS with land title records.", zh: "公开笔记常把 POLARIS 和土地权属记录一起考。" }
+              { en: "Study notes often connect POLARIS with land title records.", zh: "学习笔记常把 POLARIS 和土地权属记录一起考。" }
             ],
             examTrap: "If the answer choice talks about a system, ask whether it is the software, the record, or the legal effect of registration.",
             memoryHook: "System, record, result."
@@ -2408,19 +2603,19 @@
         cards: [
           {
             kicker: "Card 1",
-        titleEn: "Current Legal Framework",
-        titleZh: "当前法律框架",
-        badge: "Update",
-        summary: "Study the current legal wording used in the course materials instead of memorizing old labels.",
-        summaryZh: "先学当前课件里使用的法律用词，不要继续背旧标签。",
-        mustKnow: [
+            titleEn: "Current Legal Framework",
+            titleZh: "当前法律框架",
+            badge: "Update",
+            summary: "Study the current legal wording used in the course materials instead of memorizing old labels.",
+            summaryZh: "先学当前课件里使用的法律用词，不要继续背旧标签。",
+            mustKnow: [
               { en: "Use the current course wording.", zh: "使用当前课件里的表述。" },
               { en: "Read compliance questions in the current legal context.", zh: "把合规题放到当前法律框架里读。" },
               { en: "When wording changes, the safest answer follows the current framework.", zh: "当措辞变化时，最稳的答案跟着当前框架走。" }
-        ],
-        examTrap: "If an option uses outdated terminology, check whether the current course wording has replaced it.",
-        memoryHook: "Current wording beats old labels."
-      },
+            ],
+            examTrap: "If an option uses outdated terminology, check whether the current course wording has replaced it.",
+            memoryHook: "Current wording beats old labels."
+          },
           {
             kicker: "Card 2",
             titleEn: "Brokerage, Broker, and Salesperson",
@@ -2484,8 +2679,8 @@
             titleEn: "Legislation Map",
             titleZh: "法律地图",
             badge: "Core",
-            summary: "The safest way to study this module is to build a map: which law applies to which kind of issue? Public study tips suggest that this module is less about memorizing a single rule and more about matching the right law to the right situation.",
-            summaryZh: "学这个模块最稳的方法是先搭一张地图：什么问题对应什么法律？公开心得普遍认为，这一模块更像“配对题”，不是单背一条规则。",
+            summary: "The safest way to study this module is to build a map: which law applies to which kind of issue? Study tips suggest that this module is less about memorizing a single rule and more about matching the right law to the right situation.",
+            summaryZh: "学这个模块最稳的方法是先搭一张地图：什么问题对应什么法律？学习建议普遍认为，这一模块更像“配对题”，不是单背一条规则。",
             mustKnow: [
               { en: "Identify the issue before naming the law.", zh: "先识别问题，再说法律名字。" },
               { en: "One scenario can touch more than one law.", zh: "一个场景可能同时碰到多部法律。" },
@@ -2635,7 +2830,7 @@
           { en: "Start with seller and buyer services, then move to property features and marketing.", zh: "先看卖方/买方服务，再看房屋属性和营销。" },
           { en: "Agreement of Purchase and Sale is the spine of the deal.", zh: "买卖协议是整笔交易的脊梁。" },
           { en: "Conditions, deposits, counteroffers, and closing logic keep showing up on exams.", zh: "附条件、定金、反要约和成交逻辑会反复考。" },
-          { en: "Public study guides emphasize lots of scenario-style questions.", zh: "公开备考资料普遍提到题目很爱出场景题。" }
+          { en: "Study guides emphasize lots of scenario-style questions.", zh: "学习资料普遍提到题目很爱出场景题。" }
         ],
         note: "This course is where the paperwork starts to feel real. / 这一课会让文件流程真正连起来。"
       },
@@ -2645,7 +2840,7 @@
         lines: [
           { en: "Condominiums, new homes, rural properties, leasing, and financing are major themes.", zh: "公寓、新房、乡村物业、租赁和融资是重点。" },
           { en: "Expect more specialized rules, more vocabulary, and more scenario questions.", zh: "会有更多专业规则、术语和场景题。" },
-          { en: "Public checklists say to review the end-of-course report and repeat the hardest lessons.", zh: "公开心得建议看课程总结报告，并反复回头刷难课。" },
+          { en: "Study checklists say to review the end-of-course report and repeat the hardest lessons.", zh: "学习清单建议看课程总结报告，并反复回头刷难课。" },
           { en: "NOT questions and scenario matching show up a lot.", zh: "NOT 题和场景匹配题很常见。" }
         ],
         note: "This is the course where people say they start feeling the load. / 很多人会在这一课开始感觉难度上来。"
@@ -2656,7 +2851,7 @@
         lines: [
           { en: "Commercial transactions add business use, leases, valuation, zoning, and environmental due diligence.", zh: "商业交易会加上用途、租约、估价、分区和环境尽调。" },
           { en: "The language becomes more technical and more layered.", zh: "语言更技术化，也更分层。" },
-          { en: "Public study notes say to watch for lots of factual distinction questions.", zh: "公开笔记提示会有很多细节辨析题。" },
+          { en: "Study notes say to watch for lots of factual distinction questions.", zh: "学习笔记提示会有很多细节辨析题。" },
           { en: "Keep a glossary because the terminology compounds fast.", zh: "一定要做词库，因为术语会迅速堆起来。" }
         ],
         note: "Commercial topics benefit a lot from a flashcard style review. / 商业地产特别适合用卡片复习。"
@@ -2788,10 +2983,24 @@
     const vocabList = document.getElementById("vocabList");
     const vocabFace = document.getElementById("vocabFace");
     const vocabHint = document.getElementById("vocabHint");
+    const vocabStats = document.getElementById("vocabStats");
+    const vocabBatchInfo = document.getElementById("vocabBatchInfo");
+    const vocabQuizPanel = document.getElementById("vocabQuizPanel");
+    const vocabTestMeta = document.getElementById("vocabTestMeta");
+    const vocabTestScore = document.getElementById("vocabTestScore");
     const vocabPrev = document.getElementById("vocabPrev");
     const vocabFlip = document.getElementById("vocabFlip");
     const vocabNext = document.getElementById("vocabNext");
     const vocabShuffle = document.getElementById("vocabShuffle");
+    const vocabBatchPrev = document.getElementById("vocabBatchPrev");
+    const vocabBatchNext = document.getElementById("vocabBatchNext");
+    const startVocabTestBtn = document.getElementById("startVocabTest");
+    const nextVocabQuestionBtn = document.getElementById("nextVocabQuestion");
+    const finishVocabTestBtn = document.getElementById("finishVocabTest");
+    const resetVocabTestBtn = document.getElementById("resetVocabTest");
+    const vocabMasteryHard = document.getElementById("vocabMasteryHard");
+    const vocabMasteryMaybe = document.getElementById("vocabMasteryMaybe");
+    const vocabMasteryEasy = document.getElementById("vocabMasteryEasy");
     const clearVocab = document.getElementById("clearVocab");
     const toast = document.getElementById("toast");
     function getPanelButtons() {
@@ -2809,6 +3018,17 @@
     let vocabIndex = 0;
     let vocabTimer = null;
     let activeVocabId = null;
+    let vocabMode = localStorage.getItem(storageKeys.vocabMode) || "study";
+    let vocabBatchIndex = Number(localStorage.getItem(storageKeys.vocabBatchIndex) || 0);
+    let vocabTestState = {
+      active: false,
+      index: 0,
+      score: 0,
+      answered: false,
+      submitted: false,
+      questions: [],
+      lastResult: ""
+    };
 
     function readStore(key) {
       try {
@@ -3301,35 +3521,203 @@
       renderVocab();
     }
 
+    function getVocabModeValue() {
+      return localStorage.getItem(storageKeys.vocabMode) || "study";
+    }
+
+    function setVocabModeValue(mode) {
+      vocabMode = mode === "test" ? "test" : "study";
+      localStorage.setItem(storageKeys.vocabMode, vocabMode);
+      renderVocab();
+    }
+
+    function getMasteryList() {
+      return readStore(storageKeys.vocabMastery).filter((item) => item && item.id);
+    }
+
+    function getMasteryLevel(id) {
+      const normalized = String(id || "").toLowerCase();
+      const item = getMasteryList().find((entry) => String(entry.id || "").toLowerCase() === normalized);
+      return Number(item?.level || 0);
+    }
+
+    function setMasteryLevel(id, level) {
+      const normalized = String(id || "").toLowerCase();
+      if (!normalized) return;
+      const list = getMasteryList();
+      const index = list.findIndex((entry) => String(entry.id || "").toLowerCase() === normalized);
+      const next = { id: normalized, level: Math.max(0, Math.min(3, Number(level) || 0)), updatedAt: new Date().toISOString() };
+      if (index >= 0) list[index] = next; else list.push(next);
+      writeStore(storageKeys.vocabMastery, list);
+    }
+
+    function getStudyVocabList() {
+      return getVocab().slice().sort((a, b) => {
+        const diff = getMasteryLevel(a.id) - getMasteryLevel(b.id);
+        if (diff !== 0) return diff;
+        return Number(b.addedAtTs || 0) - Number(a.addedAtTs || 0);
+      });
+    }
+
+    function getVocabBatchMeta(list, batchIndex) {
+      const total = list.length;
+      const totalBatches = Math.max(1, Math.ceil(total / 10));
+      const safeBatch = Math.max(0, Math.min(batchIndex, totalBatches - 1));
+      const start = safeBatch * 10;
+      return {
+        batchIndex: safeBatch,
+        totalBatches,
+        start,
+        end: Math.min(start + 10, total),
+        batch: list.slice(start, start + 10)
+      };
+    }
+
+    function getVocabModeLabel() {
+      return vocabMode === "test" ? "测试模式" : "10词学习";
+    }
+
+    function vocabMasteryLabel(level) {
+      if (level >= 3) return "熟练";
+      if (level === 2) return "认识了";
+      if (level === 1) return "有点熟";
+      return "还不会";
+    }
+
+    function shuffleArray(items) {
+      const next = items.slice();
+      for (let i = next.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [next[i], next[j]] = [next[j], next[i]];
+      }
+      return next;
+    }
+
+    function buildVocabTestQuestions(batch, fullList) {
+      const pool = fullList.length ? fullList : batch;
+      const wrongAnswers = pool.map((item) => item.zh || item.note || item.term).filter(Boolean);
+      return batch.map((item) => {
+        const correct = item.zh || item.note || item.term;
+        const distractors = shuffleArray(wrongAnswers.filter((text) => text !== correct)).slice(0, 3);
+        const options = Array.from(new Set(shuffleArray([correct, ...distractors])));
+        while (options.length < 4) {
+          const fallback = pool[Math.floor(Math.random() * pool.length)]?.zh || pool[Math.floor(Math.random() * pool.length)]?.term;
+          if (fallback && !options.includes(fallback)) options.push(fallback);
+          else break;
+        }
+        const finalOptions = shuffleArray(options).slice(0, 4);
+        return {
+          id: item.id,
+          term: item.term,
+          correct,
+          options: finalOptions
+        };
+      });
+    }
+
+    function ensureCurrentVocabIndex(listLength) {
+      if (!listLength) {
+        vocabIndex = 0;
+        vocabBatchIndex = 0;
+        localStorage.setItem(storageKeys.vocabBatchIndex, "0");
+        return 0;
+      }
+      if (vocabIndex >= listLength) vocabIndex = 0;
+      if (vocabIndex < 0) vocabIndex = 0;
+      const batchIndex = Math.floor(vocabIndex / 10);
+      vocabBatchIndex = batchIndex;
+      localStorage.setItem(storageKeys.vocabBatchIndex, String(batchIndex));
+      return batchIndex;
+    }
+
     function renderVocab() {
-      const list = getVocab();
+      vocabMode = getVocabModeValue();
+      const list = getStudyVocabList();
+      const preferredId = activeVocabId || list[vocabIndex]?.id;
+      if (preferredId) {
+        const preferredIndex = list.findIndex((item) => item.id === preferredId);
+        if (preferredIndex >= 0) vocabIndex = preferredIndex;
+      }
+      const batchIndex = ensureCurrentVocabIndex(list.length);
+      const batchMeta = getVocabBatchMeta(list, batchIndex);
+      const masteryEntries = getMasteryList();
+      const knownCount = masteryEntries.filter((item) => Number(item.level || 0) >= 2).length;
+      const learningCount = masteryEntries.filter((item) => Number(item.level || 0) === 1).length;
+      const newCount = list.length - masteryEntries.filter((item) => Number(item.level || 0) > 0).length;
+
+      document.querySelectorAll("[data-vocab-mode]").forEach((button) => {
+        button.classList.toggle("is-active", button.getAttribute("data-vocab-mode") === vocabMode);
+      });
+      vocabBatchInfo.textContent = list.length
+        ? `第 ${batchMeta.batchIndex + 1} 组 / 共 ${batchMeta.totalBatches} 组 · ${batchMeta.start + 1}-${batchMeta.end} 个`
+        : "第 1 组 / 每组 10 个";
+      vocabStats.innerHTML = list.length
+        ? `<span>已保存 ${list.length} 个词</span><span>熟悉 ${knownCount} 个</span><span>正在练 ${learningCount} 个</span><span>新词 ${Math.max(0, newCount)} 个</span><span>当前模式 ${getVocabModeLabel()}</span>`
+        : `<span>已保存 0 个词</span><span>熟悉 0 个</span><span>正在练 0 个</span><span>新词 0 个</span><span>当前模式 ${getVocabModeLabel()}</span>`;
+
       if (!list.length) {
         vocabList.innerHTML = "<div class='vocab-item'>还没有词。先去课件页选一个难词，我会自动帮你记下来。</div>";
         vocabFace.innerHTML = "先选中一个英文单词<small>Then your wordbook will fill itself up.</small>";
         vocabHint.textContent = "你可以在课件页、重点卡或题目里直接选词。系统会自动记到单词本。";
         activeVocabId = null;
+        vocabQuizPanel.innerHTML = "先往单词本里加一点词，我才能给你出测试。";
+        vocabTestMeta.textContent = "当前没有可测试的词。";
+        vocabTestScore.textContent = "0 / 0";
         return;
       }
 
       if (vocabIndex >= list.length) vocabIndex = 0;
       const current = list[vocabIndex];
+      const currentMastery = getMasteryLevel(current.id);
       vocabFace.innerHTML = vocabSide === "en"
-        ? `${decorateEnglish(current.term)}<small>${current.note || current.zh || "点击翻面看中文"}</small>`
-        : `${escapeHtml(current.zh || current.note || "翻译中...")}<small>${escapeHtml(current.term)}</small>`;
-      vocabHint.textContent = `${list.length} 个词已保存。你可以翻面、上一词、下一词或随机切换。`;
+        ? `${decorateEnglish(current.term)}<small>${current.note || current.zh || "点击翻面看中文"} · ${vocabMasteryLabel(currentMastery)}</small>`
+        : `${escapeHtml(current.zh || current.note || "翻译中...")}<small>${escapeHtml(current.term)} · ${vocabMasteryLabel(currentMastery)}</small>`;
+      vocabHint.textContent = `${list.length} 个词已保存。当前是第 ${batchMeta.batchIndex + 1} 组。你可以翻面、上一词、下一词或随机切换。`;
       activeVocabId = current.id;
 
-      vocabList.innerHTML = list.map((item, index) => `
+      vocabList.innerHTML = list.map((item, index) => {
+        const mastery = getMasteryLevel(item.id);
+        return `
         <div class="vocab-item ${index === vocabIndex ? 'is-active' : ''}">
           <b>${decorateEnglish(item.term)}</b>
           <div>${escapeHtml(item.zh || item.note || "翻译中...")}</div>
           <div class="meta">来源：${escapeHtml(item.source || "selection")} · ${escapeHtml(item.addedAt || "")}</div>
+          <div class="mastery-pill">掌握度：${escapeHtml(vocabMasteryLabel(mastery))}</div>
           <div class="actions" style="margin-top:10px">
             <button class="fav-toggle" data-vocab-jump="${item.id}" type="button">看这一词</button>
             <button class="fav-toggle" data-vocab-delete="${item.id}" type="button">删除</button>
           </div>
         </div>
-      `).join("");
+      `; }).join("");
+
+      const batch = batchMeta.batch;
+      if (batch.length) {
+        const questions = buildVocabTestQuestions(batch, list);
+        if (!vocabTestState.questions.length || vocabTestState.questions.length !== questions.length) {
+          vocabTestState = {
+            active: false,
+            index: 0,
+            score: 0,
+            answered: false,
+            submitted: false,
+            questions,
+            lastResult: ""
+          };
+        } else {
+          vocabTestState.questions = questions;
+        }
+      } else {
+        vocabTestState = {
+          active: false,
+          index: 0,
+          score: 0,
+          answered: false,
+          submitted: false,
+          questions: [],
+          lastResult: ""
+        };
+      }
+      renderVocabTest();
     }
 
     async function hydrateVocabTranslations() {
@@ -3352,6 +3740,13 @@
       renderVocab();
     }
 
+    function getCurrentVocabListItem() {
+      const list = getStudyVocabList();
+      if (!list.length) return null;
+      if (vocabIndex >= list.length) vocabIndex = 0;
+      return list[vocabIndex] || null;
+    }
+
     async function addVocab(term, zh, source = "selection") {
       const clean = normalizeToken(term);
       if (!clean) return;
@@ -3372,7 +3767,8 @@
         zh: resolvedZh,
         source,
         note: matched ? matched.zh : resolvedZh,
-        addedAt: new Date().toLocaleString()
+        addedAt: new Date().toLocaleString(),
+        addedAtTs: Date.now()
       };
       list.unshift(entry);
       setVocab(list);
@@ -3400,6 +3796,181 @@
       }
     }
 
+    function moveVocabIndex(delta) {
+      const list = getStudyVocabList();
+      if (!list.length) return;
+      vocabIndex = (vocabIndex + delta + list.length) % list.length;
+      vocabBatchIndex = Math.floor(vocabIndex / 10);
+      localStorage.setItem(storageKeys.vocabBatchIndex, String(vocabBatchIndex));
+      vocabSide = "en";
+      updateVocabFace();
+    }
+
+    function setVocabBatchByStep(step) {
+      const list = getStudyVocabList();
+      if (!list.length) return;
+      const totalBatches = Math.max(1, Math.ceil(list.length / 10));
+      vocabBatchIndex = (vocabBatchIndex + step + totalBatches) % totalBatches;
+      vocabIndex = vocabBatchIndex * 10;
+      localStorage.setItem(storageKeys.vocabBatchIndex, String(vocabBatchIndex));
+      vocabSide = "en";
+      updateVocabFace();
+    }
+
+    function getActiveVocabBatch() {
+      const list = getStudyVocabList();
+      if (!list.length) return [];
+      const meta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
+      return meta.batch;
+    }
+
+    function renderVocabTest() {
+      const list = getStudyVocabList();
+      if (!list.length) {
+        vocabQuizPanel.innerHTML = "先添加一些词，再开始测试。";
+        vocabTestMeta.textContent = "没有可测试的词。";
+        vocabTestScore.textContent = "0 / 0";
+        return;
+      }
+
+      const batchMeta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
+      const batch = batchMeta.batch;
+      if (!batch.length) {
+        vocabQuizPanel.innerHTML = "当前组没有词。";
+        vocabTestMeta.textContent = `第 ${batchMeta.batchIndex + 1} 组为空。`;
+        vocabTestScore.textContent = "0 / 0";
+        return;
+      }
+
+      vocabTestMeta.textContent = `当前第 ${batchMeta.batchIndex + 1} 组，共 ${batch.length} 个词。`;
+      const total = vocabTestState.questions.length || batch.length;
+      const currentIndex = Math.min(vocabTestState.index, Math.max(0, total - 1));
+      const current = vocabTestState.questions[currentIndex] || buildVocabTestQuestions(batch, list)[0];
+      const score = vocabTestState.score || 0;
+      vocabTestScore.textContent = vocabTestState.active
+        ? `${score} / ${Math.max(total, 0)}`
+        : `0 / ${batch.length}`;
+
+      if (!vocabTestState.active) {
+        vocabQuizPanel.innerHTML = `
+          <div class="test-card">
+            <div class="word">${decorateEnglish(batch[0].term)}</div>
+            <div class="prompt">${escapeHtml(batch[0].zh || batch[0].note || "点击开始测试后会自动出题。")}</div>
+            <div class="test-feedback">先按“开始测试”，我会按当前 10 词组给你出题。</div>
+          </div>
+        `;
+        return;
+      }
+
+      if (!current) {
+        vocabQuizPanel.innerHTML = "<div class='test-feedback'>这一组暂时没有题。</div>";
+        return;
+      }
+
+      const answered = vocabTestState.answered;
+      const selected = vocabTestState.lastResult;
+      vocabQuizPanel.innerHTML = `
+        <div class="test-card">
+          <div class="word">${decorateEnglish(current.term)}</div>
+          <div class="prompt">请选出它最准确的中文意思。</div>
+          <div class="test-options">
+            ${current.options.map((option) => `
+              <button class="test-option ${answered && option === current.correct ? 'is-correct' : ''} ${selected === option && option !== current.correct ? 'is-wrong' : ''}" type="button" data-vocab-answer="${escapeHtml(option)}">
+                ${escapeHtml(option)}
+              </button>
+            `).join("")}
+          </div>
+          <div class="test-feedback">${answered ? (selected === current.correct ? "答对了，继续下一题。" : `这题正确答案是：${escapeHtml(current.correct)}`) : "选一个答案，看看你会不会。"}</div>
+        </div>
+      `;
+    }
+
+    function beginVocabTest() {
+      const list = getStudyVocabList();
+      if (!list.length) {
+        showToast("先加入一些单词，再开始测试。");
+        return;
+      }
+      const batchMeta = getVocabBatchMeta(list, Math.floor(vocabIndex / 10));
+      vocabTestState = {
+        active: true,
+        index: 0,
+        score: 0,
+        answered: false,
+        submitted: false,
+        questions: buildVocabTestQuestions(batchMeta.batch, list),
+        lastResult: ""
+      };
+      renderVocabTest();
+      showToast("测试已开始");
+    }
+
+    function answerVocabTest(choice) {
+      if (!vocabTestState.active || !vocabTestState.questions.length) return;
+      if (vocabTestState.answered) return;
+      const current = vocabTestState.questions[vocabTestState.index];
+      if (!current) return;
+      vocabTestState.answered = true;
+      vocabTestState.lastResult = choice;
+      if (choice === current.correct) {
+        vocabTestState.score += 1;
+        setMasteryLevel(current.id, Math.max(2, getMasteryLevel(current.id)));
+      } else {
+        setMasteryLevel(current.id, 0);
+      }
+      renderVocab();
+      renderVocabTest();
+    }
+
+    function advanceVocabQuestion() {
+      if (!vocabTestState.active || !vocabTestState.questions.length) return;
+      if (!vocabTestState.answered) {
+        showToast("先答完这一题。");
+        return;
+      }
+      const nextIndex = vocabTestState.index + 1;
+      if (nextIndex >= vocabTestState.questions.length) {
+        submitVocabTest();
+        return;
+      }
+      vocabTestState.index = nextIndex;
+      vocabTestState.answered = false;
+      vocabTestState.lastResult = "";
+      renderVocab();
+      renderVocabTest();
+    }
+
+    function submitVocabTest() {
+      if (!vocabTestState.questions.length) return;
+      vocabTestState.submitted = true;
+      vocabTestState.active = false;
+      const total = vocabTestState.questions.length;
+      const score = vocabTestState.score;
+      vocabTestScore.textContent = `${score} / ${total}`;
+      vocabQuizPanel.innerHTML = `
+        <div class="test-card">
+          <div class="word">测试完成</div>
+          <div class="prompt">本轮得分：${score} / ${total}</div>
+          <div class="test-feedback">${score === total ? "这一组全会了，可以切下一组。" : "可以再复习一轮，把没答对的词再练一次。"}</div>
+        </div>
+      `;
+      showToast(`本轮得分 ${score} / ${total}`);
+    }
+
+    function clearVocabTestSession() {
+      vocabTestState = {
+        active: false,
+        index: 0,
+        score: 0,
+        answered: false,
+        submitted: false,
+        questions: [],
+        lastResult: ""
+      };
+      renderVocabTest();
+      showToast("测试已重置");
+    }
+
     function showToast(message) {
       toast.textContent = message;
       toast.classList.add("show");
@@ -3408,10 +3979,12 @@
     }
 
     function selectVocabById(id) {
-      const list = getVocab();
+      const list = getStudyVocabList();
       const index = list.findIndex((item) => item.id === id);
       if (index >= 0) {
         vocabIndex = index;
+        vocabBatchIndex = Math.floor(vocabIndex / 10);
+        localStorage.setItem(storageKeys.vocabBatchIndex, String(vocabBatchIndex));
         vocabSide = "en";
         updateVocabFace();
         showToast(`已切换到：${list[index].term}`);
@@ -3422,10 +3995,15 @@
       const list = getVocab().filter((item) => item.id !== id);
       setVocab(list);
       if (vocabIndex >= list.length) vocabIndex = Math.max(0, list.length - 1);
+      setMasteryLevel(id, 0);
+      if (activeVocabId === id) activeVocabId = null;
       updateVocabFace();
     }
 
-    function handleSelectionCapture() {
+    let selectionCaptureTimer = null;
+    let lastCapturedSelection = "";
+
+    function captureSelectionText() {
       const selection = window.getSelection();
       if (!selection) return;
       const raw = normalizeToken(selection.toString());
@@ -3438,8 +4016,20 @@
 
       const termNode = selection.anchorNode?.parentElement?.closest?.(".term");
       const zh = termNode?.getAttribute("data-zh") || findGlossary(raw)?.zh || "翻译中...";
+      if (raw.toLowerCase() === lastCapturedSelection) return;
+      lastCapturedSelection = raw.toLowerCase();
       addVocab(raw, zh);
+      setTimeout(() => {
+        if (lastCapturedSelection === raw.toLowerCase()) lastCapturedSelection = "";
+      }, 1200);
       selection.removeAllRanges();
+    }
+
+    function queueSelectionCapture(delay = 0) {
+      clearTimeout(selectionCaptureTimer);
+      selectionCaptureTimer = setTimeout(() => {
+        captureSelectionText();
+      }, delay);
     }
 
     function renderQuiz() {
@@ -3597,20 +4187,25 @@
     }
 
     function wireVocabControls() {
+      document.querySelectorAll("[data-vocab-mode]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setVocabModeValue(button.getAttribute("data-vocab-mode"));
+        });
+      });
+
+      vocabBatchPrev.addEventListener("click", () => setVocabBatchByStep(-1));
+      vocabBatchNext.addEventListener("click", () => setVocabBatchByStep(1));
+
       vocabPrev.addEventListener("click", () => {
-        const list = getVocab();
+        const list = getStudyVocabList();
         if (!list.length) return;
-        vocabIndex = (vocabIndex - 1 + list.length) % list.length;
-        vocabSide = "en";
-        updateVocabFace();
+        moveVocabIndex(-1);
       });
 
       vocabNext.addEventListener("click", () => {
-        const list = getVocab();
+        const list = getStudyVocabList();
         if (!list.length) return;
-        vocabIndex = (vocabIndex + 1) % list.length;
-        vocabSide = "en";
-        updateVocabFace();
+        moveVocabIndex(1);
       });
 
       vocabFlip.addEventListener("click", () => {
@@ -3619,17 +4214,67 @@
       });
 
       vocabShuffle.addEventListener("click", () => {
-        const list = getVocab();
+        const list = getStudyVocabList();
         if (!list.length) return;
         vocabIndex = Math.floor(Math.random() * list.length);
         vocabSide = "en";
         updateVocabFace();
       });
 
+      vocabMasteryHard.addEventListener("click", () => {
+        const current = getCurrentVocabListItem();
+        if (!current) return;
+        setMasteryLevel(current.id, 0);
+        showToast("已标记：还不会");
+        renderVocab();
+      });
+
+      vocabMasteryMaybe.addEventListener("click", () => {
+        const current = getCurrentVocabListItem();
+        if (!current) return;
+        setMasteryLevel(current.id, 1);
+        showToast("已标记：有点熟");
+        renderVocab();
+      });
+
+      vocabMasteryEasy.addEventListener("click", () => {
+        const current = getCurrentVocabListItem();
+        if (!current) return;
+        setMasteryLevel(current.id, 3);
+        showToast("已标记：认识了");
+        renderVocab();
+      });
+
+      startVocabTestBtn.addEventListener("click", beginVocabTest);
+      nextVocabQuestionBtn.addEventListener("click", advanceVocabQuestion);
+      finishVocabTestBtn.addEventListener("click", submitVocabTest);
+      resetVocabTestBtn.addEventListener("click", clearVocabTestSession);
+
+      vocabQuizPanel.addEventListener("click", (event) => {
+        const answerButton = event.target.closest("[data-vocab-answer]");
+        if (!answerButton) return;
+        answerVocabTest(answerButton.getAttribute("data-vocab-answer"));
+      });
+
       clearVocab.addEventListener("click", () => {
         localStorage.removeItem(storageKeys.vocab);
+        localStorage.removeItem(storageKeys.vocabMastery);
+        localStorage.removeItem(storageKeys.vocabTestState);
+        localStorage.removeItem(storageKeys.vocabMode);
+        localStorage.removeItem(storageKeys.vocabBatchIndex);
         vocabIndex = 0;
         vocabSide = "en";
+        vocabBatchIndex = 0;
+        vocabMode = "study";
+        vocabTestState = {
+          active: false,
+          index: 0,
+          score: 0,
+          answered: false,
+          submitted: false,
+          questions: [],
+          lastResult: ""
+        };
         renderVocab();
       });
     }
@@ -3668,8 +4313,11 @@
       syncFavoriteButtons();
     });
 
-    document.addEventListener("mouseup", handleSelectionCapture);
-    document.addEventListener("keyup", handleSelectionCapture);
+    document.addEventListener("mouseup", () => queueSelectionCapture(0));
+    document.addEventListener("keyup", () => queueSelectionCapture(0));
+    document.addEventListener("pointerup", () => queueSelectionCapture(140));
+    document.addEventListener("touchend", () => queueSelectionCapture(180), { passive: true });
+    document.addEventListener("selectionchange", () => queueSelectionCapture(220));
     document.addEventListener("pointerover", (event) => {
       const termNode = event.target?.closest?.(".term[data-word]");
       if (termNode) void resolveHoveredTerm(termNode);
